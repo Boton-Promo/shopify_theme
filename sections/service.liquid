@@ -1,0 +1,426 @@
+{{ 'service.css' | asset_url | stylesheet_tag }}
+
+{% render 'section-style' %}
+
+<style>
+    #shopify-section-{{ section.id }} {
+    }
+</style>
+
+<div class="service">
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+      {% if section.settings.tab_heading != blank %}
+      <header class="section__header text-{{ section.settings.text_align }}">
+          <p class="heading sub-heading mb-10" style="color: {{ section.settings.subheading_color }}">{% render 'icon-heading' %}{{ section.settings.sub_heading }}</p>
+          <h2 class="heading h{{ section.settings.tab_heading_size }}" style="color: {{ section.settings.heading_color }}">{{ section.settings.tab_heading }}</h2>
+          {% if section.settings.tab_description != blank %}
+            <div class="heading-description">
+              {{ section.settings.tab_description }}
+            </div>
+          {% endif %}
+          {% if section.settings.btn_text != blank %}
+          <div class="btn-more">
+            <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+              {{ section.settings.btn_text }}
+            </a>
+            </div>
+          {% endif %}
+      </header>
+      {% endif %}
+      <div class="service-list">
+          {% for block in section.blocks %}
+            {% case block.type %}
+
+              {%- when 'service' -%}
+                <service-item style="background-color: {{ block.settings.bg_color_block }}" reveal-on-scroll="">
+                  <div class="service-item">
+                    {% if block.settings.featured_image != blank %}
+                    <div class="service-item-img">
+                          <img class="service-list-image" reveal="" loading="lazy" 
+                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                          alt="" 
+                          src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                          srcset="{%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                              {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                          src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                          height="{{ block.settings.featured_image.height }}"
+                          width="{{ block.settings.featured_image.width }}">
+                    </div>
+                   {% endif %}
+                    <div class="service-list-content">
+                        {% if block.settings.title_small != blank %}
+                          <h6 style="color: {{ block.settings.color_title_small }}" reveal="" class="service-list-title_small">{{ block.settings.title_small }}</h6>
+                        {% endif %}
+                        <h5 style="color: {{ block.settings.color_title }}" reveal="" class="service-list-title">{{ block.settings.title }}</h5>
+                        <p style="color: {{ block.settings.color_des }}" reveal="" class="service-list-description">{{ block.settings.description }}</p>
+                        {% if block.settings.custom_icon != blank %}
+                          <div class="service-content_icon">
+                            {{ block.settings.custom_icon }}
+                          </div>
+                            
+                        {% endif %}
+                          <style>
+                                 #shopify-section-{{ section.id }} a.button.btn-base-2, 
+                                 #shopify-section-{{ section.id }} .btn-base-2 {
+                                  color: {{ block.settings.color_btn }};
+                                  background-color: {{ block.settings.bg_btn }};
+                                }
+                                #shopify-section-{{ section.id }} a.button.btn-base-2 path , 
+                                #shopify-section-{{ section.id }} .btn-base-2 path {
+                                  fill: {{ block.settings.color_btn }};
+                                }
+                                #shopify-section-{{ section.id }} a.button.btn-base-2:hover, 
+                                #shopify-section-{{ section.id }} .btn-base-2:hover {
+                                  color: {{ block.settings.color_btn_hover }};
+                                  background-color: {{ block.settings.bg_btn_hover }};
+                                }
+                                #shopify-section-{{ section.id }} a.button.btn-base-2:hover path , 
+                                #shopify-section-{{ section.id }} .btn-base-2:hover path {
+                                  fill: {{ block.settings.color_btn_hover }};
+                                }
+                              </style>
+                          {% if block.settings.button1_label != blank %}
+                            <div class="button-group">
+                              <a href="{{ block.settings.link1 }}" reveal="" class="button btn-base-2">
+                                {{ block.settings.button1_label }}
+                                {% render 'icon-arrow-2' %}
+                              </a>
+                              {% if block.settings.service_hover-left1 != blank %}
+                                <div class="service_hover-block service_hover-left">
+                                      <img class="service_hover-left" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-left1 | image_url: width: block.settings.service_hover-left1.width }}" 
+                                      srcset="{%- if block.settings.service_hover-left1.width >= 3000 -%}{{ block.settings.service_hover-left1 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-left1 | image_url }} {{ block.settings.service_hover-left1.width }}w"
+                                      src="{{ block.settings.service_hover-left1 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-left1.height }}"
+                                      width="{{ block.settings.service_hover-left1.width }}">
+                                      <img class="service_hover-left" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-left2 | image_url: width: block.settings.service_hover-left2.width }}" 
+                                      srcset="{%- if block.settings.service_hover-left2.width >= 3000 -%}{{ block.settings.service_hover-left2 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-left2 | image_url }} {{ block.settings.service_hover-left2.width }}w"
+                                      src="{{ block.settings.service_hover-left2 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-left2.height }}"
+                                      width="{{ block.settings.service_hover-left2.width }}">
+                                </div>
+                              {% endif %}
+                              {% if block.settings.service_hover-right1 != blank %}
+                                <div class="service_hover-block service_hover-right">
+                                      <img class="service_hover-right" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-right1 | image_url: width: block.settings.service_hover-right1.width }}" 
+                                      srcset="{%- if block.settings.service_hover-right1.width >= 3000 -%}{{ block.settings.service_hover-right1 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-right1 | image_url }} {{ block.settings.service_hover-right1.width }}w"
+                                      src="{{ block.settings.service_hover-right1 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-right1.height }}"
+                                      width="{{ block.settings.service_hover-right1.width }}">
+                                      <img class="service_hover-right" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-right2 | image_url: width: block.settings.service_hover-right2.width }}" 
+                                      srcset="{%- if block.settings.service_hover-right2.width >= 3000 -%}{{ block.settings.service_hover-right2 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-right2 | image_url }} {{ block.settings.service_hover-right2.width }}w"
+                                      src="{{ block.settings.service_hover-right2 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-right2.height }}"
+                                      width="{{ block.settings.service_hover-right2.width }}">
+                                </div>
+                              {% endif %} 
+                            </div>
+                          {% endif %}
+    
+                    </div>  
+                  </div>
+                </service-item>
+
+            {% endcase %}
+          {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Service",
+  "tag": "section",
+  "class": "section shopify-section-service",
+  "max_blocks": 15,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "t:sections.all.fullwidth.label",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "t:sections.all.background-color.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.all.background_image.label"
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "Padding desktop",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "Padding mobile",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "default": "Sub heading",
+      "label": "Sub heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.advanced-content.settings.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.advanced-content.settings.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_description",
+      "label": "t:sections.advanced-content.settings.tab_description.label"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "style_btn",
+      "label": "Style Button",
+      "default": "btn-base",
+      "options": [
+        {
+          "value": "btn-base",
+          "label": "Button Base"
+        },
+        {
+          "value": "btn-outline",
+          "label": "Button Out Line"
+        },
+        {
+          "value": "btn-line",
+          "label": "Button Line"
+        },
+        {
+          "value": "btn-line-black",
+          "label": "Button Line Black"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Text align"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Image service"
+        },
+        {
+          "type": "color",
+          "id": "bg_color_block",
+          "label": "Background color block",
+          "default": "#fff"
+        },
+        {
+          "type": "text",
+          "id": "title_small",
+          "label": "Title Small",
+          "default": "Title Small"
+        },
+        {
+          "type": "color",
+          "id": "color_title_small",
+          "label": "Color title small"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "color",
+          "id": "color_title",
+          "label": "Color title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Description"
+        },
+        {
+          "type": "color",
+          "id": "color_des",
+          "label": "Color description"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_icon",
+          "label": "Service Icon"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "Button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn",
+          "label": "Color button"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn",
+          "label": "Background button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn_hover",
+          "label": "Color button hover"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn_hover",
+          "label": "Background button hover"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Link"
+        },
+        {
+          "type": "header",    
+          "content": "Block Hover Left"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_hover-left1",
+          "label": "Image child 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_hover-left2",
+          "label": "Image child 2"
+        },
+        {
+          "type": "header",    
+          "content": "Block Hover Right"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_hover-right1",
+          "label": "Image child 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_hover-right2",
+          "label": "Image child 2"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ap service",
+      "blocks": [
+        {
+          "type": "service"
+        },
+        {
+          "type": "service"
+        },
+        {
+          "type": "service"
+        },
+        {
+          "type": "service"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

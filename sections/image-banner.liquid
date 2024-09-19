@@ -1,0 +1,456 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-block-overlay: {{ section.settings.overlay | color_extract: 'red' }}, {{ section.settings.overlay | color_extract: 'green' }}, {{ section.settings.overlay | color_extract: 'blue' }};
+    --section-block-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 10.0 }};
+
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+
+  }
+  #shopify-section-{{ section.id }} .banner-image:before {
+    background: rgba(var(--section-block-overlay, 0, 0, 0),var(--section-block-overlay-opacity, .2));
+  }
+
+  #shopify-section-{{ section.id }} .banner-content {
+    position: relative;
+  }
+
+  .image-banner-title{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .text-center  .image-banner-title{
+    justify-content: center;
+  }
+  .text-right  .image-banner-title{
+    justify-content: flex-end;
+  }
+  h2.heading.h2.image-banner-title_center{
+    margin-top: 10px!important;
+  }
+
+  h2.heading.h2.image-banner-title_center span{
+    color: var(--primary);
+  }
+</style>
+
+<div class="image-banner">
+  <div class="{{ section.settings.setwidthout }}">
+    {% if section.settings.tab_heading != blank %}
+    <header class="section__header ">
+      <div class="text-container">
+        <h3 class="heading h{{ section.settings.tab_heading_size }}">{{ section.settings.tab_heading }}
+        </h3>
+        {% if section.settings.tab_description %}
+        <div class="heading-description">
+          {{ section.settings.tab_description }}
+        </div>
+        {% endif %}
+      </div>
+    </header>
+    {% endif %}
+    <banner-content reveal-on-scroll="" class="wrapper-banner-content">
+      <div class="banner-content has-overlay">
+        <div class="banner-image {% if section.settings.height_img %}height-custom{% endif %}">
+          {% if section.settings.show_video_img %}
+            <iframe src="{{ section.settings.video_url }}" width="426" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Bigelow_homepage_video_loop.mp4" data-ready="true" class="elementor-background-video-embed" style="width: 1903px; height: 1072.11px;"></iframe>
+          {% else %}
+            {% if section.settings.featured_image != blank %}
+                <img class="banner-list-image" reveal="" loading="lazy" 
+                sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                alt="" 
+                src="{{ section.settings.featured_image | image_url: width: section.settings.featured_image.width }}" 
+                srcset="{%- if section.settings.featured_image.width >= 3000 -%}{{ section.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                    {{ section.settings.featured_image | image_url }} {{ section.settings.featured_image.width }}w"
+                src="{{ section.settings.featured_image | image_url: width: 1500 }}"
+                height="{{ section.settings.featured_image.height }}"
+                width="{{ section.settings.featured_image.width }}">
+            {% else %}
+                <div class="banner-list-image">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+            {% endif %}
+          {% endif %}
+        </div>
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {%- when 'text' -%}
+            <div id="text-{{ block.id }}" class="banner-text {% if block.settings.text_row %}imgae-banner-text-row{% endif %} text-{{ block.settings.text_align }}">
+                
+                <div class="banner-text-left">
+                  {% if block.settings.heading_title != blank %}
+                  <h3 style="color: {{ block.settings.color_title }};" class="heading image-banner-title" reveal="">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_3269_1794)">
+                    <path d="M13.082 15.0585L10 12.1736L6.918 15.0585L3.83919 12.1766L1.07775 14.7925L0 13.6549L3.83272 10.0241L6.91796 12.9121L9.99998 10.0271L13.082 12.9121L16.1672 10.0241L20 13.6549L18.9223 14.7925L16.1609 12.1766L13.082 15.0585ZM16.1609 7.09441L18.9223 9.71031L20 8.57266L16.1673 4.94189L13.082 7.82984L10 4.94487L6.918 7.82984L3.83276 4.94189L0 8.57266L1.07771 9.71031L3.83915 7.09437L6.91796 9.97632L9.99998 7.0914L13.082 9.97632L16.1609 7.09441Z" fill="white"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_3269_1794">
+                    <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                    {{- block.settings.heading_title -}}
+                  </h3>
+                  {% endif %}
+                  {% if block.settings.heading != blank %}
+                  <h2 style="color: {{ block.settings.color_title_center }};"
+                    class="heading {{ block.settings.heading_size }} image-banner-title_center" reveal="">
+                    {{- block.settings.heading -}}
+                  </h2>
+                  {% endif %}
+                </div>
+
+                <div class="banner-text-right">
+                  
+                  {% if block.settings.description != blank %}
+                  <p style="color: {{ block.settings.color_description }};" class="image-banner-description">{{- block.settings.description -}}</p>
+                  {% endif %}
+
+                  {% if block.settings.description_2 != blank %}
+                  <p style="color: {{ block.settings.color_description }};" class="image-banner-description-2">{{- block.settings.description_2 -}}</p>
+                  {% endif %}
+  
+                  {% if block.settings.button1_label != blank %}
+                  <style>
+                    #text-{{ block.id }} a.button.btn-base, 
+                    #text-{{ block.id }} .btn-outline, 
+                    #text-{{ block.id }} .btn-line ,
+                    #text-{{ block.id }} .btn-line-black ,
+                    #text-{{ block.id }} .btn-base {
+                      color: {{ block.settings.color_btn }};
+                      background-color: {{ block.settings.bg_btn }};
+                      border-color: {{ block.settings.color_btn }};
+                    }
+                    #text-{{ block.id }} a.button.btn-base path , 
+                    #text-{{ block.id }} .btn-outline path , 
+                    #text-{{ block.id }} .btn-base path {
+                      fill: {{ block.settings.color_btn }};
+                    }
+                    #text-{{ block.id }} .btn-outline:hover, 
+                    #text-{{ block.id }} a.button.btn-base:hover,
+                    #text-{{ block.id }} .btn-line:hover ,
+                    #text-{{ block.id }} .btn-line-black:hover ,
+                    #text-{{ block.id }} .btn-base:hover {
+                      color: {{ block.settings.color_btn_hover }};
+                      background-color: {{ block.settings.bg_btn_hover }};
+                      border-color: {{ block.settings.color_btn_hover }};
+                    }
+                    #text-{{ block.id }} .btn-outline:hover path , 
+                    #text-{{ block.id }} a.button.btn-base:hover path , 
+                    #text-{{ block.id }} .btn-base:hover path {
+                      fill: {{ block.settings.color_btn_hover }};
+                    }
+                  </style>
+                  <a href="{{ block.settings.link1 }}" class="button {{ block.settings.style_btn }}">
+                    {{ block.settings.button1_label }}
+                    {% render 'icon-arrow-2' %}
+                  </a>
+                  {% endif %}
+
+                </div>
+                
+            </div>
+  
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </banner-content>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image banner",
+  "tag": "section",
+  "class": "section section-image-banner",
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "height_img",
+      "label": "Height custom"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_video_img",
+      "label": "Show Video image",
+      "default": true
+    },
+    {
+      "type": "liquid",
+      "id": "video_url",
+      "label": "Video image",
+      "info": "Video plays in the page."
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "header",
+      "content": "Advanced Settings"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_description",
+      "label": "t:sections.all.tab_description.label"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Color heading"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Color description"
+    },
+    {
+      "type": "color",
+      "id": "overlay",
+      "default": "#000000",
+      "label": "Overlay background"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left",
+          "label": "Text align"
+        },
+        {
+          "type": "checkbox",
+          "id": "text_row",
+          "label": "Text row",
+          "default": false
+        },
+        {
+          "type": "liquid",
+          "id": "heading_title",
+          "label": "Heading title",
+          "default": "Heading title"
+        },
+        {
+          "type": "color",
+          "id": "color_title",
+          "label": "Color title"
+        },
+        {
+          "type": "liquid",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },   
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "color",
+          "id": "color_title_center",
+          "label": "Color title center"
+        },
+        {
+          "type": "liquid",
+          "id": "description",
+          "label": "HTML / Description"
+        },
+        {
+          "type": "liquid",
+          "id": "description_2",
+          "label": "HTML / Description 2"
+        },
+        {
+          "type": "color",
+          "id": "color_description",
+          "label": "Color Description"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "Button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn",
+          "label": "Color button"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn",
+          "label": "Background button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn_hover",
+          "label": "Color button hover"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn_hover",
+          "label": "Background button hover"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style_btn",
+          "label": "Style Button",
+          "default": "btn-base",
+          "options": [
+            {
+              "value": "btn-base",
+              "label": "Button Base"
+            },
+            {
+              "value": "btn-outline",
+              "label": "Button Out Line"
+            },
+            {
+              "value": "btn-line",
+              "label": "Button Line"
+            },
+            {
+              "value": "btn-line-black",
+              "label": "Button Line Black"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image banner",
+      "blocks": [
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+/* Transparent */
+:root {
+    --height--announcement: 50px;
+}
+
+.announcement-row {
+    min-height: var(--height--announcement);
+}
+@media (min-width: 1200px) {
+    
+        .header[transparent=""] {
+            position: absolute;
+            top: var(--height--announcement);
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,.24);
+            z-index: 99;
+        }
+        .header[transparent=""][sticky=""] {
+            top: 0;
+        }
+        .header[transparent=""][sticky=""]:not(.header-transparent) {
+            background: var(--header-background);
+        }
+    
+
+    .js #shopify-section- .header-transparent {
+        background-color: transparent;
+    }
+
+    .announcement-transparent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.45);
+    }
+    body:not(.index) .announcement-transparent {
+      position: unset;
+    }
+}
+/* END  */

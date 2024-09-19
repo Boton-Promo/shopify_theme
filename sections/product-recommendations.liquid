@@ -1,0 +1,153 @@
+
+<style>
+  .productrecommendations {
+    margin: 60px 0;
+  }
+  #shopify-section-{{ section.id }} .heading.h1 {
+    font-size: 40px;
+    font-family: var(--hd-font-family);
+  }
+</style>
+
+{% liquid
+  assign id_product = ''
+  if template == 'product'
+    assign id_product = product.id
+  endif
+  if template == 'cart' and cart.items.size
+    assign id_product = cart.items[0]['product_id']
+  endif
+
+  if id_product == ''
+    assign id_product = collections.all.products[0].id
+  endif
+%}
+<ap-productrecommendations section-id="{{ section.id }}" product-id="{{ id_product }}" use-automaticrecommendations recommendations-count="{{ section.settings.products_to_show }}" class="section section--flush productrecommendations">
+  <div class="container container--medium vertical-breather vertical-breather--tight vertical-breather--margin">
+    <h2 class="heading h{{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+    <ap-productlist stagger-apparition="" class="ap-productlist ap-object-loaded">
+      <div class="scroller">
+        <div class="ap-productlist__inner ap-productlist__inner--scroller ap-productlist__inner--desktop-no-scroller hide-scrollbar">
+          {% for product in recommendations.products %}
+            {% render 'product-grid', product: product %}
+          {% endfor %}
+          
+        </div>
+      </div>
+    </ap-productlist>
+  </div>
+</ap-productrecommendations>
+
+
+{% schema %}
+{
+  "name": "Product Recommendations",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Product Recommendations"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "También te puede gustar",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1,
+      "label": "Heading size"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 10,
+      "label": "ProductS Show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Colunms Desktop"
+    },
+    {
+      "type": "header",
+      "content": "Settings Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show secodary"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "Show Rating"
+    },
+    {
+      "type": "header",
+      "content": "Settings Mobile"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Columns mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

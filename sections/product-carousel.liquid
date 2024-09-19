@@ -1,0 +1,269 @@
+{{ 'product-carousel.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+<style>
+  .slider__grid {
+    grid-auto-columns: calc((100% - calc(30px * 1) * {{ section.settings.product_row_desktop }}) / {{ section.settings.product_row_desktop }});
+  }
+  @media (max-width: 1199px) {
+    .slider__grid {
+      grid-auto-columns: calc((100% - calc(30px * 0) * {{ section.settings.product_row_tablet_larger }}) / {{ section.settings.product_row_tablet_larger }});
+    }
+  }
+  @media (max-width: 991px) {
+    .slider__grid {
+      grid-auto-columns: calc((100% - calc(30px * 0) * {{ section.settings.product_row_tablet }}) / {{ section.settings.product_row_tablet }});
+    }
+  }
+  @media (max-width: 767px) {
+    .slider__grid {
+      grid-auto-columns: calc((100% - calc(30px * 0) * {{ section.settings.product_row_mobile }}) / {{ section.settings.product_row_mobile }});
+    }
+  }
+  @media (max-width: 576px) {
+    .slider__grid {
+      grid-auto-columns: calc((100% - calc(30px * 0) * 1) / 1);
+    }
+  }
+  #shopify-section-{{ section.id }} {
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+  }
+  #shopify-section-{{ section.id }} .section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #shopify-section-{{ section.id }} .slider__grid {
+    gap: 0 10px;
+  }
+  .slider-carousel.container-fluid {
+    padding: 0 0 0 95px;
+  }
+  @media (max-width: 1299px) {
+    .slider-carousel.container-fluid {
+      padding: 0;
+    }
+  }
+  @media (max-width: 1199px) {
+    .slider-carousel.container-fluid {
+      padding: 0 15px;
+    }
+  }
+</style>
+
+<div class="product-carousel">           
+  <div class="{{ section.settings.setwidthout }}">
+    {% if section.settings.tab_heading != blank %}
+      <div class="section__header">
+        <h3 class="heading h{{ section.settings.tab_heading_size }} mb-0">{{ section.settings.tab_heading }}</h3>
+        {% if section.settings.btn_text != blank %}
+        <div class="btn-more">
+          <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+            {{ section.settings.btn_text }}
+            {% render 'icon-arrow-2' %}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+    <div class="slider-carousel {{ section.settings.setwidthout }}">
+      <carousel-slider class="carousel block">
+          <div class="relative featured-collection-products">
+              <div class="slider is-grabbable" id="slider-template--{{ section.id }}">
+                  <div class="products-grid-container shrink-0">
+                      <ul class="slider__grid grid grid-flow-col">
+                        {% liquid
+                        if section.settings.collection != blank
+                          assign limit = section.settings.limit
+                          for product in section.settings.collection.products limit: limit
+                          render 'product-grid-2', product: product
+                          endfor
+                        else
+                          if section.settings.collection == blank
+                            for i in (1..6)
+                              echo '<div class="product-items">'
+                                capture current
+                                  cycle 1, 2, 3, 4, 5, 6 
+                                endcapture
+                                assign img = 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg'
+                                echo img
+                              echo '</div>'
+                            endfor
+                          endif
+                        endif
+                      %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </carousel-slider>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Carousel",
+  "class": "shopify-section--ap-product-carousel",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "t:sections.all.padding_desktop.label",
+      "info": "t:sections.all.padding_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "t:sections.all.padding_mobile.label",
+      "info": "t:sections.all.padding_mobile.info"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "default": "#ffffff",
+      "label": "t:sections.all.background-color.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.all.heading_color.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "style_btn",
+      "label": "Style Button",
+      "default": "btn-base",
+      "options": [
+        {
+          "value": "btn-base",
+          "label": "Button Base"
+        },
+        {
+          "value": "btn-outline",
+          "label": "Button Out Line"
+        },
+        {
+          "value": "btn-line",
+          "label": "Button Line"
+        },
+        {
+          "value": "btn-line-black",
+          "label": "Button Line Black"
+        }
+      ]
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "t:sections.all.collection.label"
+    },
+    {
+      "type": "range",
+      "id": "product_row_desktop",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "Product row desktop"
+    },
+    {
+      "type": "range",
+      "id": "product_row_tablet_larger",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "label": "Product row tablet larger"
+    },
+    {
+      "type": "range",
+      "id": "product_row_tablet",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2,
+      "label": "Product row tablet"
+    },
+    {
+      "type": "range",
+      "id": "product_row_mobile",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Product row mobile"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product carousel"
+    }
+  ]
+}
+{% endschema %}    

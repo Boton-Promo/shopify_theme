@@ -1,0 +1,427 @@
+{{ 'categories-image.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    background-size:{{ section.settings.e_size }} !important;
+  }
+  #shopify-section-{{ section.id }} .section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } 
+  #shopify-section-{{ section.id }} .row {
+    gap: 10px 0;
+    margin-left: -5px;
+    margin-right: -5px;
+  }  
+  #shopify-section-{{ section.id }} .row > div {
+    padding: 0 5px;
+  }
+  #shopify-section-{{ section.id }} .categories {
+    padding: 30px 40px 50px;
+    border-radius: 5px;
+    transition: all .4s;
+    border-top: 5px solid transparent;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+  }
+  #shopify-section-{{ section.id }} .categories:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 40px 0 rgba(100,120,134,.2);
+  }
+  #shopify-section-{{ section.id }} .count {
+    font-size: 14px;
+    font-family: var(--body-font-family);
+    font-weight: 400;
+    color: var(--color-accent-3);
+  }
+  #shopify-section-{{ section.id }} .categories .btn-line-black {
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-family: var(--g-font-other)!important;
+    font-weight: 500!important;
+  }
+  @media (max-width: 1299px) {
+    #shopify-section-{{ section.id }} .categories {
+      padding: 20px 20px 30px;
+    }
+  }
+</style>
+
+<div class="categories-image">    
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+      {% if section.settings.tab_heading != blank %}
+      <div class="section__header mb-23">
+        <h3 class="heading h{{ section.settings.tab_heading_size }} mb-0">
+          {{ section.settings.tab_heading }}
+        </h3>
+        <div class="wp-heading-text">
+          {% if section.settings.btn_text != blank %}
+          <div class="btn-more">
+            <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+              {{ section.settings.btn_text }}
+              {% render 'icon-arrow-2' %}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+        <div class="row {% if section.settings.no_gutter %}no-gutters{% endif %}">
+            {% for block in section.blocks %}
+                {%- case block.settings.width -%}
+                {%- when '20%' -%}
+                {%- assign block_width = 'col-xl-20 col-md-50 col-100' -%}
+                {%- when '25%' -%}
+                {%- assign block_width = 'col-xl-25 col-md-50 col-100' -%}
+                {%- when '33%' -%}
+                {%- assign block_width = 'col-xl-33 col-md-50 col-100' -%}
+                {%- when '50%' -%}
+                {%- assign block_width = 'col-xl-50 col-md-50 col-100' -%}
+                {%- when '66%' -%}
+                {%- assign block_width = 'col-xl-66 col-md-50 col-100' -%}
+                {%- when '75%' -%}
+                {%- assign block_width = 'col-xl-75 col-md-50 col-100' -%}
+                {%- when '100%' -%}
+                {%- assign block_width = 'col-100' -%}
+                {%- endcase -%}
+                <div id="block-{{ block.id }}" class="{{ block_width }} {{ block.settings.class }}">
+
+                  {% case block.type %}
+  
+                      {%- when 'categories' -%}
+                          <div style="background-color: {{ section.settings.bg_color }};" class="categories">
+                            <div class="categories-text">
+                              {% liquid
+                                assign _link = block.settings.collection.url
+                              %}
+                              <div class="categories-content">
+                                <h3 style="color: {{ section.settings.color_title }}" class="heading h{{ block.settings.tab_heading_size }}">
+                                  <a href="{{ _link }}">
+                                    {{ block.settings.title_large }}
+                                    <span class="count">{{ block.settings.collection.products_count | append: ' ' | append: 'products' }}</span>                            
+                                  </a>
+                                </h3>
+                              </div>
+                            </div>
+                            {%- if block.settings.menu != blank -%}
+                            <div class="categories-list-link">
+                              <ul role="list">
+                                {%- for link in block.settings.menu.links -%}
+                                <li>
+                                  <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                            {% endif %}
+                            <div class="categories-button">
+                              <a href="{{ block.settings.btn_link }}" class="button {{ block.settings.style_btn }}">
+                                {{ block.settings.btn_text }}
+                              </a>
+                            </div>
+                            <div class="categories-img">
+                              {% if  block.settings.image != blank %}
+                                <img class="adv-list-image" loading="lazy" 
+                                    sizes="(max-width: 999px) 100vw, 72vw" alt="" 
+                                    src="{{ block.settings.image | image_url: width: block.settings.image.width }}" 
+                                    srcset="{{ block.settings.image | image_url: width: 2000 }} 2000w" 
+                                    width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">     
+                              {% else %}
+                                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                              {% endif %} 
+                            </div>
+                          </div>
+  
+                  {% endcase %}
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ap Categories",
+  "tag": "section",
+  "class": "section section-categories-image",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "t:sections.all.fullwidth.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "Padding desktop",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_tablet",
+      "label": "Padding tablet",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "Padding mobile",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "checkbox",
+      "id": "no_gutter",
+      "label": "No gutters",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "default": "#ffffff",
+      "label": "t:sections.all.background-color.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.all.background_image.label"
+    },
+    {
+      "type": "select",
+      "id": "e_size",
+      "label": "Background Size",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.heading_color.label"
+    },
+    {
+      "type": "header",
+      "content": "Color item"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Color Title categories"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "style_btn",
+      "label": "Style Button",
+      "default": "btn-base",
+      "options": [
+        {
+          "value": "btn-base",
+          "label": "Button Base"
+        },
+        {
+          "value": "btn-outline",
+          "label": "Button Out Line"
+        },
+        {
+          "value": "btn-line",
+          "label": "Button Line"
+        },
+        {
+          "value": "btn-line-black",
+          "label": "Button Line Black"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "categories",
+      "name": "Categories",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width product",
+          "default": "66%",
+          "options": [
+            {
+              "value": "20%",
+              "label": "20%"
+            },
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.all.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title_large",
+          "label": "Title categories",
+          "default": "Content title"
+        },
+        {
+          "type": "range",
+          "id": "tab_heading_size",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "default": 2,
+          "label": "Title Size"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Link List"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "View All"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style_btn",
+          "label": "Style Button",
+          "default": "btn-base",
+          "options": [
+            {
+              "value": "btn-base",
+              "label": "Button Base"
+            },
+            {
+              "value": "btn-outline",
+              "label": "Button Out Line"
+            },
+            {
+              "value": "btn-line",
+              "label": "Button Line"
+            },
+            {
+              "value": "btn-line-black",
+              "label": "Button Line Black"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ap Categories",
+      "blocks": [
+        {
+          "type": "categories"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

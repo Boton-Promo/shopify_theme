@@ -1,0 +1,260 @@
+<!-- team-work.liquid -->
+<style>
+  #shopify-section-{{ section.id }} {
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color }};
+    margin: 65px 0 65px;
+  }
+  .person__avatar{
+    margin-bottom: 25px;
+  }
+  h3.person__name{
+    text-transform: uppercase;
+    margin: 0 0 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    line-height: 24px;
+  }
+  h4.person__name{
+    text-transform: uppercase;
+    color: #b0b0b0;
+    line-height: 1.1;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0 0 13px;
+  }
+  ul.person__social.list-unstyled{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 16px;
+    gap: 10px;
+  }
+  .aboutus_section a.link--text.list-social__link{
+    color: #999999;
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 50%;
+    display: flex;
+    transition: all ease .45s;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+  }
+  .aboutus_section a.link--text.list-social__link:hover{
+    color: #000;
+    border: 1px solid #000;
+  }
+  .aboutus_section .list-social__link{
+    padding: 0;
+  }
+  .aboutus_section .row {
+    margin: 0 -15px;
+  }
+  .person__social .icon {
+    height: 12px;
+    width: 16px;
+    margin: auto;
+  }
+  p.person__info {
+    font-size: 16px;
+    color: #626262;
+    line-height: 24px;
+    margin: 10px 0 0;
+  }
+  .col-person {
+    margin: 0 0 30px;
+  }
+</style>
+<section class="aboutus_section">
+    <div class="container">
+        {% if section.settings.tab_heading != blank %}
+        <header class="section__header text-{{ section.settings.text_align }} mb-60">
+            <div class="text-container">
+                {% if section.settings.sub_heading != blank %}
+                  <p class="heading sub-heading mb-10">{% render 'icon-heading' %}{{ section.settings.sub_heading }}</p>
+                {% endif %}
+                <h3 class="heading h{{ section.settings.tab_heading_size }} mb-30">{{ section.settings.tab_heading }}</h3>
+                {% if section.settings.tab_description != blank %}
+                <div class="heading-description">
+                    {{ section.settings.tab_description }}
+                </div>
+                {% endif %}
+            </div>
+        </header>
+        {% endif %}
+      <div class="row">
+        {%- for block in section.blocks -%}
+        <div class="col-25 col-person text-center">
+          <div class="person__avatar">
+            {%- if block.settings.team_avatar != blank -%}
+                <img class="teamwork-img" loading="lazy"
+                    sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px" alt=""
+                    src="{{ block.settings.team_avatar | image_url: width: block.settings.team_avatar.width }}"
+                    srcset="{%- if block.settings.team_avatar.width >= 195 -%}{{ block.settings.team_avatar | image_url: width: 195, crop: 'center' }} 195w,{%- endif -%}
+                    {%- if block.settings.team_avatar.width >= 330 -%}{{ block.settings.team_avatar | image_url: width: 330, crop: 'center' }} 330w,{%- endif -%}
+                    {%- if block.settings.team_avatar.width >= 535 -%}{{ block.settings.team_avatar | image_url: width: 535, crop: 'center' }} 535w,{%- endif -%}
+                    {%- if block.settings.team_avatar.width >= 750 -%}{{ block.settings.team_avatar | image_url: width: 750, crop: 'center' }} 750w,{%- endif -%}
+                    {%- if block.settings.team_avatar.width >= 1000 -%}{{ block.settings.team_avatar | image_url: width: 1000, crop: 'center' }} 1000w,{%- endif -%}
+                    {%- if block.settings.team_avatar.width >= 1500 -%}{{ block.settings.team_avatar | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {%- if block.settings.team_avatar.width >= 3000 -%}{{ block.settings.team_avatar | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                    {{ block.settings.team_avatar | image_url }} {{ block.settings.team_avatar.width }}w"
+                    src="{{ block.settings.team_avatar | image_url: width: 1500 }}"
+                    height="{{ block.settings.team_avatar.height }}"
+                    width="{{ block.settings.team_avatar.width }}">
+            {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <h3 class="person__name">
+            {{ block.settings.title_person }}
+          </h3>
+          <h4 class="person__name">
+            {{ block.settings.subtitle_person }}
+          </h4>
+          <ul class="person__social list-unstyled">
+            <li class="list-social__item">
+            <a href="{{ section.settings.team_fb }}" class="link--text list-social__link" aria-describedby="a11y-external-message" title="Facebook">
+                {%- render 'icon-facebook' -%}
+            </a>
+            </li>
+            <li class="list-social__item">
+            <a href="{{ section.settings.team_tw }}" class="link--text list-social__link" aria-describedby="a11y-external-message" title="Twitter">
+                {%- render 'icon-twitter' -%}
+            </a>
+            </li>
+            <li class="list-social__item">
+            <a href="{{ section.settings.team_youtube }}" class="link--text list-social__link" aria-describedby="a11y-external-message" title="Youtube">
+                {%- render 'icon-youtube' -%}
+            </a>
+            </li>
+          </ul>
+          <p class="person__info">
+            {{ block.settings.team_des }}
+          </p>
+  
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+{% schema %}
+{
+  "name": "Team work",
+  "tag": "section",
+  "max_blocks": 20,
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "default": "Sub heading",
+      "label": "Sub heading"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "liquid",
+      "id": "tab_description",
+      "label": "t:sections.all.tab_description.label"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text align"
+    },
+    {
+      "type": "color",   
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.all.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#282828",
+      "label": "t:sections.all.text_color.label"
+    },
+    {
+      "type": "url",
+      "id": "team_fb",
+      "label": "Link Facebook"
+    },
+    {
+      "type": "url",
+      "id": "team_tw",
+      "label": "Link X"
+    },
+    {
+      "type": "url",
+      "id": "team_youtube",
+      "label": "Link Youtube"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "teamwork",
+      "name": "Team work",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Settings content"
+        },
+        {
+          "type": "image_picker",
+          "id": "team_avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "text",
+          "id": "title_person",
+          "label": "Title person",
+          "default": "Emma Watson"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_person",
+          "label": "Sub title",
+          "default": "CEO/FOUNDER"
+        },
+        {
+          "type": "textarea",
+          "id": "team_des",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

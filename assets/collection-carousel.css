@@ -1,0 +1,121 @@
+.collection-carousel-content:hover .ap-productlist__arrow {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.collection-carousel-content {
+  position: relative;
+}
+
+.collection-carousel__ap-nextprev {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.collection-carousel-content {
+  position: relative;
+}
+
+.collection-carousel-item-info.bottom {
+  display: flex;
+  margin: 30px 0 0;
+  gap: 4px;
+}
+
+.collection-carousel-item {
+  padding: 0 15px;
+  min-width: 248px;
+}
+
+.collection-carousel-item-image {
+  width: 100%;
+}
+
+.collection-carousel-title {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  font-family: var(--hd-font-family);
+}
+
+.collection-carousel-count {
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--hd-font-family);
+}
+
+.collection-carousel-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.collection-carousel-title .collection-carousel-item-image {
+  width: 40px;
+  height: 40px;
+  margin: 0 !important;
+}
+
+.collection-carousel-link {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.wp-collection-carousel-item,
+.collection-carousel-image {
+  position: relative;
+}
+
+.collection-carousel-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+  opacity: 0;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.wp-collection-carousel-item:hover .collection-carousel-image::before {
+  opacity: 1;
+}
+
+.wp-collection-carousel-item:hover .collection-carousel-link {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 767px) {
+  .collection-carousel__ap-nextprev {
+    display: none;
+  }
+  .collection-carousel-item {
+    min-width: 100%;
+  }
+}

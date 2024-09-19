@@ -1,0 +1,125 @@
+.text-with-icons .text-with-icons__content-wrapper .description-icon {
+  color: var(--color-body);
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.text-with-icons .text-with-icons__content-wrapper .heading--small.title-icon {
+  color: var(--title-color);
+  font-size: 50px;
+  line-height: 40px;
+  margin-bottom: 5px;
+  margin-top: 0 !important;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 700;
+  font-family: var(--hd-font-family);
+  transition: all 0.4s;
+  display: block;
+}
+
+.text-with-icons .heading--xsmall.title-icon {
+  color: var(--title-color);
+  letter-spacing: 3px;
+  font-weight: 600;
+  font-family: var(--hd-font-family);
+}
+
+.text-with-icon .dots-nav__item {
+  background-color: var(--color-body);
+}
+
+.text-with-icons__item {
+  display: flex !important;
+  padding: 0;
+  gap: 15px;
+  flex: none;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  margin: 30px 0 0;
+}
+
+.text-with-icons__icon-wrapper {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.text-with-icons__list {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.text-with-icons__icon-wrapper svg {
+  width: 65px;
+  height: 65px;
+}
+
+.text-with-icon .section__header.text-left {
+  display: flex;
+  gap: 15px 0;
+}
+
+.text-with-icon .section__header.text-left .text-container {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .text-with-icon .section__header.text-left .textwidthicon-child {
+    margin: -215px 0 0;
+    width: 57.752%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Icon top */
+.icon-top .text-with-icons__icon-wrapper svg {
+  width: 48px;
+  height: 48px;
+}
+
+.text-with-icons__item.icon-top {
+  flex-direction: column;
+  gap: 0px;
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 1300px){
+  .text-with-icons__item.icon-top{
+    padding: 0px 40px;
+  }
+}
+
+.text-with-icons .icon-top .text-with-icons__content-wrapper .heading--small.title-icon {
+  color: var(--title-color);
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  margin-top: 30px!important;
+  /* letter-spacing: -0.5px; */
+  text-transform: none;
+  font-weight: 500;
+  font-family: var(--hd-font-family);
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.text-with-icons .icon-top .text-with-icons__content-wrapper .description-icon {
+  color: var(--color-body);
+  font-size: 16px;
+  line-height: 26px;
+  margin: 0 !important;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@media (max-width: 1199px) {
+  .text-with-icons__item.icon-top {
+    padding: 20px 15px;
+  }
+}

@@ -1,0 +1,527 @@
+{{ 'copyright.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+<style>
+    #shopify-section-copyright {
+        --background: {{ section.settings.background | color_extract: 'red' }}, {{ section.settings.background | color_extract: 'green' }}, {{ section.settings.background | color_extract: 'blue' }};
+        --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+        --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+        --border-color: {{ section.settings.border_color }};
+        --color-link : {{ section.settings.link_color | color_extract: 'red' }}, {{ section.settings.link_color | color_extract: 'green' }}, {{ section.settings.link_color | color_extract: 'blue' }};
+        --color-social : {{ section.settings.color_social | color_extract: 'red' }}, {{ section.settings.color_social | color_extract: 'green' }}, {{ section.settings.color_social | color_extract: 'blue' }};
+        --bg-link : {{ section.settings.bg_link | color_extract: 'red' }}, {{ section.settings.bg_link | color_extract: 'green' }}, {{ section.settings.bg_link | color_extract: 'blue' }};
+
+        background-size: unset;
+        --section-blocks-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 10.0 }};
+    }
+
+    .social-copyright .social-media__item {
+      background-color: {{ section.settings.bg_link }};
+    }
+
+    .copyright {
+      background-color: rgb(var(--background), var(--section-blocks-overlay-opacity));
+      padding: 30px 0;
+      overflow: hidden;
+    }
+    .copyright__aside {
+      margin: 0 -15px;
+    }
+</style>
+  
+<div class="copyright">
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+      <div class="copyright__inner">
+        <div class="copyright__aside">
+
+            {%- for block in section.blocks -%}
+                {%- case block.settings.width -%}
+                {%- when '33%' -%}
+                {%- assign block_width = 'col-xl-33 col-md-50 col-100' -%}
+                {%- when '40%' -%}
+                {%- assign block_width = 'col-xl-40 col-md-50 col-100' -%}
+                {%- when '50%' -%}
+                {%- assign block_width = 'col-xl-50 col-md-50 col-100' -%}
+                {%- when '100%' -%}
+                {%- assign block_width = 'col-100' -%}
+                {%- endcase -%}
+                <div id="block-{{ block.id }}" class="{{ block_width }} copyright-col-{{ forloop.index }}">
+                  {%- case block.type -%}
+  
+                      {%- when "logo" -%}
+                      {%- if block.settings.logo != blank -%}
+                      <div class="logo-copyright copyright-item-{{ forloop.index }}">
+                        <img style="width: {{ block.settings.logo }}px" loading="lazy"
+                          sizes="{{ block.settings.logo }}px" class="footer__image" alt=""
+                          src="{{ block.settings.logo | image_url: width: block.settings.logo.width }}"
+                          srcset="{{ block.settings.logo | image_url: width: 100 }} 100w, {{ block.settings.logo | image_url: width: 200 }} 200w, {{ block.settings.logo | image_url: width: 300 }} 300w, {{ block.settings.logo | image_url: width: 400 }} 400w, {{ block.settings.logo | image_url: width: 500 }} 500w"
+                          width="{{ block.settings.logo.width }}" height="{{ block.settings.logo.height }}">
+                      </div>
+                      {% endif %}
+  
+                      {%- when "copyright-text" -%}
+                          <div class="copyright-item-{{ forloop.index }} text-{{ block.settings.text_align }}">
+                              {%- if block.settings.label != blank -%}
+                                  <span class="copyright-label text--xsmall text--subdued">{{ block.settings.label }}</span>
+                              {%- endif -%}
+                              {%- if block.settings.content != blank -%}
+                                  <div class="copyright-item-content">
+                                      {{ block.settings.content }}
+                                  </div>
+                              {%- endif -%}
+                          </div>
+                      
+                      {%- when "menu" -%}
+                          <div class="text--xsmall copyright-item-{{ forloop.index }}">
+                              {%- if block.settings.label != blank -%}
+                                  <span class="copyright-label text--subdued">{{ block.settings.label }}</span>
+                              {%- endif -%}
+                              {%- if block.settings.menu != blank -%}
+                                  <div class="copyright-item-content">
+                                      <ul class="linklist list--unstyled" role="list">
+                                      {%- for link in block.settings.menu.links -%}
+                                      <li class="linklist__item">
+                                          <a href="{{ link.url }}" class="link--faded">{{ link.title | escape }}</a>
+                                      </li>
+                                      {% endfor %}
+                                      </ul>
+                                  </div>
+                              {% endif %}
+                          </div>
+                      
+                      {%- when "social" -%}
+                          {% liquid
+                              assign _show_social = false
+                              if block.settings.social_facebook != blank
+                                assign _show_social = true
+                              endif
+                              if block.settings.social_instagram != blank
+                                assign _show_social = true
+                              endif
+                              if block.settings.social_pinterest != blank
+                                assign _show_social = true
+                              endif
+                              if block.settings.social_youtube != blank
+                                assign _show_social = true
+                              endif
+                              if block.settings.social_linkedin != blank
+                                assign _show_social = true
+                              endif
+                          %}
+                          <div class="text--xsmall copyright-item-{{ forloop.index }}">
+                              <div class="copyright-social">
+                                {%- if block.settings.label != blank -%}
+                                    <span class="copyright-label text--xsmall text--subdued">{{ block.settings.label }}</span>
+                                {%- endif -%}
+  
+                                {%- if _show_social -%}
+                                    <div class="copyright-item-content">
+                                        <ul class="social-copyright social-media social-media--no-radius list--unstyled" role="list">
+                                            {%- if block.settings.social_facebook != blank -%}
+                                              <li class="social-media__item social-media__item--facebook">
+                                                <a href="{{ block.settings.social_facebook }}" target="_blank" rel="noopener" class="social-media__link" aria-label="Follow us on Facebook"><svg focusable="false" width="9" height="17" class="icon icon--facebook   " viewBox="0 0 9 17">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z" fill="currentColor"></path>
+                                                </svg>
+                                                <span class="text-social" style="color: {{ section.settings.link_color }};">{{ 'general.social.links.facebook' | t }}</span>
+                                                </a>                                
+                                              </li>
+                                            {%- endif -%}
+                                            {%- if block.settings.social_instagram != blank -%}
+                                              <li class="social-media__item social-media__item--instagram">
+                                                <a href="{{ block.settings.social_instagram }}" target="_blank" rel="noopener" class="social-media__link" aria-label="Follow us on Instagram"><svg focusable="false" width="16" height="16" class="icon icon--instagram   " viewBox="0 0 16 16">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C5.827 0 5.555.01 4.702.048 3.85.087 3.269.222 2.76.42a3.921 3.921 0 00-1.417.923c-.445.444-.719.89-.923 1.417-.198.509-.333 1.09-.372 1.942C.01 5.555 0 5.827 0 8s.01 2.445.048 3.298c.039.852.174 1.433.372 1.942.204.526.478.973.923 1.417.444.445.89.719 1.417.923.509.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.445-.01 3.298-.048c.852-.039 1.433-.174 1.942-.372a3.922 3.922 0 001.417-.923c.445-.444.719-.89.923-1.417.198-.509.333-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.298c-.039-.852-.174-1.433-.372-1.942a3.922 3.922 0 00-.923-1.417A3.921 3.921 0 0013.24.42c-.509-.198-1.09-.333-1.942-.372C10.445.01 10.173 0 8 0zm0 1.441c2.136 0 2.39.009 3.233.047.78.036 1.203.166 1.485.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.24.705.276 1.485.038.844.047 1.097.047 3.233s-.009 2.39-.047 3.233c-.036.78-.166 1.203-.276 1.485-.145.374-.318.64-.598.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.844.038-1.097.047-3.233.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.479 2.479 0 01-.92-.598 2.478 2.478 0 01-.598-.92c-.11-.282-.24-.705-.276-1.485-.038-.844-.047-1.097-.047-3.233s.009-2.39.047-3.233c.036-.78.166-1.203.276-1.485.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.844-.038 1.097-.047 3.233-.047zm0 9.226a2.667 2.667 0 110-5.334 2.667 2.667 0 010 5.334zm0-6.775a4.108 4.108 0 100 8.216 4.108 4.108 0 000-8.216zm5.23-.162a.96.96 0 11-1.92 0 .96.96 0 011.92 0z" fill="currentColor"></path>
+                                                </svg>
+                                                <span class="text-social" style="color: {{ section.settings.link_color }};">{{ 'general.social.links.instagram' | t }}</span>
+                                                </a>
+                                              </li>
+                                            {%- endif -%}
+                                            {%- if block.settings.social_pinterest != blank -%}
+                                              <li class="social-media__item social-media__item--pinterest">
+                                                <a href="{{ block.settings.social_pinterest }}" target="_blank" rel="noopener" class="social-media__link" aria-label="Follow us on Pinterest"><svg focusable="false" width="12" height="16" class="icon icon--pinterest   " viewBox="0 0 12 16">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.8042 0.00123531C8.79537 -0.0442356 10.6685 1.16769 11.5498 3.29299C11.8407 3.99433 12.1516 5.28439 11.9181 6.35474C11.825 6.78208 11.7985 7.22812 11.6726 7.63086C11.4163 8.4496 11.0829 9.17441 10.6413 9.79945C10.0418 10.6486 9.13196 11.2212 7.98951 11.5091C6.97899 11.7637 6.04959 11.3826 5.50954 10.9732C5.33747 10.843 5.10674 10.6728 5.04304 10.4377C5.03488 10.4377 5.0267 10.4377 5.01853 10.4377C4.97972 10.8669 4.81532 11.3224 4.69924 11.7135C4.53858 12.2545 4.50733 12.8146 4.3064 13.3208C4.08349 13.8828 3.81274 14.3978 3.52072 14.8776C3.36739 15.1292 2.94427 15.9904 2.63675 16C2.60311 15.9354 2.58964 15.9105 2.58761 15.796C2.48858 15.6383 2.55757 15.3724 2.51393 15.1578C2.44604 14.8236 2.39317 14.2217 2.46491 13.8824C2.46491 13.7038 2.46491 13.5248 2.46491 13.3465C2.54397 12.9786 2.54085 12.6015 2.63675 12.2494C2.84537 11.4824 2.96145 10.6699 3.17692 9.87611C3.38398 9.11352 3.57396 8.27939 3.74172 7.50321C3.77957 7.32789 3.56652 6.82389 3.52072 6.63572C3.37628 6.04186 3.48624 5.21874 3.66805 4.77269C3.89698 4.21111 4.56717 3.3535 5.43589 3.57359C6.13407 3.75039 6.57846 4.50528 6.34437 5.46192C6.09862 6.46589 5.7798 7.3653 5.5587 8.37035C5.50173 8.62933 5.59968 8.90442 5.65687 9.05958C5.86357 9.61934 6.49037 10.163 7.32652 9.95278C8.59396 9.63365 9.15431 8.48627 9.53645 7.24791C9.63981 6.91302 9.62743 6.59647 9.70831 6.22709C9.87894 5.44763 9.80648 4.28411 9.56098 3.67556C9.16753 2.70023 8.43329 2.07518 7.42471 1.73624C7.1465 1.68526 6.86819 1.63427 6.58988 1.58329C6.12397 1.47655 5.23532 1.63685 4.92023 1.73624C3.51171 2.18156 2.63952 2.92544 2.09658 4.26247C1.91177 4.71767 1.81046 5.17911 1.77741 5.81884C1.76913 5.8955 1.76094 5.97217 1.75278 6.04883C1.86153 6.62068 1.87259 6.99959 2.09658 7.42657C2.20715 7.63711 2.46971 7.8029 2.51393 8.06444C2.54001 8.2185 2.42705 8.45105 2.39125 8.57467C2.33705 8.76137 2.35676 8.97522 2.26844 9.13625C2.10873 9.42678 1.67383 9.20852 1.48275 9.08491C0.489307 8.44373 -0.329526 6.5895 0.132284 4.79837C0.20342 4.5218 0.206915 4.28118 0.304126 4.03285C0.906661 2.49554 1.80565 1.55101 3.10325 0.741098C3.58947 0.437749 4.24511 0.287354 4.84657 0.128885C5.16574 0.0863481 5.48503 0.0437917 5.8042 0.00123531Z" fill="currentColor"></path>
+                                                </svg>
+                                                <span class="text-social" style="color: {{ section.settings.link_color }};">{{ 'general.social.links.pinterest' | t }}</span>
+                                                </a>
+                                              </li>
+                                            {%- endif -%}
+                                            {%- if block.settings.social_youtube != blank -%}
+                                              <li class="social-media__item social-media__item--youtube">
+                                                <a href="{{ block.settings.social_youtube }}" target="_blank" rel="noopener" class="social-media__link" aria-label="Follow us on YouTube"><svg fill="none" focusable="false" width="18" height="13" class="icon icon--youtube   " viewBox="0 0 18 13">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0325 0.369454C16.807 0.572743 17.4168 1.17173 17.6238 1.9324C18 3.31101 18 6.1875 18 6.1875C18 6.1875 18 9.06389 17.6238 10.4427C17.4168 11.2033 16.807 11.8023 16.0325 12.0056C14.6288 12.375 9 12.375 9 12.375C9 12.375 3.37122 12.375 1.96752 12.0056C1.19311 11.8023 0.583159 11.2033 0.376159 10.4427C0 9.06389 0 6.1875 0 6.1875C0 6.1875 0 3.31101 0.376159 1.9324C0.583159 1.17173 1.19311 0.572743 1.96752 0.369454C3.37122 0 9 0 9 0C9 0 14.6288 0 16.0325 0.369454ZM11.8636 6.1876L7.1591 8.79913V3.57588L11.8636 6.1876Z" fill="currentColor"></path>
+                                                </svg>
+                                                <span class="text-social" style="color: {{ section.settings.link_color }};">{{ 'general.social.links.youtube' | t }}</span>
+                                                </a>
+                                              </li>
+                                            {%- endif -%}
+                                            {%- if block.settings.social_linkedin != blank -%}
+                                              <li class="social-media__item social-media__item--linkedin">
+                                                <a href="{{ block.settings.social_linkedin }}" target="_blank" rel="noopener" class="social-media__link" aria-label="Follow us on LinkedIn"><svg fill="none" focusable="false" width="13" height="13" class="icon icon--linkedin   " viewBox="0 0 13 13">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.12412 1.56485C3.12412 0.70105 2.42432 0 1.56256 0C0.697275 0 0 0.70105 0 1.56485C0 2.42916 0.697275 3.13021 1.56256 3.13021C2.42432 3.13021 3.12412 2.42916 3.12412 1.56485ZM2.91019 13H0.213925V4.31649H2.91019V13ZM7.18264 4.31648H4.6004V13H7.29112V8.70525C7.29112 7.57205 7.50505 6.47473 8.90666 6.47473C10.2891 6.47473 10.3068 7.77018 10.3068 8.77702V13H13V8.23771C13 5.89903 12.496 4.10117 9.76892 4.10117C8.45812 4.10117 7.57871 4.82092 7.21948 5.50377H7.18264V4.31648Z" fill="currentColor"></path>
+                                                </svg>
+                                                <span class="text-social" style="color: {{ section.settings.link_color }};">{{ 'general.social.links.linkedin' | t }}</span>
+                                                </a>
+                                              </li>
+                                            {%- endif -%}
+                                        </ul>
+                                    </div>
+                                {%- endif -%}
+                              </div>
+                              
+                              {% if block.settings.backtotop_text != blank %}
+                              <div class="back-to-top">
+                                <button onclick="scrollToTop()" class="back-to-top-copyright transition">
+                                  {{ block.settings.backtotop_text }}
+                                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <circle cx="22" cy="22" r="21.5" fill="white" stroke="#E2E0E0"/>
+                                  <path d="M23.0001 17.8284V30H21.0001V17.8284L15.6361 23.1924L14.2219 21.7782L22.0001 14L29.7783 21.7782L28.3641 23.1924L23.0001 17.8284Z" fill="black"/>
+                                  </svg>
+                                  
+                                </button>
+                              </div>
+                              {% endif %}
+                          </div>
+  
+                          {%- when "payment_methods" -%}
+                            <div style="background-color: {{ block.settings.bg_payment_methods }};" class="copyright__payment-methods copyright-item-{{ forloop.index }}">
+                              {% if block.settings.label != blank %}
+                              <span class="copyright__payment-methods-label">{{ block.settings.label }}</span>
+                              {% endif %}
+                              <img class="copyright__content-image" loading="lazy" sizes="50vw" alt="" loading="lazy" 
+                                src="{{ block.settings.payment_methods_image | image_url: width: 1000 }}" 
+                                width="{{ block.settings.payment_methods_image.width }}" height="{{ block.settings.payment_methods_image.height }}">
+                            </div>
+                      
+                  {%- endcase -%}
+                </div>
+            {%- endfor -%}
+           
+          </div>
+      </div>
+    </div>
+</div>
+  
+{% schema %}
+{
+  "name": "Copyright",
+  "class": "shopify-section--copyright",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "t:sections.all.fullwidth.label",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.all.background_image.label"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "default": "#282828",
+      "label": "t:sections.all.background.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#ffffff",
+      "label": "t:sections.all.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#ffffff",
+      "label": "t:sections.all.text_color.label"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "default": "#484848",
+      "label": "t:sections.all.border_color.label"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "default": "#484848",
+      "label": "Link Color"
+    },
+    {
+      "type": "color",
+      "id": "color_social",
+      "default": "#86938D",
+      "label": "Color social"
+    },
+    {
+      "type": "color",
+      "id": "bg_link",
+      "default": "#F6F6F6",
+      "label": "Background color social"
+    },
+    {
+      "type": "text",
+      "id": "border_width",
+      "label": "Border width",
+      "info": "Ex: 1px 1px 1px 1px"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "copyright-text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "33%",
+          "options": [
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "40%",
+              "label": "40%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.all.label.label"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:sections.all.content.label"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left",
+          "label": "Text align"
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "33%",
+          "options": [
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "40%",
+              "label": "40%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "33%",
+          "options": [
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "40%",
+              "label": "40%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.all.label.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:sections.all.menu.label"
+        }
+      ]
+    },
+    {
+      "type": "payment_methods",
+      "name": "Payment methods",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "33%",
+          "options": [
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "40%",
+              "label": "40%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "bg_payment_methods",
+          "label": "Background payment",
+          "default": "#F6F6F6"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.all.label.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "payment_methods_image",
+          "label": "t:sections.all.payment_methods_image.label"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "33%",
+          "options": [
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "40%",
+              "label": "40%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "backtotop_text",
+          "label": "Back to top content",
+          "default": "<p>Back to top</p>"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.all.label.label"
+        },
+        {
+          "type": "text",
+          "id": "social_facebook",
+          "label": "t:sections.all.social_facebook.label"
+        },
+        {
+          "type": "text",
+          "id": "social_instagram",
+          "label": "t:sections.all.social_instagram.label"
+        },
+        {
+          "type": "text",
+          "id": "social_pinterest",
+          "label": "t:sections.all.social_pinterest.label"
+        },
+        {
+          "type": "text",
+          "id": "social_youtube",
+          "label": "t:sections.all.social_youtube.label"
+        },
+        {
+          "type": "text",
+          "id": "social_linkedin",
+          "label": "t:sections.all.social_linkedin.label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}  

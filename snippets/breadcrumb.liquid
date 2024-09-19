@@ -1,0 +1,151 @@
+{%- style -%}
+    .breadcrumb svg{
+        width: 20px;
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+{%- endstyle -%}
+
+<nav aria-label="Breadcrumb" class="breadcrumb text--xsmall">
+    <ol class="breadcrumb__list" role="list">
+        <li class="breadcrumb__item">
+            <a class="breadcrumb__link" href="/">
+                <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon icon-home"><path fill="currentColor" d="M541 229.16l-61-49.83v-77.4a6 6 0 0 0-6-6h-20a6 6 0 0 0-6 6v51.33L308.19 39.14a32.16 32.16 0 0 0-40.38 0L35 229.16a8 8 0 0 0-1.16 11.24l10.1 12.41a8 8 0 0 0 11.2 1.19L96 220.62v243a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-128l64 .3V464a16 16 0 0 0 16 16l128-.33a16 16 0 0 0 16-16V220.62L520.86 254a8 8 0 0 0 11.25-1.16l10.1-12.41a8 8 0 0 0-1.21-11.27zm-93.11 218.59h.1l-96 .3V319.88a16.05 16.05 0 0 0-15.95-16l-96-.27a16 16 0 0 0-16.05 16v128.14H128V194.51L288 63.94l160 130.57z" class=""></path></svg>
+                Inicio
+            </a>
+        </li>
+        {% case template %}
+            {% when 'page.about-us' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.contact' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.pages-team' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.faqs' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.dmca' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.lookbook' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.privacy-policy' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.contact-information' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.refund-policy' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.terms-of-service' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.payment-methods' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'page.shipping-policy' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ page.title }}</span>
+            </li>
+
+            {% when 'product.product-video' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+            </li>
+
+            {% when 'product.left-thumb' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+            </li>
+
+            {% when 'product.right-thumb' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+            </li>
+
+            {% when 'product.product-scroll' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+            </li>
+
+            {% when 'product.upssell' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+            </li>
+
+            {% when 'product.crosssell' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+            </li>
+
+            {% when 'collection' %}
+                <li class="breadcrumb__item">
+                    <span class="breadcrumb__link" ap-currentaria="page">{{ collection.title }}</span>
+                </li>
+                
+            {% when 'collection.collection-top' %}
+                <li class="breadcrumb__item">
+                    <span class="breadcrumb__link" ap-currentaria="page">{{ collection.title }}</span>
+                </li>
+
+            {% when 'blog' %}
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__link" ap-currentaria="page">{{ blog.title }}</span>
+            </li>
+
+            
+            {% when 'article' %}
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="{{ blog.url }}" title="{{ blog.title }}">{{ blog.title }}</a>
+                </li>
+                <li class="breadcrumb__item">
+                    <span class="breadcrumb__link" ap-currentaria="page">{{ article.title }}</span>
+                </li>
+        
+            {% when 'product' %}
+                {% if collection %}
+                    <li class="breadcrumb__item">
+                        <a class="breadcrumb__link" href="/collections/{{ collection.handle }}" title="{{ collection.title }}">{{ collection.title }}</a>
+                    </li>
+                {% endif %}
+                <li class="breadcrumb__item">
+                    <span class="breadcrumb__link" ap-currentaria="page">{{ product.title }}</span>
+                </li>
+
+        {% endcase %}
+    </ol>
+</nav>
+

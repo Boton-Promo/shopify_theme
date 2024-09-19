@@ -1,0 +1,147 @@
+
+
+.arrow-lookbook {
+  position: absolute;
+  left: 42%;
+  bottom: 5%;
+  transform: translate(-50%);
+  color: var(--color-dot);
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+}
+@media (min-width: 1000px){
+  .arrow-lookbook{
+    bottom: 60px;
+  }
+}
+
+.ap-lookbookshop__image-wrapper{
+  height: 100%;
+}
+
+.ap-lookbookshop__arrow {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  border: 1px solid #E2E0E0;
+  color: var(--color-dot);
+}
+.ap-lookbookshop__arrow:hover,
+.ap-lookbookshop__arrow:active{
+  border: 1px solid #222222;
+}
+.ap-lookbookshop__ap-button-nextprev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.featured-collections.lookbook-product {
+  position: relative;
+}
+
+.look-book .product-action {
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.ap-product-carousel__nav {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+}
+
+.product-carousel-content {
+  position: relative;
+}
+
+.look-book .shopify-payment-button__button--unbranded {
+  width: 100%;
+}
+
+.block-lookbook-content {
+  position: relative;
+}
+
+.block-lookbook-content:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(180deg, rgba(128, 118, 103, 0) 50%, var(--bg-gradient-bottom) 91.67%);
+  pointer-events: none;
+}
+
+/* PRODUCT */
+.look-book .product-item-wrapper {
+  padding: 0;
+  max-width: 390px;
+  margin: auto!important;
+}
+.look-book .product-item-wrapper:hover,
+.look-book .slider__item {
+  box-shadow: none;
+}
+.look-book .jdgm-widget.jdgm-widget,
+.look-book .service-add-cart,
+.look-book .product-item-wrapper:hover .service-product {
+  display: none;
+}
+.look-book .product-item__info {
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .ap-lookbookshop__product {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  [dir="ltr"] .ap-lookbookshop__product {
+    padding: 15px;
+  }
+  [dir="ltr"] .ap-lookbookshop__product-image {
+    margin-right: 0;
+  }
+  .block-product-list {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .block-lookbook-content,
+  .block-product-list {
+    width: 100%;
+  }
+  .ap-lookbookshop__nav {
+    z-index: 0;
+  }
+  .block-product-list {
+    z-index: 0;
+  }
+  .ap-lookbookshop__ap-button-nextprev {
+    justify-content: space-between;
+  }
+  .arrow-lookbook{
+    left: 50%;
+    gap: 0;
+  }
+  .arrow-lookbook {
+    bottom: unset;
+    width: 95%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+}

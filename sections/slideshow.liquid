@@ -1,0 +1,960 @@
+{{ 'slideshow.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --progress-bar-color: {{ section.settings.progress_bar_color | color_extract: 'red' }}, {{ section.settings.progress_bar_color | color_extract: 'green' }}, {{ section.settings.progress_bar_color | color_extract: 'blue' }};
+    --section-autoplay-duration: {{ section.settings.autoplay_duration }}s;
+    --section-animation-play-state: paused;
+    background-color: {{ section.settings.background_color }};
+  }
+  {% for block in section.blocks %}
+    #block-{{ block.id }} {
+      --color-des: {{ block.settings.color_des }};
+      --color-caption: {{ block.settings.color_caption }};
+      --heading-color: {{ block.settings.heading_color | color_extract: 'red' }}, {{ block.settings.heading_color | color_extract: 'green' }}, {{ block.settings.heading_color | color_extract: 'blue' }};
+      --color-body: {{ block.settings.text_color | color_extract: 'red' }}, {{ block.settings.text_color | color_extract: 'green' }}, {{ block.settings.text_color | color_extract: 'blue' }};
+      --primary-button-background: {{ block.settings.button_background | color_extract: 'red' }}, {{ block.settings.button_background | color_extract: 'green' }}, {{ block.settings.button_background | color_extract: 'blue' }};
+      --primary-button-text-color: {{ block.settings.button_text_color | color_extract: 'red' }}, {{ block.settings.button_text_color | color_extract: 'green' }}, {{ block.settings.button_text_color | color_extract: 'blue' }};
+      --primary-button-background2: {{ block.settings.button_background2 | color_extract: 'red' }}, {{ block.settings.button_background2 | color_extract: 'green' }}, {{ block.settings.button_background2 | color_extract: 'blue' }};
+      --primary-button-text-color2: {{ block.settings.button_text_color2 | color_extract: 'red' }}, {{ block.settings.button_text_color2 | color_extract: 'green' }}, {{ block.settings.button_text_color2 | color_extract: 'blue' }};
+      --primary-button-text-hover: {{ block.settings.button_text_color_hover | color_extract: 'red' }}, {{ block.settings.button_text_color_hover | color_extract: 'green' }}, {{ block.settings.button_text_color_hover | color_extract: 'blue' }};
+      --primary-button-bg-hover: {{ block.settings.button_bg_hover | color_extract: 'red' }}, {{ block.settings.button_bg_hover | color_extract: 'green' }}, {{ block.settings.button_bg_hover | color_extract: 'blue' }};
+      --button-overlay-opacity: {{ block.settings.button_opacity | divided_by: 10.0 }};
+
+      --section-blocks-alignment: center;
+      --section-blocks-overlay-color: {{ block.settings.blocks_overlay_color | color_extract: 'red' }}, {{ block.settings.blocks_overlay_color | color_extract: 'green' }}, {{ block.settings.blocks_overlay_color | color_extract: 'blue' }};
+      --section-blocks-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 10.0 }};
+    }
+
+    {% if block.settings.bg_heading_h2 != blank %}
+    #shopify-section-{{ section.id }} h2.heading {
+      background-image: url({{ block.settings.bg_heading_h2 | image_url: width: 2000 }});
+      background-repeat: no-repeat;
+      background-size: auto;
+      {% if block.settings.text_align == 'left' %}
+        background-position: left;
+      {% elsif block.settings.text_align == 'right' %}
+        background-position: right;
+      {% else %}
+        background-position: center center;
+      {% endif %}
+    }
+      {% endif %}
+
+  {% endfor %}
+  .slideshow__text-wrapper a.button.btn-base {
+    background-color: rgb(var(--primary-button-background) , var(--button-overlay-opacity));
+    color: rgb(var(--primary-button-text-color));
+    padding: 16px 40px!important;
+    border-radius: 30px;
+    border: 1px solid #222222;
+    margin: 0;
+    transition: all 300ms cubic-bezier(.5,2.5,.7,.7);
+  }
+
+   .slideshow__text-wrapper .button.btn-base {
+    background-color: rgb(var(--primary-button-background2));
+    color: rgb(var(--primary-button-text-color2));
+    padding: 16px 40px!important;
+    border-radius: 30px;
+    border: 1px solid #222222;
+    margin: 0;
+    transition: all 300ms cubic-bezier(.5,2.5,.7,.7);
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
+  
+  .slideshow__text-wrapper .button.btn-base:hover {
+    background-color: rgb(var(--primary-button-bg-hover));
+    color: rgb(var(--primary-button-text-hover));
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px 0px #333;
+  }
+
+  .slideshow__text-wrapper a.button.btn-base path {
+    fill: rgb(var(--primary-button-text-color));
+    transition: all .4s;
+  }
+
+  .slideshow__text-wrapper .button.btn-base path {
+    fill: rgb(var(--primary-button-text-color2));
+    transition: all .4s;
+  }
+  
+  .slideshow__text-wrapper a.button.btn-base:hover path {
+    fill: rgb(var(--primary-button-text-color));
+  }
+
+  .slideshow__text-wrapper .button.btn-base:hover path {
+    fill: rgb(var(--primary-button-text-color));
+  }
+
+  #shopify-section-{{ section.id }} h2.heading {
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-family: var(--g-font-other);
+    color: var(--color-caption);
+    margin-bottom: 6px;
+  }
+  #shopify-section-{{ section.id }} h3.heading.h1 {
+    font-size: 80px;
+    line-height: 1.1;
+    margin: 0 0 30px;
+    text-transform: none;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  #shopify-section-{{ section.id }} h4.heading.fs-h-u70 {
+    line-height: 0.86;
+  }
+  #shopify-section-{{ section.id }} .description {
+    color: var(--color-des);
+    line-height: 1.4;
+    margin: 0 0 19px;
+    font-size: 20px;
+  }
+  {% if section.settings.show_bg_content %}
+  #shopify-section-{{ section.id }} .content-box {
+    padding: 70px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    max-width: 490px;
+  }
+  {% endif %}
+
+  /* ARROW */
+  #shopify-section-{{ section.id }} .ap-listslideshow__arrow {
+    background-color: {{ section.settings.bg_btn_arrow }};
+    color: {{ section.settings.color_btn_arrow }};
+    border: none;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: unset;
+    z-index: 1;
+    transition: all .4s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #shopify-section-{{ section.id }} .slideshow:hover .ap-listslideshow__arrow {
+    opacity: 1;
+    visibility: visible;
+  }
+  #shopify-section-{{ section.id }} .ap-listslideshow__arrow i.fa {
+    font-size: 50px;
+  }
+  #shopify-section-{{ section.id }} .sl-btn-prev {
+    left: 100px;
+    right: unset;
+  }
+  #shopify-section-{{ section.id }} .sl-btn-next {
+    right: 100px;
+    left: unset;
+  }
+  #shopify-section-{{ section.id }} .slideshow:hover .sl-btn-prev {
+    left: 50px;
+  }
+  #shopify-section-{{ section.id }} .slideshow:hover .sl-btn-next {
+    right: 50px;
+  }
+  #shopify-section-{{ section.id }} .ap-listslideshow__ap-button-nextprev {
+    display: block;
+  }
+  /* END */
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} h3.heading.h1 {
+      font-size: 46px;
+      margin: 0 0 30px;
+    }
+    {% if section.settings.show_bg_content %}
+      #shopify-section-{{ section.id }} .content-box {
+      padding: 30px;
+      max-width: 400px;
+    }
+    {% endif %}
+    #shopify-section-{{ section.id }} .container-fluid {
+      padding: 0;
+    }
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} h4.heading.fs-h-u70 {
+      line-height: 1.4;
+    }
+  }
+  @media (max-width: 480px) {
+    #shopify-section-{{ section.id }} h3.heading.h1 ,
+    #shopify-section-{{ section.id }} h4.heading.h1.fs-h-u70 {
+      font-size: 46px;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'section-style' %}
+
+<section class="section section--flush {{ section.settings.class }}">
+  <div class="{{ section.settings.setwidthout }}">
+    <div class="slide-row">
+      <ap-slideshow reveal-on-scroll="" auto-play="" transition-type="sweep" class="slideshow {{ section.settings.slideshow_height }} ap-object-loaded" style="">
+        <div class="slideshow__slide-list">
+  
+          {%- for block in section.blocks -%}
+            {% if block.settings.image_link != blank %}{% comment %} Esto no estaba es para el href {% endcomment %}
+              <a href="{{ block.settings.image_link }}">
+              {% endif %}
+            {%- case block.type -%}
+              {%- when 'slide' -%}
+                <ap-slideshowitem ap-revealvisibility="" id="block-{{ block.id }}" class="slideshow__slide {% if block.settings.image_2 %}slideshow__slide--split{% endif %} slideshow__slide--sweep" style="visibility: visible;" {% if forloop.index > 1 %}hidden=""{% endif %}>
+                  <div class="slideshow__slide-inner">
+                    {% if block.settings.image_1 %}
+                      <div class="slideshow__image-wrapper slideshow__image-wrapper--first">
+                        <img src="{{ block.settings.image_1 | image_url: 3000 }}" 
+                          srcset="{{ block.settings.image_1 | image_url: width: 400 }} 400w, {{ block.settings.image_1 | image_url: width: 500 }} 500w, {{ block.settings.image_1 | image_url: width: 600 }} 600w, {{ block.settings.image_1 | image_url: width: 700 }} 700w, {{ block.settings.image_1 | image_url: width: 800 }} 800w, {{ block.settings.image_1 | image_url: width: 900 }} 900w, {{ block.settings.image_1 | image_url: width: 1000 }} 1000w, {{ block.settings.image_1 | image_url: width: 1200 }} 1200w, {{ block.settings.image_1 | image_url: width: 3000 }} 1400w" 
+                          loading="eager" draggable="false" class="slideshow__image" sizes="100vw" width="3000" height="4204">
+                      </div>
+                    {% endif %}   
+                    {% if block.settings.image_2 %}
+                      <div class="slideshow__image-wrapper slideshow__image-wrapper--secondary">
+                        <img src="{{ block.settings.image_2 | image_url: 3000 }}" 
+                          srcset="{{ block.settings.image_2 | image_url: width: 400 }} 400w, {{ block.settings.image_2 | image_url: width: 500 }} 500w, {{ block.settings.image_2 | image_url: width: 600 }} 600w, {{ block.settings.image_2 | image_url: width: 700 }} 700w, {{ block.settings.image_2 | image_url: width: 800 }} 800w, {{ block.settings.image_2 | image_url: width: 900 }} 900w, {{ block.settings.image_2 | image_url: width: 1000 }} 1000w, {{ block.settings.image_2 | image_url: width: 1200 }} 1200w, {{ block.settings.image_2 | image_url: width: 3000 }} 1400w" 
+                          loading="eager" draggable="false" class="slideshow__image" sizes="100vw" width="3000" height="4204">
+                      </div>
+                    {% endif %}
+                    {% if block.settings.image_mobile %}
+                      <div class="slideshow__image-wrapper hd-tablet-s">
+                        <img src="{{ block.settings.image_mobile | image_url: 3000 }}" 
+                          srcset="{{ block.settings.image_mobile | image_url: width: 400 }} 400w, {{ block.settings.image_mobile | image_url: width: 500 }} 500w, {{ block.settings.image_mobile | image_url: width: 600 }} 600w, {{ block.settings.image_mobile | image_url: width: 700 }} 700w, {{ block.settings.image_mobile | image_url: width: 800 }} 800w, {{ block.settings.image_mobile | image_url: width: 900 }} 900w, {{ block.settings.image_mobile | image_url: width: 1000 }} 1000w, {{ block.settings.image_mobile | image_url: width: 1200 }} 1200w, {{ block.settings.image_mobile | image_url: width: 3000 }} 1400w" 
+                          loading="eager" draggable="false" class="slideshow__image" sizes="100vw" width="3000" height="4204">
+                      </div>
+                    {% endif %}
+  
+                    <div class="">
+                      <div class="slideshow__text-wrapper slideshow__text-wrapper--middle vertical-breather content-box--{{ block.settings.box_align }}">
+                        <div class="content-box content-box--{{ block.settings.box_size }} content-box--text-{{ block.settings.text_align }} text-container">
+                          {% if block.settings.heading_size %}
+                            <h2 class="heading {{ block.settings.heading_size }} fs-d2 uppercase">
+                              <ap-splitlines reveal="" style="opacity: 1;">
+                                {% assign heading = block.settings.heading | split: "|" %}
+                                {% for item in heading %}
+                                  <span reveal="" style="display: block; opacity: 0; visibility: hidden;">{{ item | strip }}</span>
+                                {% endfor %}
+                              </ap-splitlines>
+                            </h2>
+                          {% endif %}
+                          {% if block.settings.subheading != blank %}
+                            <h3 class="heading {{ block.settings.subheading_size }}">
+                              <ap-splitlines reveal="" style="opacity: 1;">
+                                {% assign subheading = block.settings.subheading | split: "|" %}
+                                {% for item in subheading %}
+                                  <span reveal="" style="display: block; opacity: 0; visibility: hidden;">{{ item | strip }}</span>
+                                {% endfor %}
+                              </ap-splitlines>
+                            </h3>
+                          {% endif %}
+                          {% if block.settings.subheading2 != blank %}
+                            <h4 class="heading {{ block.settings.subheading_size_2 }} fs-h-u70 mb-0 mt-d15">
+                              <ap-splitlines reveal="" style="opacity: 1;">
+                                {% assign subheading2 = block.settings.subheading2 | split: "|" %}
+                                {% for item in subheading2 %}
+                                  <span reveal="" style="display: block; opacity: 0; visibility: hidden;">{{ item | strip }}</span>
+                                {% endfor %}
+                              </ap-splitlines>
+                            </h4>
+                          {%endif %}
+                          {% if block.settings.description != blank  %}
+                          <div class="description fs-u4">
+                            <ap-splitlines reveal="" style="opacity: 1;">
+                              {% assign description = block.settings.description | split: "|" %}
+                              {% for item in description %}
+                                <span reveal="" style="display: block; opacity: 0; visibility: hidden;">{{ item | strip }}</span>
+                              {% endfor %}
+                            </ap-splitlines>
+                          </div>
+                          {% endif %}
+                          {% if block.settings.icon != blank and block.settings.description_service != blank %}
+                            <div class="adv-text-service">
+                              <div class="adv-text-service_list">
+                                <div class="adv-text-service-item">
+                                  <div class="adv-text-service-icon">{{ block.settings.icon }}</div>
+                                  <div class="adv-service-content">
+                                    <div style="color: {{ block.settings.color_description_service }}"
+                                      class="adv-text-service-description">{{ block.settings.description_service }}</div>
+                                  </div>
+                                </div>
+                                <div class="adv-text-service-item">
+                                  <div class="adv-text-service-icon">{{ block.settings.icon2 }}</div>
+                                  <div class="adv-service-content">
+                                    <div style="color: {{ block.settings.color_description_service }}"
+                                      class="adv-text-service-description">{{ block.settings.description_service2 }}</div>
+                                  </div>
+                                </div>
+                                <div class="adv-text-service-item">
+                                  <div class="adv-text-service-icon">{{ block.settings.icon3 }}</div>
+                                  <div class="adv-service-content">
+                                    <div style="color: {{ block.settings.color_description_service }}"
+                                      class="adv-text-service-description">{{ block.settings.description_service3 }}</div>
+                                  </div>
+                                </div>
+                                <div class="adv-text-service-item">
+                                  <div class="adv-text-service-icon">{{ block.settings.icon4 }}</div>
+                                  <div class="adv-service-content">
+                                    <div style="color: {{ block.settings.color_description_service }}"
+                                      class="adv-text-service-description">{{ block.settings.description_service4 }}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            {% endif %}
+                          <div class="button-group" reveal="">
+                            {% if block.settings.button1_label == blank or block.settings.button2_label == blank %}
+                              <div class="button-wrapper">
+                            {% else %}
+                              <div class="button-group__wrapper">
+                            {% endif %}
+                              {% if block.settings.button1_label != blank %}
+                                <a href="{{ block.settings.link1 }}" class="button btn-base">
+                                  {{ block.settings.button1_label }}
+                                  {% render 'icon-arrow-2' %}
+                                </a>
+                              {% endif %}
+                              {% if block.settings.button2_label != blank %}
+
+                                <button type="button" id="video-button" class="button btn-base" style="z-index:1" title="Play video">
+                                  {{ block.settings.button2_label }}
+                                  {% if block.settings.custom_icon != blank %}
+                                      {{ block.settings.custom_icon }}
+                                  {% endif %}
+                                </button>
+                                <div id="video-popup" class="popup-overlay">
+                                  <div class="popup-content">
+                                    <iframe width="560" height="315" src="{{ section.settings.video_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                  </div>
+                                </div>
+                              
+                              {% endif %}
+                              
+                            </div>
+                          </div>
+
+                          {% if section.settings.show_bg_content %}
+                          <div reveal="" class="slideshow-item-child slideshow-item-1"></div>
+                          <div reveal="" class="slideshow-item-child slideshow-item-2"></div>
+                          <div reveal="" class="slideshow-item-child slideshow-item-3"></div>
+                          {% endif %}
+
+                        </div>
+                      </div>
+                      </div>
+                      
+                  </div>
+                </ap-slideshowitem>
+  
+            {%- endcase -%}
+              {% if block.settings.image_link != blank %}
+                </a> {% comment %} Esto tampoco es para el href {% endcomment %}
+                  {% endif %}
+          {%- endfor -%}
+        </div>
+        {% if section.settings.show_dot %}
+        <ap-pagedots animation-timer="" class="slideshow__nav container">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'slide' -%}
+                <button class="slideshow__progress-bar" ap-controlsaria="block-{{ block.id }}" ap-currentaria="{% if forloop.index == 1 %}true{% else %}false{% endif %}">
+                  <span class="visually-hidden">{{ forloop.index }}</span>
+                </button>
+            {%- endcase -%}
+          {%- endfor -%}
+        </ap-pagedots>
+        {% endif %}
+        {% if section.settings.show_btn %}
+        <ap-button-nextprev class="ap-listslideshow__ap-button-nextprev ap-button-nextprev ap-button-nextprev--row">
+            <button class="ap-listslideshow__arrow ap-nextap-buttonprev ap-nextap-buttonprev--prev sl-btn-prev">
+                <span class="visually-hidden">Previous</span>
+                <i class="fa fa-solid fa-chevron-left"></i> <!-- Se cambio solo el light por el solid y fa-chevron-left por <i class="fa-solid fa-square-right"></i>-->
+            </button>
+  
+            <button class="ap-listslideshow__arrow ap-nextap-buttonprev ap-nextap-buttonprev--next sl-btn-next">
+                <span class="visually-hidden">Next</span>
+                <i class="fa fa-solid fa-chevron-right"></i>
+            </button>
+        </ap-button-nextprev>
+        {% endif %}
+      </ap-slideshow>
+    </div>
+  </div>
+</section>
+<script>
+  document.getElementById('video-button').addEventListener('click', function() {
+    document.getElementById('video-popup').style.display = 'flex';
+  });
+
+  document.getElementById('video-popup').addEventListener('click', function(event) {
+    if (event.target === this) {
+      this.style.display = 'none';
+    }
+  });
+</script>
+{% schema %}
+{
+  "name": "t:sections.slideshow.name",
+  "tag": "section",
+  "class": "shopify-section--slideshow",
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "progress_bar_color",
+      "default": "#FFFFFF",
+      "label": "t:sections.all.progress_bar_color.label"
+    },
+    {
+      "type": "color",
+      "id": "bg_btn_arrow",
+      "label": "Background Arrow"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_arrow",
+      "default": "#FFFFFF",
+      "label": "Color Arrow"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.all.autoplay_duration.label",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#282828",
+      "label": "t:sections.all.background_color.label"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_height",
+      "options": [
+        {
+          "value": "",
+          "label": "t:sections.all.slideshow_height.options__1.label"
+        },
+        {
+          "value": "slideshow--small",
+          "label": "t:sections.all.slideshow_height.options__2.label"
+        },
+        {
+          "value": "slideshow--medium",
+          "label": "t:sections.all.slideshow_height.options__3.label"
+        },
+        {
+          "value": "slideshow--large",
+          "label": "t:sections.all.slideshow_height.options__4.label"
+        },
+        {
+          "value": "slideshow--fit",
+          "label": "t:sections.all.slideshow_height.options__5.label"
+        }
+      ],
+      "default": "",
+      "label": "t:sections.all.slideshow_height.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dot",
+      "default": true,
+      "label": "t:sections.all.show_dot.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_btn",
+      "default": true,
+      "label": "Show Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bg_content",
+      "default": true,
+      "label": "Show Background text"
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "class",
+      "label": "Class custom" /*Esto no estaba, es para el href*/
+    },
+    {
+      "type": "url",
+      "label": "Video URL",
+      "id": "video_url",
+      "info": "Enter the URL of the video you want to display in the popup."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.slideshow.blocks.slide.name",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image left"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Image link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        },
+        {
+          "type": "header",
+          "content": "Image right"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        },
+        {
+          "type": "header",
+          "content": "Image for mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image mobile"
+        },
+        {
+          "type": "header",
+          "content": "Caption"
+        },
+        {
+          "type": "liquid",
+          "id": "heading",
+          "default": "Image slide",
+          "label": "Caption"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_heading_h2",
+          "label": "Background svg caption"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "h3",
+          "label": "Caption size"
+        },
+        {
+          "type": "header",
+          "content": "Heading"
+        },
+        {
+          "type": "liquid",
+          "id": "subheading",
+          "default": "Tell your brand's story through images",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "subheading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        },
+        {
+          "type": "liquid",
+          "id": "subheading2",
+          "default": "Tell your brand's story through images",
+          "label": "Heading 2"
+        },
+        {
+          "type": "select",
+          "id": "subheading_size_2",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading size 2"
+        },
+        {
+          "type": "liquid",
+          "id": "description",
+          "default": "Description",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "color_des",
+          "label": "Color Description"
+        },
+        {
+          "type": "header",
+          "content": "Service settings"
+        },
+        {
+          "type": "color",
+          "id": "color_description_service",
+          "label": "Color description service",
+          "default": "#86938D"
+        },
+        {
+          "type": "liquid",
+          "id": "icon",
+          "label": "Icon service"
+        },
+        {
+          "type": "text",
+          "id": "description_service",
+          "label": "Description service"
+        },
+        {
+          "type": "liquid",
+          "id": "icon2",
+          "label": "Icon service 2"
+        },
+        {
+          "type": "text",
+          "id": "description_service2",
+          "label": "Description service 2"
+        },
+        {
+          "type": "liquid",
+          "id": "icon3",
+          "label": "Icon service 3"
+        },
+        {
+          "type": "text",
+          "id": "description_service3",
+          "label": "Description service 3"
+        },
+        {
+          "type": "liquid",
+          "id": "icon4",
+          "label": "Icon service 4"
+        },
+        {
+          "type": "text",
+          "id": "description_service4",
+          "label": "Description service 4"
+        },
+        {
+          "type": "header",
+          "content": "Button 1"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "default": "Button label",
+          "label": "t:sections.slideshow.blocks.slide.settings.button_label.label",
+          "info": "t:sections.slideshow.blocks.slide.settings.button_label.info"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+        },
+        {
+          "type": "header",
+          "content": "Button 2"
+        },
+        {
+          "type": "text",
+          "id": "button2_label",
+          "default": "Button label",
+          "label": "t:sections.slideshow.blocks.slide.settings.button_label.label",
+          "info": "t:sections.slideshow.blocks.slide.settings.button_label.info"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_icon",
+          "label": "Icon button"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "select",
+          "id": "box_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "small"
+            },
+            {
+              "value": "medium",
+              "label": "medium"
+            },
+            {
+              "value": "large",
+              "label": "large"
+            }
+          ],
+          "default": "medium",
+          "label": "Content box size"
+        },
+        {
+          "type": "select",
+          "id": "box_align",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_3.label"
+            }
+          ],
+          "default": "center",
+          "label": "t:sections.slideshow.blocks.slide.settings.box_align.label",
+          "info": "t:sections.slideshow.blocks.slide.settings.box_align.info"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.option_3.label"
+            }
+          ],
+          "default": "left",
+          "label": "Text align"
+        },
+        {
+          "type": "color",
+          "id": "color_caption",
+          "default": "#FFFFFF",
+          "label": "Caption color"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "default": "#FFFFFF",
+          "label": "Heading color"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "default": "#FFFFFF",
+          "label": "Text color"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "default": "#F3FF34",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "default": "#000000",
+          "label": "Button text color"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color_hover",
+          "default": "#fff",
+          "label": "Button text hover"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_hover",
+          "default": "#CA9236",
+          "label": "Button background hover"
+        },
+        {
+          "type": "color",
+          "id": "button_background2",
+          "default": "#F3FF34",
+          "label": "Button background 2"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color2",
+          "default": "#000000",
+          "label": "Button text color 2"
+        },
+        {
+          "type": "range",
+          "id": "button_opacity",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "default": 10,
+          "label": "Button Overlay opacity"
+        },
+        {
+          "type": "color",
+          "id": "blocks_overlay_color",
+          "default": "#000000",
+          "label": "Blocks overlay color"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "default": 1,
+          "label": "Overlay opacity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.slideshow.presets.name",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

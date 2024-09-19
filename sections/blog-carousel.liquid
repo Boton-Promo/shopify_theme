@@ -1,0 +1,494 @@
+<!-- blog-carousel.liquid -->
+{{ 'blog-carousel.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --ap-nextap-buttonprev-background: {{ section.settings.prev_next_button_background | color_extract: 'red' }}, 
+    {{ section.settings.prev_next_button_background | color_extract: 'green' }}, 
+    {{ section.settings.prev_next_button_background | color_extract: 'blue' }};
+    --ap-nextap-buttonprev-color: {{ section.settings.prev_next_button_color | color_extract: 'red' }}, 
+    {{ section.settings.prev_next_button_color | color_extract: 'green' }}, 
+    {{ section.settings.prev_next_button_color | color_extract: 'blue' }};
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, 
+    {{ section.settings.heading_color | color_extract: 'green' }}, 
+    {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color | color_extract: 'red' }}, 
+    {{ section.settings.text_color | color_extract: 'green' }}, 
+    {{ section.settings.text_color | color_extract: 'blue' }};
+
+    .article-item__title {
+      color: {{ section.settings.color_title }};
+    }
+
+    .blog-date {
+      color: {{ section.settings.color_date }};
+    }
+    .blog-author .author {
+      color: {{ section.settings.color_info }};
+    }
+    .article-item-description {
+      color: {{ section.settings.color_description }};
+    }
+    .btn-blog {
+      color: {{ section.settings.color_btn }};
+    }
+    .btn-blog:hover,
+    .article-item__content.text-container .h5 a:hover {
+      color: {{ section.settings.color_btn_hover }};
+    }
+  }
+  @media screen and (max-width: 575px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_mobile }};
+    }
+    .ap-blogcarousel .ap-productlist__inner--scroller {
+      margin: 0 15px;
+      padding: 0;
+      grid-auto-columns: calc((100% - var(--ap-productlist-column-gap) *({{ section.settings.products_per_row_mobile }} - 1)) / {{ section.settings.products_per_row_mobile }});
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_ipad }};
+    }
+    .ap-blogcarousel .ap-productlist__inner--scroller {
+      margin: 0;
+      padding: 0;
+      grid-auto-columns: calc((100% - var(--ap-productlist-column-gap) *({{ section.settings.products_per_row_ipad }} - 1)) / {{ section.settings.products_per_row_ipad }});
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_tablet }}
+    }
+    .ap-blogcarousel .ap-productlist__inner--scroller {
+      margin: 0;
+      padding: 0;
+      grid-auto-columns: calc((100% - var(--ap-productlist-column-gap) *({{ section.settings.products_per_row_tablet }} - 1)) / {{ section.settings.products_per_row_tablet }});
+    }
+  }
+  @media (min-width: 1200px) and (max-width: 1499px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_desktop }};
+    }
+    .ap-blogcarousel .ap-productlist__inner--scroller {
+      margin: 0;
+      padding: 0;
+      grid-auto-columns: calc((100% - var(--ap-productlist-column-gap) *({{ section.settings.products_per_row_desktop }} - 1)) / {{ section.settings.products_per_row_desktop }});
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_desktop }};
+    }
+    .ap-blogcarousel .ap-productlist__inner--scroller {
+      margin: 0;
+      padding: 0;
+      grid-auto-columns: calc((100% - var(--ap-productlist-column-gap) *({{ section.settings.products_per_row_desktop }} - {% if section.settings.blog_row %}5{% else %}1{% endif %})) / {{ section.settings.products_per_row_desktop }});
+    }
+  }
+</style>
+
+{% render 'section-style' %}
+
+<section class="section ap-blogcarousel-section" id="section{{ section.id }}">
+  <div class="{{ section.settings.setwidthout }}">
+
+    <div class="{% if section.settings.blog_row %}blog-row{% endif %}">
+
+      {% if section.settings.tab_heading != blank %}
+        <header class="section__header text-{{ section.settings.text_align }}">
+
+          {% if section.settings.sub_heading != blank %}
+            <h4 class="heading sub-heading mb-10">{% render 'icon-heading' %} {{ section.settings.sub_heading }}</h4>
+          {% endif %}
+          <h3 class="heading h{{ section.settings.tab_heading_size }}">{{ section.settings.tab_heading
+}}</h3>
+          {% if section.settings.tab_description != blank %}
+            <div class="heading-description">
+              {{ section.settings.tab_description }}
+            </div>
+          {% endif %}
+          {% if section.settings.btn_text != blank %}
+            <div class="btn-more">
+              <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+                {{ section.settings.btn_text }}
+                {% render 'icon-arrow-2' %}
+              </a>
+            </div>
+          {% endif %}
+        </header>
+      {% endif %}
+
+      <div class="blog-carousel-flex">
+
+        <div class="blog-carousel">
+          {%- if section.settings.blog != blank -%}
+            <ap-blogcarousel stagger-apparition="" class="ap-blogcarousel ap-blogcarousel--center ap-object-loaded">
+              <div class="scroller">
+                <div class="ap-productlist__inner ap-productlist__inner--scroller hide-scrollbar">
+                  {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
+
+                    {% liquid
+                      assign limit = section.settings.limit
+                      for article in section.settings.blog.articles limit: limit
+                        render 'blog-grid', article: article
+                      endfor
+                    %}
+
+                    {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
+                      <div class="blog__view-all center small-hide medium-hide">
+                        <a
+                          href="{{ section.settings.blog.url }}"
+                          id="ViewAll-{{ section.id }}"
+                          class="blog__button button"
+                          aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}">
+                          {{ 'sections.featured_blog.view_all' | t }}
+                        </a>
+                      </div>
+                    {%- endif -%}
+                  {%- else -%}
+                    <div class="wp-blog-placeholder">
+                      <div class="blog-placeholder">
+                        <div class="placeholder media media--landscape">
+                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                        <div class="blog-placeholder__content">
+                          <h2>
+                            {{ 'sections.featured_blog.onboarding_title' | t }}
+                          </h2>
+                          <p class="rte-width">
+                            {{ 'sections.featured_blog.onboarding_content' | t }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="blog-placeholder">
+                        <div class="placeholder media media--landscape">
+                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                        <div class="blog-placeholder__content">
+                          <h2>
+                            {{ 'sections.featured_blog.onboarding_title' | t }}
+                          </h2>
+                          <p class="rte-width">
+                            {{ 'sections.featured_blog.onboarding_content' | t }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="blog-placeholder">
+                        <div class="placeholder media media--landscape">
+                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                        <div class="blog-placeholder__content">
+                          <h2>
+                            {{ 'sections.featured_blog.onboarding_title' | t }}
+                          </h2>
+                          <p class="rte-width">
+                            {{ 'sections.featured_blog.onboarding_content' | t }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+
+              <ap-button-nextprev class="ap-blogcarousel__ap-nextprev hd-pocket" style="--smallest-image-aspect-ratio: 1.0">
+                <button class="ap-productlist__arrow ap-nextap-buttonprev ap-nextap-buttonprev--prev" disabled="">
+                  <span class="visually-hidden">Previous</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="9"
+                    height="15"
+                    viewBox="0 0 9 15"
+                    fill="none">
+                    <path d="M7.70498 0L9 1.26056L2.59 7.5L9 13.7395L7.70498 15L0 7.5L7.70498 0Z" fill="#194A33" />
+                  </svg>
+                </button>
+                <button class="ap-productlist__arrow ap-nextap-buttonprev ap-nextap-buttonprev--next">
+                  <span class="visually-hidden">Next</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="9"
+                    height="15"
+                    viewBox="0 0 9 15"
+                    fill="none">
+                    <path d="M1.29502 0L0 1.26056L6.41 7.5L0 13.7395L1.29502 15L9 7.5L1.29502 0Z" fill="#194A33" />
+                  </svg>
+                </button>
+              </ap-button-nextprev>
+            </ap-blogcarousel>
+          {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Blog carousel",
+    "tag": "section",
+    "class": "blog-section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "setwidthout",
+        "label": "Width Slideshow",
+        "default": "full",
+        "options": [
+          {
+            "value": "container",
+            "label": "Box"
+          }, {
+            "value": "container-fluid",
+            "label": "Container Fluid"
+          }, {
+            "value": "full",
+            "label": "Full"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "margin_desktop",
+        "label": "t:sections.all.margin_desktop.label",
+        "info": "t:sections.all.margin_desktop.info"
+      },
+      {
+        "type": "text",
+        "id": "margin_mobile",
+        "label": "t:sections.all.margin_mobile.label",
+        "info": "t:sections.all.margin_mobile.info"
+      },
+      {
+        "type": "text",
+        "id": "padding_desktop",
+        "label": "t:sections.all.padding_desktop.label",
+        "info": "t:sections.all.padding_desktop.info"
+      }, {
+        "type": "text",
+        "id": "padding_mobile",
+        "label": "t:sections.all.padding_mobile.label",
+        "info": "t:sections.all.padding_mobile.info"
+      }, {
+        "type": "color",
+        "id": "section_background",
+        "default": "#ffffff",
+        "label": "t:sections.all.section_background.label"
+      }, {
+        "type": "color",
+        "id": "prev_next_button_background",
+        "default": "#FFFFFF",
+        "label": "t:sections.all.prev_next_button_background.label"
+      }, {
+        "type": "color",
+        "id": "prev_next_button_color",
+        "default": "#282828",
+        "label": "t:sections.all.prev_next_button_color.label"
+      }, {
+        "type": "color",
+        "id": "heading_color",
+        "default": "#282828",
+        "label": "t:sections.all.heading_color.label"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "t:sections.all.text_color.label"
+      }, {
+        "type": "color",
+        "id": "color_title",
+        "default": "#194A33",
+        "label": "Color title"
+      }, {
+        "type": "color",
+        "id": "color_info",
+        "default": "#282828",
+        "label": "t:sections.all.color_info.label"
+      }, {
+        "type": "color",
+        "id": "color_date",
+        "default": "#282828",
+        "label": "Color Date"
+      }, {
+        "type": "color",
+        "id": "color_description",
+        "default": "#282828",
+        "label": "t:sections.all.color_description.label"
+      }, {
+        "type": "color",
+        "id": "color_btn",
+        "default": "#000",
+        "label": "t:sections.all.color_btn.label"
+      }, {
+        "type": "color",
+        "id": "color_btn_hover",
+        "default": "#282828",
+        "label": "t:sections.all.color_btn_hover.label"
+      }, {
+        "type": "text",
+        "id": "sub_heading",
+        "default": "Sub heading",
+        "label": "Sub Heading"
+      }, {
+        "type": "text",
+        "id": "tab_heading",
+        "default": "Welcome to our store",
+        "label": "t:sections.advanced-content.settings.tab_heading.label"
+      }, {
+        "type": "range",
+        "id": "tab_heading_size",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 2,
+        "label": "t:sections.advanced-content.settings.tab_heading_size.label"
+      }, {
+        "type": "text",
+        "id": "tab_description",
+        "label": "t:sections.advanced-content.settings.tab_description.label"
+      }, {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      }, {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Link"
+      }, {
+        "type": "select",
+        "id": "style_btn",
+        "label": "Style Button",
+        "default": "btn-base",
+        "options": [
+          {
+            "value": "btn-base",
+            "label": "Button Base"
+          }, {
+            "value": "btn-outline",
+            "label": "Button Out Line"
+          }, {
+            "value": "btn-line",
+            "label": "Button Line"
+          }, {
+            "value": "btn-line-black",
+            "label": "Button Line Black"
+          }
+        ]
+      }, {
+        "type": "select",
+        "id": "text_align",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Text align"
+      }, {
+        "type": "blog",
+        "id": "blog",
+        "label": "t:sections.featured-blog.settings.blog.label"
+      }, {
+        "type": "checkbox",
+        "id": "blog_row",
+        "label": "Blog Row"
+      }, {
+        "type": "range",
+        "id": "limit",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "default": 3,
+        "label": "Limit"
+      }, {
+        "type": "range",
+        "id": "products_per_row_mobile",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 1,
+        "label": "Products per row Mobile"
+      }, {
+        "type": "range",
+        "id": "products_per_row_ipad",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 2,
+        "label": "Products per row Ipad"
+      }, {
+        "type": "range",
+        "id": "products_per_row_tablet",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.all.products_per_row_tablet.label"
+      }, {
+        "type": "range",
+        "id": "products_per_row_desktop",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.all.products_per_row_desktop.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_date",
+        "default": true,
+        "label": "t:sections.all.show_date.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_author",
+        "default": true,
+        "label": "t:sections.all.show_author.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_description",
+        "default": true,
+        "label": "t:sections.all.show_description.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_tag",
+        "default": false,
+        "label": "t:sections.all.show_tag.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_tag_label",
+        "default": true,
+        "label": "Show Tag Label"
+      }, {
+        "type": "text",
+        "id": "btn_blog",
+        "label": "t:sections.all.btn_blog.label",
+        "default": "Read More"
+      }, {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "default": true,
+        "label": "t:sections.all.show_view_all.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog Carousel",
+        "settings": {
+          "blog": "News"
+        }
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,410 @@
+{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+    
+    --primary-button-background: 244, 165, 28;
+    --primary-button-text-color: 255, 255, 255;
+
+    --section-background: 245, 245, 245;
+    --border-color: {{ section.settings.border_color }};
+
+    border-top: 1px solid var(--border-color);
+  }
+  {% if section.settings.background_content != blank %}
+  .rich-text .content-box:before {
+    content: "";
+    background-image: url({{ section.settings.background_content | image_url: width: 2000 }});
+    opacity: 0.2;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  {% endif %}
+  .rich-text .content-box {
+    background-color: {{ section.settings.bg_color_content }};
+  }
+  .content-box--text-left {
+    text-align: left;
+  }
+  .content-box--text-center {
+    text-align: center;
+  }
+  .content-box--text-right {
+    text-align: right;
+  }
+  h3.heading.h2:before {
+    display: none;
+  }
+  h3.heading.h2 {
+    padding-left: 0;
+  }
+  .content-box--medium {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} h2.heading.h1 {
+    margin: 0;
+  }  
+</style>
+
+<section class="section section--flush rich-text">
+  <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+    <div class="content-box text-container
+      {% if section.settings.content_alignment == 'left' %}{{ 'content-box--text-left' | prepend: ' ' }}
+      {% elsif section.settings.content_alignment == 'center' %}{{ 'content-box--text-center' | prepend: ' ' }}
+      {% elsif section.settings.content_alignment == 'right' %}{{ 'content-box--text-right' | prepend: ' ' }}
+      {% endif %}
+    ">
+      <div class="rich-text-list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'heading' -%}
+              <h2 class="heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
+              
+            {%- when 'caption' -%}
+              <h3 class="heading sub-heading h6">
+                {% render 'icon-heading' %}
+                {{ block.settings.caption | escape }}
+              </h3>
+
+            {%- when 'text' -%}
+              {{ block.settings.text }}
+
+            {%- when 'button' -%}
+              <div class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+                {%- if block.settings.button_label != blank -%}
+                  <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} btn-base-2{% endif %}">
+                    {{ block.settings.button_label | escape }}
+                    {% render 'icon-arrow-2' %}
+                  </a>
+                {%- endif -%}
+                {%- if block.settings.button_label_2 != blank -%}
+                  <a {% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
+                {%- endif -%}
+              </div>
+
+            {%- when 'image' -%}
+              <div class="rich-text-image">
+                <div class="rich-text-image-container">
+                  {% if block.settings.rt_image != blank %}
+                    <img loading="lazy"
+                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px" alt=""
+                      src="{{ block.settings.rt_image | image_url: width: block.settings.rt_image.width }}"
+                      srcset="{%- if block.settings.rt_image.width >= 3000 -%}{{ block.settings.rt_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                      {{ block.settings.rt_image | image_url }} {{ block.settings.rt_image.width }}w"
+                      src="{{ block.settings.rt_image | image_url: width: 1500 }}"
+                      height="{{ block.settings.rt_image.height }}" width="{{ block.settings.rt_image.width }}">
+                  {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+              </div>
+
+
+            {%- when 'flash-sale' -%}
+              <div style="color: {{ block.settings.color_text }}" class="flash-sale">
+                <div class="flash-sale_title">{{ block.settings.title }}</div>
+                <div class="flash-sale_des">{{ block.settings.description }}</div>
+                <div class="flash-sale_btn">
+                  {%- if block.settings.btn_text != blank -%}
+                    <a role="link" aria-disabled="true" href="{{ block.settings.btn_link }}">{{ block.settings.btn_text | escape }}</a>
+                  {%- endif -%}
+                </div>
+              </div>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.rich-text.name",
+  "tag": "section",
+  "class": "section section-rich-text",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "t:sections.all.fullwidth.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.rich-text.settings.content_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "t:sections.all.padding_desktop.label",
+      "info": "t:sections.all.padding_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "t:sections.all.padding_mobile.label",
+      "info": "t:sections.all.padding_mobile.info"
+    },
+    {
+      "type": "header",
+      "content": "Settings color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_content",
+      "label": "Background image content"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_content",
+      "label": "Background color content",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.text_color.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading size"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "t:sections.rich-text.blocks.caption.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Add a tagline",
+          "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "rt_image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.buttons.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_2.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_2.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_2.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_2",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+        }
+      ]
+    },
+    {
+      "type": "flash-sale",
+      "name": "Flash Sale",
+      "settings": [
+        {
+          "type": "color",
+          "id": "color_text",
+          "label": "Color text"
+        },
+        {
+          "type": "liquid",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "liquid",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.rich-text.presets.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

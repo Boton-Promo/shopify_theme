@@ -1,0 +1,566 @@
+{%- if template contains 'page' -%}
+
+{% render 'section-style' %}
+
+<style>
+  .image-banner .container-fluid {
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} {
+    --section-block-overlay: {{ section.settings.overlay | color_extract: 'red' }}, {{ section.settings.overlay | color_extract: 'green' }}, {{ section.settings.overlay | color_extract: 'blue' }};
+    --section-block-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 10.0 }};
+
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+
+  }
+  #shopify-section-{{ section.id }} .banner-image:before {
+    background: rgba(var(--section-block-overlay, 0, 0, 0),var(--section-block-overlay-opacity, .2));
+  }
+
+  #shopify-section-{{ section.id }} .banner-content {
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .btn-base {
+    padding: 0!important;
+    letter-spacing: 3px;
+    text-decoration: underline;
+  }
+  #shopify-section-{{ section.id }} .btn-base svg {
+    display: none;
+  }
+  .banner-image iframe {
+    transform: translateY(-25%);
+  }
+  .image-banner .banner-image {
+    overflow: hidden;
+    position: relative;
+  }
+.image-banner .banner-image:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.image-banner .banner-text {
+    position: absolute;
+    bottom: unset;
+    top: 50%;
+    left: 0;
+    right: unset;
+    transform: translateY(-50%);
+    z-index: 9;
+    text-align: left;
+    padding: 0 0 0 90px;
+}
+
+.image-banner a.button.btn-base {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-banner-title {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+p.image-banner-description {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+h2.image-banner-title_center {
+  margin-top: 10px!important;
+}
+
+
+@media (max-width: 1199px) {
+    .image-banner .banner-text {
+        padding: 0 15px;
+    }
+    .image-banner img.banner-list-image {
+      min-height: 450px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+}
+
+@media (max-width: 767px) {
+    .image-banner .banner-text {
+        flex-direction: column;
+    }
+}
+</style>
+
+<div class="image-banner">
+  <div class="{{ section.settings.setwidthout }}">
+    {% if section.settings.tab_heading != blank %}
+    <header class="section__header ">
+      <div class="text-container">
+        <h3 class="heading h{{ section.settings.tab_heading_size }}">{{ section.settings.tab_heading }}
+        </h3>
+        {% if section.settings.tab_description != blank %}
+        <div class="heading-description">
+          {{ section.settings.tab_description }}
+        </div>
+        {% endif %}
+      </div>
+    </header>
+    {% endif %}
+    <banner-content reveal-on-scroll="" class="wrapper-banner-content">
+      <div class="banner-content has-overlay">
+        <div class="banner-image">
+          {% if section.settings.show_video_img %}
+            <iframe src="{{ section.settings.video_url }}" width="426" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Bigelow_homepage_video_loop.mp4" data-ready="true" class="elementor-background-video-embed" style="width: 1903px; height: 1072.11px;"></iframe>
+          {% else %}
+            {% if section.settings.featured_image != blank %}
+                <img class="banner-list-image" reveal="" loading="lazy" 
+                sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                alt="" 
+                src="{{ section.settings.featured_image | image_url: width: section.settings.featured_image.width }}" 
+                srcset="{%- if section.settings.featured_image.width >= 3000 -%}{{ section.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                    {{ section.settings.featured_image | image_url }} {{ section.settings.featured_image.width }}w"
+                src="{{ section.settings.featured_image | image_url: width: 1500 }}"
+                height="{{ section.settings.featured_image.height }}"
+                width="{{ section.settings.featured_image.width }}">
+            {% else %}
+                <div class="banner-list-image">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+            {% endif %}
+          {% endif %}
+        </div>
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {%- when 'text' -%}
+            <div id="text-{{ block.id }}" class="banner-text">
+                
+                <div class="banner-text-left">
+                  {% if block.settings.heading_title != blank %}
+                  <h3 style="color: {{ block.settings.color_title }};" class="image-banner-title" reveal="">
+                    {{- block.settings.heading_title -}}
+                  </h3>
+                  {% endif %}
+                </div>
+
+                <div class="banner-text-right">
+                  {% if block.settings.heading != blank %}
+                  <h2 style="color: {{ block.settings.color_title_center }};" class="heading {{ block.settings.heading_size }} mb-20 image-banner-title_center" reveal="">
+                    {{- block.settings.heading -}}
+                  </h2>
+                  {% endif %}
+                  
+                  {% if block.settings.description != blank %}
+                  <p style="color: {{ block.settings.color_description }};" class="image-banner-description">{{- block.settings.description -}}</p>
+                  {% endif %}
+  
+                  <style>
+                    #text-{{ block.id }} a.button.btn-base, 
+                    #text-{{ block.id }} .btn-base {
+                      color: {{ block.settings.color_btn }};
+                      background-color: {{ block.settings.bg_btn }};
+                    }
+                    #text-{{ block.id }} a.button.btn-base path , 
+                    #text-{{ block.id }} .btn-base path {
+                      fill: {{ block.settings.color_btn }};
+                    }
+                    #text-{{ block.id }} a.button.btn-base:hover, 
+                    #text-{{ block.id }} .btn-base:hover {
+                      color: {{ block.settings.color_btn_hover }};
+                      background-color: {{ block.settings.bg_btn_hover }};
+                    }
+                    #text-{{ block.id }} a.button.btn-base:hover path , 
+                    #text-{{ block.id }} .btn-base:hover path {
+                      fill: {{ block.settings.color_btn_hover }};
+                    }
+                  </style>
+                  {% if block.settings.button1_label != blank %}
+                  <a href="{{ block.settings.link1 }}" reveal="" class="button btn-base">
+                      {{ block.settings.button1_label }}
+                      {% render 'icon-arrow-2' %}
+                  </a>
+                {% endif %}
+                </div>
+                
+            </div>
+  
+            {%- when 'image-child' -%}
+            <div class="image-banner-child">
+              {% if block.settings.image_child != blank %}
+                <img class="image-child" loading="lazy" reveal=""
+                  sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px" alt=""
+                  src="{{ block.settings.image_child | image_url: width: block.settings.image_child.width }}"
+                  srcset="{%- if block.settings.image_child.width >= 3000 -%}{{ block.settings.image_child | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                    {{ block.settings.image_child | image_url }} {{ block.settings.image_child.width }}w"
+                  src="{{ block.settings.image_child | image_url: width: 1500 }}"
+                  height="{{ block.settings.image_child.height }}" width="{{ block.settings.image_child.width }}">
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+  
+            {%- when 'image-child2' -%}
+            <div class="image-banner-child-2">
+              {% if block.settings.image_child != blank %}
+                <img class="image-child-2" loading="lazy" reveal=""
+                  sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px" alt=""
+                  src="{{ block.settings.image_child | image_url: width: block.settings.image_child.width }}"
+                  srcset="{%- if block.settings.image_child.width >= 3000 -%}{{ block.settings.image_child | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                    {{ block.settings.image_child | image_url }} {{ block.settings.image_child.width }}w"
+                  src="{{ block.settings.image_child | image_url: width: 1500 }}"
+                  height="{{ block.settings.image_child.height }}" width="{{ block.settings.image_child.width }}">
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+  
+            {%- when 'video' -%}
+            <div class="image-banner-video" reveal="">
+              <ap-videoexternal provider="youtube" class="video-wrapper  video-wrapper--cover">
+                <div class="video-wrapper__poster">
+                  {%- if block.settings.cover_image != blank -%}
+                    {%- capture sizes -%}{% if block.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}{%- endcapture -%}
+                    {%- assign alt = 'block.video.load_video' | t: description: block.settings.description | escape -%}
+                    {{ block.settings.cover_image | image_url: width: 3840 | image_tag:
+                      loading: 'lazy',
+                      sizes: sizes,
+                      widths: '3840',
+                      alt: alt
+                    }}
+                  {%- else -%}
+                    {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                  {%- endif -%}
+                  <div class="video-wrapper__poster-content content-box content-box--large content-box--text-center">
+                    <button type="button" class="video-wrapper__play-button video-wrapper__play-button--large video-wrapper__play-button--ripple" title="Play video">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+                      <circle cx="60" cy="60" r="59.5" stroke="white"/>
+                      <g clip-path="url(#clip0_221_1946)">
+                      <path d="M67.376 60.4161L56.777 67.4821C56.7017 67.5322 56.6142 67.5609 56.5239 67.5652C56.4336 67.5696 56.3437 67.5493 56.264 67.5066C56.1843 67.4639 56.1176 67.4004 56.0711 67.3228C56.0246 67.2452 56 67.1565 56 67.0661V52.9341C56 52.8436 56.0246 52.7549 56.0711 52.6773C56.1176 52.5997 56.1843 52.5362 56.264 52.4935C56.3437 52.4508 56.4336 52.4306 56.5239 52.4349C56.6142 52.4392 56.7017 52.468 56.777 52.5181L67.376 59.5841C67.4445 59.6297 67.5006 59.6916 67.5395 59.7642C67.5783 59.8367 67.5986 59.9178 67.5986 60.0001C67.5986 60.0824 67.5783 60.1634 67.5395 60.236C67.5006 60.3085 67.4445 60.3704 67.376 60.4161Z" fill="white"/>
+                      </g>
+                      <defs>
+                      <clipPath id="clip0_221_1946">
+                      <rect width="24" height="24" fill="white" transform="translate(48 48)"/>
+                      </clipPath>
+                      </defs>
+                      </svg>
+                    </button>
+                    {%if block.settings.heading != blank %}
+                    <header class=" text-container">
+                      <h3 class="heading h2">{{ block.settings.heading }}</h3>
+                    </header>
+                    {% endif %}
+                  </div>
+                </div>
+                <template>
+                  {%- if block.settings.video_url.type == 'youtube' -%}
+                    <iframe title="{{ block.settings.heading }}" src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?playsinline=1&autoplay=1&playlist={{ block.settings.video_url.id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ shop.url }}" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                  {%- else -%}
+                    <iframe src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}"></iframe>
+                  {%- endif -%}
+                  
+                </template>
+              </ap-videoexternal>
+            </div>
+  
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </banner-content>
+  </div>
+</div>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Image banner 2",
+  "tag": "section",
+  "class": "section section-image-banner",
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_video_img",
+      "label": "Show Video image",
+      "default": true
+    },
+    {
+      "type": "liquid",
+      "id": "video_url",
+      "label": "Video image",
+      "info": "Video plays in the page."
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "header",
+      "content": "Advanced Settings"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_description",
+      "label": "t:sections.all.tab_description.label"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Color heading"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Color description"
+    },
+    {
+      "type": "color",
+      "id": "overlay",
+      "default": "#000000",
+      "label": "Overlay background"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_child",
+          "label": "Image child"
+        },
+        {
+          "type": "liquid",
+          "id": "heading_title",
+          "label": "Heading title",
+          "default": "Heading title"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "color",
+          "id": "color_title",
+          "label": "Color title"
+        },
+        {
+          "type": "liquid",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "color",
+          "id": "color_title_center",
+          "label": "Color title center"
+        },
+        {
+          "type": "liquid",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "color_description",
+          "label": "Color button"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "Button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn",
+          "label": "Color button"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn",
+          "label": "Background button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn_hover",
+          "label": "Color button hover"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn_hover",
+          "label": "Background button hover"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "image-child",
+      "name": "Image child",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_child",
+          "label": "Image child"
+        }
+      ]
+    },
+    {
+      "type": "image-child2",
+      "name": "Image child 2",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_child",
+          "label": "Image child 2"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Video",
+          "label": "t:sections.video.settings.heading.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "t:sections.video.settings.cover_image.label"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ],
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "label": "t:sections.video.settings.video_url.label",
+          "placeholder": "t:sections.video.settings.video_url.placeholder",
+          "info": "t:sections.video.settings.video_url.info"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "t:sections.video.settings.description.label",
+          "info": "t:sections.video.settings.description.info"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

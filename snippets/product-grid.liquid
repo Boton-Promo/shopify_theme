@@ -1,0 +1,287 @@
+{% assign show_secondary_image = true %}
+<div class="slider__item " reveal="" style="opacity: 1;" id="product-item-{{ product.id }}">
+    <div class="h-100" style="background-color: var(--background-product);">
+        <div class="product-item-wrapper">
+            <span class="product-line"></span>
+        
+            <div class="product-item__image-wrapper product-item__image-wrapper--multiple">
+                <div class="product-item__label-list label-list">
+                    {% if product.available == false %}
+                        <span class="label label--subdued">{{ 'products.product.sold_out' | t }}</span>
+                    {% endif %}
+                    {% if product.compare_at_price > product.price and product.available %}
+                        {% if settings.sale_label_enable %}
+                            {%- assign sale_minus = product.compare_at_price_min | minus: product.price_min -%}
+                            {%- assign sale_percent = sale_minus | times:100 | divided_by: product.compare_at_price_min -%}
+                            
+                            <div class="label label--highlight" aria-hidden="true">
+                                {% if settings.sale_label_layout == 'text' %}
+                                    {{ settings.sale_label_text | default:'sale' }}
+                                {% else %}
+                                    {{ sale_percent | append: '%'}} off
+                                {%- endif -%}
+                            </div>
+                        {%- endif -%}
+                    {% endif %}
+                </div>
+                {%- capture sizes -%}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2){%- endcapture -%}
+                <a href="{{ product.url }}" class="product-item__aspect-ratio aspect-ratio " style="padding-bottom: 100.0%; --aspect-ratio: {{ settings.size_img }}">
+                    <img class="product-item__primary-image" loading="eager" data-media-id="{{ product.featured_media.id }}" 
+                        sizes= "{{ sizes }}"
+                        alt="{{ product.title }}" 
+                        src="{{ product.featured_image | image_url: width: product.featured_media.width }}" 
+                        srcset="
+                            {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                            {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                            {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                            {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                            {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                        "
+                        width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}">
+                    
+                    {% if product.media[1] != nil and show_secondary_image %}
+                        <img class="product-item__secondary-image" loading="lazy" sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)" 
+                            alt="{{ product.title }}" 
+                            src="{{ product.media[1] | image_url: width: 800 }}" 
+                            srcset="
+                                {%- if product.media[1].width >= 165 -%}{{ product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if product.media[1].width >= 360 -%}{{ product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if product.media[1].width >= 533 -%}{{ product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+                                {%- if product.media[1].width >= 720 -%}{{ product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+                                {%- if product.media[1].width >= 940 -%}{{ product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+                                {%- if product.media[1].width >= 1066 -%}{{ product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                {{ product.media[1] | image_url }} {{ product.media[1].width }}w
+                            "
+                            width="{{ product.media[1].width }}" height="{{ product.media[1].height }}">
+                    {% else %}
+                        <img class="product-item__secondary-image" loading="lazy" data-media-id="{{ product.featured_media.id }}" 
+                            sizes= "{{ sizes }}"
+                            alt="{{ product.title }}" 
+                            src="{{ product.featured_image | image_url: width: product.featured_media.width }}" 
+                            srcset="
+                                {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                            "
+                            width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}">
+                    {% endif %}
+                </a>
+                <div class="service-product-ctn">
+                    <div class="service-product">
+                        <div title="" class="btn-service btn-quickview">
+                            <div class="product-item__quick-form">
+                                <button is="toggle-button" loader="" ap-controlsaria="product-{{ section.id }}-{{ product.id }}-drawer" ap-expanded-aria="false" class="button button--outline button--text button--full">
+                                    <span class="ap-text-loaderbutton">
+                                        {% render 'icon-quickview' %}
+                                        <span class="text-name name-btn-product">
+                                            Vista Rápida
+                                        </span>
+                                    </span>
+                                    <span class="ap-loader-loaderbutton" hidden="">
+                                    <div class="spinner">
+                                        <svg focusable="false" width="24" height="24" class="icon icon--spinner" viewBox="25 25 50 50">
+                                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+                                        </svg>
+                                    </div>
+                                    </span>
+                                </button>
+                                <button is="toggle-button" ap-controlsaria="product-{{ section.id }}-{{ product.id }}-drawer" ap-expanded-aria="false" class="product-item__quick-buy-button hd-no-touch hd-phone">
+                                    <span class="visually-hidden">
+                                        {% render 'icon-quickview' %}
+                                        <span class="text-name">
+                                            Vista Rápida
+                                        </span>
+                                    </span>
+                                    <svg focusable="false" width="22" height="21" class="icon icon--quick-buy   " fill="none" viewBox="0 0 22 21">
+                                        <path d="M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M7 7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M18 0V8M14 4H22" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                </button>
+                
+                                <button is="toggle-button" ap-controlsaria="product-{{ section.id }}-{{ product.id }}-popover" ap-expanded-aria="false" class="product-item__quick-buy-button hd-tablet-and-up">
+                                    <span class="visually-hidden">
+                                        {% render 'icon-quickview' %}
+                                        <span class="text-name">
+                                            Vista Rápida
+                                        </span>
+                                    </span>
+                                    <svg focusable="false" width="22" height="21" class="icon icon--quick-buy   " fill="none" viewBox="0 0 22 21">
+                                        <path d="M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M7 7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M18 0V8M14 4H22" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <ap-popoverquickbuy id="product-{{ section.id }}-{{ product.id }}-popover" href="/products/{{ product.handle }}?view=ap-popoverquickbuy" class="popover popover--quick-buy hd-tablet-and-up"></ap-popoverquickbuy>
+                            <ap-quickbuy id="product-{{ section.id }}-{{ product.id }}-drawer" href="/products/{{ product.handle }}?view=quick-buy-drawer" class="drawer drawer--large drawer--quick-buy hd-phone"></ap-quickbuy>
+                        </div>
+    
+                        <div title="">
+                            <ap-wishlistbutton  class="btn-service btn-wishlist {% if template =='page.wishlist' %}deletewishlist{% endif %}" data-action="add" data-id="{{ product.id }}" alt="Add to wishlist">
+                                {% render 'icon-wishlist' %}
+                                <span class="text-name name-btn-product">
+                                    Añadir a mi lista de deseos   
+                                </span>
+                            </ap-wishlistbutton>
+                        </div>
+    
+                        <div title="">
+                            <ap-comparebutton class="btn-service btn-compare {% if template =='page.compare' %}deletecompare{% endif %}"
+                                data-action="add" data-id="{{ product.id }}" alt="Add to comparebutton">
+                                {% render 'icon-compare' %}
+                                <span class="text-name name-btn-product">
+                                    Añadir para comparar
+                                </span>
+                            </ap-comparebutton>
+                        </div>
+                    
+                    </div>
+                </div>
+
+
+            </div>
+        
+            <div class="product-item__info  ">
+                <div class="product-item-meta">
+
+                    <div class="type-product d-none">{{ product.type }}</div>
+                    
+                    <a href="{{ product.url }}" class="product-item-meta__title">{{ product.title }}</a>
+                
+                    <div class="product-price">
+
+                        <!-- Start of Judge.me code -->
+                        <div class='jdgm-widget jdgm-preview-badge'>
+                            {{ product.metafields.judgeme.badge }}
+                        </div>
+                        <!-- End of Judge.me code -->
+    
+                        {% render 'price-product-grid', product: product %}
+
+                        <div class="service-add-cart">
+                            {%- if settings.show_variants == true -%}
+                            <div class="product-item-meta__swatch-list color-swatch-list color-swatch-list--mini d-none">
+                                {% liquid
+                                    assign options_color = ''
+                                    assign option_position = 0
+                                    assign is_checked = true
+                                    for option in product.options
+                                        assign optionName = option.name | handleize | downcase
+                                        if optionName contains 'colo'
+                                            assign options_color = option
+                                            assign option_position = 'option' | append: forloop.index
+                                        endif
+                                    endfor
+                                %}
+                
+                                <div class="{%- if settings.show_variants -%}{{ 'variants-product-item' | prepend: ' ' }}{% else %}{{ 'd-none' | prepend: ' ' }}{% endif %} input
+                                {%- if settings.variants_color -%}{{ 'show-variants-color' | prepend: ' ' }}{% endif %}
+                                {%- if settings.variants_size -%}{{ 'show-variants-size' | prepend: ' ' }}{% endif %}
+                                " >
+                                    {%- for option in product.options_with_values -%}
+                                    {%- assign checked = 1 -%}
+                                    {% assign isColor = false %}
+                                    {% assign optionName = option.name | handleize %}
+                                    {% if optionName contains 'color' %}
+                                    {% assign isColor = true %}
+                                    {% endif %}
+                                    {% assign option_index = forloop.index %}
+                                
+                                    <div class="variants-item variants-item-{{ option.name | downcase | replace: " ", " -"}}">
+                                        <legend class="form__label">{{ option.name }}</legend>
+                                        {%- for value in option.values -%}
+                                
+                                            {% for variant in product.variants %}
+                                                {% assign vOption = 'option' | append: option_index %}
+                                                {% if value == variant[vOption] %}
+                                                    {% assign currenVariant = variant %}
+                                                    {% break %}
+                                                {% endif %}
+                                            {% endfor %}
+        
+                                            {% liquid assign hasImage = true %}
+                            
+                                                {%- assign active = 'active' | prepend: " " -%}
+                                                <div class="variant variant-{{ option.name | downcase | replace: " ", " -"}} variant-{{ value | downcase | replace: " ", "-" }} {% if checked == 1 %}active{% endif %}">
+                                                    <input type="radio" class="{{ option.name }}-{{ product.id }}"
+                                                        id="{{ option.name }}-{{ forloop.index0 }}-{{ product.id }}"
+                                                        name="{{ option.name }}" value="{{ value | escape }}" {%- if checked==1
+                                                        -%}checked="checked" {%- endif -%}>
+                                                    <label for="{{ option.name }}-{{ forloop.index0 }}-{{ product.id }}" {%- if
+                                                        bg_color=='' -%} class="label-image" {%- endif -%}>
+        
+                                                        {{ value }}   
+                    
+                                                    </label>
+                                                </div>
+                                                {%- assign checked = 0 -%}
+        
+                                        {%- endfor -%}
+                                    </div>
+                                    {%- endfor -%}
+                                </div>
+        
+                            </div>
+                            {%- endif -%}
+                            <div title="Add to cart" class="btn-service btn-addcart">
+                            {%- if product.selected_or_first_available_variant.available -%}
+                                <form method="post" action="/cart/add" id="product_form_{{ section.id }}__{{ product.id }}_0" accept-charset="UTF-8" class="product-item__quick-form" enctype="multipart/form-data" is="ap-productform">
+                                    <input type="hidden" name="form_type" value="product">
+                                    <input type="hidden" name="utf8" value="✓">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="id" value="{{ product.variants[0]['id'] }}">
+                                    <button is="loader-button" type="submit" class="button button--outline button--text button--full">
+                                    <span class="ap-text-loaderbutton">
+                                        <span class="text-name">
+                                            Añadir al carrito
+                                        </span>
+                                        {% render 'icon-addcart' %}
+                                    </span>
+                                    <span class="ap-loader-loaderbutton" hidden="">
+                                        <div class="spinner">
+                                        <svg focusable="false" width="24" height="24" class="icon icon--spinner" viewBox="25 25 50 50">
+                                            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+                                        </svg>
+                                        </div>
+                                    </span>
+                                    </button>
+                                    <button type="submit" class="product-item__quick-buy-button hd-no-touch">
+                                    <span class="visually-hidden">
+                                        <span class="text-name">
+                                            Añadir al carrito
+                                        </span>
+                                        {% render 'icon-addcart' %}
+                                    </span>
+                                    <svg focusable="false" width="22" height="21" class="icon icon--quick-buy   " fill="none" viewBox="0 0 22 21">
+                                        <path d="M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M7 7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M18 0V8M14 4H22" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                    </button>
+                                </form>
+                            {%- else -%}
+                                <div class="sold-out">
+                                    {% render 'icon-addcart' %}
+                                    <span class="text-name">
+                                        Agotado
+                                    </span>
+                                </div>
+                            {%- endif -%}
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

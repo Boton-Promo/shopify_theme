@@ -1,0 +1,244 @@
+{% render 'section-style' %}
+
+{%- if section.blocks.size > 0 and section.settings.show_marquee_bar -%}
+  <div class="hura-marquee-bar hura-messages
+  {%- if section.settings.text_size -%}{{ 'text-large' | prepend: ' ' }}{%- endif -%}
+  ">
+   <div class="cus-marquee {%- if section.settings.marquee_stop -%}{{ 'marquee-stop' | prepend: ' ' }}{%- endif -%}">
+      {%- for block in section.blocks -%}
+        <div 
+          class="hura-message cus-content hura-mess-1"
+          style="background:{{ block.settings.colorBackground }};color:{{ block.settings.colorText }};"
+        >
+          {{ block.settings.message }}
+        </div>
+      {%- endfor -%}
+          {%- for block in section.blocks -%}
+            <div
+              class="hura-message cus-content hura-mess-2"
+              style="background:{{ block.settings.colorBackground }};color:{{ block.settings.colorText }};"
+            >
+              {{ block.settings.message }}
+            </div>
+          {%- endfor -%}
+    </div>
+  </div>
+  <style>
+    {%- for block in section.blocks -%}
+    #shopify-section-{{ section.id }} .outlined {
+        -webkit-text-stroke: 0.5px {{ block.settings.colorText }};
+        color: {{ block.settings.colorBackground }};
+    }
+    #shopify-section-{{ section.id }} .hura-marquee-bar.hura-messages{
+        background-color: {{ block.settings.colorBackground }};
+    }
+    {%- endfor -%}
+    .hura-marquee-bar.hura-messages{
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+    }
+    .hura-marquee-bar .hura-message{
+      text-align:center;
+      padding:2px 0 2px 0;
+      display: inline-block;
+    }
+    .cus-content span:last-child {
+        padding-right: 20px;
+    }
+    .cus-content {
+      font-size: 18px;
+      line-height: 14px;
+      font-family: var(--hd-font-family);
+      /* text-transform: uppercase; */
+    }
+    #shopify-section-{{ section.id }} .cus-marquee {
+      min-height: {{ section.settings.height }}px;
+      overflow-x: hidden;
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      align-items: center;
+    }  
+    .text-large .cus-content {
+      font-size: 72px;
+      font-weight: 500;
+      line-height: 78px;
+      background: linear-gradient(148.2deg, #FF1C6A 19.14%, #FF1C6A 38.09%, #FF8103 100%)!important;
+      -webkit-background-clip: text!important;
+      -webkit-text-fill-color: transparent;
+      -webkit-box-decoration-break: clone;
+    }
+    .hura-marquee-bar.hura-messages.text-large {
+      padding: 40px 25px;
+    }
+    @media (max-width:767px){
+      .hura-marquee-bar.hura-messages.text-large{
+        padding: 40px 0;
+      }
+    }
+    #shopify-section-{{ section.id }} .cus-content {
+      white-space: nowrap;
+      height: 100%;
+      display: inline-flex;
+        gap: 20px;
+      align-items: center;
+      animation: marquee {{ section.settings.speed }}s linear infinite;
+      {% if section.settings.direction == 'right' %}
+        animation-direction: reverse;
+      {% endif %}
+    }
+    {% if section.settings.pause_on_hover %}
+      #shopify-section-{{ section.id }} .hura-marquee-bar:hover .cus-content {
+        animation-play-state: paused;
+      }
+    {% endif %}
+
+    #shopify-section-{{ section.id }} .marquee-stop .cus-content {
+      animation: none;
+    }
+    #shopify-section-{{ section.id }} .marquee-stop .cus-content.hura-mess-2 {
+      display: none;
+    }
+    .text-large .marquee-stop .cus-content {
+      font-size: 120px;
+    }
+    #shopify-section-{{ section.id }} .cus-marquee.marquee-stop {
+      justify-content: center;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @media (max-width: 1699px) {
+      .text-large .marquee-stop .cus-content {
+        font-size: 80px;
+      }
+      #shopify-section-{{ section.id }} .text-large .marquee-stop .cus-content {
+        white-space: initial;
+      }
+    }
+    @media (max-width: 1199px) {
+      .text-large .marquee-stop .cus-content {
+        font-size: 55px;
+      }
+    }
+    @media (max-width: 991px) {
+      .text-large .marquee-stop .cus-content {
+        font-size: 36px;
+      }
+    }
+
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Hura Marquee",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_marquee_bar",
+      "label": "Show"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "options": [
+        {
+          "value": "left",
+          "label": "Right to Left"
+        },
+        {
+          "value": "right",
+          "label": "Left to Right"
+        }
+      ],
+      "default": "right",
+      "label": "Direction"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover"
+    },
+    {
+      "type": "number",
+      "id": "speed",
+      "label": "Speed",
+      "default": 25
+    },
+    {
+      "type": "number",
+      "id": "height",
+      "label": "Height",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "marquee_stop",
+      "label": "Marquee Stop"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_size",
+      "label": "Text size large"
+    }
+],
+"blocks": [
+    {
+      "type": "header",
+      "name": "Message",
+      "settings": [
+          {
+            "id": "message",
+            "type": "liquid",
+            "label": "Message"
+          },
+          {
+            "type": "color",
+            "id": "colorBackground",
+            "label": "Background color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "colorText",
+            "label": "Text color",
+            "default": "#000"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hura Marquee"
+    }
+  ]
+}
+{% endschema %}

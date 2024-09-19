@@ -1,0 +1,94 @@
+{{ 'ap-showcase.css' | asset_url | stylesheet_tag }}
+
+<div class="ap-showcase">
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+        <div class="row">
+            <div class="showcase-tab">
+                {% for block in section.blocks %}
+                    <div class="showcase-title {% if forloop.index == 1 %}active{% endif %}">
+                        <a href="{{ block.settings.link }}" class="showcase-link">
+                            {{ block.settings.showcase_text }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="showcase-image">
+                <div class="showcase-image-list">
+                    {% for block in section.blocks %}
+                        <div class="showcase-image-item {% if forloop.index == 1 %}active{% endif %}">
+                          {% if block.settings.image_showcase != blank %}
+                            <img loading="lazy" 
+                                sizes="(max-width: 999px) 100vw, 72vw" alt="" 
+                                src="{{ block.settings.image_showcase | image_url: width: block.settings.image_showcase.width }}" 
+                                srcset="
+                                {{ block.settings.image_showcase | image_url: width: 600 }} 600w, 
+                                {{ block.settings.image_showcase | image_url: width: 700 }} 700w, 
+                                {{ block.settings.image_showcase | image_url: width: 800 }} 800w, 
+                                {{ block.settings.image_showcase | image_url: width: 1000 }} 1000w, 
+                                {{ block.settings.image_showcase | image_url: width: 1200 }} 1200w, 
+                                {{ block.settings.image_showcase | image_url: width: 1400 }} 1400w, 
+                                {{ block.settings.image_showcase | image_url: width: 1600 }} 1600w, 
+                                {{ block.settings.image_showcase | image_url: width: 1800 }} 1800w, 
+                                {{ block.settings.image_showcase | image_url: width: 2000 }} 2000w" 
+                                width="{{ block.settings.image_showcase.width }}" height="{{ block.settings.image_showcase.height }}"> 
+                          {% else %}
+                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-text">{{ section.settings.bg_text }}</div>
+</div>
+{% schema %}
+{
+  "name": "Ap ShowCase",
+  "class": "shopify-section--showcase",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "t:sections.all.fullwidth.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "bg_text",
+      "label": "Text Child",
+      "default": "Categories"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "case",
+      "name": "Case",
+      "settings": [
+        {
+          "type": "text",
+          "id": "showcase_text",
+          "default": "Case name",
+          "label": "Case Name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_showcase",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ap ShowCase"
+    }
+  ]
+}
+{% endschema %}

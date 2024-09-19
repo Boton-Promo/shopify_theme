@@ -1,0 +1,339 @@
+{{ 'gallery-modal.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --ap-productlist-column-gap: 0px;
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    background-size:{{ section.settings.e_size }} !important;
+  }
+
+  #shopify-section-{{ section.id }} .images-list {
+    grid-auto-columns:calc((100% - var(--ap-productlist-column-gap) * ({{ section.settings.image_per_row_desktop }} - 1)) / {{ section.settings.image_per_row_desktop }});
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .images-list {
+      grid-auto-columns:calc((100% - var(--ap-productlist-column-gap) * ({{ section.settings.image_per_row_mobile }} - 1)) / {{ section.settings.image_per_row_mobile }});
+      overflow-x: auto;
+      overflow-y: unset;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .images-list {
+    {% if section.settings.image_row == '1' %}
+      grid-template-rows: 1fr;
+    {% elsif section.settings.image_row == '2' %}
+      grid-template-rows: 1fr 1fr;
+      gap: 10px 0;
+    {% elsif section.settings.image_row == '3' %}
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 10px 0;
+    {% elsif section.settings.image_row == '4' %}
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 10px 0;
+    {% endif %}
+  }
+
+  .fa-search-plus:before {
+    content: "\f00e";
+  }
+  
+</style>
+
+<div class="gallery-modal">
+    <div class="{{ section.settings.setwidthout }}">
+        <div class="row">
+            {% if section.settings.tab_heading != blank %}
+              <div class="section__header text-{{ section.settings.text_align }} mb-60">
+                <p class="heading sub-heading mb-10">{% render 'icon-heading' %}{{ section.settings.sub_heading }}</p>
+                <h3 class="heading h{{ section.settings.tab_heading_size }} mb-0">{{ section.settings.tab_heading }}</h3>
+                {% if section.settings.tab_description != blank %}
+                <p class="heading-description">
+                  {{ section.settings.tab_description }}
+                </p>
+                {% endif %}
+                {% if section.settings.btn_text != blank %}
+                <div class="btn-more mb-50 mt-6">
+                  <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+                    {{ section.settings.btn_text }}
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+            {% endif %}
+            <div class="images-list">
+                {% for block in section.blocks %}
+                  {% if block.settings.image != blank %}
+                    <div class="images">
+                        <img class="image-item" loading="lazy" 
+                            sizes="(max-width: 999px) 100vw, 72vw" alt="" 
+                            src="{{ block.settings.image | image_url: width: block.settings.image.width }}" 
+                            srcset="{{ block.settings.image | image_url: width: 2000 }} 2000w" 
+                            width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                        <i class="fa fa-search-plus"></i>
+                    </div>
+                    {% else %}
+                    <div class="list-collections__item-image">
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </div>
+            <div class="g-modal">
+              <span class="close"><i class="fas fa-times"></i></span>
+              <div class="modalContent">
+                <img src="" srcset="" class="modalImg"/>
+                <span class="modalTxt"></span>
+                <div class="gallery-arrow">
+                  <div class="gallery-btn gallery-btn-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                      <path d="M7.70498 0L9 1.26056L2.59 7.5L9 13.7395L7.70498 15L0 7.5L7.70498 0Z" fill="#194A33" />
+                    </svg>
+                  </div>
+                  <div class="gallery-btn gallery-btn-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                      <path d="M1.29502 0L0 1.26056L6.41 7.5L0 13.7395L1.29502 15L9 7.5L1.29502 0Z" fill="#194A33" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/7368c40b21.js" crossorigin="anonymous" ></script>
+
+{% schema %}
+{
+  "name": "Gallery modal",
+  "class": "section-galley-modal",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "id": "background-color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "background_image",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "e_size",
+      "label": "Background Size",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "default": "Sub heading",
+      "label": "Sub heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.all.heading_color.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "style_btn",
+      "label": "Style Button",
+      "default": "btn-base",
+      "options": [
+        {
+          "value": "btn-base",
+          "label": "Button Base"
+        },
+        {
+          "value": "btn-outline",
+          "label": "Button Out Line"
+        },
+        {
+          "value": "btn-line",
+          "label": "Button Line"
+        },
+        {
+          "value": "btn-line-black",
+          "label": "Button Line Black"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Text align"
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "Padding desktop",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "Padding mobile",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "range",
+      "id": "image_per_row_desktop",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "label": "Image per row desktop"
+    },
+    {
+      "type": "range",
+      "id": "image_per_row_mobile",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2,
+      "label": "Image per row mobile"
+    },
+    {
+      "type": "select",
+      "id": "image_row",
+      "options": [
+        {
+          "value": "1",
+          "label": "Row 1"
+        },
+        {
+          "value": "2",
+          "label": "Row 2"
+        },
+        {
+          "value": "3",
+          "label": "Row 3"
+        },
+        {
+          "value": "4",
+          "label": "Row 4"
+        }
+      ],
+      "default": "1",
+      "label": "Image line number"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery modal",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

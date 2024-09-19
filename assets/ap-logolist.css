@@ -1,0 +1,41 @@
+.ap-logolist__item {
+  padding: 0;
+  text-align: center;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.ap-logolist--carousel .ap-logolist__list {
+  grid-auto-columns: calc(
+    100% / var(--section-items-per-row, 4) -
+      (var(--grid-gap) / var(--section-items-per-row, 4) * (var(--section-items-per-row, 4) - 1))
+  );
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  gap: 0;
+  justify-content: unset;
+}
+
+.section.section-logo {
+  margin: 0;
+  overflow: hidden;
+}
+
+.section-logo .section__header {
+  justify-content: center;
+}
+
+.section-logo .container-fluid{
+  padding: 0;
+}
+
+.hover-logo-img img {
+    opacity: .2;
+}
+
+.hover-logo-img img:hover {
+    opacity: 1;
+}

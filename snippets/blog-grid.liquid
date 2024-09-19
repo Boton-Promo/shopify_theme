@@ -1,0 +1,92 @@
+<blog-item class="blog-item blog-grid" reveal="" style="opacity: 1;">
+        <div class="article-item article-item--horizontal image-zoom">
+            <div class="article-card__image">
+                <a href="{{ article.url }}" class="article-item__image-container">
+                    <img srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                      {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                      {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                      {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                      {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                        src="{{ article.image.src | image_url: width: 533 }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                        alt="{{ article.image.src.alt | escape }}" class="article-item__image"
+                        loading="lazy" width="{{ article.image.width }}"
+                        height="{{ article.image.height }}">
+    
+                    <span
+                        class="article-item__arrow ap-nextap-buttonprev ap-nextap-buttonprev--small ap-nextap-buttonprev--next">
+                        <svg focusable="false" width="15" height="12"
+                            class="icon icon--nav-arrow-right  icon--direction-aware "
+                            viewBox="0 0 17 14">
+                            <path d="M0 7h15M9 1l6 6-6 6" stroke="currentColor" stroke-width="2"
+                                fill="none"></path>
+                        </svg>
+                    </span>
+                </a>
+                {%- if section.settings.show_tag_label -%}
+                <div class="label-blog">
+                        {%- if article.tags.size > 0 -%}
+                        {% assign tag = article.tags[0] %}
+                        <a class="article-item__category tag-label heading heading--xsmall"
+                            href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                        {%- endif -%}
+                </div>
+                {%- endif -%}
+
+            </div>
+
+            <div class="article-item__content text-container">
+                <div class="article">
+
+                    {%- if section.settings.show_tag -%}
+                        {%- if article.tags.size > 0 -%}
+                        {% assign tag = article.tags[0] %}
+                        <div class="blog-tag">
+                            <a class="article-item__category tag-content heading heading--xsmall"
+                                href="{{ blog.url }}/tagged/{{ tag | handle }}">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.3078 3.12653L6.37031 0.904657C6.25759 0.840109 6.1299 0.806152 6 0.806152C5.8701 0.806152 5.74241 0.840109 5.62969 0.904657L1.69219 3.12653C1.57695 3.19306 1.48122 3.28871 1.41458 3.40388C1.34794 3.51906 1.31274 3.64972 1.3125 3.78279V8.21716C1.31274 8.35021 1.34794 8.4809 1.41458 8.59606C1.48122 8.71122 1.57695 8.80689 1.69219 8.87341L5.62969 11.0953C5.74241 11.1598 5.8701 11.1938 6 11.1938C6.1299 11.1938 6.25759 11.1598 6.37031 11.0953L10.3078 8.87341C10.423 8.80689 10.5188 8.71122 10.5854 8.59606C10.6521 8.4809 10.6873 8.35021 10.6875 8.21716V3.78279C10.6873 3.64972 10.6521 3.51906 10.5854 3.40388C10.5188 3.28871 10.423 3.19306 10.3078 3.12653Z" fill="#4AD295"/>
+                                </svg>
+                                {{ tag }}
+                            </a>
+                        </div>
+                        {%- endif -%}
+                    {%- endif -%}
+                    {%- if section.settings.show_date -%}
+                        <span class="blog-date">
+                            {{ article.published_at | date: "%B %d, %Y" }}
+                        </span>
+                    {%- endif -%}
+                    {%- if section.settings.show_author -%}
+                        <span class="blog-author">
+                            <span class="title-blog">By</span>
+                            <span class="author">{{ article.author }}</span>
+                        </span>
+                    {%- endif -%}
+                                        
+                </div>
+                <h3 class="article-item__title heading h5">
+                    <a href="{{ article.url }}">{{ article.title | truncate: 50 | escape }}</a>
+                </h3>
+
+
+
+                {%- if section.settings.show_description -%}
+                    <div class="article-item-description">{{ article.content | truncatewords: 25 }}</div>
+                {%- endif -%}
+
+
+                {% if section.settings.btn_blog != blank %}
+                <a class="btn-blog" href="{{ article.url }}">
+                    {{ section.settings.btn_blog }}
+                    {% comment %}
+                        <span>+</span>
+                    {% endcomment %}
+                </a>
+                {% endif %}
+
+            </div>
+        </div>
+</blog-item>

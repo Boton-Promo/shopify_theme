@@ -1,0 +1,163 @@
+{{ 'recently-viewed.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin: 60px 0 60px;
+  }
+
+  #shopify-section-{{ section.id }} .ap-productlist {
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .ap-productlist__inner--scroller {
+    margin: 0 -5px;
+  }
+
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_mobile_sm }};
+    }
+    #shopify-section-{{ section.id }} .ap-productlist__inner--scroller{
+      grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+    }
+    .recently-wp-content {
+      padding: 1px;
+    }
+  } 
+
+  @media screen and (min-width: 741px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_mobile }};
+    }
+    #shopify-section-{{ section.id }} .ap-productlist__inner--scroller{
+      grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      padding: 1px;
+    }
+    #shopify-section-{{ section.id }} .scroller {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_tablet }}
+    }
+    #shopify-section-{{ section.id }} .ap-productlist__inner--scroller{
+      grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      padding: 1px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row_desktop }};
+    }
+    #shopify-section-{{ section.id }} .ap-productlist__inner--scroller{
+      grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      padding: 1px;
+    }
+  }
+
+</style>
+
+<ap-recentlyproductsviewed section-id="{{ section.id }}" products-count="{{ section.settings.products_to_show }}" class="section section--flush">
+    <div class="container vertical-breather vertical-breather--tight vertical-breather--margin">
+        <header class="header-title">
+          <h2 style="color: var(--primary-2);" class="heading h{{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+        </header>
+        <ap-productlist stagger-apparition="" class="ap-productlist ap-object-loaded">
+          <div class="scroller">
+              <div class="recently-wp-content">
+
+                <div class="ap-productlist__inner ap-productlist__inner--scroller ap-productlist__inner--desktop-no-scroller hide-scrollbar">
+                {%- for product in predictive_search.resources.products -%}
+                    {% render 'product-grid', product: product %}
+                {% endfor %}
+                </div>
+                
+              </div>
+            </div>     
+        </ap-productlist>
+    </div>
+</ap-recentlyproductsviewed>
+       
+{% schema %}
+{
+  "name": "Recently viewed products",
+  "tag": "section",
+  "class": "section recenty-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Setting Recently viewed products"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Recently viewed products",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "Heading size"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 10,
+      "label": "Show product"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_mobile_sm",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Product Mobile Sm"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_mobile",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.products_per_row_mobile.label"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_tablet",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.all.products_per_row_tablet.label"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.all.products_per_row_desktop.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently viewed products"
+    }
+  ]
+}
+{% endschema %}
+  

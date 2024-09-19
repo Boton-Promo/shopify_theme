@@ -1,0 +1,842 @@
+<!-- collection-carousel.liquid -->
+{{ 'collection-carousel.css' | asset_url | stylesheet_tag }}
+
+<style>
+    #shopify-section-{{ section.id }} {
+      --ap-nextap-buttonprev-color:67, 70, 78;
+      --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+      --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+
+      background-position:top center !important;
+      background-size:unset !important;
+
+      --ap-productlist-column-gap: 0;
+    }
+    
+    @media screen and (max-width: 575px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.products_per_row_mobile }};
+      }
+      #shopify-section-{{ section.id }} .collection-carousel .ap-productlist__inner--scroller{
+        margin: 0;
+        padding: 0;
+        grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.products_per_row_mobile_sm }};
+      }
+      #shopify-section-{{ section.id }} .collection-carousel .ap-productlist__inner--scroller{
+        margin: 0;
+        padding: 0;
+        grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      }
+    }
+
+    @media (min-width:576px) and (max-width: 767px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.products_per_row_ipad }};
+      }
+      #shopify-section-{{ section.id }} .collection-carousel .ap-productlist__inner--scroller{
+        margin:0;
+        padding:0px;
+        grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      }
+    }
+  
+    @media (min-width: 768px) and (max-width: 1199px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.products_per_row_tablet }}
+      }
+      #shopify-section-{{ section.id }} .collection-carousel .ap-productlist__inner--scroller{
+        margin:0;
+        padding:0;
+        grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.products_per_row_desktop }};
+      }
+      #shopify-section-{{ section.id }} .collection-carousel .ap-productlist__inner--scroller{
+        margin: 0 -15px;
+        padding: 0;
+        grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
+      }
+    }
+
+    #shopify-section-{{ section.id }} .collection-carousel .ap-productlist__inner--scroller {
+      {% if section.settings.collection_line == '1' %}
+        grid-template-rows: 1fr;
+      {% elsif section.settings.collection_line == '2' %}
+        grid-template-rows: 1fr 1fr;
+        gap: 45px 0;
+      {% elsif section.settings.collection_line == '3' %}
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 30px;
+      {% elsif section.settings.collection_line == '4' %}
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+      {% endif %}
+    }
+
+    {% for block in section.blocks %}
+        {% liquid
+        if block.type == 'collection_2_row'
+            assign have_image = 1
+        endif
+        %}
+    {% endfor %}
+
+    {% if have_image %}
+        .collection-left {
+            width: 35%;
+        }
+        .collection-right {
+            width: 65%;
+        }
+        .collection-list {
+            display: flex;
+            gap: 30px;
+        }
+        .collection-carousel {
+            position: relative;
+        }
+        .collection-carousel__ap-nextprev {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+        }
+        .collection-carousel-item-info.text-container.bottom {
+            margin-top: 30px;
+        }
+        .collection-carousel-title {
+            font-size: 24px;
+            line-height: 28px;
+            margin-bottom: 10px;
+            font-family: var(--hd-font-family);
+            text-transform: uppercase;
+        }
+        .collection-carousel-count {
+            font-size: 16px;
+            line-height: 26px;
+        }
+        .collection-carousel .ap-productlist__arrow {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        @media (max-width: 767px) {
+          .collection-list {
+            flex-direction: column;
+          }
+          .collection-left ,
+          .collection-right {
+            width: 100%;
+          }
+        }
+    {% endif %}
+
+</style>
+
+{% render 'section-style' %}
+
+<section class="section collection-carousel-section section-{{ section.id }}">
+  <div class="{{ section.settings.setwidthout }}">
+    <!-- header -->
+    <div class="section__header collection-carousel-header text-{{ section.settings.text_align }} mb-60">
+      <h3 class="heading h{{ section.settings.tab_heading_size }} mb-20">{{ section.settings.tab_heading }}</h3>
+      {% if section.settings.tab_description != blank %}
+        <div class="heading-description">
+          {{ section.settings.tab_description }}
+        </div>
+      {% endif %}
+      {% if section.settings.btn_text != blank %}
+      <div class="btn-more">
+        <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+          {{ section.settings.btn_text }}
+        </a>
+        </div>
+      {% endif %}
+    </div>
+    <div class="collection-carousel-flex">
+      <div class="collection-carousel-flex-left">
+        <collection-carousel stagger-apparition="" class="collection-carousel collection-carousel--center ap-object-loaded">
+          <!-- content -->
+          
+          <div class="collection-carousel-content">
+              <div class="scroller">
+                  <div class="ap-productlist__inner ap-productlist__inner--scroller hide-scrollbar">
+                      {% for block in section.blocks %}
+                      {% case block.type %}
+                        {%- when 'collection_item' -%}   
+                            {% liquid
+                            assign _link = block.settings.collection.url
+                            %}
+                            <collection-carousel-item id="block-{{ block.id }}" style="opacity: 1;" reveal="" class="collection-carousel-item {% if block.settings.highlight %}collection-carousel-item--highlight{% endif %}  has-overlay">
+                                {% if block.settings.title_item != blank %}
+                                <div class="title-item-collection-carousel">
+                                  {{ block.settings.title_item }}
+                                </div>
+                                {% endif %}
+                                <div class="wp-collection-carousel-item">
+                                  <div class="collection-carousel-image">
+                                    {% if block.settings.featured_image != blank %}
+                                      <a href="{{ _link }}">
+                                          <img class="collection-carousel-item-image" loading="lazy" 
+                                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                          alt="" 
+                                          src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                                          srcset="{%- if block.settings.featured_image.width >= 195 -%}{{ block.settings.featured_image | image_url: width: 195, crop: 'center' }} 195w,{%- endif -%}
+                                              {%- if block.settings.featured_image.width >= 330 -%}{{ block.settings.featured_image | image_url: width: 330, crop: 'center' }} 330w,{%- endif -%}
+                                              {%- if block.settings.featured_image.width >= 535 -%}{{ block.settings.featured_image | image_url: width: 535, crop: 'center' }} 535w,{%- endif -%}
+                                              {%- if block.settings.featured_image.width >= 750 -%}{{ block.settings.featured_image | image_url: width: 750, crop: 'center' }} 750w,{%- endif -%}
+                                              {%- if block.settings.featured_image.width >= 1000 -%}{{ block.settings.featured_image | image_url: width: 1000, crop: 'center' }} 1000w,{%- endif -%}
+                                              {%- if block.settings.featured_image.width >= 1500 -%}{{ block.settings.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                              {%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                              {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                                          src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                                          height="{{ block.settings.featured_image.height }}"
+                                          width="{{ block.settings.featured_image.width }}">
+                                      </a>
+                                    {% else %}
+                                        <div class="collection-carousel-item-image">
+                                        {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        </div>
+                                    {% endif %}
+
+                                    {% if block.settings.text_link != blank %}
+                                    <div class="collection-carousel-link">
+                                      <a class="button {{ block.settings.style_btn }}" href="{{ _link }}">
+                                        {{ block.settings.text_link }}
+                                        {% if block.settings.style_btn == 'btn-line-black' %}
+                                        {% render 'icon-arrow-3' %}
+                                        {% else %}
+                                        {% render 'icon-arrow-2' %}
+                                        {% endif %}
+                                      </a>
+                                    </div>
+                                    {% endif %}
+                                  </div>
+                                  <div class="collection-carousel-item-info text-container {{ block.settings.style_item }}">
+                                    {% if block.settings.collection != blank %}
+                                        <div style="color: {{ block.settings.color_title }};" class="collection-carousel-title">
+                                          {% if block.settings.author != blank %}
+                                          <img class="collection-carousel-item-image" loading="lazy" 
+                                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                          alt="" 
+                                          src="{{ block.settings.author | image_url: width: block.settings.author.width }}" 
+                                          srcset="{%- if block.settings.author.width >= 3000 -%}{{ block.settings.author | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.author | image_url }} {{ block.settings.author.width }}w"
+                                          src="{{ block.settings.author | image_url: width: 1500 }}"
+                                          height="{{ block.settings.author.height }}"
+                                          width="{{ block.settings.author.width }}">
+                                          {% endif %}
+                                          <a href="{{ _link }}">
+                                            {{- block.settings.collection.title -}}
+                                          </a>
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.collection != blank and section.settings.show_count %}
+                                        <div style="color: {{ block.settings.color_count }};" class="collection-carousel-count">{{ block.settings.collection.products_count }} {{ block.settings.text_count }}</div>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                            
+                            </collection-carousel-item>
+
+                        {%- when 'collection_2_row' -%}
+                            {% liquid   
+                                assign _link = block.settings.collection.url
+                                assign _link2 = block.settings.collection2.url
+                            %}
+                            <collection-carousel-item id="block-{{ block.id }}" style="opacity: 1;" reveal="" class="collection-carousel-item {% if block.settings.highlight %}collection-carousel-item--highlight{% endif %}  has-overlay">
+                                <div class="collection-list">
+                                    <div class="collection-left">
+                                        {% if block.settings.title_item != blank %}
+                                        <div class="title-item-collection-carousel">
+                                        {{ block.settings.title_item }}
+                                        </div>
+                                        {% endif %}
+                                        <div class="collection-carousel-image">
+                                        {% if block.settings.featured_image != blank %}
+                                        <a href="{{ _link }}">
+                                            <img class="collection-carousel-item-image" loading="lazy" 
+                                            sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                            alt="" 
+                                            src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                                            srcset="{%- if block.settings.featured_image.width >= 195 -%}{{ block.settings.featured_image | image_url: width: 195, crop: 'center' }} 195w,{%- endif -%}
+                                                {%- if block.settings.featured_image.width >= 330 -%}{{ block.settings.featured_image | image_url: width: 330, crop: 'center' }} 330w,{%- endif -%}
+                                                {%- if block.settings.featured_image.width >= 535 -%}{{ block.settings.featured_image | image_url: width: 535, crop: 'center' }} 535w,{%- endif -%}
+                                                {%- if block.settings.featured_image.width >= 750 -%}{{ block.settings.featured_image | image_url: width: 750, crop: 'center' }} 750w,{%- endif -%}
+                                                {%- if block.settings.featured_image.width >= 1000 -%}{{ block.settings.featured_image | image_url: width: 1000, crop: 'center' }} 1000w,{%- endif -%}
+                                                {%- if block.settings.featured_image.width >= 1500 -%}{{ block.settings.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                                {%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                                {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                                            src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                                            height="{{ block.settings.featured_image.height }}"
+                                            width="{{ block.settings.featured_image.width }}">
+                                            </a>
+                                        {% else %}
+                                            <div class="collection-carousel-item-image">
+                                            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                            </div>
+                                        {% endif %}
+                                        </div>
+                                        <div class="collection-carousel-item-info text-container {{ block.settings.style_item }}">
+                                        {% if block.settings.collection != blank %}
+                                            <div class="collection-carousel-title">
+                                                <a href="{{ _link }}">
+                                                    {{- block.settings.collection.title -}}
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                        {% if block.settings.collection != blank and section.settings.show_count %}
+                                            <div class="collection-carousel-count">
+                                                <a href="{{ _link }}">
+                                                    {{ block.settings.collection.products_count }} Items
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                        {% if block.settings.text_link != blank %}
+                                            <div class="collection-carousel-link">
+                                            <a href="{{ _link }}">{{ block.settings.text_link }}</a>
+                                            </div>
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="collection-right">
+                                        {% if block.settings.title_item2 != blank %}
+                                        <div class="title-item-collection-carousel">
+                                        {{ block.settings.title_item2 }}
+                                        </div>
+                                        {% endif %}
+                                        <div class="collection-carousel-image">
+                                        {% if block.settings.featured_image2 != blank %}
+                                        <a href="{{ _link2 }}">
+                                            <img class="collection-carousel-item-image" loading="lazy" 
+                                            sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                            alt="" 
+                                            src="{{ block.settings.featured_image2 | image_url: width: block.settings.featured_image2.width }}" 
+                                            srcset="{%- if block.settings.featured_image2.width >= 195 -%}{{ block.settings.featured_image2 | image_url: width: 195, crop: 'center' }} 195w,{%- endif -%}
+                                                {%- if block.settings.featured_image2.width >= 330 -%}{{ block.settings.featured_image2 | image_url: width: 330, crop: 'center' }} 330w,{%- endif -%}
+                                                {%- if block.settings.featured_image2.width >= 535 -%}{{ block.settings.featured_image2 | image_url: width: 535, crop: 'center' }} 535w,{%- endif -%}
+                                                {%- if block.settings.featured_image2.width >= 750 -%}{{ block.settings.featured_image2 | image_url: width: 750, crop: 'center' }} 750w,{%- endif -%}
+                                                {%- if block.settings.featured_image2.width >= 1000 -%}{{ block.settings.featured_image2 | image_url: width: 1000, crop: 'center' }} 1000w,{%- endif -%}
+                                                {%- if block.settings.featured_image2.width >= 1500 -%}{{ block.settings.featured_image2 | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                                {%- if block.settings.featured_image2.width >= 3000 -%}{{ block.settings.featured_image2 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                                {{ block.settings.featured_image2 | image_url }} {{ block.settings.featured_image2.width }}w"
+                                            src="{{ block.settings.featured_image2 | image_url: width: 1500 }}"
+                                            height="{{ block.settings.featured_image2.height }}"
+                                            width="{{ block.settings.featured_image2.width }}">
+                                            </a>
+                                        {% else %}
+                                            <div class="collection-carousel-item-image">
+                                            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                            </div>
+                                        {% endif %}
+                                        </div>
+                                        <div class="collection-carousel-item-info text-container {{ block.settings.style_item }}">
+                                        {% if block.settings.collection2 != blank %}
+                                            <div class="collection-carousel-title">
+                                                <a href="{{ _link2 }}">
+                                                    {{- block.settings.collection2.title -}}
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                        {% if block.settings.collection2 != blank and section.settings.show_count %}
+                                            <div class="collection-carousel-count">
+                                                <a href="{{ _link2 }}">
+                                                    {{ block.settings.collection2.products_count }} Products
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                        {% if block.settings.text_link2 != blank %}
+                                            <div class="collection-carousel-link">
+                                            <a href="{{ _link2 }}">{{ block.settings.text_link2 }}</a>
+                                            </div>
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </collection-carousel-item>
+
+                        {% endcase %}
+                      {% endfor %}
+                      
+                  </div>
+              </div>
+              <ap-button-nextprev class="collection-carousel__ap-nextprev" style="--smallest-image-aspect-ratio: 1.0">
+                <button class="ap-productlist__arrow ap-nextap-buttonprev ap-nextap-buttonprev--prev" disabled="">
+                <span class="visually-hidden">Previous</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                    <path d="M7.70498 0L9 1.26056L2.59 7.5L9 13.7395L7.70498 15L0 7.5L7.70498 0Z" fill="#194A33" />
+                  </svg>
+                </button>
+                <button class="ap-productlist__arrow ap-nextap-buttonprev ap-nextap-buttonprev--next">
+                <span class="visually-hidden">Next</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                    <path d="M1.29502 0L0 1.26056L6.41 7.5L0 13.7395L1.29502 15L9 7.5L1.29502 0Z" fill="#194A33" />
+                  </svg>
+                </button>
+            </ap-button-nextprev>   
+          </div>
+
+        </collection-carousel>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Carousel",
+  "class": "shopify-section--ap-collection-carousel",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "id": "bg_image",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "background-color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Color heading"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Color description"
+    },
+    {
+      "type": "header",
+      "content": "Margin section"
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "Margin desktop",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet_large",
+      "label": "Margin tablet large",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "Margin mobile",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "header",
+      "content": "Padding section"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "Padding desktop",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "Padding mobile",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.advanced-content.settings.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.advanced-content.settings.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_description",
+      "label": "t:sections.advanced-content.settings.tab_description.label"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "style_btn",
+      "label": "Style Button",
+      "default": "btn-base",
+      "options": [
+        {
+          "value": "btn-base",
+          "label": "Button Base"
+        },
+        {
+          "value": "btn-outline",
+          "label": "Button Out Line"
+        },
+        {
+          "value": "btn-line",
+          "label": "Button Line"
+        },
+        {
+          "value": "btn-line-black",
+          "label": "Button Line Black"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Text align"
+    },
+    {
+      "type": "header",
+      "content": "Setting item"
+    },
+    {
+      "type": "select",
+      "id": "collection_line",
+      "options": [
+        {
+          "value": "1",
+          "label": "Row 1"
+        },
+        {
+          "value": "2",
+          "label": "Row 2"
+        },
+        {
+          "value": "3",
+          "label": "Row 3"
+        },
+        {
+          "value": "4",
+          "label": "Row 4"
+        }
+      ],
+      "default": "1",
+      "label": "Collection line number"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_mobile_sm",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Products per row mobile small"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_mobile",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2,
+      "label": "Products per row mobile"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_ipad",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2,
+      "label": "Products per row Ipad"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_tablet",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.all.products_per_row_tablet.label"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.all.products_per_row_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "Setting items"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show count",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Color title",
+      "default": "#332F2C"
+    },
+    {
+      "type": "color",
+      "id": "color_count",
+      "label": "Color count",
+      "default": "#8D9396"
+    },
+    {
+      "type": "color",
+      "id": "color_link",
+      "label": "Color link",
+      "default": "#332F2C"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.all.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "color",
+          "id": "color_title",
+          "label": "Color title",
+          "default": "#000"
+        },
+        {
+          "type": "text",
+          "id": "text_count",
+          "label": "Content count",
+          "default": "posters"
+        },
+        {
+          "type": "color",
+          "id": "color_count",
+          "label": "Color count",
+          "default": "#999"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Image Collection"
+        },
+        {
+          "type": "text",
+          "id": "text_link",
+          "label": "Text link"
+        },
+        {
+          "type": "select",
+          "id": "style_btn",
+          "label": "Style Button",
+          "default": "btn-base",
+          "options": [
+            {
+              "value": "btn-base",
+              "label": "Button Base"
+            },
+            {
+              "value": "btn-outline",
+              "label": "Button Out Line"
+            },
+            {
+              "value": "btn-outline-white",
+              "label": "Button Out Line White"
+            },
+            {
+              "value": "btn-line",
+              "label": "Button Line"
+            },
+            {
+              "value": "btn-line-black",
+              "label": "Button Line Black"
+            }
+          ]
+        },
+        {
+          "id": "style_item",
+          "type": "select",
+          "options": [
+            {     
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bottom",
+          "label": "Style item"
+        }
+      ]
+    },
+    {
+      "type": "collection_2_row",
+      "name": "Collection 2 row",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.all.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Image Collection"
+        },
+        {
+          "type": "text",
+          "id": "text_link",
+          "label": "Text link"
+        },
+        {
+          "id": "style_item",
+          "type": "select",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bottom",
+          "label": "Style item"
+        },
+        {
+          "type": "header",
+          "content": "Collection right"
+        },
+        {
+          "type": "collection",
+          "id": "collection2",
+          "label": "t:sections.all.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image2",
+          "label": "Image Collection"
+        },
+        {
+          "type": "text",
+          "id": "text_link2",
+          "label": "Text link"
+        },
+        {
+          "id": "style_item2",
+          "type": "select",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bottom",
+          "label": "Style item"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Carousel",
+      "blocks": [
+        {
+          "type": "collection_item"
+        },
+        {
+          "type": "collection_item"
+        },
+        {
+          "type": "collection_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

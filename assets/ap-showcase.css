@@ -1,0 +1,108 @@
+.showcase-image,
+.showcase-tab {
+  width: 50%;
+}
+.showcase-tab {
+  padding: 80px 0 0 80px;
+  border-style: solid;
+  border-width: 0 1px 0 0;
+}
+.showcase-image {
+  padding: 30px;
+  min-height: 760px;
+}
+.showcase-image-list {
+  position: relative;
+  height: 100%;
+}
+.showcase-image-item {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.showcase-image-item img {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0s;
+  will-change: transform;
+}
+.showcase-link {
+  font-size: 70px;
+  line-height: 80px;
+  font-family: var(--hd-font-family);
+  text-transform: uppercase;
+}
+.active .showcase-link {
+  color: var(--primary);
+}
+.showcase-image-item.active img {
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.43s cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation: link-showcase-active-image 0.86s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.ap-showcase {
+  border-top: 1px solid rgb(var(--border-color));
+  position: relative;
+}
+.bg-text {
+  position: absolute;
+  left: 0;
+  bottom: 100px;
+
+  color: #49f9a400;
+  font-size: 100px;
+  text-transform: uppercase;
+  line-height: 1em;
+  -webkit-text-stroke-width: 1px;
+  stroke-width: 1px;
+  -webkit-text-stroke-color: #ddd;
+  stroke: #ddd;
+  font-family: var(--hd-font-family);
+}
+@keyframes link-showcase-active-image {
+  0% {
+    transform: scale(1);
+    clip-path: inset(0 100% 0 0);
+    -webkit-clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    transform: scale(1);
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+  }
+  100% {
+    transform: scale(1);
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+  }
+}
+@media (max-width: 1299px) {
+  .bg-text {
+    font-size: clamp(3rem, 5vw, 5vh);
+  }
+}
+@media (max-width: 991px) {
+  .showcase-link {
+    font-size: 40px;
+    line-height: 60px;
+  }
+  .showcase-tab {
+    padding: 30px 0 0 30px;
+  }
+}
+@media (max-width: 767px) {
+  .showcase-image,
+  .showcase-tab {
+    width: 100%;
+  }
+  .showcase-tab {
+    padding: 30px;
+    text-align: center;
+    border-width: 0 0px 1px 0px;
+  }
+}

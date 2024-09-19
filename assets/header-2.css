@@ -1,0 +1,152 @@
+.header_wrapper {
+  align-items: center;
+  border-top: 0px solid var(--header-border-color);
+  border-bottom: 0px solid var(--header-border-color);
+}
+
+.user,
+.header {
+  position: relative;
+}
+
+.user-block {
+  width: 15rem;
+  z-index: 999;
+  background-color: #fff;
+  color: #666;
+  padding: 1rem;
+  position: absolute;
+  font-size: 14px;
+  top: 100%;
+  right: 0;
+  border: 0.1rem solid #eaeaea;
+  box-shadow: 0 0 3rem #0000000d;
+  transition: all 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  margin: 0;
+}
+
+.user:hover .user-block {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+  display: block;
+}
+
+.user-icon {
+  cursor: pointer;
+}
+
+[dir="ltr"] .header__linklist-item:not(:last-child) {
+  margin-right: 34px;
+}
+
+.user-block a:hover {
+  color: var(--primary);
+}
+
+.mega-menu__inner {
+  padding-top: 30px;
+}
+
+.header__logo-link {
+    position: relative;
+    z-index: 2;
+}
+
+.header__icon-wrapper {
+    line-height: 1;
+}
+
+.header-2 .link--animated:after {
+  display: none;
+}
+
+.header-contact_button {
+  margin: 0 0 0 30px;
+}
+
+.header-contact_button .btn-base {
+  width: max-content;
+}
+
+@media (min-width: 1200px) {
+  .header__linklist {
+    justify-content: center;
+  }
+  .header__inline-wrapper {
+    order: 1;
+    width: 50%;
+    flex: 1;
+  }
+  .header__secondary-links {
+    order: 2;
+    flex: 0 1;
+  }
+  .header__logo {
+    order: 0;
+    flex: 0 1;
+  }
+}
+
+@media (max-width: 1199px) {
+  .header__inline-wrapper,
+  .header__logo,
+  .header__secondary-links {
+    width: 33.333%;
+  }
+  .header__logo-link {
+    margin: auto;
+  }
+  button.mobile-nav__link,
+  .vertical-nav__link-1,
+  .header__linklist-link {
+    padding: 14px 0;
+  }
+  .header__ap-cartcount {
+    position: unset;
+  }
+  .header__icon-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .header__secondary-links > .header__icon-list {
+    padding: 0;
+  }
+  .header-contact_button {
+    display: none;
+  }
+}
+
+@media (max-width: 740px) {
+  .header_wrapper {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .header_wrapper {
+    flex-wrap: wrap;
+  }
+  .header__icon-list {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 401px) {
+  .header__inline-wrapper,
+  .header__secondary-links {
+    width: 50%;
+    order: 1;
+  }
+  .header__logo {
+    width: 100%;
+    order: 0;
+    padding-bottom: 10px;
+  }
+  .header_wrapper {
+    flex-wrap: wrap;
+    padding: 20px 0 5px;
+  }
+}

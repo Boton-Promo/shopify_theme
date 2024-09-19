@@ -1,0 +1,452 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+     
+    --primary-button-background: {{ section.settings.button_background | color_extract: 'red' }}, {{ section.settings.button_background | color_extract: 'green' }}, {{ section.settings.button_background | color_extract: 'blue' }};
+    --primary-button-text-color: {{ section.settings.button_text_color | color_extract: 'red' }}, {{ section.settings.button_text_color | color_extract: 'green' }}, {{ section.settings.button_text_color | color_extract: 'blue' }};
+    --secondary-button-background: {{ section.settings.secondary_button_background | color_extract: 'red' }}, {{ section.settings.secondary_button_background | color_extract: 'green' }}, {{ section.settings.secondary_button_background | color_extract: 'blue' }};
+    --secondary-button-text-color: {{ section.settings.secondary_button_text_color | color_extract: 'red' }}, {{ section.settings.secondary_button_text_color | color_extract: 'green' }}, {{ section.settings.secondary_button_text_color | color_extract: 'blue' }};
+    --section-background: {{ section.settings.section_background | color_extract: 'red' }}, {{ section.settings.section_background | color_extract: 'green' }}, {{ section.settings.section_background | color_extract: 'blue' }};
+    --background: {{ section.settings.background | color_extract: 'red' }}, {{ section.settings.background | color_extract: 'green' }}, {{ section.settings.background | color_extract: 'blue' }};
+    --secondary-background: {{ section.settings.secondary_background | color_extract: 'red' }}, {{ section.settings.secondary_background | color_extract: 'green' }}, {{ section.settings.secondary_background | color_extract: 'blue' }};
+  }
+</style>
+
+{%- assign product = section.settings.product -%}
+
+<section class="section ">
+  <div class="section__color-wrapper">
+    <div class="container ">
+      <header class="section__header text-container">
+        <h2 class="heading heading--small">Best Seller</h2>
+      </header>
+      <div class="product product--featured product--thumbnails-{{ section.settings.thumbnails_position }}">
+        {% render 'ap-productmedia', product: product settings: section.settings %}
+  
+        <div class="product__info">
+          <!-- PRODUCT META -->
+          <ap-productmeta form-id="ap-productform-{{ section.id }}-{{ product.id }}" ap-priceclass="price--large" class="ap-productmeta">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {%- when '@app' -%}
+                  {% render block %}
+                {%- when 'text' -%}
+                  <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}" {{ block.shopify_attributes }}>
+                    {{- block.settings.text -}}
+                  </p>
+                
+                {%- when 'title' -%}
+                  <h2 class="ap-productmeta__title heading h{{ block.settings.heading_size }}">
+                    <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                  </h2>
+
+                {%- when 'price' -%}
+                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                    {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
+                  </div>
+                
+                
+              {% endcase %}
+            {% endfor %}
+            <ap-productpaymentterms form-id="ap-productform-{{ section.id }}-{{ product.id }}">
+              <form method="post" action="/cart/add" id="product-installment-form-{{ section.id }}-{{ product.id }}" accept-charset="UTF-8" class="shopify-ap-productform" enctype="multipart/form-data">
+                <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="id" value="40145740628176">
+              </form>
+            </ap-productpaymentterms>
+          </ap-productmeta>
+          <div class="ap-productform">
+            {%- render 'ap-productvariants', product: product show_size_chart: true color_variant: section.settings.color_variant -%}
+            {%- render 'product-quantity', product: product -%}
+            {%- render 'product-stock', product: product -%}
+            {%- render 'product-buy', product: product -%}
+            {% comment %}
+            {%- render 'product-ap-pickupstore', product: product -%}
+            {% endcomment %}
+          </div>
+          {%- render 'product-share', product: product -%}
+          
+          
+        </div>
+    </div>
+  </div>
+
+  {% liquid
+    assign _size_chart_name = ''
+    if settings.size_chart_1_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+        assign title1 = collection.title | downcase
+        assign title2 = settings.size_chart_1_collection.title | downcase
+        if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_2_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_2_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_2
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_3_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_3_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_3
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_4_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_4_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_4
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_5_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_5_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_5
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_6_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_6_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_6
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_7_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_7_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_7
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_8_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_8_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_8
+          assign status = true
+        endif
+      endfor
+    endif
+    if settings.size_chart_9_collection and _size_chart_name == ''
+      assign status = false
+      for collection in product.collections
+      assign title1 = collection.title | downcase
+      assign title2 = settings.size_chart_9_collection.title | downcase
+      if status == false and title1 == title2
+          assign _size_chart_name = settings.type_size_chart_9
+          assign status = true
+        endif
+      endfor
+    endif
+    
+    if  _size_chart_name == 'men'
+      render 'size-chart-man'
+    endif
+    if  _size_chart_name == 'women'
+      render 'size-chart-women'
+    endif
+    if  _size_chart_name == 'kids'
+      render 'size-chart-kids'
+    endif
+  %}
+
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.featured-product.name",
+  "tag": "section",
+  "class": "section section-featured-product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.featured-product.settings.product.label"
+    },
+    {
+      "type": "select",
+      "id": "thumbnails_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.thumbnails_position.options__1.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.all.thumbnails_position.options__2.label"
+        },
+        {
+          "value": "none",
+          "label": "t:sections.all.thumbnails_position.options__3.label"
+        }
+      ],
+      "default": "bottom",
+      "label": "t:sections.all.thumbnails_position.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_page_dots",
+      "default": false,
+      "label": "t:sections.all.carousel_page_dots.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_prevnextbuttons",
+      "default": false,
+      "label": "t:sections.all.carousel_prevnextbuttons.label"
+    },
+    {
+      "type": "select",
+      "id": "color_variant",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.color_variant.options__1.label"
+        },
+        {
+          "value": "system",
+          "label": "t:sections.all.color_variant.options__2.label"
+        },
+        {
+          "value": "image_variant",
+          "label": "t:sections.all.color_variant.options__3.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.color_variant.label"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "default": "#ffffff ",
+      "label": "t:sections.all.section_background.label"
+    },
+    {
+      "type": "color",
+      "id": "secondary_background",
+      "default": "#FFFFFF",
+      "label": "t:sections.all.secondary_background.label"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "default": "#ffffff ",
+      "label": "t:sections.all.background.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.all.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#282828",
+      "label": "t:sections.all.text_color.label"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "default": "#F3FF34",
+      "label": "t:sections.all.button_background.label"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "default": "#ffffff",
+      "label": "t:sections.all.button_text_color.label"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_background",
+      "default": "#F3FF34",
+      "label": "t:sections.all.secondary_button_background.label"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_text_color",
+      "default": "#ffffff",
+      "label": "t:sections.all.secondary_button_text_color.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "t:sections.featured-product.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text block",
+          "label": "t:sections.featured-product.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.featured-product.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.featured-product.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "default": 3,
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "t:sections.featured-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "t:sections.featured-product.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.featured-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.label"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.featured-product.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.featured-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.featured-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "t:sections.featured-product.blocks.share.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.featured-product.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.featured-product.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.featured-product.blocks.share.settings.title_info.content"
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:sections.featured-product.blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:sections.featured-product.blocks.custom_liquid.settings.custom_liquid.label"
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "t:sections.featured-product.blocks.rating.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.featured-product.blocks.rating.settings.paragraph.content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

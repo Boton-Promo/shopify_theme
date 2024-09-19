@@ -1,0 +1,291 @@
+{{ 'child-collections.css' | asset_url | stylesheet_tag }}
+{% render 'section-style' %}
+
+{% style %}
+    #shopify-section-{{ section.id }} {
+      --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+      --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+      --ap-nextap-buttonprev-background: {{ section.settings.button_background | color_extract: 'red' }}, {{ section.settings.button_background | color_extract: 'green' }}, {{ section.settings.button_background | color_extract: 'blue' }};
+      --ap-nextap-buttonprev-color: {{ section.settings.button_color | color_extract: 'red' }}, {{ section.settings.button_color | color_extract: 'green' }}, {{ section.settings.button_color | color_extract: 'blue' }};
+      --section-background: {{ section.settings.background | color_extract: 'red' }}, {{ section.settings.background | color_extract: 'green' }}, {{ section.settings.background | color_extract: 'blue' }};
+      --color-svg: {{ section.settings.color_svg }};
+    }
+    #shopify-section-{{ section.id }} .ap-multicolumn--pico {
+      --section-items-per-row: {{ section.settings.row_items }};
+    }
+    #shopify-section-{{ section.id }} {
+        --vertical-breather: 40px; /* Only on ap-multicolumn section, due to its specific usage we reduce spacing when no content */
+    }/* Reduce the margin on small devices to create a slightly better layout */
+    @media screen and (max-width: 999px) {
+        #shopify-section-{{ section.id }} {
+            --vertical-breather: var(--container-distance);
+        }
+    }
+{% endstyle %}
+  
+<section class="section section--flush child-collection">
+    <div class="section__color-wrapper">
+      <div class="{{ section.settings.setwidthout }}">
+          {% if section.settings.tab_heading != blank %}
+            <div class="section__header">
+              <p class="heading sub-heading mb-10">{% render 'icon-heading' %}{{ section.settings.sub_heading }}</p>
+              <h3 class="heading h{{ section.settings.tab_heading_size }}">{{ section.settings.tab_heading }}</h3>
+              {% if section.settings.btn_text != blank %}
+              <div class="btn-more">
+                <a href="{{ section.settings.btn_link }}" class="button btn-base-2">
+                  {{ section.settings.btn_text }}
+                  {% render 'icon-arrow-2' %}
+                </a>
+              </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          <ap-multicolumn stagger-apparition="" class="child-collection-list ap-multicolumn ap-multicolumn--pocket-small ap-multicolumn--pico ap-multicolumn--spacing-normal ap-object-loaded">
+                <div class="scroller">
+                    <ap-scrollablecontent class="ap-multicolumn__inner ap-multicolumn__inner--center ap-multicolumn__inner--scroller">
+                        {% for block in section.blocks %}  
+                            <div id="block-{{ block.id }}" class="ap-multicolumn__item" reveal="">
+                                <a href="{{ block.settings.collection.url }}" class="ap-multicolumn__image-wrapper">
+                                  {% if block.settings.image != blank %}
+                                    <img loading="lazy" sizes="(max-width: 740px) 25vw, (max-width: 999px) 20vw, 155px" 
+                                        class="ap-multicolumn__image" alt="" src="{{ block.settings.image | image_url: width: block.settings.image.width }}" 
+                                        srcset="
+                                            {%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                                            {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                                            {%- if block.settings.image.width >= 533 -%}{{ block.settings.image | image_url: width: 533 }} 533w,{%- endif -%}
+                                            {%- if block.settings.image.width >= 720 -%}{{ block.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
+                                            {%- if block.settings.image.width >= 940 -%}{{ block.settings.image | image_url: width: 940 }} 940w,{%- endif -%}
+                                            {%- if block.settings.image.width >= 1066 -%}{{ block.settings.image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                        " 
+                                        width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                                    {% endif %}
+                                    {% if block.settings.icon_svg %}
+                                      <span class="ap-multicolumn__image icon-svg">
+                                        {{ block.settings.icon_svg }}
+                                      </span>
+                                    {% endif %}
+                                    <span class="child-collection_arrow">
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L10 8.58579V1C10 0.447715 10.4477 1.49012e-08 11 1.49012e-08C11.5523 1.49012e-08 12 0.447715 12 1V11C12 11.5523 11.5523 12 11 12H1C0.447715 12 1.49012e-08 11.5523 1.49012e-08 11C1.49012e-08 10.4477 0.447715 10 1 10H8.58579L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" fill="white"/>
+                                      </svg>
+
+                                    </span>
+                                </a>
+                                <div class="ap-multicolumn__text-container text--center text-container">
+                                    <a href="{{ block.settings.collection.url }}" class="ap-multicolumn__link heading heading--xsmall child-collection-title">{{ block.settings.title }}</a>
+                                    <span class="count">{{ block.settings.collection.products_count }} Productos</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </ap-scrollablecontent>
+                    <ap-button-nextprev class="ap-multicolumn__ap-nextprev  hd-pocket" style="--smallest-image-aspect-ratio: 1.0">
+                        <button class="ap-multicolumn__arrow ap-nextap-buttonprev ap-nextap-buttonprev--prev" disabled="">
+                            <span class="visually-hidden">Previous</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.107 0.23385C11.7831 -0.07795 11.2587 -0.07795 10.9356 0.23385L4.08526 6.8444C3.43825 7.46879 3.43825 8.48173 4.08526 9.10612L10.9853 15.7659C11.3059 16.0745 11.8237 16.0787 12.1484 15.7741C12.4806 15.4631 12.484 14.9504 12.1576 14.6346L5.84239 8.54088C5.51847 8.22829 5.51847 7.72222 5.84239 7.40963L12.107 1.36432C12.431 1.05252 12.431 0.546442 12.107 0.23385Z" fill="#222222"/>
+                            </svg>                            
+                        </button>
+
+                        <button class="ap-multicolumn__arrow ap-nextap-buttonprev ap-nextap-buttonprev--next">
+                            <span class="visually-hidden">Next</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.89299 0.23385C4.21691 -0.07795 4.74131 -0.07795 5.0644 0.23385L11.9148 6.8444C12.5618 7.46879 12.5618 8.48173 11.9148 9.10612L5.01469 15.7659C4.69409 16.0745 4.17633 16.0787 3.85158 15.7741C3.51938 15.4631 3.51607 14.9504 3.84248 14.6346L10.1576 8.54088C10.4816 8.22829 10.4816 7.72222 10.1576 7.40963L3.89299 1.36432C3.56907 1.05252 3.56907 0.546442 3.89299 0.23385Z" fill="#222222"/>
+                            </svg>                            
+                        </button>
+                    </ap-button-nextprev>
+                </div>
+          </ap-multicolumn>
+        </div>
+    </div>
+  </section>
+
+{% schema %}
+{
+  "name": "t:sections.child-collections.name",
+  "tag": "section",
+  "class": "shopify-section--ap-multicolumn section-child-collection",
+  "max_blocks": 15,
+  "settings": [
+    {
+      "type": "select",
+      "id": "setwidthout",
+      "label": "Width Slideshow",
+      "default": "full",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "default": "#FFFFFF",
+      "label": "t:sections.child-collections.settings.background.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.child-collections.settings.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#282828",
+      "label": "t:sections.child-collections.settings.text_color.label"
+    },
+    {
+      "type": "color",
+      "id": "color_svg",
+      "default": "#282828",
+      "label": "t:sections.child-collections.settings.color_svg.label"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "default": "#ffffff",
+      "label": "t:sections.child-collections.settings.button_background.label"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "default": "#282828",
+      "label": "t:sections.child-collections.settings.button_color.label"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "default": "Sub heading",
+      "label": "Sub heading"
+    },
+    {
+      "type": "liquid",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    },
+    {
+      "type": "range",
+      "id": "row_items",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 7,
+      "label": "t:sections.child-collections.settings.row_items.label"
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "padding_desktop",
+      "label": "Padding desktop",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_tablet",
+      "label": "Padding tablet",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    },
+    {
+      "type": "text",
+      "id": "padding_mobile",
+      "label": "Padding mobile",
+      "default": "0px 0px 0px 0px",
+      "info": "Example: 0px 0px 0px 0px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "child_collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.child-collections.blocks.child_collection.settings.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.child-collections.blocks.child_collection.settings.image.label"
+        },
+        {
+          "type": "liquid",
+          "id": "icon_svg",
+          "label": "t:sections.child-collections.blocks.child_collection.settings.icon_svg.label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.child-collections.blocks.child_collection.settings.title.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.child-collections.name",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}  

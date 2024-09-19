@@ -1,0 +1,193 @@
+.collection-1 .vertical-breather {
+    padding: 0;
+}
+
+.shopify-section--collection-1 {
+    margin: 0;
+}
+
+p.heading.h3 {
+    text-transform: capitalize;
+    font-size: 40px;
+    line-height: 1.15;
+    font-weight: 500;
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+
+
+.heading-top .description{
+    margin: 0;
+}
+
+.list-collections--collage {
+    --list-collections-collage-rows-height: 100%;
+}
+
+.list-collections__item-list {
+    gap: 0;
+}
+
+.collection-1 .list-collections__item-info {
+    text-align: center;
+    transition: all .4s;
+    position: absolute;
+    bottom: unset;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 0 0 0;
+    transform: none;
+    /* background-image: linear-gradient(0deg, #000000, transparent); */
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+}
+
+.list-collections__item-info .heading-top .heading--xsmall span{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 2px;
+}
+
+.list-collections__item-info .heading-top .heading--xsmall.caption_large{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 70px;
+}
+
+.list-collections__item-info .heading-top .heading--xsmall.caption_large span{
+    width: 50px;
+    display: inline-block;
+    text-align: left;
+}
+
+
+.list-collections__item:hover .list-collections__item-info {
+    /* background-image: linear-gradient(0deg, var(--primary), transparent); */
+}
+
+.collection-1 .list-collections__item-image {
+    width: 100%;
+}
+
+.heading-top {
+    margin-bottom: 21px;
+}
+
+span.heading.count {
+    font-size: 16px;
+    line-height: 26px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    letter-spacing: 0;
+    font-family: var(--body-font-family);
+}
+
+.list-collections__item-list {
+    gap: 30px;
+    border: none;
+}
+
+.collection-1 .list-collections__item {
+    overflow: unset;
+    padding: 0 15px;
+}
+
+.collection-1 .list-collections__item-list {
+    margin: 0 -15px;
+}
+
+.list-collections__item-image-wrapper {
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+p.heading.h4 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+span.heading.heading--xsmall.link {
+    text-decoration: none;
+    margin: 0;
+}
+
+p.heading.h3 span:hover {
+    color: var(--primary_hover);
+}
+
+.list-collections__item:hover .list-collections__item-image-wrapper,
+.collection-item-3 .list-collections__item-image-wrapper {
+    opacity: 1;
+}
+
+.link .btn-base-2,
+.link .btn-base-2 path {
+    color: var(--color-a);
+    fill: var(--color-a);
+}
+
+.list-collections__item:hover p.heading.h4,
+.list-collections__item:hover span.heading.count,
+.list-collections__item:hover .link .btn-base-2,
+.list-collections__item:hover .link .btn-base-2 path {
+    color: var(--color-a-hover);
+    fill: var(--color-a-hover);
+}
+
+.list-collections__item .link .btn-base-2:hover {
+    background-color: var(--bg-color-a-hover);
+}
+
+.link .btn-base-2 {
+    margin: auto;
+    border-radius: 5px;
+    padding: 18px 30px;
+    background-color: var(--bg-color-a);
+    border: 1px solid var(--border-color);
+}
+
+.list-collections--collage .list-collections__item-list {
+    grid-auto-rows: unset;
+    gap: 0;
+}
+
+.list-collections__item-link {
+    position: relative;
+    display: block;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .collection-1 .list-collections__item-list {
+        margin: 0 -5px;
+    }
+    .collection-1 .list-collections__item {
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .list-collections--collage .list-collections__item-list{
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .list-collections--collage .list-collections__item-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}

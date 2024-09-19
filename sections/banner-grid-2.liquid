@@ -1,0 +1,374 @@
+{% render 'section-style' %}
+
+<style>
+  {%- if template == 'page.about-us' -%}
+    .banner-text {
+      text-align: center;
+      margin-top: 20px;
+    }
+    h2.heading.heading-center {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-family: var(--hd-font-family);
+      line-height: 1.1;
+    }
+    p.heading.description {
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+      font-family: var(--body-font-family);
+    }
+    .banner-grid .row {
+      gap: 30px 0;
+    }
+    .banner-list-image {
+      width: 100%;
+      object-fit: cover;
+    }
+  {%- endif -%}
+</style>
+
+<div class="banner-grid">
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+        {% if section.settings.tab_heading != blank %}
+        <div class="section__header">
+          <h3 class="heading h{{ section.settings.tab_heading_size }}">{{ section.settings.tab_heading }}</h3>
+          {% if section.settings.btn_text != blank %}
+          <div class="btn-more">
+            <a href="{{ section.settings.btn_link }}" class="button btn-base">
+              {{ section.settings.btn_text }}
+              {% render 'icon-arrow-2' %}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        <div class="row">
+            {% for block in section.blocks %}
+                {%- case block.settings.width -%}
+                {%- when '25%' -%}
+                {%- assign block_width = 'col-xl-25 col-md-50 col-100' -%}
+                {%- when '33%' -%}
+                {%- assign block_width = 'col-xl-33 col-md-33 col-100' -%}
+                {%- when '40%' -%}
+                {%- assign block_width = 'col-xl-40 col-lg-33 col-md-33 col-100' -%}
+                {%- when '50%' -%}
+                {%- assign block_width = 'col-xl-50 col-md-50 col-100 banner-col' -%}
+                {%- when '60%' -%}
+                {%- assign block_width = 'col-xl-60 col-md-50 col-100' -%}
+                {%- when '66%' -%}
+                {%- assign block_width = 'col-xl-66 col-md-50 col-100' -%}
+                {%- when '75%' -%}
+                {%- assign block_width = 'col-xl-75 col-md-50 col-100' -%}
+                {%- when '100%' -%}
+                {%- assign block_width = 'col-100 col-full' -%}
+                {%- endcase -%}
+                <div id="block-{{ block.id }}" class="{{ block_width }} banner-col-{{ forloop.index }}">
+                    <banner-content reveal-on-scroll="">
+                        <div class="banner-content has-overlay {% if block.settings.text_bottom %}banner-content-bottom{% endif %}">
+                            <div class="banner-image">
+                                {% if block.settings.featured_image != blank %}
+                                    <img class="banner-list-image" reveal="" loading="lazy" 
+                                    sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                    alt="" 
+                                    src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                                    srcset="{%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                        {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                                    src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                                    height="{{ block.settings.featured_image.height }}"
+                                    width="{{ block.settings.featured_image.width }}">
+                                {% else %}
+                                    <div class="banner-list-image">
+                                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div style="background-color: {{ block.settings.background_color }};" class="banner-text">
+                                {% if block.settings.heading_title != blank %}
+                                <h3 style="color: {{ block.settings.color_title }}" class="heading heading-title" reveal="">
+                                    <span>
+                                        {{- block.settings.heading_title -}}
+                                    </span>
+                                </h3>
+                                {% endif %}
+                                
+                                {% if block.settings.heading != blank %}
+                                <h2 style="color: {{ block.settings.color_title_center }}" class="heading heading-center" reveal="">
+                                    <span>
+                                        {{- block.settings.heading -}}
+                                    </span>
+                                </h2>
+                                {% endif %}   
+       
+                                {% if block.settings.description != blank %}
+                                <p style="color: {{ block.settings.color_description }}" class="heading description" reveal="">
+                                    <span>
+                                      {{- block.settings.description -}}
+                                    </span>   
+                                    <span>
+                                      {{- block.settings.description_2 -}}
+                                    </span>
+                                </p>
+                                {% endif %}
+                                
+                                <div class="wrapper-button">
+                                  <style>
+                                    #block-{{ block.id }} a.button.btn-base, 
+                                    #block-{{ block.id }} .btn-base {
+                                      color: {{ block.settings.color_btn }};
+                                      background-color: {{ block.settings.bg_btn }};
+                                    }
+                                    #block-{{ block.id }} a.button.btn-base path , 
+                                    #block-{{ block.id }} .btn-base path {
+                                      fill: {{ block.settings.color_btn }};
+                                    }
+                                    #block-{{ block.id }} a.button.btn-base:hover, 
+                                    #block-{{ block.id }} .btn-base:hover {
+                                      color: {{ block.settings.color_btn_hover }};
+                                      background-color: {{ block.settings.bg_btn_hover }};
+                                    }
+                                    #block-{{ block.id }} a.button.btn-base:hover path , 
+                                    #block-{{ block.id }} .btn-base:hover path {
+                                      fill: {{ block.settings.color_btn_hover }};
+                                    }
+                                  </style>
+                                  {% if block.settings.button1_label != blank %}
+                                  <a href="{{ block.settings.link1 }}" reveal="" class="button btn-base">
+                                      {{ block.settings.button1_label }}
+                                      {% render 'icon-arrow-2' %}
+                                  </a>
+                                  {% endif %}
+                                  {% if block.settings.button2_label != blank %}
+                                  <a href="{{ block.settings.link2 }}" reveal="" class="button btn-base">
+                                      {{ block.settings.button2_label }}
+                                      {% render 'icon-arrow-2' %}
+                                  </a>
+                                  {% endif %}
+                                </div>
+    
+                            </div>
+                            {% if block.settings.image_child != blank %}
+                            <div class="banner-image-child">
+                                <img class="image-child" loading="lazy" reveal=""
+                                sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                alt="" 
+                                src="{{ block.settings.image_child | image_url: width: block.settings.image_child.width }}" 
+                                srcset="{%- if block.settings.image_child.width >= 3000 -%}{{ block.settings.image_child | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                    {{ block.settings.image_child | image_url }} {{ block.settings.image_child.width }}w"
+                                src="{{ block.settings.image_child | image_url: width: 1500 }}"
+                                height="{{ block.settings.image_child.height }}"
+                                width="{{ block.settings.image_child.width }}">
+                            </div>
+                            {% endif %}
+                        </div>
+                    </banner-content>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner grid 2",
+  "tag": "section",
+  "class": "section shopify-section-banner-grid",
+  "max_blocks": 15,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "t:sections.all.fullwidth.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "margin_desktop",
+      "label": "t:sections.all.margin_desktop.label",
+      "info": "t:sections.all.margin_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_tablet",
+      "label": "t:sections.all.margin_tablet.label",
+      "info": "t:sections.all.margin_tablet.info"
+    },
+    {
+      "type": "text",
+      "id": "margin_mobile",
+      "label": "t:sections.all.margin_mobile.label",
+      "info": "t:sections.all.margin_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.all.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.all.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner-grid",
+      "name": "Banner grid",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width product",
+          "default": "33%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "40%",
+              "label": "40%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "60%",
+              "label": "60%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_child",
+          "label": "Image child"
+        },
+        {
+          "type": "checkbox",
+          "id": "text_bottom",
+          "label": "Content bottom",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color content"
+        },
+        {
+          "type": "liquid",
+          "id": "heading_title",
+          "label": "Heading title"
+        },
+        {
+          "type": "color",
+          "id": "color_title",
+          "label": "Color title"
+        },
+        {
+          "type": "liquid",
+          "id": "heading",
+          "label": "Heading center"
+        },
+        {
+          "type": "color",
+          "id": "color_title_center",
+          "label": "Color title center"
+        },
+        {
+          "type": "liquid",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "color_description",
+          "label": "Color description"
+        },
+        {
+          "type": "liquid",
+          "id": "description_2",
+          "label": "Description 2"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "Button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn",
+          "label": "Color button"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn",
+          "label": "Background button"
+        },
+        {
+          "type": "color",
+          "id": "color_btn_hover",
+          "label": "Color button hover"
+        },
+        {
+          "type": "color",
+          "id": "bg_btn_hover",
+          "label": "Background button hover"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "button2_label",
+          "label": "Button 2"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "Link 2"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
