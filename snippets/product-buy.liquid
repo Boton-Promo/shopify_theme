@@ -3,7 +3,7 @@
       <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
       <ap-paymentcontainerproduct id="ApolloProductSticky" form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__payment-container">
-        <button id="AddToCart" type="submit" is="loader-button" data-use-primary="" data-product-add-to-cart-button="" data-button-content="Add to cart" class="ap-productform__add-button button button--primary button--full">
+        <button id="AddToCart" type="submit" is="loader-button" data-use-primary="" data-product-add-to-cart-button="" data-button-content="Añadir al carrito" class="ap-productform__add-button button button--primary button--full">
           <span class="ap-text-loaderbutton">
             {%- if product.selected_or_first_available_variant.available -%}
                 {{ 'products.product.add_to_cart' | t }}
