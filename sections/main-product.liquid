@@ -305,8 +305,8 @@
                       
                       {%- when 'title' -%}
                         <h1 class="ap-productmeta__title heading h3">{{ product.title }}</h1>
-                      {% if customer %}
                       {%- when 'price' -%}
+                        {% if customer %}
                         {% liquid
                           render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large'
                         %}
