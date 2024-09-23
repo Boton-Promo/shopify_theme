@@ -231,6 +231,7 @@
         
                             </div>
                             {%- endif -%}
+                            {% if customer %}
                             <div title="Add to cart" class="btn-service btn-addcart">
                             {%- if product.selected_or_first_available_variant.available -%}
                                 <form method="post" action="/cart/add" id="product_form_{{ section.id }}__{{ product.id }}_0" accept-charset="UTF-8" class="product-item__quick-form" enctype="multipart/form-data" is="ap-productform">
@@ -276,6 +277,7 @@
                                 </div>
                             {%- endif -%}
                             </div>
+                        {% endif %}
                         </div>
 
                     </div>
