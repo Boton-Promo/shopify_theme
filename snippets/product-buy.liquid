@@ -2,6 +2,7 @@
     <form method="post" action="/cart/add" id="ap-productform-{{ section.id }}-{{ product.id }}" accept-charset="UTF-8" class="shopify-ap-productform" enctype="multipart/form-data" is="ap-productform">
       <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      {% if customer %}
       <ap-paymentcontainerproduct id="ApolloProductSticky" form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__payment-container">
         <button id="AddToCart" type="submit" is="loader-button" data-use-primary="" data-product-add-to-cart-button="" data-button-content="Añadir al carrito" class="ap-productform__add-button button button--primary button--full">
           <span class="ap-text-loaderbutton">
@@ -36,6 +37,9 @@
         </div>
           
       </ap-paymentcontainerproduct>
+      {% else %}
+        <p>Inicia sesión para ver los precios.</p>
+      {% endif %}
     </form>
 
     {%- if block.settings.show_dynamic_checkout -%}
