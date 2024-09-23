@@ -33,7 +33,7 @@
         "contact_addess": "Calle 3 A # 18 - 27, Bogotá - Eduardo Santos",
         "contact_phone": "+57 321 227 5275",
         "contact_mail": "info@esferos.com",
-        "contact_web": "www.example.com",
+        "contact_web": "www.esferos.com",
         "gmap_iframe": "<div class=\"mapouter\"><div class=\"gmap_canvas\">\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15907.943919411588!2d-74.089485!3d4.596534!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f991aaff91c7d%3A0x10e8344f710500d7!2sBoton%20Promo%20SAS!5e0!3m2!1ses!2sus!4v1727117609782!5m2!1ses!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe><a href=\"https://embedgooglemap.net/124/\"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>\n<style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>\n</div></div>",
         "color_scheme": "background-1",
         "padding_top": 60,
