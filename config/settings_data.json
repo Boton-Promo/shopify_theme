@@ -816,7 +816,7 @@
             "type": "image_block",
             "settings": {
               "parent_menu": "Hogar Plus +",
-              "parent_megamenu": "",
+              "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/Cat-2.jpg",
               "heading": "Hogar Plus +",
               "heading_size": "heading--xxsmall",
