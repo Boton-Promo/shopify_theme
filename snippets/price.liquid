@@ -1,5 +1,5 @@
 {% assign variant = product.selected_or_first_available_variant %}
-
+{% if customer %}
 <div class="ap-productmeta__price-list-container" role="region" aria-live="polite">
   <div class="price-list" data-product-price-list=""><span class="price price--highlight price--large">
     {%- if variant.compare_at_price > variant.price -%}
@@ -43,6 +43,6 @@
     {% endif %}
   </div>
 </div>
-
+{% endif %}
 
 
