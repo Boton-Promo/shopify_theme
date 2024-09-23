@@ -295,6 +295,7 @@
           {% render 'ap-productmedia', product: product %}
           <div class="product__info {%- if section.settings.media_type == 'list' -%}{{ 'product__info-scroll' | prepend: ' ' }}{%- endif -%}">
             <!-- PRODUCT META -->
+            {% if customer %}
             <ap-productmeta form-id="ap-productform-{{ section.id }}-{{ product.id }}" ap-priceclass="price--large" class="ap-productmeta">
                 <div class="ap-productform">
                   {%- for block in section.blocks -%}
@@ -467,7 +468,9 @@
       
                 </div>
             </ap-productmeta>
-            
+            {% else %}
+              <p>Inicia sesión para ver los precios.</p>
+            {% endif %}
             {% liquid
               assign _size_chart_name = ''
               if settings.size_chart_1_collection and _size_chart_name == ''
