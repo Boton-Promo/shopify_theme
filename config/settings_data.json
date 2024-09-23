@@ -422,7 +422,7 @@
       "cookie-bar": {
         "type": "cookie-bar",
         "settings": {
-          "show_cookie_bar": false,
+          "show_cookie_bar": true,
           "heading": "Política de cookies",
           "heading_size": "heading--xsmall",
           "content": "Acepto el tratamiento de mis datos de acuerdo con las condiciones establecidas en la política de Privacidad."
