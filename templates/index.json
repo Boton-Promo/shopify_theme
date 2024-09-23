@@ -314,7 +314,7 @@
         "collection_xWHRPB": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "bicicletas-hogar",
             "image": "shopify://shop_images/cuadro.png",
             "icon_svg": "",
             "title": ""
