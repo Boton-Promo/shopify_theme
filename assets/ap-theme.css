@@ -10136,7 +10136,7 @@ button.mobile-nav__link,
   transition: all 0.4s;
   letter-spacing: 0;
   font-weight: 700;
-  font-family: var(--hd-font-family);
+  /* font-family: var(--hd-font-family); */
 }
 
 .header__linklist-link {
