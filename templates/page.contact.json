@@ -1,1 +1,48 @@
-{"sections":{"main":{"type":"main-page","settings":{"setwidthout":"full","padding_top":110,"padding_bottom":110,"margin_desktop":"","background_color":"#222222","color_title":"#ffffff","color_breadcrumb":"#ffffff"}},"form":{"type":"contact-form","settings":{"heading":"Send a message","heading_2":"Theme Xtra","heading_size":"h1","description":"Just fill out the form here and we'll get back to you as soon as possible.","contact_title":"Visit one of our agency locations or contact us today.","contact_des":"Have a question? Give us a call or fill out the contact form. We’d love to hear from you","contact_addess":"123 Sky Tower, West 21th Street, Suite 721, NY","contact_phone":"+844 123 456 789","contact_mail":"sale@yourcompany.com","contact_web":"www.example.com","gmap_iframe":"<div class=\"mapouter\"><div class=\"gmap_canvas\">\n<iframe width=\"auto\" height=\"500\" id=\"gmap_canvas\" src=\"https:\/\/maps.google.com\/maps?q=Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"><\/iframe><a href=\"https:\/\/embedgooglemap.net\/124\/\"><\/a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}<\/style>\n<a href=\"https:\/\/www.embedgooglemap.net\">google maps link html<\/a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}<\/style>\n<\/div><\/div>","color_scheme":"background-1","padding_top":60,"padding_bottom":60}}},"order":["main","form"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "setwidthout": "full",
+        "padding_top": 110,
+        "padding_bottom": 110,
+        "margin_desktop": "",
+        "background_color": "#222222",
+        "color_title": "#ffffff",
+        "color_breadcrumb": "#ffffff"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Enviar un mensaje",
+        "heading_2": "",
+        "heading_size": "h1",
+        "description": "Si tienes una duda o te quieres comunicar con nosotros, solo tienes que llenar los datos con tu información y nos pondremos en contacto lo más pronto posible.",
+        "contact_title": "Visit one of our agency locations or contact us today.",
+        "contact_des": "",
+        "contact_addess": "Calle 3 A # 18 - 27, Bogotá - Eduardo Santos",
+        "contact_phone": "+57 321 227 5275",
+        "contact_mail": "info@esferos.com",
+        "contact_web": "www.esferos.com",
+        "gmap_iframe": "<div class=\"mapouter\"><div class=\"gmap_canvas\">\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15907.943919411588!2d-74.089485!3d4.596534!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f991aaff91c7d%3A0x10e8344f710500d7!2sBoton%20Promo%20SAS!5e0!3m2!1ses!2sus!4v1727117609782!5m2!1ses!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe><a href=\"https://embedgooglemap.net/124/\"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>\n<style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>\n</div></div>",
+        "color_scheme": "background-1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form"
+  ]
+}
