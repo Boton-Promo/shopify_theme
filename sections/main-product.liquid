@@ -328,8 +328,11 @@
                         </div>
                       
                       {%- when 'buy_buttons' -%}
+                      {% if customer %}
                         {%- render 'product-buy', product: product -%}
-                      
+                      {% else %}
+                          <p>Inicia sesión para comprar.</p>
+                        {% endif %}
                       {%- when 'product_stock' -%}
                         <div class="product_stock">
                           {%- render 'product-stock', product: product -%}
