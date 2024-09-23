@@ -850,6 +850,7 @@
           },
           "image_block_mQVmaF": {
             "type": "image_block",
+            "disabled": true,
             "settings": {
               "parent_menu": "Tienda",
               "parent_megamenu": "main-menu",
