@@ -284,7 +284,7 @@
         "collection_NAhhnf"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller{gap: 2rem}"
+        ".ap-multicolumn__inner--scroller {gap: 2rem;}"
       ],
       "settings": {
         "setwidthout": "full",
@@ -433,6 +433,9 @@
         "collection_ERb9zj",
         "collection_pNXck4",
         "collection_hUhH8N"
+      ],
+      "custom_css": [
+        ".ap-multicolumn__inner--scroller {gap: 2rem;}"
       ],
       "settings": {
         "setwidthout": "full",
