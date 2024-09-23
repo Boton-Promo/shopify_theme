@@ -812,6 +812,18 @@
               "link": "shopify://collections/promocionales"
             }
           },
+          "image_block_GCpNYU": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "",
+              "image": "shopify://shop_images/Cat-2.jpg",
+              "heading": "Hogar Plus +",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": ""
+            }
+          },
           "image_block_irxBAq": {
             "type": "image_block",
             "settings": {
@@ -925,6 +937,7 @@
           "image_block_VEyh8G",
           "image_block_j6AVCx",
           "image_block_UfnE4e",
+          "image_block_GCpNYU",
           "image_block_irxBAq",
           "image_block_FymMHY",
           "image_block_mQVmaF",
