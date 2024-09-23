@@ -528,7 +528,7 @@
           "desciption": "Nuestro sitio web utiliza cookies para mejorar tu experiencia.",
           "input": "Tu correo...",
           "button_text": "Suscribete",
-          "time_delay": 2,
+          "time_delay": 6,
           "bg_input": "#ffffff",
           "color_title": "",
           "color_description": ""
