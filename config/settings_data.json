@@ -791,7 +791,7 @@
           "image_block_j6AVCx": {
             "type": "image_block",
             "settings": {
-              "parent_menu": "Tienda",
+              "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/Cat-1.jpg",
               "heading": "Esferos & Llaveros",
@@ -803,7 +803,7 @@
           "image_block_UfnE4e": {
             "type": "image_block",
             "settings": {
-              "parent_menu": "Tienda",
+              "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/Cat-2.jpg",
               "heading": "Promocionales",
@@ -815,7 +815,7 @@
           "image_block_irxBAq": {
             "type": "image_block",
             "settings": {
-              "parent_menu": "Tienda",
+              "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/Cat-3.jpg",
               "heading": "Hogar Plus +",
@@ -827,7 +827,7 @@
           "image_block_FymMHY": {
             "type": "image_block",
             "settings": {
-              "parent_menu": "Tienda",
+              "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/Cat-4.jpg",
               "heading": "Juguetes",
