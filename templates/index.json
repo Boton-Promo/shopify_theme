@@ -874,7 +874,7 @@
         "product_list_9XYKGe"
       ],
       "custom_css": [
-
+        ".heading svg {display: none;}"
       ],
       "settings": {
         "fullwidth": false,
