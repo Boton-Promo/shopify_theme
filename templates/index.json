@@ -936,7 +936,7 @@
         "style_btn": "btn-base",
         "heading_size": "h3",
         "text_align": "center",
-        "margin_desktop": "100px 0",
+        "margin_desktop": "50px 0",
         "margin_mobile": "30px 0",
         "padding_desktop": "",
         "padding_mobile": ""
