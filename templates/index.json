@@ -871,8 +871,8 @@
         "product_list_DWnQh6": {
           "type": "product_list",
           "settings": {
-            "tab_name": "Agendas",
-            "collection": "agendas",
+            "tab_name": "Alcancías",
+            "collection": "alcancias",
             "limit": 20
           }
         },
