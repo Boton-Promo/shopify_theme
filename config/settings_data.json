@@ -941,7 +941,7 @@
         ],
         "settings": {
           "fullwidth": true,
-          "sticky_header": false,
+          "sticky_header": true,
           "enable_vetical": false,
           "transparent_header": false,
           "header_background": "#ffffff",
