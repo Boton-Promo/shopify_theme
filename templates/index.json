@@ -831,6 +831,40 @@
         "padding_mobile": ""
       }
     },
+    "product_list_TwgUHU": {
+      "type": "product-list",
+      "settings": {
+        "fullwidth": false,
+        "margin_desktop": "",
+        "margin_mobile": "",
+        "padding_desktop": "",
+        "padding_mobile": "",
+        "product_list_2": false,
+        "background-color": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "prev_next_button_background": "#FFFFFF",
+        "prev_next_button_color": "#282828",
+        "products_per_row_mobile": 2,
+        "products_per_row_tablet": 4,
+        "desktop_small": 4,
+        "products_per_row_desktop": 6,
+        "product_line": "2",
+        "sub_heading": "Sub heading",
+        "tab_heading": "",
+        "tab_heading_size": 1,
+        "tab_description": "",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "text_align": "left",
+        "collection": "nuevos",
+        "limit": 10,
+        "border_width": "",
+        "btn_text_2": "",
+        "btn_link_2": ""
+      }
+    },
     "product_tab_k6gfhF": {
       "type": "product-tab",
       "blocks": {
@@ -1553,6 +1587,7 @@
     "child_collections_tGn6Kx",
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
     "collection_1_Knt9jr",
+    "product_list_TwgUHU",
     "product_tab_k6gfhF",
     "service_YLUDB4",
     "service_mhFk8x",
