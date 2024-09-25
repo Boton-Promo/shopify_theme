@@ -288,7 +288,7 @@
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
         ".ap-multicolumn__inner ap-multicolumn__inner--center ap-multicolumn__inner--scroller {align-items: center;}",
-        ".ap-multicolumn__text-container text--center text-container{display: none;}"
+        ".ap-multicolumn__text-container {display: none;}"
       ],
       "settings": {
         "setwidthout": "full",
