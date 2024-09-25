@@ -436,7 +436,7 @@
         "collection_hUhH8N"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller {gap: 2rem;}",
+        ".ap-multicolumn__inner--scroller {gap: 1rem;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}"
       ],
       "settings": {
