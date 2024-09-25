@@ -286,7 +286,7 @@
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}",
-        ".ap-multicolumn__image-wrapper svg{display:none}"
+        ".ap-multicolumn__image-wrapper span {display: none;}"
       ],
       "settings": {
         "setwidthout": "full",
