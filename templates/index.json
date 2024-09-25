@@ -286,7 +286,8 @@
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}",
-        ".ap-multicolumn__image-wrapper span {display: none;}"
+        ".ap-multicolumn__image-wrapper span {display: none;}",
+        ".ap-multicolumn__inner ap-multicolumn__inner--center ap-multicolumn__inner--scroller{align-items: center;}"
       ],
       "settings": {
         "setwidthout": "full",
