@@ -284,8 +284,14 @@
         "collection_NAhhnf"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller {gap: 2rem;}",
-        ".ap-multicolumn__text-container {margin-top: 0px;}"
+        ".ap-multicolumn__inner--scroller {gap: 1rem;}",
+        ".ap-multicolumn__text-container {margin-top: 0px;}",
+        ".ap-multicolumn__image-wrapper span {display: none;}",
+        ".ap-multicolumn__inner ap-multicolumn__inner--center ap-multicolumn__inner--scroller {align-items: center;}",
+        ".ap-multicolumn__text-container {display: none;}",
+        ".ap-multicolumn__image-wrapper:hover {transform: scale(2); transition: transform 0.2s; padding: 1rem;}",
+        ".ap-multicolumn__inner:hover {padding-bottom: 15px; }",
+        ".ap-multicolumn__inner--scroller:hover {overflow: visible;}"
       ],
       "settings": {
         "setwidthout": "full",
@@ -301,7 +307,7 @@
         "btn_text": "",
         "btn_link": "",
         "row_items": 10,
-        "margin_desktop": "",
+        "margin_desktop": "0px",
         "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
@@ -436,7 +442,7 @@
         "collection_hUhH8N"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller {gap: 2rem;}",
+        ".ap-multicolumn__inner--scroller {gap: 1rem;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}"
       ],
       "settings": {
@@ -831,14 +837,48 @@
         "padding_mobile": ""
       }
     },
+    "product_list_TwgUHU": {
+      "type": "product-list",
+      "settings": {
+        "fullwidth": false,
+        "margin_desktop": "",
+        "margin_mobile": "",
+        "padding_desktop": "",
+        "padding_mobile": "",
+        "product_list_2": false,
+        "background-color": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "prev_next_button_background": "#ffffff",
+        "prev_next_button_color": "#282828",
+        "products_per_row_mobile": 2,
+        "products_per_row_tablet": 4,
+        "desktop_small": 4,
+        "products_per_row_desktop": 4,
+        "product_line": "2",
+        "sub_heading": "Sub heading",
+        "tab_heading": "",
+        "tab_heading_size": 1,
+        "tab_description": "",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "text_align": "left",
+        "collection": "nuevos",
+        "limit": 10,
+        "border_width": "",
+        "btn_text_2": "",
+        "btn_link_2": ""
+      }
+    },
     "product_tab_k6gfhF": {
       "type": "product-tab",
       "blocks": {
         "product_list_DWnQh6": {
           "type": "product_list",
           "settings": {
-            "tab_name": "Agendas",
-            "collection": "agendas",
+            "tab_name": "Alcancías",
+            "collection": "alcancias",
             "limit": 20
           }
         },
@@ -902,7 +942,7 @@
         "style_btn": "btn-base",
         "heading_size": "h3",
         "text_align": "center",
-        "margin_desktop": "100px 0",
+        "margin_desktop": "50px 0",
         "margin_mobile": "30px 0",
         "padding_desktop": "",
         "padding_mobile": ""
@@ -1553,6 +1593,7 @@
     "child_collections_tGn6Kx",
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
     "collection_1_Knt9jr",
+    "product_list_TwgUHU",
     "product_tab_k6gfhF",
     "service_YLUDB4",
     "service_mhFk8x",
