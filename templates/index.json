@@ -284,7 +284,7 @@
         "collection_NAhhnf"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller {gap: 2rem;}",
+        ".ap-multicolumn__inner--scroller {gap: 1rem;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}"
       ],
       "settings": {
@@ -843,7 +843,7 @@
         "background-color": "#ffffff",
         "heading_color": "#282828",
         "text_color": "#282828",
-        "prev_next_button_background": "#FFFFFF",
+        "prev_next_button_background": "#ffffff",
         "prev_next_button_color": "#282828",
         "products_per_row_mobile": 2,
         "products_per_row_tablet": 4,
