@@ -285,7 +285,8 @@
       ],
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
-        ".ap-multicolumn__text-container {margin-top: 0px;}"
+        ".ap-multicolumn__text-container {margin-top: 0px;}",
+        ".ap-multicolumn__image-wrapper svg{display:none}"
       ],
       "settings": {
         "setwidthout": "full",
@@ -301,7 +302,7 @@
         "btn_text": "",
         "btn_link": "",
         "row_items": 10,
-        "margin_desktop": "",
+        "margin_desktop": "0px",
         "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
