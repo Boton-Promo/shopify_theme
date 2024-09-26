@@ -136,7 +136,7 @@
         "collection_fdAFh7"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller{gap: 10px;}"
+        ".ap-multicolumn__inner--scroller {gap: 10px;}"
       ],
       "settings": {
         "setwidthout": "container",
@@ -451,7 +451,7 @@
           "type": "collection",
           "settings": {
             "collection": "botones",
-            "image": "shopify://shop_images/14.jpg",
+            "image": "shopify://shop_images/1_94399ce8-326b-41b6-a8a2-2221afbdc1e8.jpg",
             "icon_svg": "",
             "title": ""
           }
