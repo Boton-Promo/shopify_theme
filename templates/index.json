@@ -135,6 +135,9 @@
         "collection_Haz9EK",
         "collection_fdAFh7"
       ],
+      "custom_css": [
+        ".ap-multicolumn__inner--scroller{gap: 10px;}"
+      ],
       "settings": {
         "setwidthout": "container",
         "background": "#ffffff",
