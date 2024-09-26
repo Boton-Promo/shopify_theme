@@ -514,6 +514,24 @@
             "icon_svg": "",
             "title": ""
           }
+        },
+        "collection_GV4GbH": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/cuadro.png",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_84hKpn": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/cuadro.png",
+            "icon_svg": "",
+            "title": ""
+          }
         }
       },
       "block_order": [
@@ -524,7 +542,9 @@
         "collection_8BWyCp",
         "collection_AphrWK",
         "collection_DDNtxN",
-        "collection_ATPNgD"
+        "collection_ATPNgD",
+        "collection_GV4GbH",
+        "collection_84hKpn"
       ],
       "custom_css": [
         ".ap-multicolumn__text-container {margin-top: 0px;}",
