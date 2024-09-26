@@ -317,7 +317,7 @@
         "btn_text": "",
         "btn_link": "",
         "row_items": 10,
-        "margin_desktop": "0px",
+        "margin_desktop": "0px 0px 20px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
