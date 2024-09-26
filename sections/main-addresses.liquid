@@ -148,12 +148,50 @@
             {{ 'customer.addresses.edit' | t }}
           </button>
           <button
-            type="button"
-            aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
-            data-target="{{ address.url }}"
-          >
-            {{ 'customer.addresses.delete' | t }}
-          </button>
+  type="button"
+  aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
+  data-target="{{ address.url }}"
+  class="delete-address-btn"
+>
+  {{ 'customer.addresses.delete' | t }}
+</button>
+
+<script>
+  // Seleccionar todos los botones de eliminar dirección
+  var deleteButtons = document.querySelectorAll('.delete-address-btn');
+
+  // Añadir evento click a cada botón
+  deleteButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      // Obtener la URL del atributo data-target
+      var deleteUrl = button.getAttribute('data-target');
+      
+      // Confirmar antes de eliminar
+      if (confirm("¿Estás seguro de que deseas eliminar esta dirección?")) {
+        // Enviar solicitud de eliminación usando fetch
+        fetch(deleteUrl, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            // Si la eliminación es exitosa, refrescar la página o actualizar el DOM
+            location.reload(); // Refresca la página
+          } else {
+            alert('Hubo un problema al eliminar la dirección.');
+          }
+        })
+        .catch(error => {
+          console.error('Error al eliminar la dirección:', error);
+          alert('Error de red. Intenta nuevamente.');
+        });
+      }
+    });
+  });
+</script>
           <div id="EditAddress_{{ address.id }}">
             <h2>{{ 'customer.addresses.edit_address' | t }}</h2>
             {%- form 'customer_address', address -%}
