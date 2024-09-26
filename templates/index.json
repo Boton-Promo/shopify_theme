@@ -440,6 +440,120 @@
         "padding_mobile": "0px 0px 0px 0px"
       }
     },
+    "child_collections_dHB9em": {
+      "type": "child-collections",
+      "blocks": {
+        "collection_yTFy3F": {
+          "type": "collection",
+          "settings": {
+            "collection": "botones",
+            "image": "shopify://shop_images/14.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_NxDNir": {
+          "type": "collection",
+          "settings": {
+            "collection": "cuidado-personal",
+            "image": "shopify://shop_images/15.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_pP9UjD": {
+          "type": "collection",
+          "settings": {
+            "collection": "hogar",
+            "image": "shopify://shop_images/16.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_wAD4Kw": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/17.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_8BWyCp": {
+          "type": "collection",
+          "settings": {
+            "collection": "morrales",
+            "image": "shopify://shop_images/19.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_AphrWK": {
+          "type": "collection",
+          "settings": {
+            "collection": "ecologicos",
+            "image": "shopify://shop_images/20.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_DDNtxN": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/prueba_3.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_ATPNgD": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/cuadro.png",
+            "icon_svg": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_yTFy3F",
+        "collection_NxDNir",
+        "collection_pP9UjD",
+        "collection_wAD4Kw",
+        "collection_8BWyCp",
+        "collection_AphrWK",
+        "collection_DDNtxN",
+        "collection_ATPNgD"
+      ],
+      "custom_css": [
+        ".ap-multicolumn__text-container {margin-top: 0px;}",
+        ".ap-multicolumn__image-wrapper span {display: none;}",
+        ".ap-multicolumn__text-container {display: none;}",
+        ".ap-multicolumn__inner--scroller {gap: 10px;}"
+      ],
+      "settings": {
+        "setwidthout": "container",
+        "background": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "color_svg": "#282828",
+        "button_background": "#ffffff",
+        "button_color": "#282828",
+        "sub_heading": "",
+        "tab_heading": "",
+        "tab_heading_size": 2,
+        "btn_text": "",
+        "btn_link": "",
+        "row_items": 7,
+        "margin_desktop": "0px 0px 10px 0px",
+        "margin_tablet": "",
+        "margin_mobile": "",
+        "padding_desktop": "0px 0px 0px 0px",
+        "padding_tablet": "0px 0px 0px 0px",
+        "padding_mobile": "0px 0px 0px 0px"
+      }
+    },
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6": {
       "type": "slideshow",
       "blocks": {
@@ -1587,6 +1701,7 @@
     "child_collections_T9xhGz",
     "child_collections_TwtJwE",
     "child_collections_tGn6Kx",
+    "child_collections_dHB9em",
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
     "collection_1_Knt9jr",
     "image_banner_KKfRRt",
