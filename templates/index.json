@@ -262,8 +262,17 @@
         "collection_NAhhnf": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "collection": "bolsas",
+            "image": "shopify://shop_images/12.jpg",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_CgdtAd": {
+          "type": "collection",
+          "settings": {
+            "collection": "botilitos",
+            "image": "shopify://shop_images/13.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -281,7 +290,8 @@
         "collection_jfcckG",
         "collection_dmrqi8",
         "collection_39KCUb",
-        "collection_NAhhnf"
+        "collection_NAhhnf",
+        "collection_CgdtAd"
       ],
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
@@ -321,8 +331,8 @@
         "collection_xWHRPB": {
           "type": "collection",
           "settings": {
-            "collection": "bicicletas-hogar",
-            "image": "shopify://shop_images/cuadro.png",
+            "collection": "botones",
+            "image": "shopify://shop_images/14.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -330,8 +340,8 @@
         "collection_PmKj7p": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "collection": "cuidado-personal",
+            "image": "shopify://shop_images/15.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -339,8 +349,8 @@
         "collection_CUHn64": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "collection": "hogar",
+            "image": "shopify://shop_images/16.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -349,7 +359,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "image": "shopify://shop_images/17.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -357,8 +367,8 @@
         "collection_fBL6Ym": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "collection": "morrales",
+            "image": "shopify://shop_images/19.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -366,8 +376,8 @@
         "collection_9Q3cJc": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "collection": "ecologicos",
+            "image": "shopify://shop_images/20.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -376,7 +386,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
+            "image": "shopify://shop_images/21.jpg",
             "icon_svg": "",
             "title": ""
           }
