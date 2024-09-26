@@ -257,6 +257,154 @@
         "video_url": "https://cdn.shopify.com/videos/c/o/v/e3a116117ced4b44813c03a0d6275804.mp4"
       }
     },
+    "child_collections_CjPPwx": {
+      "type": "child-collections",
+      "blocks": {
+        "collection_czXWTd": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "sffaFafAF"
+          }
+        },
+        "collection_Ua4bik": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_XDVE7P": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_aKMazf": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_x3cAC3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_aBmhHq": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_wimL7y": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_BGmGha": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_PfRE7e": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_MbCmJi": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_MRi3FU": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        },
+        "collection_NnWKxK": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recurso_9-100.jpg",
+            "icon_svg": "",
+            "title": "fafafsafd"
+          }
+        }
+      },
+      "block_order": [
+        "collection_czXWTd",
+        "collection_Ua4bik",
+        "collection_XDVE7P",
+        "collection_aKMazf",
+        "collection_x3cAC3",
+        "collection_aBmhHq",
+        "collection_wimL7y",
+        "collection_BGmGha",
+        "collection_PfRE7e",
+        "collection_MbCmJi",
+        "collection_MRi3FU",
+        "collection_NnWKxK"
+      ],
+      "settings": {
+        "setwidthout": "container",
+        "background": "#FFFFFF",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "color_svg": "#282828",
+        "button_background": "#ffffff",
+        "button_color": "#282828",
+        "sub_heading": "",
+        "tab_heading": "",
+        "tab_heading_size": 1,
+        "btn_text": "",
+        "btn_link": "",
+        "row_items": 7,
+        "margin_desktop": "",
+        "margin_tablet": "",
+        "margin_mobile": "",
+        "padding_desktop": "0px 0px 0px 0px",
+        "padding_tablet": "0px 0px 0px 0px",
+        "padding_mobile": "0px 0px 0px 0px"
+      }
+    },
     "child_collections_T9xhGz": {
       "type": "child-collections",
       "blocks": {
@@ -1662,6 +1810,7 @@
   },
   "order": [
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
+    "child_collections_CjPPwx",
     "child_collections_T9xhGz",
     "child_collections_TwtJwE",
     "child_collections_tGn6Kx",
