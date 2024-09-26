@@ -165,30 +165,27 @@
     button.addEventListener('click', function() {
       // Obtener la URL del atributo data-target
       var deleteUrl = button.getAttribute('data-target');
-      
-      // Confirmar antes de eliminar
-      if (confirm("¿Estás seguro de que deseas eliminar esta dirección?")) {
-        // Enviar solicitud de eliminación usando fetch
-        fetch(deleteUrl, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => {
-          if (response.ok) {
-            // Si la eliminación es exitosa, refrescar la página o actualizar el DOM
-            location.reload(); // Refresca la página
-          } else {
-            alert('Hubo un problema al eliminar la dirección.');
-          }
-        })
-        .catch(error => {
-          console.error('Error al eliminar la dirección:', error);
-          alert('Error de red. Intenta nuevamente.');
-        });
-      }
+
+      // Enviar solicitud de eliminación usando fetch
+      fetch(deleteUrl, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Si la eliminación es exitosa, refrescar la página
+          location.reload(); // Refresca la página automáticamente
+        } else {
+          alert('Hubo un problema al eliminar la dirección.');
+        }
+      })
+      .catch(error => {
+        console.error('Error al eliminar la dirección:', error);
+        alert('Error de red. Intenta nuevamente.');
+      });
     });
   });
 </script>
