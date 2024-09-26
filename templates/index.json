@@ -412,7 +412,6 @@
         "collection_eg3i6U"
       ],
       "custom_css": [
-        ".ap-multicolumn__item {box-shadow: 0 3px 6px rgb(68 68 68 / 32%); transition: box-shadow ease 0.3s;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
         ".ap-multicolumn__text-container {display: none;}",
