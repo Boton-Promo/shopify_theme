@@ -290,7 +290,7 @@
         ".ap-multicolumn__inner ap-multicolumn__inner--center ap-multicolumn__inner--scroller {align-items: center;}",
         ".ap-multicolumn__text-container {display: none;}",
         ".ap-multicolumn__image-wrapper:hover {transform: scale(2); transition: transform 0.2s; padding: 1rem;}",
-        ".ap-multicolumn__inner:hover {padding-bottom: 15px; }",
+        ".ap-multicolumn__inner:hover {padding-bottom: 15px;}",
         ".ap-multicolumn__inner--scroller:hover {overflow: visible;}"
       ],
       "settings": {
@@ -835,6 +835,29 @@
         "margin_mobile": "",
         "padding_desktop": "",
         "padding_mobile": ""
+      }
+    },
+    "image_banner_KKfRRt": {
+      "type": "image-banner",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "setwidthout": "full",
+        "featured_image": "shopify://shop_images/Mask_group_79.webp",
+        "height_img": false,
+        "show_video_img": false,
+        "video_url": "",
+        "margin_desktop": "",
+        "margin_tablet": "",
+        "margin_mobile": "",
+        "tab_heading": "",
+        "tab_heading_size": 1,
+        "tab_description": "",
+        "heading_color": "",
+        "text_color": "",
+        "overlay": "#000000",
+        "overlay_opacity": 1
       }
     },
     "product_list_TwgUHU": {
@@ -1593,6 +1616,7 @@
     "child_collections_tGn6Kx",
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
     "collection_1_Knt9jr",
+    "image_banner_KKfRRt",
     "product_list_TwgUHU",
     "product_tab_k6gfhF",
     "service_YLUDB4",
