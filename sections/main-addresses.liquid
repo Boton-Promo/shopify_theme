@@ -174,7 +174,7 @@
                   {{ 'customer.addresses.country' | t }}
                 </label>
                 <div class="select">
-                  <select
+                  {% comment %} <select
                     id="AddressCountry_{{ form.id }}"
                     name="address[country]"
                     data-address-country-select
@@ -183,9 +183,10 @@
                     autocomplete="country"
                     required
                   >
-                  {% comment %}  {{ all_country_option_tags }} {% endcomment %}
-                  Colombia
-                  </select>
+                    {{ all_country_option_tags }} 
+                  </select> {% endcomment %}
+                   h3>Colombia</h3>
+                
                   {% comment %} <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
                     <use href="#icon-caret" />
                   </svg> {% endcomment %}
