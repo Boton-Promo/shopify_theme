@@ -1537,24 +1537,144 @@
             "collection": "alcancias",
             "limit": 20
           }
-        },
-        "product_list_rWXpGk": {
+        }
+      },
+      "block_order": [
+        "product_list_DWnQh6"
+      ],
+      "custom_css": [
+        ".heading svg {display: none;}"
+      ],
+      "settings": {
+        "fullwidth": false,
+        "section_background": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "prev_next_button_background": "#ffffff",
+        "prev_next_button_color": "#282828",
+        "color_btn_tab": "#999999",
+        "color_btn_tab_active": "#222222",
+        "bg_btn_tab": "#ffffff",
+        "products_per_row": 5,
+        "products_per_row_mobile_sm": 1,
+        "products_per_row_mobile": 2,
+        "products_per_row_tablet": 4,
+        "products_per_row_desktop": 5,
+        "product_tab_row": false,
+        "product_line": "2",
+        "sub_heading": "",
+        "tab_heading": "",
+        "tab_heading_size": 3,
+        "tab_description": "",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "heading_size": "h3",
+        "text_align": "center",
+        "margin_desktop": "50px 0",
+        "margin_mobile": "30px 0",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
+    },
+    "product_tab_E8dHUY": {
+      "type": "product-tab",
+      "blocks": {
+        "product_list_gehqUx": {
           "type": "product_list",
           "settings": {
             "tab_name": "Bolsas",
             "collection": "bolsas",
             "limit": 20
           }
-        },
-        "product_list_ymamb4": {
+        }
+      },
+      "block_order": [
+        "product_list_gehqUx"
+      ],
+      "settings": {
+        "fullwidth": false,
+        "section_background": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "prev_next_button_background": "#ffffff",
+        "prev_next_button_color": "#282828",
+        "color_btn_tab": "#999999",
+        "color_btn_tab_active": "#222222",
+        "bg_btn_tab": "#ffffff",
+        "products_per_row": 5,
+        "products_per_row_mobile_sm": 1,
+        "products_per_row_mobile": 2,
+        "products_per_row_tablet": 4,
+        "products_per_row_desktop": 5,
+        "product_tab_row": false,
+        "product_line": "2",
+        "sub_heading": "",
+        "tab_heading": "",
+        "tab_heading_size": 3,
+        "tab_description": "",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "heading_size": "h3",
+        "text_align": "center",
+        "margin_desktop": "50px 0",
+        "margin_mobile": "30px 0",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
+    },
+    "product_tab_6hNjja": {
+      "type": "product-tab",
+      "blocks": {
+        "product_list_k8qqV6": {
           "type": "product_list",
           "settings": {
             "tab_name": "Cuidado personal",
             "collection": "cuidado-personal",
             "limit": 20
           }
-        },
-        "product_list_9XYKGe": {
+        }
+      },
+      "block_order": [
+        "product_list_k8qqV6"
+      ],
+      "settings": {
+        "fullwidth": false,
+        "section_background": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "prev_next_button_background": "#ffffff",
+        "prev_next_button_color": "#282828",
+        "color_btn_tab": "#999999",
+        "color_btn_tab_active": "#222222",
+        "bg_btn_tab": "#ffffff",
+        "products_per_row": 5,
+        "products_per_row_mobile_sm": 1,
+        "products_per_row_mobile": 2,
+        "products_per_row_tablet": 4,
+        "products_per_row_desktop": 5,
+        "product_tab_row": false,
+        "product_line": "2",
+        "sub_heading": "",
+        "tab_heading": "",
+        "tab_heading_size": 3,
+        "tab_description": "",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "heading_size": "h3",
+        "text_align": "center",
+        "margin_desktop": "50px 0",
+        "margin_mobile": "30px 0",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
+    },
+    "product_tab_9TekUn": {
+      "type": "product-tab",
+      "blocks": {
+        "product_list_WcctQi": {
           "type": "product_list",
           "settings": {
             "tab_name": "Herramientas",
@@ -1564,13 +1684,7 @@
         }
       },
       "block_order": [
-        "product_list_DWnQh6",
-        "product_list_rWXpGk",
-        "product_list_ymamb4",
-        "product_list_9XYKGe"
-      ],
-      "custom_css": [
-        ".heading svg {display: none;}"
+        "product_list_WcctQi"
       ],
       "settings": {
         "fullwidth": false,
@@ -2256,6 +2370,9 @@
     "image_banner_KKfRRt",
     "product_list_TwgUHU",
     "product_tab_k6gfhF",
+    "product_tab_E8dHUY",
+    "product_tab_6hNjja",
+    "product_tab_9TekUn",
     "service_YLUDB4",
     "service_mhFk8x",
     "logo_list_MmyCpA",
