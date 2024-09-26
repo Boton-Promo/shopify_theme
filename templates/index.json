@@ -16,7 +16,7 @@
           "type": "collection",
           "settings": {
             "collection": "esferos",
-            "image": "shopify://shop_images/esferos_656b8b10-7cf5-4b10-8c4a-ec68330fecc5.jpg",
+            "image": "shopify://shop_images/esferos_cuadrado.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -25,7 +25,7 @@
           "type": "collection",
           "settings": {
             "collection": "agendas",
-            "image": "shopify://shop_images/agendas_09a1bc87-aeba-4cd4-b411-80f795ced1bb.jpg",
+            "image": "shopify://shop_images/agendas_cuadrado.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -34,7 +34,7 @@
           "type": "collection",
           "settings": {
             "collection": "mugs",
-            "image": "shopify://shop_images/mugs_0b874f3d-7ad3-4afe-96fe-224441af66c3.jpg",
+            "image": "shopify://shop_images/mugs_cuadrado.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -43,7 +43,7 @@
           "type": "collection",
           "settings": {
             "collection": "hogar",
-            "image": "shopify://shop_images/hogar_140762ca-d509-46b0-addc-7b855d413256.jpg",
+            "image": "shopify://shop_images/hogar_cuadrado.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -52,7 +52,7 @@
           "type": "collection",
           "settings": {
             "collection": "botilitos",
-            "image": "shopify://shop_images/botilitos_b9734606-aad3-45ed-bb05-097683d2e619.jpg",
+            "image": "shopify://shop_images/botilitos_cuadrado.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -61,7 +61,7 @@
           "type": "collection",
           "settings": {
             "collection": "botones",
-            "image": "shopify://shop_images/botones_4816e1de-7163-4afa-9797-1ff86cf21df4.jpg",
+            "image": "shopify://shop_images/botones_cuadrado.jpg",
             "icon_svg": "",
             "title": ""
           }
