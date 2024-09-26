@@ -435,6 +435,15 @@
             "icon_svg": "",
             "title": ""
           }
+        },
+        "collection_UjCTMF": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/cuadro.png",
+            "icon_svg": "",
+            "title": ""
+          }
         }
       },
       "block_order": [
@@ -449,7 +458,8 @@
         "collection_7BhqMU",
         "collection_ERb9zj",
         "collection_pNXck4",
-        "collection_hUhH8N"
+        "collection_hUhH8N",
+        "collection_UjCTMF"
       ],
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
