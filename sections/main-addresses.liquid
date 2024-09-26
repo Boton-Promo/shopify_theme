@@ -77,16 +77,16 @@
               </select>
               <script>
                 // Seleccionar el campo del país por su ID
-                var countrySelect = document.getElementById('AddressCountryNew_{{ form.id }}');
+                var countrySelect2 = document.getElementById('AddressCountryNew_{{ form.id }}');
 
                 // Iterar sobre las opciones del select
-                for (var i = countrySelect.options.length - 1; i >= 0; i--) {
-                var option = countrySelect.options[i];
+                for (var o = countrySelect2.options.length - 1; o >= 0; o--) {
+                var option = countrySelect2.options[o];
     
                 // Verificar si el valor del país no es "Colombia"
                 if (option.text !== "Colombia") {
                 // Remover la opción que no es Colombia
-                countrySelect.remove(i);
+                countrySelect2.remove(o);
                   }
                 }
                 </script>
