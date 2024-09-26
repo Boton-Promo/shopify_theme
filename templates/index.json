@@ -1478,7 +1478,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
-        "height_img": false,
+        "height_img": true,
         "show_video_img": false,
         "video_url": "",
         "margin_desktop": "0px 0px 20px 0px",
