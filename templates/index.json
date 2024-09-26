@@ -387,7 +387,7 @@
 
       ],
       "settings": {
-        "setwidthout": "container-fluid",
+        "setwidthout": "container",
         "background": "#ffffff",
         "heading_color": "#222222",
         "text_color": "#282828",
