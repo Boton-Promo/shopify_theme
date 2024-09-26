@@ -147,7 +147,6 @@
           >
             {{ 'customer.addresses.edit' | t }}
           </button>
-          {% comment %}
           <button
             type="button"
             aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
@@ -156,7 +155,6 @@
           >
             {{ 'customer.addresses.delete' | t }}
           </button>
-          {% endcomment %}
           <div id="EditAddress_{{ address.id }}">
             <h2>{{ 'customer.addresses.edit_address' | t }}</h2>
             {%- form 'customer_address', address -%}
