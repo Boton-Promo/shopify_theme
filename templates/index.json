@@ -387,7 +387,7 @@
 
       ],
       "settings": {
-        "setwidthout": "container-fluid",
+        "setwidthout": "full",
         "background": "#ffffff",
         "heading_color": "#222222",
         "text_color": "#282828",
@@ -400,8 +400,8 @@
         "btn_text": "",
         "btn_link": "",
         "row_items": 5,
-        "margin_desktop": "100px 0 30px",
-        "margin_tablet": "30px 0",
+        "margin_desktop": "",
+        "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
         "padding_tablet": "0px 0px 0px 0px",
