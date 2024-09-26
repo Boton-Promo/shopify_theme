@@ -415,7 +415,8 @@
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
         ".ap-multicolumn__text-container {display: none;}",
-        ".ap-multicolumn__inner:hover {padding-bottom: 15px; padding-top: 15px;}"
+        ".ap-multicolumn__inner:hover {padding-bottom: 15px; padding-top: 15px;}",
+        ".ap-multicolumn__inner--scroller {gap: 10px;}"
       ],
       "settings": {
         "setwidthout": "container",
