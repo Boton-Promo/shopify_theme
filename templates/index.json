@@ -419,7 +419,7 @@
         ".ap-multicolumn__inner:hover {padding-bottom: 15px; padding-top: 15px;}"
       ],
       "settings": {
-        "setwidthout": "container-fluid",
+        "setwidthout": "container",
         "background": "#ffffff",
         "heading_color": "#282828",
         "text_color": "#282828",
