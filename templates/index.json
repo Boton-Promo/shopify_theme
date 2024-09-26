@@ -1673,7 +1673,7 @@
       "type": "image-banner",
       "settings": {
         "setwidthout": "full",
-        "featured_image": "shopify://shop_images/HERRAMIENTAS.jpg",
+        "featured_image": "shopify://shop_images/CUIDADO_PERSONAL.jpg",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
@@ -1744,7 +1744,7 @@
       "type": "image-banner",
       "settings": {
         "setwidthout": "full",
-        "featured_image": "shopify://shop_images/NUEVOS.jpg",
+        "featured_image": "shopify://shop_images/HERRAMIENTAS.jpg",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
