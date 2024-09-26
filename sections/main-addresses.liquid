@@ -174,19 +174,32 @@
                   {{ 'customer.addresses.country' | t }}
                 </label>
                 <div class="select">
-                  {% comment %} <select
-                    id="AddressCountry_{{ form.id }}"
-                    name="address[country]"
+                  <select
+                  id="AddressCountry_{{ form.id }}"
+                    name="address[country]" 
                     data-address-country-select
                     data-default="{{ form.country }}"
                     data-form-id="{{ form.id }}"
                     autocomplete="country"
                     required
                   >
-                    {{ all_country_option_tags }} 
-                  </select> {% endcomment %}
-                   <h3>Colombia</h3>
-                
+                    {{ all_country_option_tags }}
+                  </select>
+                  <script>
+  // Seleccionar el campo del país por su ID
+  var countrySelect = document.getElementById('AddressCountry_{{ form.id }}');
+
+  // Iterar sobre las opciones del select
+  for (var i = countrySelect.options.length - 1; i >= 0; i--) {
+    var option = countrySelect.options[i];
+    
+    // Verificar si el valor del país no es "Colombia"
+    if (option.text !== "Colombia") {
+      // Remover la opción que no es Colombia
+      countrySelect.remove(i);
+    }
+  }
+</script>
                   {% comment %} <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
                     <use href="#icon-caret" />
                   </svg> {% endcomment %}
