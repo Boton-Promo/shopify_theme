@@ -583,7 +583,7 @@
         ".ap-multicolumn__inner--scroller {gap: 10px;}"
       ],
       "settings": {
-        "setwidthout": "container",
+        "setwidthout": "container-fluid",
         "background": "#ffffff",
         "heading_color": "#282828",
         "text_color": "#282828",
