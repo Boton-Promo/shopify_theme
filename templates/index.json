@@ -16,7 +16,7 @@
           "type": "collection",
           "settings": {
             "collection": "esferos",
-            "image": "shopify://shop_images/esferos_cuadrado.jpg",
+            "image": "shopify://shop_images/esferos_656b8b10-7cf5-4b10-8c4a-ec68330fecc5.jpg",
             "icon_svg": "",
             "title": ""
           }
@@ -151,7 +151,7 @@
         "tab_heading_size": 1,
         "btn_text": "",
         "btn_link": "",
-        "row_items": 5,
+        "row_items": 6,
         "margin_desktop": "100px 0 30px",
         "margin_tablet": "30px 0",
         "margin_mobile": "",
@@ -580,6 +580,7 @@
         "collection_AdjWRz",
         "collection_rgipBw"
       ],
+      "disabled": true,
       "custom_css": [
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
@@ -744,6 +745,7 @@
         "collection_tBimWw",
         "collection_J9WWnw"
       ],
+      "disabled": true,
       "custom_css": [
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
@@ -908,6 +910,7 @@
         "collection_8qrpmg",
         "collection_aAwwqG"
       ],
+      "disabled": true,
       "custom_css": [
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
@@ -1072,6 +1075,7 @@
         "collection_KacGBW",
         "collection_Xr6ceV"
       ],
+      "disabled": true,
       "custom_css": [
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
@@ -1510,7 +1514,7 @@
         "products_per_row_mobile": 2,
         "products_per_row_tablet": 4,
         "desktop_small": 4,
-        "products_per_row_desktop": 4,
+        "products_per_row_desktop": 6,
         "product_line": "2",
         "sub_heading": "Sub heading",
         "tab_heading": "",
@@ -1529,6 +1533,7 @@
     },
     "image_banner_VAdJra": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/ALCANCIAS.jpg",
@@ -1562,6 +1567,7 @@
       "block_order": [
         "product_list_DWnQh6"
       ],
+      "disabled": true,
       "custom_css": [
         ".heading svg {display: none;}",
         ".ap-navtabs__item-list {display: none;}"
@@ -1600,6 +1606,7 @@
     },
     "image_banner_CBycFU": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/BOLSAS.jpg",
@@ -1633,6 +1640,7 @@
       "block_order": [
         "product_list_gehqUx"
       ],
+      "disabled": true,
       "custom_css": [
         ".heading svg {display: none;}",
         ".ap-navtabs__item-list {display: none;}"
@@ -1671,6 +1679,7 @@
     },
     "image_banner_bXH9Ew": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/CUIDADO_PERSONAL.jpg",
@@ -1704,6 +1713,7 @@
       "block_order": [
         "product_list_k8qqV6"
       ],
+      "disabled": true,
       "custom_css": [
         ".heading svg {display: none;}",
         ".ap-navtabs__item-list {display: none;}"
@@ -1742,6 +1752,7 @@
     },
     "image_banner_ffmXGa": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/HERRAMIENTAS.jpg",
@@ -1775,6 +1786,7 @@
       "block_order": [
         "product_list_WcctQi"
       ],
+      "disabled": true,
       "custom_css": [
         ".heading svg {display: none;}",
         ".ap-navtabs__item-list {display: none;}"
