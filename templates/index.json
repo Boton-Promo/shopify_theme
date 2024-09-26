@@ -453,7 +453,13 @@
       ],
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
-        ".ap-multicolumn__text-container {margin-top: 0px;}"
+        ".ap-multicolumn__text-container {margin-top: 0px;}",
+        ".ap-multicolumn__image-wrapper span {display: none;}",
+        ".ap-multicolumn__inner ap-multicolumn__inner--center ap-multicolumn__inner--scroller {align-items: center;}",
+        ".ap-multicolumn__text-container {display: none;}",
+        ".ap-multicolumn__image-wrapper:hover {transform: scale(2); transition: transform 0.2s; padding: 1rem;}",
+        ".ap-multicolumn__inner:hover {padding-bottom: 15px;}",
+        ".ap-multicolumn__inner--scroller:hover {overflow: visible;}"
       ],
       "settings": {
         "setwidthout": "full",
@@ -469,7 +475,7 @@
         "btn_text": "",
         "btn_link": "",
         "row_items": 10,
-        "margin_desktop": "",
+        "margin_desktop": "0px 0px 10px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
