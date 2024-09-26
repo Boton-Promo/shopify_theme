@@ -1543,7 +1543,8 @@
         "product_list_DWnQh6"
       ],
       "custom_css": [
-        ".heading svg {display: none;}"
+        ".heading svg {display: none;}",
+        ".ap-navtabs__item-list {display: none;}"
       ],
       "settings": {
         "fullwidth": false,
@@ -1592,6 +1593,10 @@
       "block_order": [
         "product_list_gehqUx"
       ],
+      "custom_css": [
+        ".heading svg {display: none;}",
+        ".ap-navtabs__item-list {display: none;}"
+      ],
       "settings": {
         "fullwidth": false,
         "section_background": "#ffffff",
@@ -1639,6 +1644,10 @@
       "block_order": [
         "product_list_k8qqV6"
       ],
+      "custom_css": [
+        ".heading svg {display: none;}",
+        ".ap-navtabs__item-list {display: none;}"
+      ],
       "settings": {
         "fullwidth": false,
         "section_background": "#ffffff",
@@ -1685,6 +1694,10 @@
       },
       "block_order": [
         "product_list_WcctQi"
+      ],
+      "custom_css": [
+        ".heading svg {display: none;}",
+        ".ap-navtabs__item-list{display: none;}"
       ],
       "settings": {
         "fullwidth": false,
