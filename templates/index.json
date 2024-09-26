@@ -399,51 +399,6 @@
             "icon_svg": "",
             "title": ""
           }
-        },
-        "collection_7BhqMU": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_ERb9zj": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_pNXck4": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_hUhH8N": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_UjCTMF": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/cuadro.png",
-            "icon_svg": "",
-            "title": ""
-          }
         }
       },
       "block_order": [
@@ -454,12 +409,7 @@
         "collection_fBL6Ym",
         "collection_9Q3cJc",
         "collection_X4qCFV",
-        "collection_eg3i6U",
-        "collection_7BhqMU",
-        "collection_ERb9zj",
-        "collection_pNXck4",
-        "collection_hUhH8N",
-        "collection_UjCTMF"
+        "collection_eg3i6U"
       ],
       "custom_css": [
         ".ap-multicolumn__item {box-shadow: 0 3px 6px rgb(68 68 68 / 32%); transition: box-shadow ease 0.3s;}",
