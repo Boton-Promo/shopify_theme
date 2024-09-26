@@ -293,6 +293,7 @@
         "collection_NAhhnf",
         "collection_CgdtAd"
       ],
+      "disabled": true,
       "custom_css": [
         ".ap-multicolumn__inner--scroller {gap: 1rem;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}",
