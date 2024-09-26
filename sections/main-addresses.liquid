@@ -75,9 +75,24 @@
               >
                 {{ all_country_option_tags }}
               </select>
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+              <script>
+                // Seleccionar el campo del país por su ID
+                var countrySelect = document.getElementById('AddressCountry_{{ form.id }}');
+
+                // Iterar sobre las opciones del select
+                for (var i = countrySelect.options.length - 1; i >= 0; i--) {
+                var option = countrySelect.options[i];
+    
+                // Verificar si el valor del país no es "Colombia"
+                if (option.text !== "Colombia") {
+                // Remover la opción que no es Colombia
+                countrySelect.remove(i);
+                  }
+                }
+                </script>
+              {% comment %}<svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
                 <use href="#icon-caret" />
-              </svg>
+              </svg>{% endcomment %}
             </div>
           </div>
           <div id="AddressProvinceContainerNew" style="display: none">
