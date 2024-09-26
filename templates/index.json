@@ -462,7 +462,6 @@
         "collection_UjCTMF"
       ],
       "custom_css": [
-        ".ap-multicolumn__inner--scroller {gap: 0.5rem;}",
         ".ap-multicolumn__item {box-shadow: 0 3px 6px rgb(68 68 68 / 32%); transition: box-shadow ease 0.3s;}",
         ".ap-multicolumn__text-container {margin-top: 0px;}",
         ".ap-multicolumn__image-wrapper span {display: none;}",
