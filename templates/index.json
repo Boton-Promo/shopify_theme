@@ -1469,8 +1469,9 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "",
-            "service_hover-right1": "shopify://shop_images/1.webp",
-            "service_hover-right2": "shopify://shop_images/2_1.png"
+            "service_hover-right1": "shopify://shop_images/Recurso_1.jpg",
+            "service_hover-right2": "shopify://shop_images/Recurso_3.jpg",
+            "service_hover-right3": "shopify://shop_images/Recurso_2.jpg"
           }
         },
         "service_k7WVDj": {
