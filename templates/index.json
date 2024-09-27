@@ -1469,7 +1469,8 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "",
-            "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA.jpg"
+            "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA_297718d5-6dcd-41ff-b01a-07e9adf40815.jpg",
+            "service_hover-right2": "shopify://shop_images/TAMPOGRAFIA_B.jpg"
           }
         },
         "service_k7WVDj": {
@@ -1603,8 +1604,8 @@
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
             "link1": "",
-            "service_hover-left1": "shopify://shop_images/TAMPOGRAFIA.jpg",
-            "service_hover-right1": "shopify://shop_images/hora7.jpg"
+            "service_hover-left1": "shopify://shop_images/TAMPOGRAFIA_297718d5-6dcd-41ff-b01a-07e9adf40815.jpg",
+            "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA_B.jpg"
           }
         },
         "service_D7NrEa": {
