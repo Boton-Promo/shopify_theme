@@ -1517,7 +1517,6 @@
         },
         "service_dacpRA": {
           "type": "service",
-          "disabled": true,
           "settings": {
             "bg_color_block": "#ffffff",
             "title_small": "Todo tipo de producto",
