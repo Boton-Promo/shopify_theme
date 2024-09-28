@@ -1681,6 +1681,82 @@
         "text_align": "center"
       }
     },
+    "collection_1_gQRXFe": {
+      "type": "collection-1",
+      "blocks": {
+        "featured_collection_B4LNCN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "featured_image": "shopify://shop_images/Mask_group_41.webp",
+            "highlight": false,
+            "caption_color": "#282828",
+            "caption": "Save<br>UP TO",
+            "caption_size": "heading--xsmall",
+            "caption_large": "50%",
+            "heading_color": "#282828",
+            "heading": "ASBJJKAKBJ",
+            "heading_size_range": 3,
+            "color_description": "",
+            "description": "QWFWQEFWQEFW",
+            "heading_2": "",
+            "heading_2_size": "heading--xsmall",
+            "overlay": "#000000",
+            "overlay_opacity": 1,
+            "link": ""
+          }
+        },
+        "featured_collection_r6MAA3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "highlight": false,
+            "caption_color": "#282828",
+            "caption": "",
+            "caption_size": "heading--xsmall",
+            "caption_large": "",
+            "heading_color": "#282828",
+            "heading": "",
+            "heading_size_range": 4,
+            "color_description": "",
+            "description": "",
+            "heading_2": "",
+            "heading_2_size": "heading--xsmall",
+            "overlay": "#000000",
+            "overlay_opacity": 1,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_B4LNCN",
+        "featured_collection_r6MAA3"
+      ],
+      "settings": {
+        "fullwidth": false,
+        "background-color": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "color_a": "",
+        "bg_a": "",
+        "color_a_hover": "",
+        "bg_a_hover": "#fff",
+        "border_color": "",
+        "number_column": 2,
+        "heading": "",
+        "heading_size_range": 1,
+        "tab_description": "",
+        "description_size": "heading--xsmall",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "show_count": false,
+        "margin_desktop": "",
+        "margin_mobile": "",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
+    },
     "product_list_848RUk": {
       "type": "product-list",
       "disabled": true,
@@ -1876,6 +1952,7 @@
     "product_tab_9TekUn",
     "service_YLUDB4",
     "service_mhFk8x",
+    "collection_1_gQRXFe",
     "product_list_848RUk",
     "text_with_icon_JXee3y",
     "recently_viewed_products_YQzEY8"
