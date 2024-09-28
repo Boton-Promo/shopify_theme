@@ -1688,6 +1688,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "",
+            "featured_image": "shopify://shop_images/Mask_group_41.webp",
             "highlight": false,
             "caption_color": "#282828",
             "caption": "",
@@ -1753,6 +1754,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "",
+            "featured_image": "shopify://shop_images/Mask_group_41.webp",
             "highlight": false,
             "caption_color": "#282828",
             "caption": "",
