@@ -105,6 +105,15 @@
                                       src="{{ block.settings.service_hover-left2 | image_url: width: 1500 }}"
                                       height="{{ block.settings.service_hover-left2.height }}"
                                       width="{{ block.settings.service_hover-left2.width }}">
+                                      <img class="service_hover-left" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-left3 | image_url: width: block.settings.service_hover-left3.width }}" 
+                                      srcset="{%- if block.settings.service_hover-left3.width >= 3000 -%}{{ block.settings.service_hover-left3 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-left3 | image_url }} {{ block.settings.service_hover-left3.width }}w"
+                                      src="{{ block.settings.service_hover-left3 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-left3.height }}"
+                                      width="{{ block.settings.service_hover-left3.width }}">
                                 </div>
                               {% endif %}
                               {% if block.settings.service_hover-right1 != blank %}
