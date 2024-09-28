@@ -790,7 +790,6 @@
           },
           "image_block_j6AVCx": {
             "type": "image_block",
-            "disabled": true,
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
