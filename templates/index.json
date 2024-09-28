@@ -1587,7 +1587,8 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "shopify://pages/marcacion-laser-1",
-            "service_hover-right1": "shopify://shop_images/Recurso_7-100.jpg"
+            "service_hover-right1": "shopify://shop_images/4.png",
+            "service_hover-right2": "shopify://shop_images/4.png"
           }
         },
         "service_ErjBL4": {
