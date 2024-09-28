@@ -800,6 +800,90 @@
               "link": "shopify://collections/esferos"
             }
           },
+          "image_block_ENYXVh": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-1.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
+          "image_block_fcLjFY": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-2.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
+          "image_block_XR7HWn": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-3.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
+          "image_block_AK4zq7": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-4.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
+          "image_block_zmmFML": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-5.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
+          "image_block_TBzN7P": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-6.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
+          "image_block_dXW7eR": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos & Llaveros",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/E-7.png",
+              "heading": "Esferos & Llaveros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos"
+            }
+          },
           "image_block_UfnE4e": {
             "type": "image_block",
             "settings": {
@@ -925,6 +1009,13 @@
           "image_block_A96h4a",
           "image_block_VEyh8G",
           "image_block_j6AVCx",
+          "image_block_ENYXVh",
+          "image_block_fcLjFY",
+          "image_block_XR7HWn",
+          "image_block_AK4zq7",
+          "image_block_zmmFML",
+          "image_block_TBzN7P",
+          "image_block_dXW7eR",
           "image_block_UfnE4e",
           "image_block_irxBAq",
           "image_block_FymMHY",
