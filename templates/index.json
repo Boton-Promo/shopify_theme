@@ -1534,7 +1534,8 @@
             "bg_btn_hover": "",
             "link1": "",
             "service_hover-left1": "shopify://shop_images/hora6.jpg",
-            "service_hover-left2": "shopify://shop_images/hora7.jpg"
+            "service_hover-left2": "shopify://shop_images/2.png",
+            "service_hover-left3": "shopify://shop_images/2.png"
           }
         }
       },
