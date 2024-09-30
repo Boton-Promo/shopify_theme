@@ -36,6 +36,14 @@ h6.service-list-title_small {
   margin-bottom: 10px;
   letter-spacing: 2px;
 }
+h3.service-list-title{
+  font-family: var(--hd-font-family);
+    font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
+    font-style: var(--heading-font-style);
+    color: rgb(var(--heading-color));
+    text-transform: var(--heading-text-transform);
+}
 h5.service-list-title {
   font-size: 34px;
   font-weight: 500;
