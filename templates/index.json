@@ -1551,7 +1551,7 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "#d4d4d4",
+        "background-color": "#e1e1e1",
         "margin_desktop": "",
         "margin_tablet": "",
         "margin_mobile": "",
@@ -1670,7 +1670,7 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "#d4d4d4",
+        "background-color": "#e1e1e1",
         "margin_desktop": "0px 0px 0px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
