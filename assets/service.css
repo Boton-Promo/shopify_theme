@@ -37,7 +37,6 @@ h6.service-list-title_small {
   letter-spacing: 2px;
 }
 h5.service-list-title {
-  font-family: var(--hd-font-family);
   font-size: 34px;
   font-weight: 500;
   line-height: 40px;
