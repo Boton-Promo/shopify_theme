@@ -1127,7 +1127,7 @@
       "type": "product-list",
       "settings": {
         "fullwidth": false,
-        "margin_desktop": "",
+        "margin_desktop": "20px 0px 20px 0px",
         "margin_mobile": "",
         "padding_desktop": "",
         "padding_mobile": "",
