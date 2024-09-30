@@ -1548,8 +1548,7 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "#005ca5",
-        "background_image": "shopify://shop_images/Recurso_1-100.jpg",
+        "background-color": "#000000",
         "margin_desktop": "",
         "margin_tablet": "",
         "margin_mobile": "",
@@ -1665,8 +1664,7 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "",
-        "background_image": "shopify://shop_images/Recurso_1-100.jpg",
+        "background-color": "#000000",
         "margin_desktop": "0px 0px 0px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
@@ -1796,7 +1794,7 @@
         "bg_a_hover": "#ffffff",
         "border_color": "",
         "number_column": 4,
-        "heading": "Otros Servicios",
+        "heading": "",
         "heading_size_range": 4,
         "tab_description": "",
         "description_size": "",
