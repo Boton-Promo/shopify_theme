@@ -67,7 +67,7 @@ p.service-list-description {
   border-radius: 0 15px 15px 0;
 }
 .service-item {
-  display: flex;
+  display: block;
 }
 .service-item-img {
   /* width: 80px; */
