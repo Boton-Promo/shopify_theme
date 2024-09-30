@@ -38,7 +38,6 @@ h6.service-list-title_small {
 }
 h3.service-list-title{
   font-family: var(--hd-font-family);
-    font-size: var(--heading-font-size);
     font-style: var(--heading-font-style);
     color: rgb(var(--heading-color));
     text-transform: var(--heading-text-transform);
