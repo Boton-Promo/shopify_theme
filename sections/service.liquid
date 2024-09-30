@@ -34,19 +34,6 @@
               {%- when 'service' -%}
                 <service-item style="background-color: {{ block.settings.bg_color_block }}" reveal-on-scroll="">
                   <div class="service-item">
-                    {% if block.settings.featured_image != blank %}
-                    <div class="service-item-img">
-                          <img class="service-list-image" reveal="" loading="lazy" 
-                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
-                          alt="" 
-                          src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
-                          srcset="{%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
-                              {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
-                          src="{{ block.settings.featured_image | image_url: width: 1500 }}"
-                          height="{{ block.settings.featured_image.height }}"
-                          width="{{ block.settings.featured_image.width }}">
-                    </div>
-                   {% endif %}
                     <div class="service-list-content">
                         {% if block.settings.title_small != blank %}
                           <h6 style="color: {{ block.settings.color_title_small }}" reveal="" class="service-list-title_small">{{ block.settings.title_small }}</h6>
@@ -152,6 +139,19 @@
     
                     </div>  
                   </div>
+                  {% if block.settings.featured_image != blank %}
+                    <div class="service-item-img">
+                          <img class="service-list-image" reveal="" loading="lazy" 
+                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                          alt="" 
+                          src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                          srcset="{%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                              {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                          src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                          height="{{ block.settings.featured_image.height }}"
+                          width="{{ block.settings.featured_image.width }}">
+                    </div>
+                   {% endif %}
                 </service-item>
 
             {% endcase %}
