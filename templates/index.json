@@ -1573,7 +1573,7 @@
         "service_G9jkCX": {
           "type": "service",
           "settings": {
-            "bg_color_block": "#000000",
+            "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ed2e34",
             "title": "Laser",
