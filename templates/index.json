@@ -1576,7 +1576,7 @@
             "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ed2e34",
-            "title": "Grabado Laser",
+            "title": "Laser",
             "color_title": "#222222",
             "description": "",
             "color_des": "#666666",
@@ -1587,8 +1587,8 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "shopify://pages/marcacion-laser-1",
-            "service_hover-right1": "shopify://shop_images/4.png",
-            "service_hover-right2": "shopify://shop_images/4.png"
+            "service_hover-right1": "shopify://shop_images/LASER_A.jpg",
+            "service_hover-right2": "shopify://shop_images/LASER_B.jpg"
           }
         },
         "service_ErjBL4": {
