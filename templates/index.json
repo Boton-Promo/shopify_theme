@@ -1802,7 +1802,7 @@
         "btn_link": "",
         "style_btn": "btn-base",
         "show_count": false,
-        "margin_desktop": "",
+        "margin_desktop": "20px 0px 0px 0px",
         "margin_mobile": "",
         "padding_desktop": "",
         "padding_mobile": ""
