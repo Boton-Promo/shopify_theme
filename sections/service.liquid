@@ -34,7 +34,7 @@
               {%- when 'service' -%}
                 <service-item style="background-color: {{ block.settings.bg_color_block }}" reveal-on-scroll="">
                   <div class="service-item">
-                    {% if block.settings.featured_image != blank %}
+                  {% comment %} {% if block.settings.featured_image != blank %}
                     <div class="service-item-img">
                           <img class="service-list-image" reveal="" loading="lazy" 
                           sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
@@ -47,6 +47,7 @@
                           width="{{ block.settings.featured_image.width }}">
                     </div>
                    {% endif %}
+                   {% endcomment %}
                     <div class="service-list-content">
                         {% if block.settings.title_small != blank %}
                           <h6 style="color: {{ block.settings.color_title_small }}" reveal="" class="service-list-title_small">{{ block.settings.title_small }}</h6>
