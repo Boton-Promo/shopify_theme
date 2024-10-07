@@ -397,7 +397,7 @@
         "btn_text": "",
         "btn_link": "",
         "row_items": 6,
-        "margin_desktop": "20px 0px",
+        "margin_desktop": "50px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
@@ -1455,7 +1455,7 @@
         "service_hWazXQ": {
           "type": "service",
           "settings": {
-            "featured_image": "shopify://shop_images/4_138d8e5a-caa3-4c8e-92d5-9d6abf8a8330.png",
+            "featured_image": "shopify://shop_images/Maquina7.png",
             "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ed2e34",
@@ -1478,7 +1478,7 @@
         "service_k7WVDj": {
           "type": "service",
           "settings": {
-            "featured_image": "shopify://shop_images/4_138d8e5a-caa3-4c8e-92d5-9d6abf8a8330.png",
+            "featured_image": "shopify://shop_images/Maquina6.png",
             "bg_color_block": "#f1f2f8",
             "title_small": "",
             "color_title_small": "#ff1c6a",
@@ -1500,7 +1500,7 @@
         "service_iAnbry": {
           "type": "service",
           "settings": {
-            "featured_image": "shopify://shop_images/4_138d8e5a-caa3-4c8e-92d5-9d6abf8a8330.png",
+            "featured_image": "shopify://shop_images/Maquina2.png",
             "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ff1c6a",
@@ -1551,7 +1551,7 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "#000000",
+        "background-color": "#e1e1e1",
         "margin_desktop": "",
         "margin_tablet": "",
         "margin_mobile": "",
@@ -1575,11 +1575,11 @@
         "service_G9jkCX": {
           "type": "service",
           "settings": {
-            "featured_image": "shopify://shop_images/4_138d8e5a-caa3-4c8e-92d5-9d6abf8a8330.png",
+            "featured_image": "shopify://shop_images/Maquina5.png",
             "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ed2e34",
-            "title": "Laser<hr>",
+            "title": "LASER<hr>",
             "color_title": "#222222",
             "description": "",
             "color_des": "#666666",
@@ -1597,7 +1597,7 @@
         "service_ErjBL4": {
           "type": "service",
           "settings": {
-            "featured_image": "shopify://shop_images/4_138d8e5a-caa3-4c8e-92d5-9d6abf8a8330.png",
+            "featured_image": "shopify://shop_images/Maquina4.png",
             "bg_color_block": "#f1f2f8",
             "title_small": "",
             "color_title_small": "#ff1c6a",
@@ -1612,14 +1612,14 @@
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
             "link1": "",
-            "service_hover-left1": "shopify://shop_images/DTF_A.jpg",
-            "service_hover-right1": "shopify://shop_images/DTF_B.jpg"
+            "service_hover-left1": "shopify://shop_images/Recurso_5.jpg",
+            "service_hover-right1": "shopify://shop_images/Recurso_5.jpg"
           }
         },
         "service_D7NrEa": {
           "type": "service",
           "settings": {
-            "featured_image": "shopify://shop_images/4_138d8e5a-caa3-4c8e-92d5-9d6abf8a8330.png",
+            "featured_image": "shopify://shop_images/Maquina3.png",
             "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ff1c6a",
@@ -1670,7 +1670,7 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "#000000",
+        "background-color": "#e1e1e1",
         "margin_desktop": "0px 0px 0px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
