@@ -9,14 +9,33 @@
 */
 {
   "sections": {
+    "image_banner_GyGqr7": {
+      "type": "image-banner",
+      "settings": {
+        "setwidthout": "full",
+        "featured_image": "shopify://shop_images/JUGUETES.jpg",
+        "height_img": true,
+        "show_video_img": false,
+        "video_url": "",
+        "margin_desktop": "",
+        "margin_tablet": "",
+        "margin_mobile": "",
+        "tab_heading": "",
+        "tab_heading_size": 2,
+        "tab_description": "",
+        "heading_color": "",
+        "text_color": "",
+        "overlay": "#000000",
+        "overlay_opacity": 1
+      }
+    },
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36,
         "enable_payment_methods": true,
-        "payment_methods_label": "",
-        "payment_methods_image": "shopify://shop_images/JUGUETES.jpg"
+        "payment_methods_label": ""
       }
     },
     "cart-footer": {
@@ -43,6 +62,7 @@
     }
   },
   "order": [
+    "image_banner_GyGqr7",
     "cart-items",
     "cart-footer",
     "product-recommendations"
