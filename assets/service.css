@@ -119,7 +119,7 @@ p.service-list-description {
   transform: translateX(100%);
 }
 
-service-item:nth-child(3) .service-list-content .button-group:hover .service_hover-left{
+service-item:nth-child(3) .service-list-content .service-list-content:hover .service_hover-left{
   right: 100%;
 }
 
