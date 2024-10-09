@@ -939,7 +939,7 @@
             "type": "child_menu",
             "disabled": true,
             "settings": {
-              "parent_menu": "Catálogo",
+              "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
               "heading": "COLLECTION LAYOUT",
               "heading_size": "heading--small",
