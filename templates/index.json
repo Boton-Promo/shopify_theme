@@ -1151,7 +1151,7 @@
         "style_btn": "btn-base",
         "text_align": "left",
         "collection": "nuevos",
-        "limit": 10,
+        "limit": 50,
         "border_width": "",
         "btn_text_2": "",
         "btn_link_2": ""
