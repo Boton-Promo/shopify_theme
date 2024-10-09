@@ -1140,7 +1140,7 @@
         "products_per_row_mobile": 2,
         "products_per_row_tablet": 4,
         "desktop_small": 4,
-        "products_per_row_desktop": 7,
+        "products_per_row_desktop": 6,
         "product_line": "2",
         "sub_heading": "Sub heading",
         "tab_heading": "",
@@ -1151,7 +1151,7 @@
         "style_btn": "btn-base",
         "text_align": "left",
         "collection": "nuevos",
-        "limit": 50,
+        "limit": 10,
         "border_width": "",
         "btn_text_2": "",
         "btn_link_2": ""
@@ -1842,7 +1842,7 @@
         "style_btn": "btn-base",
         "text_align": "center",
         "collection": "frontpage",
-        "limit": 50,
+        "limit": 10,
         "border_width": "",
         "btn_text_2": "View all products",
         "btn_link_2": ""
