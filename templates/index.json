@@ -1470,9 +1470,8 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "",
-            "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA_A.jpg",
-            "service_hover-right2": "shopify://shop_images/TAMPOGRAFIA_B_1cdcd497-e30b-43a7-b189-35d58e94411d.jpg",
-            "service_hover-right3": "shopify://shop_images/TAMPOGRAFIA_C.jpg"
+            "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA_01.jpg",
+            "service_hover-right2": "shopify://shop_images/TAMPOGRAFIA_02.jpg"
           }
         },
         "service_k7WVDj": {
@@ -1493,8 +1492,8 @@
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
             "link1": "",
-            "service_hover-left1": "shopify://shop_images/hora6.jpg",
-            "service_hover-right1": "shopify://shop_images/hora7.jpg"
+            "service_hover-left1": "shopify://shop_images/SCREEN_01.jpg",
+            "service_hover-right1": "shopify://shop_images/SCREEN_02.jpg"
           }
         },
         "service_iAnbry": {
@@ -1515,8 +1514,8 @@
             "color_btn_hover": "",
             "bg_btn_hover": "",
             "link1": "",
-            "service_hover-left1": "shopify://shop_images/hora6.jpg",
-            "service_hover-left2": "shopify://shop_images/hora7.jpg"
+            "service_hover-left1": "shopify://shop_images/SUBLIMACION_01_f515e6cf-eabc-4a01-885c-f6e64d0b827f.jpg",
+            "service_hover-left2": "shopify://shop_images/SUBLIMACION_02_c0cbd4df-eb70-4a81-935f-0b1e48f96e78.jpg"
           }
         },
         "service_dacpRA": {
@@ -1590,8 +1589,8 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "shopify://pages/marcacion-laser-1",
-            "service_hover-right1": "shopify://shop_images/LASER_A.jpg",
-            "service_hover-right2": "shopify://shop_images/LASER_B.jpg"
+            "service_hover-right1": "shopify://shop_images/LASER_01.jpg",
+            "service_hover-right2": "shopify://shop_images/LASER_02.jpg"
           }
         },
         "service_ErjBL4": {
@@ -1612,8 +1611,8 @@
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
             "link1": "",
-            "service_hover-left1": "shopify://shop_images/Recurso_5.jpg",
-            "service_hover-right1": "shopify://shop_images/Recurso_5.jpg"
+            "service_hover-left1": "shopify://shop_images/DTF_01.jpg",
+            "service_hover-right1": "shopify://shop_images/DTF_02.jpg"
           }
         },
         "service_D7NrEa": {
