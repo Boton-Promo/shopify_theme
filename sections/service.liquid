@@ -48,7 +48,7 @@
                     </div>
                    {% endif %}
                    {% endcomment %}
-                    <div class="service-list-content button-group">
+                    <div class="service-list-content">
                         {% if block.settings.title_small != blank %}
                           <h6 style="color: {{ block.settings.color_title_small }}" reveal="" class="service-list-title_small">{{ block.settings.title_small }}</h6>
                         {% endif %}
@@ -88,7 +88,7 @@
                                 }
                               </style>
                           {% if block.settings.button1_label != blank %}
-                            <div class="">
+                            <div class="button-group">
                               <a href="{{ block.settings.link1 }}" reveal="" class="button btn-base-2">
                                 {{ block.settings.button1_label }}
                                 {% render 'icon-arrow-2' %}
