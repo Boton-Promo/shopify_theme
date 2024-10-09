@@ -4408,7 +4408,7 @@
       let animation = null,
         textElements = await resolveAsyncIterator(
           this.querySelectorAll(
-            "ap-splitlines, .button-group, .button-wrapper , .slideshow-item-child"
+            "ap-splitlines, .button-service-list-content, .button-wrapper , .slideshow-item-child"
           )
         );
       let elementImages = Array.from(this.querySelectorAll(".slideshow__image-wrapper"));
@@ -4513,7 +4513,7 @@
       let animation = null,
         textElements = await resolveAsyncIterator(
           this.querySelectorAll(
-            "ap-splitlines, .button-group, .button-wrapper , .slideshow-item-child "
+            "ap-splitlines, .service-list-content-group, .button-wrapper , .slideshow-item-child "
           )
         ),
         elementImages = Array.from(this.querySelectorAll(".slideshow__image-wrapper"));
@@ -4791,7 +4791,7 @@
       let animation = null,
         textElements = await resolveAsyncIterator(
           this.querySelectorAll(
-            "ap-splitlines, .button-group, .button-wrapper , .slideshow-item-child"
+            "ap-splitlines, .button-service-list-content, .button-wrapper , .slideshow-item-child"
           )
         );
       let elementImages = Array.from(this.querySelectorAll(".slideshow__image-wrapper"));
@@ -4896,7 +4896,7 @@
       let animation = null,
         textElements = await resolveAsyncIterator(
           this.querySelectorAll(
-            "ap-splitlines, .button-group, .button-wrapper , .slideshow-item-child "
+            "ap-splitlines, .button-service-list-content, .button-wrapper , .slideshow-item-child "
           )
         ),
         elementImages = Array.from(this.querySelectorAll(".slideshow__image-wrapper"));
