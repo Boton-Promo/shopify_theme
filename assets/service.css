@@ -96,7 +96,7 @@ p.service-list-description {
   transition: transform .4s cubic-bezier(.25,.46,.45,.94),visibility .4s cubic-bezier(.25,.46,.45,.94),opacity .4s cubic-bezier(.25,.46,.45,.94);
 }
 
-.service-list-content .button-group:hover .service_hover-block{
+.service-list-content:hover .service_hover-block{
   visibility: visible;
   opacity: 1;
   transform: translate(0);
