@@ -938,6 +938,7 @@
           },
           "cfd77af1-a49b-4fe2-9066-a976f5a47c87": {
             "type": "child_menu",
+            "disabled": true,
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "promocionales",
@@ -951,21 +952,20 @@
             "disabled": true,
             "settings": {
               "parent_menu": "Promocionales",
-              "parent_megamenu": "",
+              "parent_megamenu": "main-menu",
               "heading": "",
               "heading_size": "heading--nomal",
-              "menu_vertical": ""
+              "menu_vertical": "promocionales"
             }
           },
           "7cc1cf4a-2b15-42d9-a436-a023433c213c": {
             "type": "child_menu",
-            "disabled": true,
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "heading": "PRODUCT LAYOUT",
+              "heading": "",
               "heading_size": "heading--small",
-              "menu": ""
+              "menu": "promocionales"
             }
           },
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855": {
