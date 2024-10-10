@@ -985,7 +985,7 @@
               "parent_megamenu": "main-menu",
               "heading": "",
               "heading_size": "heading--small",
-              "menu": "promocionales-2"
+              "menu": "promocionales-3"
             }
           },
           "child_menu_GWbVNN": {
@@ -995,7 +995,7 @@
               "parent_megamenu": "main-menu",
               "heading": "",
               "heading_size": "heading--small",
-              "menu": "promocionales-2"
+              "menu": "promocionales-4"
             }
           },
           "child_menu_3bHNAD": {
@@ -1005,7 +1005,17 @@
               "parent_megamenu": "main-menu",
               "heading": "",
               "heading_size": "heading--small",
-              "menu": "promocionales-2"
+              "menu": "promocionales-5"
+            }
+          },
+          "child_menu_p9zRfN": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-6"
             }
           },
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855": {
@@ -1080,6 +1090,7 @@
           "child_menu_hnmpBG",
           "child_menu_GWbVNN",
           "child_menu_3bHNAD",
+          "child_menu_p9zRfN",
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855",
           "image_block_BjCdQe",
           "673d80a5-9dda-43a5-ac5c-8701d6b65eae",
