@@ -819,7 +819,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/E-2.png",
+              "image": "shopify://shop_images/pruebaesfero.png",
               "heading": "Esferos & Llaveros",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -888,6 +888,7 @@
           },
           "image_block_UfnE4e": {
             "type": "image_block",
+            "disabled": true,
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
@@ -939,22 +940,82 @@
             "type": "child_menu",
             "disabled": true,
             "settings": {
-              "parent_menu": "Catálogo",
-              "parent_megamenu": "main-menu",
-              "heading": "COLLECTION LAYOUT",
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "promocionales",
+              "heading": "",
               "heading_size": "heading--small",
-              "menu": ""
+              "menu": "categorias"
+            }
+          },
+          "child_menu_vertical_bRJ4zb": {
+            "type": "child_menu_vertical",
+            "disabled": true,
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--nomal",
+              "menu_vertical": "promocionales"
             }
           },
           "7cc1cf4a-2b15-42d9-a436-a023433c213c": {
             "type": "child_menu",
-            "disabled": true,
             "settings": {
-              "parent_menu": "Catálogo",
+              "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "heading": "PRODUCT LAYOUT",
+              "heading": "",
               "heading_size": "heading--small",
-              "menu": ""
+              "menu": "promocionales"
+            }
+          },
+          "child_menu_WzqbbV": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-2"
+            }
+          },
+          "child_menu_hnmpBG": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-3"
+            }
+          },
+          "child_menu_GWbVNN": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-4"
+            }
+          },
+          "child_menu_3bHNAD": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-5"
+            }
+          },
+          "child_menu_p9zRfN": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-6"
             }
           },
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855": {
@@ -1023,7 +1084,13 @@
           "image_block_FymMHY",
           "image_block_mQVmaF",
           "cfd77af1-a49b-4fe2-9066-a976f5a47c87",
+          "child_menu_vertical_bRJ4zb",
           "7cc1cf4a-2b15-42d9-a436-a023433c213c",
+          "child_menu_WzqbbV",
+          "child_menu_hnmpBG",
+          "child_menu_GWbVNN",
+          "child_menu_3bHNAD",
+          "child_menu_p9zRfN",
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855",
           "image_block_BjCdQe",
           "673d80a5-9dda-43a5-ac5c-8701d6b65eae",
