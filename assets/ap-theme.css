@@ -10094,10 +10094,10 @@ ap-navigationofdesktop .header__linklist-link.menu-item--active,
     --mega-menu-column-gap: 80px;
   }
   .mega-menu__image-push {
-    width: 240px;
+    width: 120px;
   }
   .mega-menu__image-push:only-child {
-    width: 280px;
+    width: 160px;
   }
 }
 
