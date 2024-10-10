@@ -550,7 +550,7 @@
     width: 100%;
   }
   .vertical-nav__image-push img.mega-menu__image {
-    width: 50%;
+    width: 100%;
   }
   .menu-vertical:hover {
     overflow: visible;
