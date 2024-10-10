@@ -978,6 +978,36 @@
               "menu": "promocionales-2"
             }
           },
+          "child_menu_hnmpBG": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-2"
+            }
+          },
+          "child_menu_GWbVNN": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-2"
+            }
+          },
+          "child_menu_3bHNAD": {
+            "type": "child_menu",
+            "settings": {
+              "parent_menu": "Promocionales",
+              "parent_megamenu": "main-menu",
+              "heading": "",
+              "heading_size": "heading--small",
+              "menu": "promocionales-2"
+            }
+          },
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855": {
             "type": "image_block",
             "disabled": true,
@@ -1047,6 +1077,9 @@
           "child_menu_vertical_bRJ4zb",
           "7cc1cf4a-2b15-42d9-a436-a023433c213c",
           "child_menu_WzqbbV",
+          "child_menu_hnmpBG",
+          "child_menu_GWbVNN",
+          "child_menu_3bHNAD",
           "d6e25ea3-f1d0-4b1b-a702-dfaa53a71855",
           "image_block_BjCdQe",
           "673d80a5-9dda-43a5-ac5c-8701d6b65eae",
