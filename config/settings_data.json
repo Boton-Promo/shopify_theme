@@ -808,10 +808,10 @@
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/E-1.png",
-              "heading": "Esferos & Llaveros",
+              "heading": "Esferos Publicitarios",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos"
+              "link": "shopify://collections/esferos-publicitarios"
             }
           },
           "image_block_fcLjFY": {
@@ -820,10 +820,10 @@
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/pruebaesfero.png",
-              "heading": "Esferos & Llaveros",
+              "heading": "Esferos Temáticos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos"
+              "link": "shopify://collections/esferos-tematicos"
             }
           },
           "image_block_XR7HWn": {
@@ -832,10 +832,10 @@
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/E-3.png",
-              "heading": "Esferos & Llaveros",
+              "heading": "Esferos Ecológicos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos"
+              "link": "shopify://collections/esferos-ecologicos"
             }
           },
           "image_block_AK4zq7": {
@@ -844,10 +844,10 @@
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/E-4.png",
-              "heading": "Esferos & Llaveros",
+              "heading": "Esferos Alta Gama",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos"
+              "link": "shopify://collections/esferos-de-alta-gama"
             }
           },
           "image_block_zmmFML": {
@@ -856,10 +856,10 @@
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/E-5.png",
-              "heading": "Esferos & Llaveros",
+              "heading": "Resaltadores",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos"
+              "link": "shopify://collections/resaltadores"
             }
           },
           "image_block_TBzN7P": {
@@ -868,10 +868,10 @@
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
               "image": "shopify://shop_images/E-6.png",
-              "heading": "Esferos & Llaveros",
+              "heading": "Estuches Kits",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos"
+              "link": "shopify://collections/estuches-kits"
             }
           },
           "image_block_dXW7eR": {
