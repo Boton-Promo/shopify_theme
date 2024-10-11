@@ -9847,7 +9847,7 @@ main#main {
   max-width: 50%; /* Para que el texto no ocupe demasiado espacio */
 }
 .mega-menu__image-wrapper img {
-  max-width: 100%; /* Asegura que la imagen respete su contenedor */
+  width: 100px; /* Asegura que la imagen respete su contenedor */
   height: auto;
 }
 /* TERMINA CSS PERSONALIZADO PARA HACER QUE LAS IMAGENES ESTEN EN LA DERECHA */
