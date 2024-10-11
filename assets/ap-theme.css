@@ -9826,11 +9826,8 @@ main#main {
 }
 
 .mega-menu__images-wrapper {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: flex-start;
-  grid-gap: var(--mega-menu-image-gap);
-  gap: var(--mega-menu-image-gap);
+  display: flex;
+  gap: 60px;
 }
 
 .mega-menu__images-wrapper--tight {
