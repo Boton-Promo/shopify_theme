@@ -9799,11 +9799,6 @@ main#main {
 
 .mega-menu__inner {
   position: relative;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: center;
-  grid-column-gap: var(--mega-menu-column-gap);
-  column-gap: var(--mega-menu-column-gap);
   padding-top: 48px;
   padding-bottom: 48px;
   max-height: calc(100vh - 50px);
@@ -9827,7 +9822,7 @@ main#main {
 
 .mega-menu__images-wrapper {
   display: flex;
-  gap: 60px;
+  justify-content: space-between;
 }
 
 .mega-menu__images-wrapper--tight {
