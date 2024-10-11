@@ -118,10 +118,10 @@
                     <p class="mega-menu__heading heading {{ block.settings.heading_size }}">{{
                         block.settings.heading }}</p>
                       <div class="mega-menu__image-wrapper">
-                        <img class="mega-menu__image" loading="lazy" sizes="240px" alt=""
+                        <img class="mega-menu__image" loading="lazy" sizes="120px" alt=""
                           src="{{ block.settings.image | image_url : width: 560 }}"
                           srcset="{{ block.settings.image | image_url : width: 240 }} 240w, {{ block.settings.image | image_url : width: 480 }} 480w, {{ block.settings.image | image_url : width: 560 }} 560w"
-                          width="560" height="560">
+                          width="100" height="100">
                       </div>
                       <span class="mega-menu__text">{{ block.settings.description }}</span>
                     </a>
