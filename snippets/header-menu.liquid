@@ -115,9 +115,9 @@
                     block.settings.parent_menu == link.title -%}
     
                     <a href="{{ block.settings.link }}" class="mega-menu__image-push image-zoom">
-                      <div class="mega-menu__image-wrapper">
-                      <p class="mega-menu__heading heading {{ block.settings.heading_size }}">{{
+                    <p class="mega-menu__heading heading {{ block.settings.heading_size }}">{{
                         block.settings.heading }}</p>
+                      <div class="mega-menu__image-wrapper">
                         <img class="mega-menu__image" loading="lazy" sizes="240px" alt=""
                           src="{{ block.settings.image | image_url : width: 560 }}"
                           srcset="{{ block.settings.image | image_url : width: 240 }} 240w, {{ block.settings.image | image_url : width: 480 }} 480w, {{ block.settings.image | image_url : width: 560 }} 560w"
