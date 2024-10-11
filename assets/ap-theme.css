@@ -10094,7 +10094,8 @@ ap-navigationofdesktop .header__linklist-link.menu-item--active,
     --mega-menu-column-gap: 80px;
   }
   .mega-menu__image-push {
-    width: 120px;
+    width: 50px;
+    display: flex;
   }
   .mega-menu__image-push:only-child {
     width: 160px;
