@@ -9832,25 +9832,7 @@ main#main {
   grid-gap: var(--mega-menu-image-gap);
   gap: var(--mega-menu-image-gap);
 }
-/* CSS PERSONALIZADO PARA HACER QUE LAS IMAGENES ESTEN EN LA DERECHA */
-.mega-menu__image-push {
-  display: flex;
-  justify-content: space-between; /* Para alinear texto e imagen */
-  align-items: center; /* Alinear el texto y la imagen verticalmente */
-  text-align: left; /* Asegura que el texto esté alineado a la izquierda */
-}
-.mega-menu__image-wrapper {
-  flex-shrink: 0; /* Evita que la imagen se reduzca en tamaño */
-}
-.mega-menu__heading,
-.mega-menu__text {
-  max-width: 50%; /* Para que el texto no ocupe demasiado espacio */
-}
-.mega-menu__image-wrapper img {
-  width: 100px; /* Asegura que la imagen respete su contenedor */
-  height: auto;
-}
-/* TERMINA CSS PERSONALIZADO PARA HACER QUE LAS IMAGENES ESTEN EN LA DERECHA */
+
 .mega-menu__images-wrapper--tight {
   grid-gap: 20px;
   gap: 20px;
