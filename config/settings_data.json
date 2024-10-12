@@ -968,19 +968,7 @@
               "heading": "Agendas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
-            }
-          },
-          "image_block_JUAbF7": {
-            "type": "image_block",
-            "settings": {
-              "parent_menu": "Promocionales",
-              "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
-              "heading": "Esferos Publicitarios",
-              "heading_size": "heading--xxsmall",
-              "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/agendas"
             }
           },
           "image_block_DtEkrj": {
@@ -992,7 +980,7 @@
               "heading": "Bioseguridad",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/bioseguridad"
             }
           },
           "image_block_HrWPEJ": {
@@ -1004,7 +992,7 @@
               "heading": "Botones",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/botones"
             }
           },
           "image_block_KhH4hD": {
@@ -1016,7 +1004,7 @@
               "heading": "Tecnología Y Gadgets",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/tecnologia-y-gadgets"
             }
           },
           "image_block_UJXEjc": {
@@ -1028,7 +1016,7 @@
               "heading": "Llaveros",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/llaveros"
             }
           },
           "image_block_NeTKMP": {
@@ -1040,7 +1028,7 @@
               "heading": "Laser",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/laser"
             }
           },
           "image_block_agHyCp": {
@@ -1052,7 +1040,7 @@
               "heading": "Alcancías",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/alcancias"
             }
           },
           "image_block_VG4thB": {
@@ -1064,7 +1052,7 @@
               "heading": "Cuidado Personal",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/cuidado-personal"
             }
           },
           "image_block_WmFk98": {
@@ -1076,7 +1064,7 @@
               "heading": "Morrales",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/morrales"
             }
           },
           "image_block_7aMW7A": {
@@ -1088,7 +1076,7 @@
               "heading": "Gorras Y Camisetas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/gorras-y-camisetas"
             }
           },
           "image_block_7Q9yG3": {
@@ -1100,7 +1088,7 @@
               "heading": "Sublimación",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/sublimacion"
             }
           },
           "image_block_qFkJKf": {
@@ -1112,7 +1100,7 @@
               "heading": "Insumos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/insumos"
             }
           },
           "image_block_JKYqd4": {
@@ -1124,7 +1112,7 @@
               "heading": "Bolsas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/bolsas"
             }
           },
           "image_block_VTCbVL": {
@@ -1136,7 +1124,7 @@
               "heading": "Mugs",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/mugs"
             }
           },
           "image_block_ehVaXD": {
@@ -1148,7 +1136,7 @@
               "heading": "Ecológicos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/ecologicos"
             }
           },
           "image_block_wiPbkq": {
@@ -1160,7 +1148,7 @@
               "heading": "Herramientas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/herramientas"
             }
           },
           "image_block_gQJ6Jq": {
@@ -1172,7 +1160,7 @@
               "heading": "Maquinas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/maquinas"
             }
           },
           "image_block_ErU633": {
@@ -1184,7 +1172,7 @@
               "heading": "Botilitos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/botilitos"
             }
           },
           "image_block_yBCjh3": {
@@ -1196,7 +1184,7 @@
               "heading": "Bicicletas Y Accesorios",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/bicicletas-y-accesorios"
             }
           },
           "image_block_UBcCh4": {
@@ -1208,7 +1196,7 @@
               "heading": "Relojes",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/relojes"
             }
           },
           "image_block_zPP3eY": {
@@ -1220,7 +1208,7 @@
               "heading": "Identificación",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/identificacion"
             }
           },
           "image_block_AmVwWn": {
@@ -1232,7 +1220,7 @@
               "heading": "Colombia",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/colombia"
             }
           },
           "image_block_jGUGkD": {
@@ -1244,7 +1232,7 @@
               "heading": "Hogar",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/hogar-hogar"
             }
           },
           "image_block_LK73an": {
@@ -1256,7 +1244,7 @@
               "heading": "Sombrillas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/sombrillas"
             }
           },
           "image_block_mrJW8j": {
@@ -1268,7 +1256,7 @@
               "heading": "Escolar Oficina",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/escolar-oficina"
             }
           },
           "image_block_GweKiP": {
@@ -1280,7 +1268,7 @@
               "heading": "Linternas Y Lámparas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/linternas-y-lamparas"
             }
           },
           "image_block_jzhhNp": {
@@ -1292,7 +1280,7 @@
               "heading": "USB",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/usb"
             }
           },
           "image_block_KxbUWP": {
@@ -1304,19 +1292,7 @@
               "heading": "Cocina",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
-            }
-          },
-          "image_block_4VDUxW": {
-            "type": "image_block",
-            "settings": {
-              "parent_menu": "Hogar Plus +",
-              "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
-              "heading": "Hogar",
-              "heading_size": "heading--xxsmall",
-              "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/cocina-hogar"
             }
           },
           "image_block_dbjVey": {
@@ -1328,7 +1304,7 @@
               "heading": "Cuidado Personal",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/cuidado-personal-hogar"
             }
           },
           "image_block_WftcWX": {
@@ -1340,7 +1316,7 @@
               "heading": "Aseo",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/aseo-hogar"
             }
           },
           "image_block_c7Me3e": {
@@ -1352,7 +1328,7 @@
               "heading": "Mascotas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/mascotas-hogar"
             }
           },
           "image_block_xpBQeL": {
@@ -1364,7 +1340,7 @@
               "heading": "Morrales",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/morrales-hogar"
             }
           },
           "image_block_eK6azN": {
@@ -1376,7 +1352,7 @@
               "heading": "Bicicletas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/bicicletas-hogar"
             }
           },
           "image_block_7fk69h": {
@@ -1388,7 +1364,7 @@
               "heading": "Herramientas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/herramientas-hogar"
             }
           },
           "image_block_pgDFb6": {
@@ -1400,7 +1376,7 @@
               "heading": "Automovil",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/automovil-hogar"
             }
           },
           "image_block_WQDBVd": {
@@ -1412,7 +1388,7 @@
               "heading": "Tecnología",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/tecnologia-hogar"
             }
           },
           "image_block_HT9DhA": {
@@ -1424,7 +1400,7 @@
               "heading": "Botilitos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
+              "link": "shopify://collections/botilitos-hogar"
             }
           },
           "7cc1cf4a-2b15-42d9-a436-a023433c213c": {
@@ -1561,7 +1537,6 @@
           "cfd77af1-a49b-4fe2-9066-a976f5a47c87",
           "child_menu_vertical_bRJ4zb",
           "image_block_e4GBR7",
-          "image_block_JUAbF7",
           "image_block_DtEkrj",
           "image_block_HrWPEJ",
           "image_block_KhH4hD",
@@ -1589,7 +1564,6 @@
           "image_block_GweKiP",
           "image_block_jzhhNp",
           "image_block_KxbUWP",
-          "image_block_4VDUxW",
           "image_block_dbjVey",
           "image_block_WftcWX",
           "image_block_c7Me3e",
