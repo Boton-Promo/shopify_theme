@@ -1308,7 +1308,7 @@
           "bg_btn_vertical": "#222222",
           "reduce_header_padding": "-1.7",
           "logo": "shopify://shop_images/logo_boton_803829c3-66da-4349-b0b8-d911c8d0992e.svg",
-          "logo_width": "100%",
+          "logo_width": "90%",
           "menu": "main-menu",
           "menu_vertical": "categorias",
           "enable_search": true,
