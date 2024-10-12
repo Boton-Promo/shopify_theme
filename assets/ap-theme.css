@@ -9823,6 +9823,7 @@ main#main {
 .mega-menu__images-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .mega-menu__images-wrapper--tight {
