@@ -819,7 +819,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/pruebaesfero.png",
+              "image": "shopify://shop_images/E-1.png",
               "heading": "Esferos Temáticos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -831,7 +831,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/E-3.png",
+              "image": "shopify://shop_images/E-1.png",
               "heading": "Esferos Ecológicos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -843,7 +843,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/E-4.png",
+              "image": "shopify://shop_images/E-1.png",
               "heading": "Esferos Alta Gama",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -855,7 +855,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/E-5.png",
+              "image": "shopify://shop_images/E-1.png",
               "heading": "Resaltadores",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -867,7 +867,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/E-6.png",
+              "image": "shopify://shop_images/E-1.png",
               "heading": "Estuches Kits",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -879,7 +879,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/E-7.png",
+              "image": "shopify://shop_images/E-1.png",
               "heading": "Lápices",
               "heading_size": "heading--xxsmall",
               "description": "",
