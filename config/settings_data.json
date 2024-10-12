@@ -1307,7 +1307,7 @@
           "bg_header_bottom": "rgba(0,0,0,0)",
           "bg_btn_vertical": "#222222",
           "reduce_header_padding": "-1.7",
-          "logo": "shopify://shop_images/logos-svg_9897c1bf-d575-475f-9562-0e167a6500d0.svg",
+          "logo": "shopify://shop_images/logo_boton.svg",
           "logo_width": "100%",
           "menu": "main-menu",
           "menu_vertical": "categorias",
