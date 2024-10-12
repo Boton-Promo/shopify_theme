@@ -901,6 +901,7 @@
           },
           "image_block_irxBAq": {
             "type": "image_block",
+            "disabled": true,
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
@@ -1294,6 +1295,138 @@
               "link": "shopify://collections/esferos-publicitarios"
             }
           },
+          "image_block_KxbUWP": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Cocina",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_4VDUxW": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Hogar",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_dbjVey": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Cuidado Personal",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_WftcWX": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Aseo",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_c7Me3e": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Mascotas",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_xpBQeL": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Morrales",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_eK6azN": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Bicicletas",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_7fk69h": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Herramientas",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_pgDFb6": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Automovil",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_WQDBVd": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Tecnología",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
+          "image_block_HT9DhA": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Hogar Plus +",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Botilitos",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
           "7cc1cf4a-2b15-42d9-a436-a023433c213c": {
             "type": "child_menu",
             "disabled": true,
@@ -1455,6 +1588,17 @@
           "image_block_mrJW8j",
           "image_block_GweKiP",
           "image_block_jzhhNp",
+          "image_block_KxbUWP",
+          "image_block_4VDUxW",
+          "image_block_dbjVey",
+          "image_block_WftcWX",
+          "image_block_c7Me3e",
+          "image_block_xpBQeL",
+          "image_block_eK6azN",
+          "image_block_7fk69h",
+          "image_block_pgDFb6",
+          "image_block_WQDBVd",
+          "image_block_HT9DhA",
           "7cc1cf4a-2b15-42d9-a436-a023433c213c",
           "child_menu_WzqbbV",
           "child_menu_hnmpBG",
