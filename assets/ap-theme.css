@@ -16049,6 +16049,7 @@ body.article {
   .mobile-nav__image-push {
     display: flex;
     min-width: 100%;
+    align-items: center;
   }
   .mobile-nav__image-push img{
     width: 3rem;
