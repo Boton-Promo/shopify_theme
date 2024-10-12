@@ -10090,7 +10090,7 @@ ap-navigationofdesktop .header__linklist-link.menu-item--active,
     display: flex;
     flex-direction: row;
   }
-  .mega-menu__image img{
+  .mega-menu__image{
     width: 2rem !important;
     height: 2rem !important;
   }
