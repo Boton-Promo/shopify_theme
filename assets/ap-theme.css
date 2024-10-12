@@ -16047,7 +16047,7 @@ body.article {
     display: block;
   }
   .mobile-nav__image-push {
-    display: block;
+    display: flex;
     min-width: 100%;
   }
   .mobile-nav__images-scroller {
