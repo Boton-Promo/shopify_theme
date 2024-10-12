@@ -9338,8 +9338,9 @@ main#main {
 
 .header__logo-link,
 .header__logo-image {
-  display: block;
+  display: flex;
   /*width: max-content; Se comento para arreglar el logo de boton promo en el menu que se cortaba en el responsive*/
+  justify-content: center;
 }
 
 .header__logo-text {
