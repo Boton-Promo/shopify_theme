@@ -807,8 +807,8 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_53b1ad99-06ed-46bd-9f2b-444965afb4e2.jpg",
-              "heading": "Esferos Publicitarios",
+              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "heading": "Publicitarios",
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/esferos-publicitarios"
@@ -819,8 +819,8 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROSS.jpg",
-              "heading": "Esferos Temáticos",
+              "image": "shopify://shop_images/ESFEROSS_d4dc3af7-d33b-4efc-a781-45a10e5a9d80.jpg",
+              "heading": "Temáticos",
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/esferos-tematicos"
@@ -831,8 +831,8 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/LAPICES_e5017db4-8229-407f-a152-9bd4c0b0da14.jpg",
-              "heading": "Esferos Ecológicos",
+              "image": "shopify://shop_images/LAPICES_0bc9b7b1-9977-472c-8036-bcadfc03a701.jpg",
+              "heading": "Ecológicos",
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/esferos-ecologicos"
@@ -843,7 +843,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESPERO_GAMA_ALTA.jpg",
+              "image": "shopify://shop_images/ESPERO_GAMA_ALTA_a72ffd34-387c-4db4-b6af-4722c2d152f3.jpg",
               "heading": "Esferos Alta Gama",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -855,7 +855,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MARCADOR.jpg",
+              "image": "shopify://shop_images/MARCADOR_f93978e7-e429-44de-9419-26a40ca2f1d5.jpg",
               "heading": "Resaltadores",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -867,7 +867,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/RESALTADOR.jpg",
+              "image": "shopify://shop_images/Sin_titulo-1.jpg",
               "heading": "Estuches Kits",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -879,7 +879,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/LAPIZ.jpg",
+              "image": "shopify://shop_images/LAPIZ_c30b1c4a-c2d0-4f21-8b3e-80c9751ed356.jpg",
               "heading": "Lápices",
               "heading_size": "heading--xxsmall",
               "description": "",
