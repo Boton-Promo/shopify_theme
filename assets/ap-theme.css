@@ -9848,6 +9848,9 @@ main#main {
 
 .mega-menu__heading {
   margin-bottom: 7px;
+  margin-right: .5rem;
+  width: 8.5rem;
+  text-align: right;
 }
 
 .mega-menu__title {
