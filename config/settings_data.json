@@ -807,7 +807,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "image": "shopify://shop_images/ESFEROS_PUBLICITARIOS.jpg",
               "heading": "Esferos Publicitarios",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -819,7 +819,7 @@
             "settings": {
               "parent_menu": "Esferos & Llaveros",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_TEMATICOS_e161a0f5-7865-4282-b40d-193e5e8dd1ea.jpg",
+              "image": "shopify://shop_images/ESFEROS_TEMATICOS_1cea96a7-9a56-40dd-a318-dd04b28067c1.jpg",
               "heading": "Esferos Temáticos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1598,7 +1598,7 @@
           "3bbaa5b2-7b44-490f-872b-e978e32f0019"
         ],
         "custom_css": [
-          "svg_none{display: none;}"
+          "svg_none {display: none;}"
         ],
         "settings": {
           "fullwidth": true,
