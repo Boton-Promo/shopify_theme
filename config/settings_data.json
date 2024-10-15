@@ -917,8 +917,56 @@
             "settings": {
               "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/Cat-4.jpg",
-              "heading": "Juguetes",
+              "image": "shopify://shop_images/NACIONALES.jpg",
+              "heading": "Nacional",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/juguetes"
+            }
+          },
+          "image_block_gMTL8a": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Juguetes",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/CARROS_4afda359-ef04-4048-ba26-17e707a22ea2.jpg",
+              "heading": "Carros",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/juguetes"
+            }
+          },
+          "image_block_xAm8qL": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Juguetes",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/MUNECAS_88436eeb-d1c4-41e4-9d0d-f48b9c5b73b0.jpg",
+              "heading": "Muñecas",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/juguetes"
+            }
+          },
+          "image_block_mLKLQ4": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Juguetes",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/DIDACTICOS_1feacf5b-a5b9-481b-814c-672de370442a.jpg",
+              "heading": "Didácticos",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/juguetes"
+            }
+          },
+          "image_block_MeGAK4": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Juguetes",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/MUSICALES_8cff7bb0-40c3-4732-b3a7-9744bccda65f.jpg",
+              "heading": "Musicales",
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/juguetes"
@@ -1545,6 +1593,10 @@
           "image_block_UfnE4e",
           "image_block_irxBAq",
           "image_block_FymMHY",
+          "image_block_gMTL8a",
+          "image_block_xAm8qL",
+          "image_block_mLKLQ4",
+          "image_block_MeGAK4",
           "image_block_mQVmaF",
           "cfd77af1-a49b-4fe2-9066-a976f5a47c87",
           "child_menu_vertical_bRJ4zb",
