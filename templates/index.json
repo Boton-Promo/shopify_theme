@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6": {
@@ -1469,7 +1469,7 @@
             "bg_btn": "rgba(0,0,0,0)",
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
-            "link1": "",
+            "link1": "shopify://pages/tampografia-en-tinta-metalica",
             "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA_01.jpg",
             "service_hover-right2": "shopify://shop_images/TAMPOGRAFIA_02.jpg"
           }
@@ -1491,7 +1491,7 @@
             "bg_btn": "rgba(0,0,0,0)",
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
-            "link1": "",
+            "link1": "shopify://pages/screen-1",
             "service_hover-left1": "shopify://shop_images/SCREEN_01.jpg",
             "service_hover-right1": "shopify://shop_images/SCREEN_02.jpg"
           }
@@ -1513,7 +1513,7 @@
             "bg_btn": "",
             "color_btn_hover": "",
             "bg_btn_hover": "",
-            "link1": "",
+            "link1": "shopify://pages/sublimacion-1",
             "service_hover-left1": "shopify://shop_images/SUBLIMACION_01_f515e6cf-eabc-4a01-885c-f6e64d0b827f.jpg",
             "service_hover-left2": "shopify://shop_images/SUBLIMACION_02_c0cbd4df-eb70-4a81-935f-0b1e48f96e78.jpg"
           }
@@ -1610,7 +1610,7 @@
             "bg_btn": "rgba(0,0,0,0)",
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
-            "link1": "",
+            "link1": "shopify://pages/vinilo-textil-o-dtf",
             "service_hover-left1": "shopify://shop_images/DTF_01.jpg",
             "service_hover-right1": "shopify://shop_images/DTF_02.jpg"
           }
@@ -1632,7 +1632,7 @@
             "bg_btn": "",
             "color_btn_hover": "",
             "bg_btn_hover": "",
-            "link1": "",
+            "link1": "shopify://pages/dtf-uv",
             "service_hover-left1": "shopify://shop_images/DTF_UV_01.jpg",
             "service_hover-left2": "shopify://shop_images/DTF_UV_02_314e6f0f-c85c-4166-bcb1-15e0080606bd.jpg"
           }
