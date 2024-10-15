@@ -1598,7 +1598,7 @@
           "3bbaa5b2-7b44-490f-872b-e978e32f0019"
         ],
         "custom_css": [
-          ".svg_none {display: none;"
+          "svg_none{display: none;}"
         ],
         "settings": {
           "fullwidth": true,
