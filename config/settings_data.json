@@ -850,18 +850,6 @@
               "link": "shopify://collections/esferos-tematicos"
             }
           },
-          "image_block_TBzN7P": {
-            "type": "image_block",
-            "settings": {
-              "parent_menu": "Esferos",
-              "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESTUCHE_KITS_f406e842-7b87-4526-be52-b974725b00b8.jpg",
-              "heading": "Estuches Kits",
-              "heading_size": "heading--xxsmall",
-              "description": "",
-              "link": "shopify://collections/estuches-kits"
-            }
-          },
           "image_block_dXW7eR": {
             "type": "image_block",
             "settings": {
@@ -872,6 +860,18 @@
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/lapices"
+            }
+          },
+          "image_block_TBzN7P": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESTUCHE_KITS_f406e842-7b87-4526-be52-b974725b00b8.jpg",
+              "heading": "Estuches Kits",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/estuches-kits"
             }
           },
           "image_block_zmmFML": {
@@ -1575,8 +1575,8 @@
           "image_block_ENYXVh",
           "image_block_XR7HWn",
           "image_block_fcLjFY",
-          "image_block_TBzN7P",
           "image_block_dXW7eR",
+          "image_block_TBzN7P",
           "image_block_zmmFML",
           "image_block_UfnE4e",
           "image_block_irxBAq",
