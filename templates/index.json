@@ -1687,6 +1687,42 @@
         "text_align": "center"
       }
     },
+    "featured_blog_RArEWY": {
+      "type": "featured-blog",
+      "settings": {
+        "fullwidth": false,
+        "margin_desktop": "",
+        "margin_mobile": "",
+        "padding_desktop": "",
+        "padding_mobile": "",
+        "blog_row": false,
+        "blog_type": "type-1",
+        "section_background": "#ffffff",
+        "heading_color": "#282828",
+        "text_color": "",
+        "color_title": "#194A33",
+        "color_info": "#282828",
+        "color_description": "#282828",
+        "color_btn": "#000",
+        "color_btn_hover": "#282828",
+        "heading": "",
+        "heading_size_range": 1,
+        "description": "uukjii",
+        "description_size": "heading--xsmall",
+        "btn_text": "",
+        "btn_link": "",
+        "style_btn": "btn-base",
+        "blog": "",
+        "post_limit": 2,
+        "show_date": false,
+        "show_author": false,
+        "show_description": false,
+        "show_tag": false,
+        "show_tag_label": true,
+        "btn_blog": "Read More",
+        "show_view_all": true
+      }
+    },
     "collection_1_gQRXFe": {
       "type": "collection-1",
       "blocks": {
@@ -1785,6 +1821,7 @@
         "featured_collection_r6MAA3",
         "featured_collection_hManA3"
       ],
+      "disabled": true,
       "custom_css": [
 
       ],
@@ -2008,6 +2045,7 @@
     "product_tab_9TekUn",
     "service_YLUDB4",
     "service_mhFk8x",
+    "featured_blog_RArEWY",
     "collection_1_gQRXFe",
     "product_list_848RUk",
     "text_with_icon_JXee3y",
