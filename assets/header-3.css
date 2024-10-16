@@ -285,7 +285,7 @@
 }
 .header-bottom > .container-fluid > .row {
   margin: 0;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* SCout Review */
