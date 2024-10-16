@@ -814,6 +814,18 @@
               "link": "shopify://collections/esferos-de-alta-gama"
             }
           },
+          "image_block_ENYXVh": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_PUBLICITARIOS.jpg",
+              "heading": "Esferos Publicitarios",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-publicitarios"
+            }
+          },
           "image_block_XR7HWn": {
             "type": "image_block",
             "settings": {
@@ -824,6 +836,18 @@
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/esferos-ecologicos"
+            }
+          },
+          "image_block_fcLjFY": {
+            "type": "image_block",
+            "settings": {
+              "parent_menu": "Esferos",
+              "parent_megamenu": "main-menu",
+              "image": "shopify://shop_images/ESFEROS_TEMATICOS_1cea96a7-9a56-40dd-a318-dd04b28067c1.jpg",
+              "heading": "Esferos Temáticos",
+              "heading_size": "heading--xxsmall",
+              "description": "",
+              "link": "shopify://collections/esferos-tematicos"
             }
           },
           "image_block_TBzN7P": {
@@ -850,18 +874,6 @@
               "link": "shopify://collections/lapices"
             }
           },
-          "image_block_ENYXVh": {
-            "type": "image_block",
-            "settings": {
-              "parent_menu": "Esferos",
-              "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_PUBLICITARIOS.jpg",
-              "heading": "Esferos Publicitarios",
-              "heading_size": "heading--xxsmall",
-              "description": "",
-              "link": "shopify://collections/esferos-publicitarios"
-            }
-          },
           "image_block_zmmFML": {
             "type": "image_block",
             "settings": {
@@ -872,18 +884,6 @@
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/resaltadores"
-            }
-          },
-          "image_block_fcLjFY": {
-            "type": "image_block",
-            "settings": {
-              "parent_menu": "Esferos",
-              "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_TEMATICOS_1cea96a7-9a56-40dd-a318-dd04b28067c1.jpg",
-              "heading": "Esferos Temáticos",
-              "heading_size": "heading--xxsmall",
-              "description": "",
-              "link": "shopify://collections/esferos-tematicos"
             }
           },
           "image_block_UfnE4e": {
@@ -1572,12 +1572,12 @@
           "image_block_VEyh8G",
           "image_block_j6AVCx",
           "image_block_AK4zq7",
+          "image_block_ENYXVh",
           "image_block_XR7HWn",
+          "image_block_fcLjFY",
           "image_block_TBzN7P",
           "image_block_dXW7eR",
-          "image_block_ENYXVh",
           "image_block_zmmFML",
-          "image_block_fcLjFY",
           "image_block_UfnE4e",
           "image_block_irxBAq",
           "image_block_gMTL8a",
