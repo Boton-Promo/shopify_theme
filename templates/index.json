@@ -1890,8 +1890,8 @@
       ],
       "settings": {
         "fullwidth": false,
-        "background-color": "#e1e1e1",
-        "margin_desktop": "",
+        "background-color": "#ffffff",
+        "margin_desktop": "50px 0px 0px 0px",
         "margin_tablet": "",
         "margin_mobile": "",
         "padding_desktop": "50px 0",
