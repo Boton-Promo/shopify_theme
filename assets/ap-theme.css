@@ -10098,7 +10098,7 @@ ap-navigationofdesktop .header__linklist-link.menu-item--active,
   }
   .mega-menu__image{
     width: 4rem !important;
-    height: 4rem !important;
+    height: auto !important;
   }
   .mega-menu__image-push:only-child {
     width: 200px;
