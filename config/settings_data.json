@@ -921,7 +921,7 @@
               "heading": "Nacional",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/juguetes"
+              "link": "shopify://collections/nacional"
             }
           },
           "image_block_gMTL8a": {
@@ -933,7 +933,7 @@
               "heading": "Carros",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/juguetes"
+              "link": "shopify://collections/carros"
             }
           },
           "image_block_xAm8qL": {
@@ -945,7 +945,7 @@
               "heading": "Muñecas",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/juguetes"
+              "link": "shopify://collections/munecas"
             }
           },
           "image_block_mLKLQ4": {
@@ -957,7 +957,7 @@
               "heading": "Didácticos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/juguetes"
+              "link": "shopify://collections/didacticos"
             }
           },
           "image_block_MeGAK4": {
@@ -969,7 +969,7 @@
               "heading": "Musicales",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/juguetes"
+              "link": "shopify://collections/musicales"
             }
           },
           "image_block_mQVmaF": {
@@ -1017,18 +1017,6 @@
               "heading_size": "heading--xxsmall",
               "description": "",
               "link": "shopify://collections/agendas"
-            }
-          },
-          "image_block_DtEkrj": {
-            "type": "image_block",
-            "settings": {
-              "parent_menu": "Promocionales",
-              "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/BIOSEGURIDAD_08512a5d-c2e8-4422-b360-16419d6d4754.jpg",
-              "heading": "Bioseguridad",
-              "heading_size": "heading--xxsmall",
-              "description": "",
-              "link": "shopify://collections/bioseguridad"
             }
           },
           "image_block_HrWPEJ": {
@@ -1601,7 +1589,6 @@
           "cfd77af1-a49b-4fe2-9066-a976f5a47c87",
           "child_menu_vertical_bRJ4zb",
           "image_block_e4GBR7",
-          "image_block_DtEkrj",
           "image_block_HrWPEJ",
           "image_block_KhH4hD",
           "image_block_UJXEjc",
