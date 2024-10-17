@@ -867,7 +867,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/RESALTADORES_CARA_FELIZ.jpg",
+              "image": "shopify://shop_images/RESALTADORES_97cdb044-4907-46b5-9e90-7966877930bc.jpg",
               "heading": "Resaltadores",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -879,7 +879,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/LAPICES_b66f281f-49ed-4700-a03c-0f315a5ad97a.jpg",
+              "image": "shopify://shop_images/LAPICES_1b50c14a-2af4-4f02-b83c-08a032f3f699.jpg",
               "heading": "Lápices",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -917,7 +917,7 @@
             "settings": {
               "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/CARROS_4afda359-ef04-4048-ba26-17e707a22ea2.jpg",
+              "image": "shopify://shop_images/CARROS_0ce60504-1f5f-4e8f-a06f-16228749dfd8.jpg",
               "heading": "Carros",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -929,7 +929,7 @@
             "settings": {
               "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/DIDACTICOS_1feacf5b-a5b9-481b-814c-672de370442a.jpg",
+              "image": "shopify://shop_images/DIDACTICOS_e29ae1d8-c622-4913-b00e-76daee1abe24.jpg",
               "heading": "Didácticos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -938,6 +938,7 @@
           },
           "image_block_MeGAK4": {
             "type": "image_block",
+            "disabled": true,
             "settings": {
               "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
@@ -953,7 +954,7 @@
             "settings": {
               "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MUNECAS_88436eeb-d1c4-41e4-9d0d-f48b9c5b73b0.jpg",
+              "image": "shopify://shop_images/MUNECAS_d142a207-1f6c-4cec-b7fe-019b6616fc1c.jpg",
               "heading": "Muñecas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -965,7 +966,7 @@
             "settings": {
               "parent_menu": "Juguetes",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/NACIONALES.jpg",
+              "image": "shopify://shop_images/NACIONALES_0d6e81c3-dbac-4ec5-bfff-c081c044a794.jpg",
               "heading": "Nacional",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1012,7 +1013,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/AGENDA_ECOLOGICA_14.jpg",
+              "image": "shopify://shop_images/AGENDAS_0c15cf53-758b-49c5-a865-60cfc2d864ab.jpg",
               "heading": "Agendas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1024,7 +1025,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ALCANCIAS_a132a5ab-24bc-4afd-8a8a-ca68833059c2.jpg",
+              "image": "shopify://shop_images/ALCANCIAS_2.jpg",
               "heading": "Alcancías",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1036,7 +1037,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/BICICLETAS_Y_ACCESORIOS.jpg",
+              "image": "shopify://shop_images/BICICLETAS_Y_ACCESORIOS_d71034b6-a013-4ebe-8240-e7e09126c8e8.jpg",
               "heading": "Bicicletas Y Accesorios",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1084,7 +1085,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/COCINA_-_HOGAR.jpg",
+              "image": "shopify://shop_images/COCINA_-_HOGAR_2.jpg",
               "heading": "Cocina",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1096,7 +1097,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/COLOMBIA_bef0e34d-3e1e-4ab0-90df-b3126544b836.jpg",
+              "image": "shopify://shop_images/COLOMBIA_84f7a803-cc1b-40c2-a4e5-d5aa9dd83a27.jpg",
               "heading": "Colombia",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1108,7 +1109,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/CUIDADO_PERSONAL_f3c995bf-1f6e-4eac-9604-36d366894729.jpg",
+              "image": "shopify://shop_images/CUIDADO_PERSONAL_1.jpg",
               "heading": "Cuidado Personal",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1120,7 +1121,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ECOLOGICOS_757290e1-bbae-47ec-8473-5fef5b70b281.jpg",
+              "image": "shopify://shop_images/ECOLOGICOS_34421578-8fde-4d0a-b9c1-9803a67f6e3a.jpg",
               "heading": "Ecológicos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1132,7 +1133,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESCOLAR_Y_OFICNA.jpg",
+              "image": "shopify://shop_images/ESCOLAR_OFICINA.jpg",
               "heading": "Escolar Oficina",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1144,7 +1145,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/GORRAS_Y_CAMISETAS_ddf53c41-d483-4e6f-bac6-19687b0cdffb.jpg",
+              "image": "shopify://shop_images/GORRAS_Y_CAMISETAS_5154bb33-99a0-446a-b1a3-0b48ad32d5e1.jpg",
               "heading": "Gorras Y Camisetas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1156,7 +1157,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/HERRAMIENTAS_0bb95d87-8ae6-4a61-a69f-515058a50467.jpg",
+              "image": "shopify://shop_images/HERRAMIENTAS_6192e992-4508-4a72-bb4b-d274a2f347e7.jpg",
               "heading": "Herramientas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1168,7 +1169,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/HOGAR_8a5a669d-f242-46ee-8ac3-34ab7f6f73f6.jpg",
+              "image": "shopify://shop_images/HOGAR_1.jpg",
               "heading": "Hogar",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1180,7 +1181,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/IDENTIFICACION_f1a62c8e-0203-41f5-b070-571349a39677.jpg",
+              "image": "shopify://shop_images/IDENTIFICACION_1.jpg",
               "heading": "Identificación",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1192,7 +1193,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/INSUMOS.jpg",
+              "image": "shopify://shop_images/INSUMOS_23790926-a4d4-4095-a376-9a8e9fcbcf95.jpg",
               "heading": "Insumos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1204,7 +1205,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/LASER_76ef4499-fc9b-4719-8b08-b1bb9ff50ce4.jpg",
+              "image": "shopify://shop_images/LASER_3.jpg",
               "heading": "Laser",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1216,7 +1217,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/LINTERNAS_Y_LAMPOARAS.jpg",
+              "image": "shopify://shop_images/LINTERNAS_Y_LAMPARAS_b8f54c04-caf1-404f-a92c-330ba76104dc.jpg",
               "heading": "Linternas Y Lámparas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1228,7 +1229,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/LLAVEROS_024fa27d-860e-426b-b5ad-6b7af9281eb2.jpg",
+              "image": "shopify://shop_images/LLAVEROS_1.jpg",
               "heading": "Llaveros",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1240,7 +1241,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MAQUINAS_a57ed9df-c19c-4c63-acf7-0df23ae6c80b.jpg",
+              "image": "shopify://shop_images/MAQUINAS_e93e1018-d678-42af-8571-d040f5218366.jpg",
               "heading": "Maquinas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1252,7 +1253,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MORRALES_83e2a6bf-22ab-45c1-b2dd-23fe9b380ad4.jpg",
+              "image": "shopify://shop_images/MORRALES_3.jpg",
               "heading": "Morrales",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1264,7 +1265,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MUGS_6c625abf-cd72-405b-82d5-f0ccaee935ad.jpg",
+              "image": "shopify://shop_images/MUGS_1.jpg",
               "heading": "Mugs",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1276,7 +1277,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/RELOJES_3fe1df29-1a2f-472f-9e38-42fc11bd8047.jpg",
+              "image": "shopify://shop_images/RELOJES_1.jpg",
               "heading": "Relojes",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1288,7 +1289,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/SOMBRILLAS_f1b236eb-a8eb-4114-ba08-671950afb654.jpg",
+              "image": "shopify://shop_images/SOMBRILLA_1.jpg",
               "heading": "Sombrillas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1300,7 +1301,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/SUBLIMACION_94ccde61-419f-40b0-bf2c-bc6bf3f67fec.jpg",
+              "image": "shopify://shop_images/SUBLIMACION_c301e28f-b2a1-4cca-ac44-e37b3351e1a6.jpg",
               "heading": "Sublimación",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1312,7 +1313,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/TECNOLOGIA.jpg",
+              "image": "shopify://shop_images/TECNOLOGIA_Y_GEDGES.jpg",
               "heading": "Tecnología Y Gadgets",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1324,7 +1325,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/USB_6e54a6e2-f72c-46d3-9cbd-93f6664481ea.jpg",
+              "image": "shopify://shop_images/USB_1.jpg",
               "heading": "USB",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1336,7 +1337,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/AUTOMOVIL_-_HOGAR.jpg",
+              "image": "shopify://shop_images/AUTOMOVILA_-_HOGAR_2.jpg",
               "heading": "Automovil",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1348,7 +1349,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ASEO_-_HOGAR.jpg",
+              "image": "shopify://shop_images/ASEO_-_HOGAR_0efecae1-5465-4c3f-8a4f-59f7fa3d1184.jpg",
               "heading": "Aseo",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1360,7 +1361,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/BICICLETAS_-_HOGAR.jpg",
+              "image": "shopify://shop_images/BICICLETA_-_HOGAR.jpg",
               "heading": "Bicicletas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1372,7 +1373,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/BOTILITO_-_HOGAR.jpg",
+              "image": "shopify://shop_images/BOTILITO_-_HOGAR_1.jpg",
               "heading": "Botilitos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1384,7 +1385,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/CUIDADO_PERSONAL_-_HOGAR.jpg",
+              "image": "shopify://shop_images/CUIDADO_PERSONAL_-_HOGAR_2.jpg",
               "heading": "Cuidado Personal",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1396,7 +1397,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/HERRAMIENTA_-_HOGAR.jpg",
+              "image": "shopify://shop_images/HERRAMIENTAS_-_HOGAR_2.jpg",
               "heading": "Herramientas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1408,7 +1409,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/HOGAR_-_HOGAR.jpg",
+              "image": "shopify://shop_images/HOGAR_-_HOGAR_1.jpg",
               "heading": "Hogar",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1420,7 +1421,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MASCOTA_-_HOGAR.jpg",
+              "image": "shopify://shop_images/MASCOTA_-_HOGAR_1.jpg",
               "heading": "Mascotas",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1432,7 +1433,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/MORRAL_-_HOGAR.jpg",
+              "image": "shopify://shop_images/MORRAL_-_HOGAR_2.jpg",
               "heading": "Morrales",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1444,7 +1445,7 @@
             "settings": {
               "parent_menu": "Hogar Plus +",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/TECNILOGIA_-_HOGAR.jpg",
+              "image": "shopify://shop_images/TECNOLOGIA_-_HOGAR_5.jpg",
               "heading": "Tecnología",
               "heading_size": "heading--xxsmall",
               "description": "",
