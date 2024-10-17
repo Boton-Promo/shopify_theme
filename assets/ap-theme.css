@@ -10093,10 +10093,11 @@ ap-navigationofdesktop .header__linklist-link.menu-item--active,
     --mega-menu-column-gap: 80px;
   }
   .mega-menu__image-push {
-    width: 170px;
+    width: max-content;
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 20px;
   }
   .mega-menu__image{
     width: 4rem !important;
