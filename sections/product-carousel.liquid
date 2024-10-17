@@ -81,10 +81,10 @@
                           endfor
                         else
                           if section.settings.collection == blank
-                            for i in (1..6)
+                            for i in (1..10)
                               echo '<div class="product-items">'
                                 capture current
-                                  cycle 1, 2, 3, 4, 5, 6 
+                                  cycle 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
                                 endcapture
                                 assign img = 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg'
                                 echo img
