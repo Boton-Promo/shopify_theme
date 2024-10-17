@@ -362,10 +362,10 @@
         "collection_NnWKxK": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "dtf-uv",
             "image": "shopify://shop_images/dtf_uv.png",
             "icon_svg": "",
-            "title": ""
+            "title": "Dtf Uv"
           }
         }
       },
