@@ -9807,7 +9807,7 @@ main#main {
     100vh - var(--header-height, 0px) - var(--ap-announcementbar-height, 0px) -
       50px
   );
-  overflow: auto;
+  overflow: hidden;
   z-index: 1;
 }
 
