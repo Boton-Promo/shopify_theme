@@ -807,7 +807,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESPERO_ALTA_GAMA_cd0999f2-68cd-4636-ac01-4a30ca948bba.jpg",
+              "image": "shopify://shop_images/ESFERO_MUNICH.jpg",
               "heading": "Esferos Alta Gama",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -819,7 +819,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_PUBLICITARIOS.jpg",
+              "image": "shopify://shop_images/ESFERO_MEXICANO.jpg",
               "heading": "Esferos Publicitarios",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -831,7 +831,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_ECOLOGICOS_26a970cd-1814-4ada-b85f-8b1289e4a52f.jpg",
+              "image": "shopify://shop_images/ESFERO_ECOLOGICO_1.jpg",
               "heading": "Esferos Ecológicos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -843,7 +843,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_TEMATICOS_1cea96a7-9a56-40dd-a318-dd04b28067c1.jpg",
+              "image": "shopify://shop_images/ESFERO_JERENGA.jpg",
               "heading": "Esferos Temáticos",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -855,7 +855,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESTUCHE_KITS_f406e842-7b87-4526-be52-b974725b00b8.jpg",
+              "image": "shopify://shop_images/ESTUCHE_FRANKFORT.jpg",
               "heading": "Estuches Kits",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -867,7 +867,7 @@
             "settings": {
               "parent_menu": "Esferos",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/RESALTADORES_0d60fa2b-dfab-44ba-aa0c-90eb83e3a924.jpg",
+              "image": "shopify://shop_images/RESALTADORES_CARA_FELIZ.jpg",
               "heading": "Resaltadores",
               "heading_size": "heading--xxsmall",
               "description": "",
@@ -1012,7 +1012,7 @@
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/ESFEROS_6e80ef9a-7ec3-4688-a2f7-09a78f6b8e54.jpg",
+              "image": "shopify://shop_images/AGENDA_ECOLOGICA_14.jpg",
               "heading": "Agendas",
               "heading_size": "heading--xxsmall",
               "description": "",
