@@ -1835,7 +1835,7 @@
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
             "link1": "shopify://pages/tampografia-en-tinta-metalica",
-            "service_hover-right1": "shopify://shop_images/TAMPOGRAFIA_01.jpg"
+            "service_hover-right1": "shopify://shop_images/SERVICIO_02.jpg"
           }
         },
         "service_GRdU77": {
@@ -1856,7 +1856,7 @@
             "color_btn_hover": "#005ca5",
             "bg_btn_hover": "",
             "link1": "shopify://pages/screen-1",
-            "service_hover-left1": "shopify://shop_images/SCREEN_01.jpg"
+            "service_hover-left1": "shopify://shop_images/SERVICIO_01jpg.jpg"
           }
         }
       },
