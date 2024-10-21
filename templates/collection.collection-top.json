@@ -1,1 +1,96 @@
-{"sections":{"banner":{"type":"main-collection-banner","custom_css":[".heading {display: none;}"],"settings":{"setwidthout":"container","content_box_size":"","content_box_position":"center","content_text_align":"center","height":300,"show_collection_image":true,"show_description":false,"default_background_color":"#ffffff","heading_color":"#222222","heading_text_size":2,"text_color":"#222222","breadcrumb_position":"1","show_shop_bar":true,"shop_bar_label":"","menu_shop":"menu-categorias-banner"}},"product-grid":{"type":"main-collection-product-grid","blocks":{"2e93ff46-735e-43a7-b638-b10c8eab5a73":{"type":"banner","disabled":true,"settings":{"title_description":"Karpart is your one-stop-shop for all things automotive. Be it brakes or exhaust systems, seat covers or trailer hitches, ball bearings, or air\/fuel filters, you can trust us for all your automotive needs.","color_title_top":"#194a33","sub_title":"Get Up To\n<br>\n<span class=\"primary\">\n20% off\n<span>","color_subtitle":"#ffffff","title":"Brakes and \n<br>\nRotors for Sale","color_title":"#ffffff","description":"","color_description":"#ffffff","button1_label":"shop now","link1":"","color_btn":"#000000","bg_btn":"#ffffff","color_btn_hover":"#ffffff","bg_btn_hover":"#000000"}}},"block_order":["2e93ff46-735e-43a7-b638-b10c8eab5a73"],"settings":{"fullwidth":false,"margin_desktop":"","padding_desktop":"80px 0 0","title_categories":"Categorias","collection":"esferos","collection2":"hogar","collection3":"promocionales","collection4":"agendas","collection5":"botilitos","collection6":"morrales","products_per_page":16,"columns_desktop":5,"show_load_product":true}},"3cf928a0-4ae7-4dbd-b666-3715ab87ee96":{"type":"recently-viewed-products","settings":{"heading":"Productos vistos recientemente","heading_size":2,"products_to_show":10,"products_per_row_mobile_sm":1,"products_per_row_mobile":2,"products_per_row_tablet":4,"products_per_row_desktop":4}}},"order":["banner","product-grid","3cf928a0-4ae7-4dbd-b666-3715ab87ee96"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "custom_css": [
+        ".heading {display: none;}"
+      ],
+      "settings": {
+        "setwidthout": "container",
+        "content_box_size": "",
+        "content_box_position": "center",
+        "content_text_align": "center",
+        "height": 300,
+        "show_collection_image": true,
+        "show_description": false,
+        "default_background_color": "#ffffff",
+        "heading_color": "#222222",
+        "heading_text_size": 2,
+        "text_color": "#222222",
+        "breadcrumb_position": "1",
+        "show_shop_bar": false,
+        "shop_bar_label": "",
+        "menu_shop": "menu-categorias-banner"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "2e93ff46-735e-43a7-b638-b10c8eab5a73": {
+          "type": "banner",
+          "disabled": true,
+          "settings": {
+            "title_description": "Karpart is your one-stop-shop for all things automotive. Be it brakes or exhaust systems, seat covers or trailer hitches, ball bearings, or air/fuel filters, you can trust us for all your automotive needs.",
+            "color_title_top": "#194a33",
+            "sub_title": "Get Up To\n<br>\n<span class=\"primary\">\n20% off\n<span>",
+            "color_subtitle": "#ffffff",
+            "title": "Brakes and \n<br>\nRotors for Sale",
+            "color_title": "#ffffff",
+            "description": "",
+            "color_description": "#ffffff",
+            "button1_label": "shop now",
+            "link1": "",
+            "color_btn": "#000000",
+            "bg_btn": "#ffffff",
+            "color_btn_hover": "#ffffff",
+            "bg_btn_hover": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "2e93ff46-735e-43a7-b638-b10c8eab5a73"
+      ],
+      "settings": {
+        "fullwidth": false,
+        "margin_desktop": "",
+        "padding_desktop": "80px 0 0",
+        "title_categories": "Categorias",
+        "collection": "esferos",
+        "collection2": "hogar",
+        "collection3": "promocionales",
+        "collection4": "agendas",
+        "collection5": "botilitos",
+        "collection6": "morrales",
+        "products_per_page": 16,
+        "columns_desktop": 5,
+        "show_load_product": true
+      }
+    },
+    "3cf928a0-4ae7-4dbd-b666-3715ab87ee96": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "heading": "Productos vistos recientemente",
+        "heading_size": 2,
+        "products_to_show": 10,
+        "products_per_row_mobile_sm": 1,
+        "products_per_row_mobile": 2,
+        "products_per_row_tablet": 4,
+        "products_per_row_desktop": 4
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "3cf928a0-4ae7-4dbd-b666-3715ab87ee96"
+  ]
+}
