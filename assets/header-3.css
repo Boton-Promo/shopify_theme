@@ -607,6 +607,7 @@
   }
   .header_wrapper-row {
     flex-wrap: wrap;
+    gap: 10px;
   }
   .predictive-search__form {
     max-width: 100%;
