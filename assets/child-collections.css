@@ -95,7 +95,7 @@
 }
 @media (max-width: 576px) {
   .ap-multicolumn__inner--scroller {
-    grid-auto-columns: 100vw;
+    grid-auto-columns: 44vw;
     padding: 0;
   }
   .ap-multicolumn__item {
