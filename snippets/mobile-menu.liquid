@@ -60,7 +60,7 @@
                                 {% endfor %}
                             </ul>
                         {% endif %}
-                                     
+                                    
                         {% if is_child_image == true %}
                             <div class="mobile-nav__images-wrapper mobile-nav__images-wrapper--tight hide-scrollbar">
                                 <div class="mobile-nav__images-scroller">
@@ -69,10 +69,10 @@
                                           {%- if block.settings.parent_megamenu == section.settings.menu and block.settings.parent_menu == link.title -%}
                                             <a href="{{ block.settings.link }}" class="mobile-nav__image-push">
                                             <p class="mobile-nav__image-heading heading heading--xsmall">{{ block.settings.heading }}</p>
-                                                <img class="mega-menu__image" loading="lazy" sizes="240px" alt="" 
+                                {% comment %}   <img class="mega-menu__image" loading="lazy" sizes="240px" alt="" 
                                                     src="{{ block.settings.image | image_url : width: 560 }}" 
                                                     srcset="{{ block.settings.image | image_url : width: 240 }} 240w, {{ block.settings.image | image_url : width: 480 }} 480w, {{ block.settings.image | image_url : width: 560 }} 560w" 
-                                                    width="560" height="560">
+                                                    width="560" height="560"> {% endcomment %}
                                                 <span class="mobile-nav__image-text text--xsmall">{{ block.settings.description }}</span>
                                               </a>
                                           {% endif %}
