@@ -662,8 +662,6 @@
     flex-direction: column;
     text-align: center;
   }
-  .header__logo{
-    width: 50%;}
   .btn-search-header {
     padding: 0 20px;
   }
@@ -673,7 +671,7 @@
   }
   .header__logo {
     /* flex: 0; */
-    width: 100%;
+    width: 50%;
   }
   .header__secondary-links {
     gap: 10px;
