@@ -596,7 +596,6 @@
 
   .header__secondary-links{
     order: 4;
-    justify-content: left;
   }
   .header__logo {
     order: 0;
