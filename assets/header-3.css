@@ -659,7 +659,7 @@
     flex-wrap: wrap;
   }
 }
-@media (max-width: 580px) {
+@media (max-width: 767px) {
   .header-announcement-row {
     flex-direction: column;
     text-align: center;
