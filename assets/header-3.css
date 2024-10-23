@@ -603,6 +603,7 @@
   }
   .header__logo-link {
     margin: auto;
+    justify-content: left;
   }
   .header_wrapper-row {
     flex-wrap: wrap;
