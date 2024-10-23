@@ -167,3 +167,9 @@ p.image-banner-description {
     /* min-height: 380px; */
   }
 }
+
+@media (max-width: 767px) {
+  .image-banner img.banner-list-image {
+     min-height: 150px;
+  }
+}
