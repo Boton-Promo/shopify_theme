@@ -135,6 +135,9 @@ p.image-banner-description {
   .image-banner .banner-text {
     flex-direction: column;
   }
+  .image-banner img.banner-list-image {
+    min-height: 150px;
+ }
   .image-banner .banner-text.text-left {
     text-align: center;
   }
@@ -165,11 +168,5 @@ p.image-banner-description {
 @media (max-width: 576px) {
   .image-banner img.banner-list-image {
     /* min-height: 380px; */
-  }
-}
-
-@media (max-width: 767px) {
-  .image-banner img.banner-list-image {
-     min-height: 150px;
   }
 }
