@@ -9401,7 +9401,7 @@ main#main {
 
 @media (max-width: 740px) {
   .header_wrapper {
-    padding: 20px 0 5px;
+    padding: 20px 0px;
   }
   .header__logo-text {
     text-align: center;
