@@ -146,7 +146,7 @@
         "featured_product_title": "También te puede gustar",
         "limit": 10,
         "product": "",
-        "enable_guide": true,
+        "enable_guide": false,
         "guide1_label": "Shipping & Returns",
         "guide1_icon": "<svg fill=\"none\" focusable=\"false\" width=\"29\" height=\"24\" class=\"icon icon--picto-fast-delivery   product-tabs__trust-icon\" viewbox=\"0 0 29 24\">\n        <path d=\"M4 3H20V8M20 17H11.68C11.68 17 11 16 10 16M20 17V8M20 17H22.32M20 8H26.5L28 12.5V17H25.68C25.68 17 25 16 24 16M24 16C25 16 26 17 26 18C26 19 25 20 24 20C23 20 22 19 22 18C22 17.6527 22.1206 17.3054 22.32 17M24 16C23.3473 16 22.6946 16.426 22.32 17M10 16C11 16 12 17 12 18C12 19 11 20 10 20C9 20 8 19 8 18C8 17.6527 8.12061 17.3054 8.31996 17M10 16C9.3473 16 8.69459 16.426 8.31996 17M8.31996 17H4M10 12H3M10 8H1\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n      </svg>",
         "guide1_returns_content": "<p><strong>Shipping<br/></strong>We deliver your parcel within 2–3 working days. As soon as your package has left our warehouse, you will receive a confirmation by email. This confirmation contains a tracking number that you can use to find out where your package is.</p><p><strong>Returns<br/></strong>We offer free returns within 30 days. All you have to do is fill out the return slip that you received in your package and stick the prepaid label on the package.Please note that it can take 2 weeks for us to process your return. We will do our best to complete this process as soon as possible.</p>",
