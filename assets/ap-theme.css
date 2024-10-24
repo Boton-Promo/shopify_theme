@@ -11270,6 +11270,13 @@ button.mobile-nav__link,
   }
 }
 
+@media (min-width: 1000px) and (max-width: 1450px) {
+  .ap-multicolumn__inner--scroller {
+    grid-auto-columns: var(--item-width);
+    overflow: auto;
+  }
+}
+
 @media (min-width: 1200px) {
   .ap-multicolumn--pico {
     --section-items-per-row: 8;
