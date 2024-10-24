@@ -37,7 +37,8 @@
 
 .header-contact_item{
   display: flex;
-    gap: 12px;
+  gap: 12px;
+  align-items: center;
 }
 .header-bottom {
   background-color: var(--bg-color-header-bottom);
