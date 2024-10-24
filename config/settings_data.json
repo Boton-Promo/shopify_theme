@@ -353,7 +353,7 @@
 
         ],
         "settings": {
-          "fullwidth": false,
+          "fullwidth": true,
           "background": "#101820",
           "heading_color": "#ffffff",
           "text_color": "#d6d6d6",
