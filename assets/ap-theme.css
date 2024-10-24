@@ -28,7 +28,8 @@
 
 @media (max-width: 999px) {
   .hd-pocket {
-    display: none !important;
+    display: flex !important;
+    order: 5 !important;
   }
 }
 
