@@ -7865,7 +7865,7 @@
             })
           )
         );
-        const bottomBar = this.querySelector(".drawer__footer");
+        const bottomBar = this.querySelector(".drawer__footer, .drawer__header__contact");
         if (bottomBar) {
           effects.push(
             new ApEffectOfCustomKeyframe(
