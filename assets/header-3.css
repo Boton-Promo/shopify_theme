@@ -125,7 +125,7 @@
   gap: 40px;
 }
 
-@media (max-width: 1200px) and (max-width: 1299px) {
+@media (min-width: 1200px) and (max-width: 1299px) {
   .header-contact_text {
     display: none !important;
   }
