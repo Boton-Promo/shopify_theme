@@ -7884,23 +7884,23 @@
         }
 
         // Nueva animación para drawer__header__contact
-      const headerContacts = Array.from(this.querySelectorAll(".drawer__header__contact"));
-      headerContacts.forEach((headerContact, index) => {
-        effects.push(
-          new ApEffectOfCustomKeyframe(
-            headerContact,
-            {
-              opacity: [0, 1],
-              transform: ["translateY(-30px)", "translateY(0)"], // Ejemplo de animación
-            },
-            {
-              duration: 300,
-              delay: 400 + 120 * index, // Ajuste del delay para cada elemento
-              easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-            }
-          )
-        );
-      });
+        const headerContacts = Array.from(this.querySelectorAll(".drawer__header__contact"));
+        headerContacts.forEach((headerContact, index) => {
+          effects.push(
+            new ApEffectOfCustomKeyframe(
+              headerContact,
+              {
+                opacity: [0, 1],
+                transform: ["translateX(-40px)", "translateX(0)"], // Ejemplo de animación
+              },
+              {
+                duration: 300,
+                delay: 400 + 120 * index, // Ajuste del delay para cada elemento
+                easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+              }
+            )
+          );
+        });
       
         return (this._apparitionAnimation = new ApAnimationCustom(new ApEffectParallel(effects)));
       }
