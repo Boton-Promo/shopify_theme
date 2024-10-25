@@ -7882,6 +7882,26 @@
             )
           );
         }
+
+        // Nueva animación para drawer__header__contact
+      const headerContact = this.querySelector(".drawer__header__contact");
+      if (headerContact) {
+        effects.push(
+          new ApEffectOfCustomKeyframe(
+            headerContact,
+            {
+              opacity: [0, 1],
+              transform: ["translateY(-30px)", "translateY(0)"], // Ejemplo de animación
+            },
+            {
+              duration: 300,
+              delay: 400, // Puedes ajustar este delay según lo necesario
+              easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+            }
+          )
+        );
+      }
+      
         return (this._apparitionAnimation = new ApAnimationCustom(new ApEffectParallel(effects)));
       }
     }
@@ -7891,7 +7911,7 @@
         case "open":
           if (this.open && this.apparitionAnimation) {
             Array.from(
-              this.querySelectorAll('.mobile-nav__item[data-level="1"], .drawer__footer')
+              this.querySelectorAll('.mobile-nav__item[data-level="1"], .drawer__footer, .drawer__header__contact')
             ).forEach((item) => (item.style.opacity = 0));
             this.apparitionAnimation.play();
           }
