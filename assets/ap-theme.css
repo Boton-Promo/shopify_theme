@@ -4983,6 +4983,7 @@ select:focus,
 @media (max-width: 1200px) {
   .drawer__footer {
     display: flex;
+    gap: 1rem;
   }
 }
 
