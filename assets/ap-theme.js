@@ -7910,7 +7910,7 @@
         case "open":
           if (this.open && this.apparitionAnimation) {
             Array.from(
-              this.querySelectorAll('.vertical-nav__item[data-level="1"], .drawer__footer')
+              this.querySelectorAll('.vertical-nav__item[data-level="1"], .drawer__footer, .drawer__header__contact')
             ).forEach((item) => (item.style.opacity = 0));
             this.apparitionAnimation.play();
           }
