@@ -7891,7 +7891,7 @@
         case "open":
           if (this.open && this.apparitionAnimation) {
             Array.from(
-              this.querySelectorAll('.mobile-nav__item[data-level="1"], .drawer__footer, .drawer__header__contact')
+              this.querySelectorAll('.mobile-nav__item[data-level="1"], .drawer__footer')
             ).forEach((item) => (item.style.opacity = 0));
             this.apparitionAnimation.play();
           }
