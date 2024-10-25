@@ -7884,7 +7884,7 @@
         }
 
         // Nueva animación para drawer__header__contact
-      const headerContact = this.querySelectorAll(".drawer__header__contact");
+      const headerContact = Array.from(this.querySelectorAll(".drawer__header__contact"));
       if (headerContact) {
         effects.push(
           new ApEffectOfCustomKeyframe(
