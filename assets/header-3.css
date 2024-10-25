@@ -127,15 +127,15 @@
 
 @media (max-width: 1200px) and (max-width: 1299px) {
   .header-contact_text {
-    display: none;
+    display: none !important;
   }
   .header-contact_item{
-    gap: 0px;
+    gap: 0px !important;
   }
   .header-contact{
-    gap: 0px;
+    gap: 0px !important;
     order: 3 !important;
-    padding-top: 0px;
+    padding-top: 0px !important;
   }
 }
 
