@@ -7349,7 +7349,7 @@
       super.connectedCallback();
       this.inputElement = this.querySelector('[name="q"]');
       this._apDrawerContentElement = this.querySelector(".drawer__content");
-      this._apDrawerFooterElement = this.querySelector(".drawer__footer");
+      this._apDrawerFooterElement = this.querySelector(".drawer__footer, .drawer__header__contact");
       this._apLoadingStateElement = this.querySelector(".predictive-search__loading-state");
       this._apResultsElement = this.querySelector(".predictive-search__results");
       this._apMenuListElement = this.querySelector(".predictive-search__menu-list");
