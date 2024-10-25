@@ -7927,7 +7927,7 @@
             })
           )
         );
-        const bottomBar = this.querySelector(".drawer__footer");
+        const bottomBar = this.querySelector(".drawer__footer, .drawer__header__contact");
         if (bottomBar) {
           effects.push(
             new ApEffectOfCustomKeyframe(
@@ -9559,7 +9559,7 @@
         if (cartContent && cartContent["item_count"] === 0) {
           const animation = new ApAnimationCustom(
             new ApEffectParallel(
-              Array.from(this.querySelectorAll(".drawer__content, .drawer__footer, .drawer__header__contact")).map((item) => {
+              Array.from(this.querySelectorAll(".drawer__content, .drawer__footer")).map((item) => {
                 return new ApEffectOfCustomKeyframe(
                   item,
                   {
