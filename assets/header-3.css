@@ -635,7 +635,7 @@
 }
 @media (max-width: 767px) {
   .header_wrapper .header__secondary-links {
-    display: flex;
+    display: none;
   }
   .wrapper-user,
   .header-contact,
