@@ -7349,7 +7349,7 @@
       super.connectedCallback();
       this.inputElement = this.querySelector('[name="q"]');
       this._apDrawerContentElement = this.querySelector(".drawer__content");
-      this._apDrawerFooterElement = this.querySelector(".drawer__footer, .drawer__header__contact");
+      this._apDrawerFooterElement = this.querySelector(".drawer__footer");
       this._apLoadingStateElement = this.querySelector(".predictive-search__loading-state");
       this._apResultsElement = this.querySelector(".predictive-search__results");
       this._apMenuListElement = this.querySelector(".predictive-search__menu-list");
@@ -7865,7 +7865,7 @@
             })
           )
         );
-        const bottomBar = this.querySelector(".drawer__footer, .drawer__header__contact");
+        const bottomBar = this.querySelector(".drawer__footer");
         if (bottomBar) {
           effects.push(
             new ApEffectOfCustomKeyframe(
@@ -7891,7 +7891,7 @@
         case "open":
           if (this.open && this.apparitionAnimation) {
             Array.from(
-              this.querySelectorAll('.mobile-nav__item[data-level="1"], .drawer__footer, .drawer__header__contact')
+              this.querySelectorAll('.mobile-nav__item[data-level="1"], .drawer__footer')
             ).forEach((item) => (item.style.opacity = 0));
             this.apparitionAnimation.play();
           }
@@ -7927,7 +7927,7 @@
             })
           )
         );
-        const bottomBar = this.querySelector(".drawer__footer, .drawer__header__contact");
+        const bottomBar = this.querySelector(".drawer__footer");
         if (bottomBar) {
           effects.push(
             new ApEffectOfCustomKeyframe(
@@ -7953,7 +7953,7 @@
         case "open":
           if (this.open && this.apparitionAnimation) {
             Array.from(
-              this.querySelectorAll('.vertical-nav__item[data-level="1"], .drawer__footer, .drawer__header__contact')
+              this.querySelectorAll('.vertical-nav__item[data-level="1"], .drawer__footer')
             ).forEach((item) => (item.style.opacity = 0));
             this.apparitionAnimation.play();
           }
@@ -9559,7 +9559,7 @@
         if (cartContent && cartContent["item_count"] === 0) {
           const animation = new ApAnimationCustom(
             new ApEffectParallel(
-              Array.from(this.querySelectorAll(".drawer__content, .drawer__footer, .drawer__header__contact")).map((item) => {
+              Array.from(this.querySelectorAll(".drawer__content, .drawer__footer")).map((item) => {
                 return new ApEffectOfCustomKeyframe(
                   item,
                   {
@@ -9607,7 +9607,7 @@
             if (!MediaFeatures.prefersReducedMotion()) {
               const lineItems = Array.from(this.querySelectorAll(".line-item")),
                 recommendationsInner = this.querySelector(".mini-cart__recommendations-inner"),
-                bottomBar = this.querySelector(".drawer__footer, .drawer__header__contact"),
+                bottomBar = this.querySelector(".drawer__footer"),
                 effects = [];
               if (
                 recommendationsInner &&
