@@ -4980,6 +4980,12 @@ select:focus,
   transform: translateZ(0);
 }
 
+@media (max-width: 1200px) {
+  .drawer__footer {
+    display: flex;
+  }
+}
+
 @supports (padding: max(0px)) {
   .drawer__footer {
     padding-bottom: max(20px, env(safe-area-inset-bottom, 0px) + 20px);
