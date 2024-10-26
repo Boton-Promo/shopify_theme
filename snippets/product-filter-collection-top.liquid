@@ -97,10 +97,10 @@
             </a>
         </div>
                     </div>
+                    {% comment %}
                     <div class="ap-productfacet__filter-list">
                         {%- for filter in collection.filters -%}
                             <div class="ap-productfacet__filter-item">
-                        {% comment %}
                                 <button type="button" is="toggle-button" class="collapsible-toggle text--strong" ap-controlsaria="{{ filter.param_name }}" ap-expanded-aria="true">
                                     {{ filter.label | escape | capitalize }}
                                     <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
@@ -108,7 +108,7 @@
                                         <path class="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
                                     </svg>
                                 </button>
-                        {% endcomment %}
+                        
                                 <ap-contentcollapsible id="{{ filter.param_name }}" class="collapsible" open animate-items="">
                                     <div class="collapsible__content">
                                         {% case filter.type %}
@@ -349,6 +349,7 @@
                             </div>
                         {%- endfor -%}
                     </div>
+                    {% endcomment %}
                     <noscript>
                         <button type="submit" class="ap-productfacet__submit button button--secondary">Aplicar Filtros</button>
                     </noscript>
