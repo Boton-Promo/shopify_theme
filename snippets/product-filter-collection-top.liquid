@@ -101,12 +101,18 @@
                         {% liquid assign remove_all_status = 0 %}
                         {%- for filter in collection.filters -%}
                             <div class="ap-productfacet__filter-item">
-                               
+                                <button type="button" is="toggle-button" class="collapsible-toggle text--strong" ap-controlsaria="{{ filter.param_name }}" ap-expanded-aria="true">
+                                    {{ filter.label | escape | capitalize }}
+                                    <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
+                                        <path class="icon-chevron-down-left" d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                                        <path class="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                                    </svg>
+                                </button>
                                 <ap-contentcollapsible id="{{ filter.param_name }}" class="collapsible" open animate-items="">
                                     <div class="collapsible__content">
                                         {% case filter.type %}
                                             {% when 'boolean' or 'list' %}
-                                                
+                                                {%- if settings.filter_color_enable and settings.option_name == filter.label -%}
                                                     <div class="color-swatch-list">
                                                         {%- for value in filter.values -%}
                                                             {% liquid
@@ -296,14 +302,45 @@
                                                             
                                                         {%- endfor -%}
                                                     </div>
-                                              
-                                                  
-                                                
-                                            
-                                                    
-                                               
+                                                {%- else -%}
+                                                    {%- for value in filter.values -%}
+                                                        <div class="checkbox-container">
+                                                            <input class="checkbox" type="checkbox" name="{{ filter.param_name }}" id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled=""{% endif %}>
+                                                            <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}">{{ value.label | escape }} ({{ value.count }})</label>
+                                                        </div>
+                                                    {%- endfor -%}
+                                                {%- endif -%}
+                                            {% when 'price_range' %}
+                                                {% liquid
+                                                    assign min_value_price = filter.min_value.value | default: 0 | divided_by: 100
 
-                                                
+                                                    assign max_value_price = filter.max_value.value | default: filter.range_max | default: 0 | divided_by: 100
+                    
+
+                                                    assign max_price = filter.range_max | divided_by: 100
+                                                    
+                                                %}
+
+                                                <ap-pricerange class="ap-pricerange">
+                                                    <div class="ap-pricerange__range-group range-group" style="--range-min: 0.0%; --range-max: 99.99875%">
+                                                      <input type="range" aria-label="From price" class="range" min="0" max="{{ max_price }}" value="{{ min_value_price }}">
+                                                      <input type="range" aria-label="To price" class="range" min="0" max="{{ max_price }}" value="{{ max_value_price }}">
+                                                    </div>
+                              
+                                                    <div class="ap-pricerange__input-group">
+                                                      <div class="ap-pricerange__input input-prefix text--xsmall">
+                                                        <span class="input-prefix__value text--subdued">$</span>
+                                                        <input aria-label="From price" class="input-prefix__field" type="number" inputmode="numeric" value="{{ min_value_price }}" name="{{ filter.min_value.param_name }}" id="{{ filter.min_value.param_name }}" min="0" max="{{ max_value_price }}" placeholder="0">
+                                                      </div>
+                              
+                                                      <span class="ap-pricerange__delimiter text--small">to</span>
+                              
+                                                      <div class="ap-pricerange__input input-prefix text--xsmall">
+                                                        <span class="input-prefix__value text--subdued">$</span>
+                                                        <input aria-label="To price" class="input-prefix__field" type="number" inputmode="numeric" value="{{ max_value_price }}" name="{{ filter.max_value.param_name }}" id="{{ filter.max_value.param_name }}" min="{{ min_value_price }}" max="{{ max_price }}" placeholder="{{ max_price }}">
+                                                      </div>
+                                                    </div>
+                                                </ap-pricerange>
                                         {% endcase %}
                                         
                                     </div>
