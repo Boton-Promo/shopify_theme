@@ -135,7 +135,26 @@
                 {% else %}
 
                   <a class="header__linklist-link link--animated {% if link.current %}menu-item--active{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a>
-
+{% if section.settings.icon_promotion != blank and section.settings.icon_promotion_2 != blank %}
+                  <div class="header-promotion">
+                    <a class="header-promotion_item" href="https://0da51c-9a.myshopify.com/collections/ofertas"> <!-- Aqui se cambio el href="{{ section.settings.promotion_link }}" por https://0da51c-9a.myshopify.com/collections/ofertas -->
+                      <span class="header-promotion-icon">
+                        {{ section.settings.icon_promotion }}
+                      </span>
+                      <span class="header-promotion_text">
+                        {{ section.settings.header_promotion_content }}
+                      </span>
+                    </a>
+                    <a class="header-promotion_item" href="{{ section.settings.promotion_link-2 }}">              
+                      <span class="header-promotion-icon">
+                        {{ section.settings.icon_promotion_2 }}
+                      </span>
+                      <span class="header-promotion_text">
+                        {{ section.settings.header_promotion_content_2 }}
+                      </span>
+                    </a>
+                  </div>
+                {% endif %}
                 {% endif %}
             </li>
         {%- endfor -%}
