@@ -112,7 +112,7 @@
                                     <div class="collapsible__content">
                                         {% case filter.type %}
                                             {% when 'boolean' or 'list' %}
-                                                
+                                                {%- if settings.filter_color_enable and settings.option_name == filter.label -%}
                                                     <div class="color-swatch-list">
                                                         {%- for value in filter.values -%}
                                                             {% liquid
@@ -302,7 +302,7 @@
                                                             
                                                         {%- endfor -%}
                                                     </div>
-                                                
+                                                {%- else -%}
                                                     {%- for value in filter.values -%}
                                                         <div class="checkbox-container">
                                                             <input class="checkbox" type="checkbox" name="{{ filter.param_name }}" id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled=""{% endif %}>
