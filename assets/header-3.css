@@ -168,6 +168,12 @@
   height: 20px;
 }
 
+@media (max-width: 1199px) {
+  .header-promotion{
+    display: block;
+  }
+}
+
 .header-extra_info-icon{
   height: 26px;
 }
@@ -650,6 +656,7 @@
   }
 
   .header-bottom{
+    display: none;
     padding: 15px 0;
   }
 }
