@@ -139,6 +139,7 @@
                 {% endif %}
             </li>
             <li class="mobile-nav__item drawer__nav-item">
+            {% if section.settings.icon_promotion != blank and section.settings.icon_promotion_2 != blank %}
             <div class="header-promotion">
                     <a class="header-promotion_item" href="https://0da51c-9a.myshopify.com/collections/ofertas"> <!-- Aqui se cambio el href="{{ section.settings.promotion_link }}" por https://0da51c-9a.myshopify.com/collections/ofertas -->
                       <span class="header-promotion-icon">
@@ -157,6 +158,7 @@
                       </span>
                     </a>
                   </div>
+                  {% endif %}
             </li>
         {%- endfor -%}
       <div class="header-contact_item drawer__header__contact">
