@@ -139,6 +139,12 @@
   }
 }
 
+@media (max-width: 1199px) {
+    .header-contact_item{
+      padding-top: 10px;
+    }
+}
+
 .full_menu-navigation{
   display: flex;
   gap: 28px;
