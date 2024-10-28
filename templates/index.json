@@ -243,8 +243,8 @@
       "settings": {
         "setwidthout": "full",
         "progress_bar_color": "#ffffff",
-        "bg_btn_arrow": "#005ca5",
-        "color_btn_arrow": "#ffffff",
+        "bg_btn_arrow": "#ffffff",
+        "color_btn_arrow": "#000000",
         "autoplay_duration": 3,
         "background_color": "#f1f4f6",
         "slideshow_height": "slideshow--small",
