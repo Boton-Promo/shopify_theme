@@ -7853,6 +7853,26 @@
       }
     });
   });
+  if ('ontouchstart' in window) {
+    // Solo en dispositivos táctiles
+    document.querySelectorAll('.menu-item-with-dropdown').forEach(menuItem => {
+      let isMenuOpen = false;
+  
+      menuItem.addEventListener('click', function(event) {
+        const dropdown = menuItem.querySelector('.mega-menu');
+  
+        // Prevenir la navegación si el menú aún no está abierto
+        if (!isMenuOpen) {
+          event.preventDefault();  // Prevenir que el enlace se siga inmediatamente
+          isMenuOpen = true;  // Cambiar el estado para indicar que el menú está abierto
+          openDropdown(menuItem);  // Llamar a la función que abre el megamenú
+        } else {
+          isMenuOpen = false;  // Permitir la navegación al segundo clic
+        }
+      });
+    });
+  }
+  
   window.customElements.define("ap-navigationofdesktop", NavigationOfDesktop);
 
   var ApolloMobileMenu = class extends ApDrawerContent {
