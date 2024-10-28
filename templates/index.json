@@ -245,7 +245,7 @@
         "progress_bar_color": "#ffffff",
         "bg_btn_arrow": "rgba(0,0,0,0)",
         "color_btn_arrow": "#ffffff",
-        "autoplay_duration": 4,
+        "autoplay_duration": 3,
         "background_color": "#f1f4f6",
         "slideshow_height": "slideshow--small",
         "show_dot": true,
