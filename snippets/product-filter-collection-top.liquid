@@ -297,12 +297,7 @@
                                                         {%- endfor -%}
                                                     </div>
                                                 {%- else -%}
-                                                    {%- for value in filter.values -%}
-                                                        <div class="checkbox-container">
-                                                            <input class="checkbox" type="checkbox" name="{{ filter.param_name }}" id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled=""{% endif %}>
-                                                            <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}">{{ value.label | escape }} ({{ value.count }})</label>
-                                                        </div>
-                                                    {%- endfor -%}
+                                                    
                                                 {%- endif -%}
                                             {% when 'price_range' %}
                                                 {% liquid
