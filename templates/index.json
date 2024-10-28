@@ -248,7 +248,7 @@
         "autoplay_duration": 3,
         "background_color": "#f1f4f6",
         "slideshow_height": "slideshow--small",
-        "show_dot": true,
+        "show_dot": false,
         "show_btn": true,
         "show_bg_content": false,
         "margin_desktop": "0px 0px",
