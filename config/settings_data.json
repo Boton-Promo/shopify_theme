@@ -991,7 +991,7 @@
             "disabled": true,
             "settings": {
               "parent_menu": "Promocionales",
-              "parent_megamenu": "promocionales",
+              "parent_megamenu": "busqueda",
               "heading": "",
               "heading_size": "heading--small",
               "menu": "categorias"
@@ -1005,7 +1005,7 @@
               "parent_megamenu": "main-menu",
               "heading": "",
               "heading_size": "heading--nomal",
-              "menu_vertical": "promocionales"
+              "menu_vertical": "busqueda"
             }
           },
           "image_block_e4GBR7": {
@@ -1461,7 +1461,7 @@
               "parent_megamenu": "main-menu",
               "heading": "",
               "heading_size": "heading--small",
-              "menu": "promocionales"
+              "menu": "busqueda"
             }
           },
           "child_menu_WzqbbV": {
@@ -2023,15 +2023,7 @@
     },
     "content_for_index": [
 
-    ],
-    "blocks": {
-      "6610233760104865948": {
-        "type": "shopify://apps/pushowl-brevo/blocks/pushowl-app-embed-3d2ff2b5/fa20c3ba-38bf-43e0-ba5c-431f6ae07d95",
-        "disabled": false,
-        "settings": {
-        }
-      }
-    }
+    ]
   },
   "platform_customizations": {
     "custom_css": [
