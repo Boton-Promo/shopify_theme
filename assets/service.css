@@ -102,6 +102,13 @@ p.service-list-description {
   transform: translate(0);
 }
 
+@media (max-width: 1199px){
+  .service_hover-block{
+    visibility: hidden;
+    transform: none;
+  }
+}
+
 /* 
 .service-list-content .button.btn-base-2:hover .service_hover-block.service_hover-right{
   left: 0;
