@@ -100,7 +100,13 @@
                     <div class="ap-productfacet__filter-list">
                         {%- for filter in collection.filters -%}
                             <div class="ap-productfacet__filter-item">
-                                
+                                <button type="button" is="toggle-button" class="collapsible-toggle text--strong" ap-controlsaria="{{ filter.param_name }}" ap-expanded-aria="true">
+                                    {{ filter.label | escape | capitalize }}
+                                    <svg aria-hidden="true" focusable="false" role="presentation" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
+                                        <path class="icon-chevron-down-left" d="M4 4.5L7 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                                        <path class="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+                                    </svg>
+                                </button>
                         
                                 <ap-contentcollapsible id="{{ filter.param_name }}" class="collapsible" open animate-items="">
                                     <div class="collapsible__content">
@@ -297,7 +303,12 @@
                                                         {%- endfor -%}
                                                     </div>
                                                 {%- else -%}
-                                                    
+                                                    {%- for value in filter.values -%}
+                                                        <div class="checkbox-container">
+                                                            <input class="checkbox" type="checkbox" name="{{ filter.param_name }}" id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled=""{% endif %}>
+                                                            <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}">{{ value.label | escape }} ({{ value.count }})</label>
+                                                        </div>
+                                                    {%- endfor -%}
                                                 {%- endif -%}
                                             {% when 'price_range' %}
                                                 {% liquid
