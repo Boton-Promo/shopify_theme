@@ -55,19 +55,20 @@
             "overlay_opacity": 0
           }
         },
-        "slide_LMbLW9": {
+        "slide_NqCkNW": {
           "type": "slide",
           "settings": {
-            "image_link": "",
-            "image_1": "shopify://shop_images/SERVICIOS_BOTON_PROMO_PRINCIPAL.jpg",
+            "image_link": "shopify://collections/esferos",
+            "image_1": "shopify://shop_images/banner_esferos.jpg",
+            "image_mobile": "shopify://shop_images/banner_a_mobile_dbfd5389-c05f-4e4d-8908-13b3969e4271.jpg",
             "heading": "",
-            "heading_size": "h6",
+            "heading_size": "h3",
             "subheading": "",
-            "subheading_size": "h1",
+            "subheading_size": "h2",
             "subheading2": "",
-            "subheading_size_2": "h1",
+            "subheading_size_2": "h4",
             "description": "",
-            "color_des": "#ffffff",
+            "color_des": "",
             "color_description_service": "#86938d",
             "icon": "",
             "description_service": "",
@@ -81,29 +82,28 @@
             "link1": "",
             "button2_label": "",
             "custom_icon": "",
-            "box_size": "medium",
-            "box_align": "left",
+            "box_size": "small",
+            "box_align": "center",
             "text_align": "left",
             "color_caption": "#ffffff",
             "heading_color": "#ffffff",
             "text_color": "#ffffff",
-            "button_background": "#d81324",
-            "button_text_color": "#ffffff",
+            "button_background": "#f3ff34",
+            "button_text_color": "#000000",
             "button_text_color_hover": "#ffffff",
-            "button_bg_hover": "#920d18",
+            "button_bg_hover": "#ca9236",
             "button_background2": "#f3ff34",
             "button_text_color2": "#000000",
-            "button_opacity": 10,
+            "button_opacity": 0,
             "blocks_overlay_color": "#000000",
             "overlay_opacity": 0
           }
         },
-        "slide_NqCkNW": {
+        "slide_NEKPPB": {
           "type": "slide",
           "settings": {
-            "image_link": "shopify://collections/esferos",
-            "image_1": "shopify://shop_images/banner_esferos.jpg",
-            "image_mobile": "shopify://shop_images/banner_a_mobile_dbfd5389-c05f-4e4d-8908-13b3969e4271.jpg",
+            "image_link": "shopify://collections/agendas",
+            "image_1": "shopify://shop_images/banner_agendas.jpg",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
@@ -186,19 +186,19 @@
             "overlay_opacity": 0
           }
         },
-        "slide_NEKPPB": {
+        "slide_LMbLW9": {
           "type": "slide",
           "settings": {
-            "image_link": "shopify://collections/agendas",
-            "image_1": "shopify://shop_images/banner_agendas.jpg",
+            "image_link": "",
+            "image_1": "shopify://shop_images/SERVICIOS_BOTON_PROMO_PRINCIPAL.jpg",
             "heading": "",
-            "heading_size": "h3",
+            "heading_size": "h6",
             "subheading": "",
-            "subheading_size": "h2",
+            "subheading_size": "h1",
             "subheading2": "",
-            "subheading_size_2": "h4",
+            "subheading_size_2": "h1",
             "description": "",
-            "color_des": "",
+            "color_des": "#ffffff",
             "color_description_service": "#86938d",
             "icon": "",
             "description_service": "",
@@ -212,19 +212,19 @@
             "link1": "",
             "button2_label": "",
             "custom_icon": "",
-            "box_size": "small",
-            "box_align": "center",
+            "box_size": "medium",
+            "box_align": "left",
             "text_align": "left",
             "color_caption": "#ffffff",
             "heading_color": "#ffffff",
             "text_color": "#ffffff",
-            "button_background": "#f3ff34",
-            "button_text_color": "#000000",
+            "button_background": "#d81324",
+            "button_text_color": "#ffffff",
             "button_text_color_hover": "#ffffff",
-            "button_bg_hover": "#ca9236",
+            "button_bg_hover": "#920d18",
             "button_background2": "#f3ff34",
             "button_text_color2": "#000000",
-            "button_opacity": 0,
+            "button_opacity": 10,
             "blocks_overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -232,10 +232,10 @@
       },
       "block_order": [
         "2d9c8ec9-a15c-4f73-b5a4-5ac6bd0598ad",
-        "slide_LMbLW9",
         "slide_NqCkNW",
+        "slide_NEKPPB",
         "slide_ryhwjV",
-        "slide_NEKPPB"
+        "slide_LMbLW9"
       ],
       "custom_css": [
 
