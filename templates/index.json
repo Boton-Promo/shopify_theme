@@ -57,9 +57,9 @@
         },
         "slide_LMbLW9": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image_link": "",
+            "image_1": "shopify://shop_images/SERVICIOS_BOTON_PROMO_PRINCIPAL.jpg",
             "heading": "",
             "heading_size": "h6",
             "subheading": "We are qualified &  \n<br>\nprofessional",
