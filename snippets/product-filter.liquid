@@ -27,22 +27,22 @@
                     ({{ section.settings.collection4.products_count }})
                 </span>
             </a>
-            {% if section.settings.collection5 != blank %}
+            
             <a href="{{ section.settings.collection5 }}">
                 {{- section.settings.collection5.title | escape -}}
                 <span class="count">
                     ({{ section.settings.collection5.products_count }})
                 </span>
             </a>
-            {% endif %}
-            {% if section.settings.collection6 != blank %}
+            
+            
             <a href="{{ section.settings.collection6 }}">
                 {{- section.settings.collection6.title | escape -}}
                 <span class="count">
                     ({{ section.settings.collection6.products_count }})
                 </span>
             </a>
-            {% endif %}
+            
         </div>
     </div>
 
@@ -361,7 +361,7 @@
                         {%- endfor -%}
                     </div>
                     <noscript>
-                        <button type="submit" class="ap-productfacet__submit button button--secondary">Apply filters</button>
+                        <button type="submit" class="ap-productfacet__submit button button--secondary">Aplicar Filtros</button>
                     </noscript>
                 </form>
             </div>
