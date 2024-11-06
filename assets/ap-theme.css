@@ -10732,8 +10732,8 @@ button.mobile-nav__link,
 }
 
 .image-overlay__image {
-  -o-object-fit: cover;
-  object-fit: cover;
+  -o-object-fit: contain;
+  object-fit: contain;
   -o-object-position: center;
   object-position: center;
 }
