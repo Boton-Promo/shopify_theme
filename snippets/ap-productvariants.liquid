@@ -7,13 +7,13 @@
     assign variants_option2_arr = product.variants | map: 'option2'
     assign variants_option3_arr = product.variants | map: 'option3'
 %}
-
+{% comment %}
     assign product_form_id = 'ap-productform-' | append: section.id | append: "-" | append: product.id
+{% endcomment %}
 
-
- {% for collection in product.collections %}
+{% comment %} {% for collection in product.collections %}
     {{ collection.title }}
-{% endfor %} 
+{% endfor %} {% endcomment %}
 
 <ap-productvariants handle="{{ product.handle }}" form-id="ap-productform-{{ section.id }}-{{ product.id }}" update-url="" class="ap-productform__variants">
     {% for option in product.options_with_values %}
