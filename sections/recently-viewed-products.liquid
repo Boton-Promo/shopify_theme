@@ -27,7 +27,7 @@
 
   @media screen and (min-width: 741px) {
     #shopify-section-{{ section.id }} {
-      --section-products-per-row: 2;
+      --section-products-per-row: {{ section.settings.products_per_row_mobile }};
     }
     #shopify-section-{{ section.id }} .ap-productlist__inner--scroller{
       grid-auto-columns: calc( 100% / var(--section-products-per-row, 4) - ( var(--grid-gap) / var(--section-products-per-row, 4) * (var(--section-products-per-row, 4) - 1)));
