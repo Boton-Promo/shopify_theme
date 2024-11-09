@@ -237,9 +237,7 @@
         "slide_ryhwjV",
         "slide_LMbLW9"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "setwidthout": "full",
         "progress_bar_color": "#ffffff",
@@ -532,9 +530,7 @@
         "collection_fdAFh7"
       ],
       "disabled": true,
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "setwidthout": "container",
         "background": "#ffffff",
@@ -1102,9 +1098,7 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
@@ -1786,9 +1780,7 @@
         "featured_collection_hManA3"
       ],
       "disabled": true,
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "fullwidth": false,
         "background-color": "#ffffff",
@@ -2054,7 +2046,7 @@
         "heading_size": 2,
         "products_to_show": 10,
         "products_per_row_mobile_sm": 1,
-        "products_per_row_mobile": 2,
+        "products_per_row_mobile": 5,
         "products_per_row_tablet": 4,
         "products_per_row_desktop": 6
       }
