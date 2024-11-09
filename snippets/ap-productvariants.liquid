@@ -11,9 +11,9 @@
     assign product_form_id = 'ap-productform-' | append: section.id | append: "-" | append: product.id
 
 
-{% comment %} {% for collection in product.collections %}
+ {% for collection in product.collections %}
     {{ collection.title }}
-{% endfor %} {% endcomment %}
+{% endfor %} 
 
 <ap-productvariants handle="{{ product.handle }}" form-id="ap-productform-{{ section.id }}-{{ product.id }}" update-url="" class="ap-productform__variants">
     {% for option in product.options_with_values %}
