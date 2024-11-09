@@ -7,9 +7,9 @@
     assign variants_option2_arr = product.variants | map: 'option2'
     assign variants_option3_arr = product.variants | map: 'option3'
 %}
-{% comment %}
+
     assign product_form_id = 'ap-productform-' | append: section.id | append: "-" | append: product.id
-{% endcomment %}
+
 
 {% comment %} {% for collection in product.collections %}
     {{ collection.title }}
