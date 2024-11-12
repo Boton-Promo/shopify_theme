@@ -8,7 +8,10 @@
     </span>
     <script type="application/json" id="variant-inventory-data">
         {
-            "{{ product.selected_or_first_available_variant.id }}": "{{ inventoryQuantity }}"
+            {% for variant in product.variants %}
+                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
+                {% if forloop.index < product.variants.size %},{% endif %}
+            {% endfor %}
         }
     </script>
 </ap-inventoryproduct>
@@ -19,19 +22,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
     const inventoryDisplay = document.getElementById("inventory-display");
 
+    // Obtener los datos del inventario de variantes desde el JSON
+    const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
+
     // Función para actualizar el inventario
     const updateInventory = (variantId) => {
         const inventoryQuantity = variantInventoryData[variantId];
 
-        // Limpiar el contenido actual
-        inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
-
+        // Actualizar el inventario mostrado
         if (inventoryQuantity > 0) {
             inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
         } else {
             inventoryDisplay.textContent = "Out of Stock";
         }
     };
+
     // Llamar a la función al cargar la página para inicializar el valor del inventario
     updateInventory(variantSelect.value);
 
@@ -41,4 +46,5 @@ document.addEventListener("DOMContentLoaded", function() {
         updateInventory(selectedVariantId);
     });
 });
+
 </script>
