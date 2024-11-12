@@ -1,16 +1,23 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
-    <span class="inventory" id="inventory-display" class="inventory">
-        {% if product.selected_or_first_available_variant.available %}
-            Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
+    <span class="inventory">
+        {% if product.variants[0]["available"] %}
+            <span class="inventory_stock">
+                {{ 'products.product.in_stock' | t }} - {{ product.variants[0].inventory_quantity }} disponibles
+            </span>
         {% else %}
-            Out of Stock
+            <span class="inventory_outstock">
+                {{ 'products.product.out_stock' | t }}
+            </span>
         {% endif %}
     </span>
-    <script type="application/json" id="variant-inventory-data">
+    <script type="application/json">
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
+                "{{ variant.id }}": {
+                    "available": {{ variant.available }},
+                    "inventory_quantity": {{ variant.inventory_quantity }}
+                }
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
