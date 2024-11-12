@@ -12,11 +12,6 @@
     --secondary-background: {{ section.settings.secondary_background | color_extract: 'red' }}, {{ section.settings.secondary_background | color_extract: 'green' }}, {{ section.settings.secondary_background | color_extract: 'blue' }};
   }
 </style>
-<div class="inventoryWrapper">
-  {% if current_variant.inventory_quantity > 0 and current_variant.inventory_management == 'shopify' %}
-    <p>Stock: {{ current_variant.inventory_quantity }}</p>
-  {% endif %}
-</div>
 {%- assign product = section.settings.product -%}
 
 <section class="section ">
@@ -454,8 +449,3 @@
   ]
 }
 {% endschema %}
- <script>
-      {% for variant in product.variants %}
-        variantStock[{{- variant.id -}}] = {{ variant.inventory_quantity }};
-      {% endfor %}
-    </script>
