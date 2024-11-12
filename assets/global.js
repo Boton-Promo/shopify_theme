@@ -957,3 +957,34 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('ap-productrecommendations', ProductRecommendations);
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
+  const inventoryDisplay = document.getElementById("inventory-display");
+
+  // Función para actualizar el inventario basado en la variante seleccionada
+  const updateInventory = (selectedVariant) => {
+      const inventoryQuantity = selectedVariant.getAttribute('data-inventory');
+
+      // Limpiar y actualizar el contenido del inventario
+      inventoryDisplay.textContent = "";  // Limpia completamente el contenido anterior
+
+      if (inventoryQuantity > 0) {
+          inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+      } else {
+          inventoryDisplay.textContent = "Out of Stock";
+      }
+  };
+
+  // Inicialización: al cargar la página, mostrar el stock de la variante seleccionada inicialmente
+  const initialSelectedVariant = variantSelect.options[variantSelect.selectedIndex];
+  updateInventory(initialSelectedVariant);
+
+  // Escuchar cambios en el select de variantes
+  variantSelect.addEventListener("change", function() {
+      const selectedVariant = variantSelect.options[variantSelect.selectedIndex];
+      updateInventory(selectedVariant);
+  });
+});
