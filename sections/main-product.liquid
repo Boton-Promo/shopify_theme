@@ -689,7 +689,7 @@
   {%- endfor -%}
   <script>
   {% for variant in product.variants %}
-    variantStock[{{- variant.id -}}] = {{ current_variant.inventory_quantity }};
+    variantStock[{{- variant.id -}}] = {{ variant.inventory_quantity }};
   {% endfor %}
 </script>
 {% schema %}
