@@ -1,20 +1,12 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
     <span id="inventory-display" class="inventory">
         {% if product.selected_or_first_available_variant.available %}
-            Primer Stock: {{ inventoryQuantity }}
+            Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
         {% else %}
             Out of Stock
         {% endif %}
     </span>
-    <script type="application/json" id="variant-inventory-data">
-        {
-            {%- assign _size = product.variants | size -%}
-            {%- for variant in product.variants -%}
-                Segundo Stock: "{{ variant.inventory_quantity }}"
-                {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
-            {%- endfor -%}
-        }
-    </script>
+  
 </ap-inventoryproduct>
 
 <script>
@@ -32,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         inventoryDisplay.textContent = '';
 
         if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Tercer Stock: ${inventoryQuantity}`;
+            inventoryDisplay.textContent = `Stock: ${product.selected_or_first_available_variant.inventory_quantity}`;
         } else {
             inventoryDisplay.textContent = "Out of Stock";
         }
