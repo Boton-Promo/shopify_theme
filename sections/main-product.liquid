@@ -322,9 +322,9 @@
                         {%- render 'ap-productvariants', product: product show_size_chart: true color_variant: block.settings.color_variant variant_type: block.settings.variant_type -%}
                       
                     {% assign product_qty = 0 %}
-                    {% for variant in product.variants %}
-                    {% if variant.inventory_quantity > 0 %}
-                    {% assign product_qty = product_qty | plus: variant.inventory_quantity %}
+                    {% for current_variant in product.variants %}
+                    {% if current_variant.inventory_quantity > 0 %}
+                    {% assign product_qty = product_qty | plus: current_variant.inventory_quantity %}
                     {% endif %}
                     {% endfor %}
                     {% if product_qty > 0 %}
