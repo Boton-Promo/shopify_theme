@@ -14,24 +14,5 @@
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
-
-        document.addEventListener("DOMContentLoaded", function() {
-    const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
-    const inventoryDisplay = document.getElementById("inventory-display");
-    const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
-
-    variantSelect.addEventListener("change", function() {
-        const selectedVariantId = variantSelect.value;
-        const inventoryQuantity = variantInventoryData[selectedVariantId];
-
-        if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
-        } else {
-            inventoryDisplay.textContent = "Out of Stock";
-        }
-    });
-});
-
-
     </script>
 </ap-inventoryproduct>
