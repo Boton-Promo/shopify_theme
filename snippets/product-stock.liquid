@@ -1,27 +1,40 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
-    <span class="inventory inventory--high">
-        {% if product.variants[0]["available"] %}
-            <span class="inventory_stock">
-                {{ 'products.product.in_stock' | t }}
-            </span>
-
+    <span id="inventory-display" class="inventory">
+        {% if product.selected_or_first_available_variant.available %}
+            Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
         {% else %}
-            <span class="inventory_outstock">
-                {{ 'products.product.out_stock' | t }}
-            </span>
+            Out of Stock
         {% endif %}
     </span>
-    <script type="application/json">
+    <script type="application/json" id="variant-inventory-data">
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                {%- if product.variants[0]["available"] -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\"></span>"
-                {%- else -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\"></span>"
-                {%- endif -%}
+                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
+    const inventoryDisplay = document.getElementById("inventory-display");
+    const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
+
+    variantSelect.addEventListener("change", function() {
+        const selectedVariantId = variantSelect.value;
+        const inventoryQuantity = variantInventoryData[selectedVariantId];
+
+        // Limpia el contenido actual del elemento antes de actualizarlo
+        inventoryDisplay.textContent = '';
+
+        // Actualiza con la cantidad de inventario de la variante seleccionada
+        if (inventoryQuantity > 0) {
+            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+        } else {
+            inventoryDisplay.textContent = "Out of Stock";
+        }
+    });
+});
+
     </script>
 </ap-inventoryproduct>
