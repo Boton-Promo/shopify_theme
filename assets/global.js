@@ -856,20 +856,34 @@ class VariantSelects extends HTMLElement {
   }
 
   toggleAddButton(disable = true, text, modifyClass = true) {
-    const productForm = document.getElementById(`ap-productform-${this.dataset.section}`);
+
+    const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
-    if (!addButton) return;
+   
+    const inventoryNote = document.querySelector('.inventoryNote');
+    const inventoryHtml = `We have ${variantStock[this.currentVariant.id]} in stock`;
+    const inventryHighHtml = `We have more than 10 in stock`;
+    
 
-    if (disable) {
-      addButton.setAttribute('disabled', 'disabled');
-      if (text) addButtonText.textContent = text;
-    } else {
-      addButton.removeAttribute('disabled');
-      addButtonText.textContent = window.variantStrings.addToCart;
-    }
+      if (!addButton) return;
 
+      if (disable) {
+        addButton.setAttribute('disabled', 'disabled');
+        if (text) addButtonText.textContent = text;
+        inventoryNote.innerHTML = "";
+      } else {        
+        addButton.removeAttribute('disabled');
+        addButtonText.textContent = window.variantStrings.addToCart;
+
+        if (variantStock[this.currentVariant.id] > 0 && variantStock[this.currentVariant.id] <= 10) {
+          inventoryNote.textContent = inventoryHtml;
+        } else if (variantStock[this.currentVariant.id] > 10) {
+          inventoryNote.textContent = inventryHighHtml;
+        }
+      }
+      
     if (!modifyClass) return;
   }
 
