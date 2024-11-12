@@ -2,16 +2,26 @@
     <span class="inventory inventory--high">
         {% if product.variants[0]["available"] %}
             <span class="inventory_stock">
-                {{ product.selected_or_first_available_variant.inventory_quantity }}
+                {{ 'products.product.in_stock' | t }}
             </span>
 
         {% else %}
             <span class="inventory_outstock">
-                No hay
+                {{ 'products.product.out_stock' | t }}
             </span>
         {% endif %}
     </span>
     <script type="application/json">
-       
+        {
+            {%- assign _size = product.variants | size -%}
+            {%- for variant in product.variants -%}
+                {%- if product.variants[0]["available"] -%}
+                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\"></span>"
+                {%- else -%}
+                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\"></span>"
+                {%- endif -%}
+                {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
+            {%- endfor -%}
+        }
     </script>
 </ap-inventoryproduct>
