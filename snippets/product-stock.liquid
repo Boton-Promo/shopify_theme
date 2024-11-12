@@ -6,7 +6,7 @@
             Out of Stock
         {% endif %}
     </span>
-    <script type="application/json" id="variant-inventory-data">
+    <script type="application/json">
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
@@ -21,7 +21,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
     const inventoryDisplay = document.getElementById("inventory-display");
-    const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
 
     // Función para actualizar el inventario
     const updateInventory = (variantId) => {
