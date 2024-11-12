@@ -10,8 +10,7 @@
         {
            {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                "{{ variant.id }}": {
-                    "available": {{ variant.available }},
+                El stock: {
                     "inventory_quantity": {{ variant.inventory_quantity }}
                 }
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
