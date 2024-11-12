@@ -337,6 +337,20 @@
     Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
   {% endif %}
 </div>
+{%- for variant in product.variants -%}
+  {%- if variant.option1 == selected_color -%}
+    <div class="variant-option">
+      <label>{{ variant.option1 }}:</label>
+      
+      <!-- Mostrar la cantidad de stock para esta variante -->
+      {%- if variant.inventory_quantity > 0 -%}
+        <span class="stock-quantity">Stock: {{ variant.inventory_quantity }}</span>
+      {%- else -%}
+        <span class="out-of-stock">Out of Stock</span>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{%- endfor -%}
 
                       {%- when 'quantity_selector' -%}
                         <div class="quantity_wrapper">
