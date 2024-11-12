@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const inventoryQuantity = variantInventoryData[variantId];
 
         // Limpiar el contenido actual antes de actualizar el inventario
-        inventoryDisplay.textContent = ""; // Limpia el valor previo
+        inventoryDisplay.innerHTML = "";  // Limpia completamente el contenido
 
         // Actualizar el inventario mostrado
         if (inventoryQuantity > 0) {
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateInventory(selectedVariantId);
     });
 });
+
 
 
 </script>
