@@ -7,7 +7,7 @@
 
         {% else %}
             <span class="inventory_outstock">
-                {{ product.selected_or_first_available_variant.inventory_quantity }}
+                No hay
             </span>
         {% endif %}
     </span>
@@ -15,11 +15,7 @@
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                {%- if product.variants[0]["available"] -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\">{{ product.selected_or_first_available_variant.inventory_quantity }}</span>"
-                {%- else -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\">{{ product.selected_or_first_available_variant.inventory_quantity }}</span>"
-                {%- endif -%}
+                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
