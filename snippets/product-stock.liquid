@@ -8,13 +8,15 @@
     </span>
     <script type="application/json" id="variant-inventory-data">
         {
-            {% for variant in product.variants %}
+            {%- assign _size = product.variants | size -%}
+            {%- for variant in product.variants -%}
                 "{{ variant.id }}": "{{ variant.inventory_quantity }}"
-                {% if forloop.index < product.variants.size %},{% endif %}
-            {% endfor %}
+                {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
+            {%- endfor -%}
         }
     </script>
 </ap-inventoryproduct>
+
 
 
 <script>
@@ -29,14 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const updateInventory = (variantId) => {
         const inventoryQuantity = variantInventoryData[variantId];
 
-        // Limpiar el contenido actual del inventario
-        inventoryDisplay.innerHTML = "";  // Limpia completamente el contenido
-
-        // Actualizar el inventario mostrado
+        // Actualizar el contenido del inventario de manera segura
         if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+            inventoryDisplay.innerHTML = `Stock: ${inventoryQuantity}`; // Sobrescribe el contenido
         } else {
-            inventoryDisplay.textContent = "Out of Stock";
+            inventoryDisplay.innerHTML = "Out of Stock"; // Sobrescribe el contenido
         }
     };
 
@@ -49,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateInventory(selectedVariantId);
     });
 });
+
 
 
 
