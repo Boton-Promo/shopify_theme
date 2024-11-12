@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         inventoryDisplay.textContent = '';
 
         if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Stock: ${product.selected_or_first_available_variant.inventory_quantity}`;
+            inventoryDisplay.textContent = `Stock: ${variant.inventory_quantity}`;
         } else {
             inventoryDisplay.textContent = "Out of Stock";
         }
