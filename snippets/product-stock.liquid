@@ -1,10 +1,9 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
-    <span class="inventory inventory--high">
+    <span class="inventory">
         {% if product.variants[0]["available"] %}
             <span class="inventory_stock">
-                {{ 'products.product.in_stock' | t }}
+                {{ 'products.product.in_stock' | t }} - {{ product.variants[0].inventory_quantity }} disponibles
             </span>
-
         {% else %}
             <span class="inventory_outstock">
                 {{ 'products.product.out_stock' | t }}
