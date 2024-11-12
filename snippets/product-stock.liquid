@@ -8,9 +8,12 @@
     </span>
     <script type="application/json" id="variant-inventory-data">
         {
-            {%- assign _size = product.variants | size -%}
+           {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
+                "{{ variant.id }}": {
+                    "available": {{ variant.available }},
+                    "inventory_quantity": {{ variant.inventory_quantity }}
+                }
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
