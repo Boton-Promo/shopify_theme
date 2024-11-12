@@ -19,3 +19,19 @@ document.addEventListener('shopify:block:deselect', function(event) {
   if (parentSlideshowComponent.autoplayButtonIsSetToPlay) parentSlideshowComponent.play();
 });
    
+
+
+document.getElementById(`product-select-{{ section.id }}-{{ product.id }}`).addEventListener('change', function(event) {
+  const selectedVariantId = event.target.value;
+  updateInventoryNote(selectedVariantId);
+  });
+
+  function updateInventoryNote(variantId) {
+  const inventoryNote = document.querySelector('.inventoryNote');
+  
+  if (variantStock[variantId] > 0) {
+      inventoryNote.textContent = `We have ${variantStock[variantId]} in stock`;
+  } else {
+      inventoryNote.textContent = 'Out of stock';
+  }
+  }
