@@ -8,11 +8,9 @@
     </span>
     <script type="application/json" id="variant-inventory-data">
         {
-           {%- assign _size = product.variants | size -%}
+            {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-               
-                    "inventory_quantity": {{ variant.inventory_quantity }}
-            
+                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
@@ -34,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
         inventoryDisplay.textContent = '';
 
         if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Stock: ${inventory_quantity}`;
+            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+        } else {
+            inventoryDisplay.textContent = "Out of Stock";
         }
     });
 });
