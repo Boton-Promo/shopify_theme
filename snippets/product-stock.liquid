@@ -10,9 +10,9 @@
         {
            {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                El stock: {
+               
                     "inventory_quantity": {{ variant.inventory_quantity }}
-                }
+            
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
