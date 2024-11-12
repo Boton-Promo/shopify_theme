@@ -18,7 +18,7 @@
                 {%- if product.variants[0]["available"] -%}
                     "{{- variant.id -}}": "<span class=\"inventory inventory--high\">Stock</span>"
                 {%- else -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\"></span>"
+                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\">ddd</span>"
                 {%- endif -%}
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
