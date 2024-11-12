@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const inventoryQuantity = variantInventoryData[variantId];
 
         // Limpiar el contenido actual
-        inventoryDisplay.textContent = '';
+        inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
 
         if (inventoryQuantity > 0) {
             inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
