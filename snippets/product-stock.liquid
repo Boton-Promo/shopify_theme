@@ -28,13 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const selectedVariantId = variantSelect.value;
         const inventoryQuantity = variantInventoryData[selectedVariantId];
 
-        // Limpia el contenido actual antes de actualizar
-        inventoryDisplay.textContent = '';
+        // Limpia completamente el contenido de inventory-display
+        inventoryDisplay.innerHTML = '';
 
+        // Inserta el nuevo valor de inventario
         if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+            inventoryDisplay.innerHTML = `Stock: ${inventoryQuantity}`;
         } else {
-            inventoryDisplay.textContent = "Out of Stock";
+            inventoryDisplay.innerHTML = "Out of Stock";
         }
     });
 });
