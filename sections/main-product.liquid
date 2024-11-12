@@ -323,8 +323,8 @@
                       
                     {% assign product_qty = 0 %}
                     {% for variant in product.variants %}
-                    {% if current_variant.inventory_quantity > 0 %}
-                    {% assign product_qty = product_qty | plus: current_variant.inventory_quantity %}
+                    {% if variant.inventory_quantity > 0 %}
+                    {% assign product_qty = product_qty | plus: variant.inventory_quantity %}
                     {% endif %}
                     {% endfor %}
                     {% if product_qty > 0 %}
