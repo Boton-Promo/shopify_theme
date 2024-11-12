@@ -388,7 +388,7 @@
             <select class="select" autocomplete="off" id="product-select-{{ section.id }}-{{ product.id }}" name="id" form="ap-productform-{{ section.id }}-{{ product.id }}">
                 {% for variant in product.variants %}
                     <option value="{{ variant.id }}" 
-                            data-inventory-quantity="{{ product.selected_or_first_available_variant.inventory_quantity }}" 
+                            data-inventory-quantity="{{ variant.inventory_quantity }}" 
                             {% if product.selected_or_first_available_variant.id == variant.id %}selected="selected"{% endif %}>
                         {{ product.title }} {{ variant.title }} - {{ variant.price | money }}
                     </option>
