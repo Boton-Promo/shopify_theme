@@ -226,7 +226,7 @@
                 <div class="ap-productform__option-selector" data-selector-type="block">
                     <div class="ap-productform__option-info">
                         <span class="ap-productform__option-name">{{ option.name }}:</span>
-                        <span id="option-{{ section.id }}-{{ option_index }}-value" class="ap-productform__option-value">{{ option.values[0] }} {{ product.selected_or_first_available_variant.inventory_quantity }}</span>
+                        <span id="option-{{ section.id }}-{{ option_index }}-value" class="ap-productform__option-value">{{ option.values[0] }} {{ variant.inventory_quantity }}</span>
 
 
                         {% liquid
