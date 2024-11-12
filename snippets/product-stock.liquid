@@ -15,11 +15,10 @@
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                {%- if product.variants[0]["available"] -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\">Stock</span>"
-                {%- else -%}
-                    "{{- variant.id -}}": "<span class=\"inventory inventory--high\">ddd</span>"
-                {%- endif -%}
+                "{{ variant.id }}": {
+                    "available": {{ variant.available }},
+                    "inventory_quantity": {{ variant.inventory_quantity }}
+                }
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
