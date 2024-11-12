@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
             inventoryDisplay.textContent = "Out of Stock";
         }
     };
-
+window.onload=updateInventory();
     // Llamar a la función al cargar la página para inicializar el valor del inventario
     updateInventory(variantSelect.value);
 
