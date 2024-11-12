@@ -337,6 +337,38 @@
     Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
   {% endif %}
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const selectElement = document.getElementById('product-select-{{ section.id }}-{{ product.id }}');
+    const inventoryNote = document.querySelector('.inventoryNote');
+
+    // Objeto que almacena el stock de cada variante
+    const variantStock = {
+      {% for variant in product.variants %}
+        "{{ variant.id }}": {{ variant.inventory_quantity }},
+      {% endfor %}
+    };
+
+    // Evento que se dispara al cambiar la variante seleccionada
+    selectElement.addEventListener('change', function(event) {
+      const selectedVariantId = event.target.value;
+      updateInventoryNote(selectedVariantId);
+    });
+
+    // Función para actualizar la nota de inventario
+    function updateInventoryNote(variantId) {
+      if (variantStock[variantId] > 0) {
+        inventoryNote.textContent = `Stock: ${variantStock[variantId]}`;
+      } else {
+        inventoryNote.textContent = 'Out of stock';
+      }
+    }
+
+    // Actualizar al cargar la página con la variante seleccionada inicialmente
+    updateInventoryNote(selectElement.value);
+  });
+</script>
+
                       {%- when 'quantity_selector' -%}
                         <div class="quantity_wrapper">
                           {%- render 'product-quantity', product: product -%}
