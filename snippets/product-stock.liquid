@@ -10,7 +10,7 @@
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
+                Segundo Stock: "{{ variant.inventory_quantity }}"
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         inventoryDisplay.textContent = '';
 
         if (inventoryQuantity > 0) {
-            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+            inventoryDisplay.textContent = `Tercer Stock: ${inventoryQuantity}`;
         } else {
             inventoryDisplay.textContent = "Out of Stock";
         }
