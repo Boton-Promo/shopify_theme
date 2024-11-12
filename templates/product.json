@@ -22,23 +22,19 @@
         },
         "product_stock_CJxVfH": {
           "type": "product_stock",
-          "settings": {
-          }
+          "settings": {}
         },
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "375e1ccb-99cc-41e5-813c-45a1a57566be": {
           "type": "product_description",
-          "settings": {
-          }
+          "settings": {}
         },
         "b8da14d9-fa65-4645-913b-4e91ff632b94": {
           "type": "product_variants",
@@ -47,36 +43,36 @@
             "color_variant": "default"
           }
         },
+        "custom_liquid_Wx6Mti": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% assign current_variant = product.selected_or_first_available_variant %}\n  <div class=\"inventoryNote form__label\">\n  {% if current_variant.available %}\n    {% if current_variant.inventory_quantity > 0 %}We have {{ current_variant.inventory_quantity }} in stock\n    {% endif %}\n  {% endif %}\n</div>"
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "83916474-fbe9-46c1-afd0-c761ee898dc6": {
           "type": "wishlist-compare",
-          "settings": {
-          }
+          "settings": {}
         },
         "product_sku_EccXhm": {
           "type": "product_sku",
-          "settings": {
-          }
+          "settings": {}
         },
         "d2dc3fb0-828b-419d-831c-f2f77453e516": {
           "type": "categories",
-          "settings": {
-          }
+          "settings": {}
         },
         "3906805c-dd1d-47bb-905f-c7609da7417d": {
           "type": "tags",
-          "settings": {
-          }
+          "settings": {}
         },
         "share": {
           "type": "share",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "text_6jaijK": {
           "type": "text",
@@ -94,6 +90,7 @@
         "price",
         "375e1ccb-99cc-41e5-813c-45a1a57566be",
         "b8da14d9-fa65-4645-913b-4e91ff632b94",
+        "custom_liquid_Wx6Mti",
         "quantity_selector",
         "83916474-fbe9-46c1-afd0-c761ee898dc6",
         "product_sku_EccXhm",
@@ -102,9 +99,7 @@
         "share",
         "text_6jaijK"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "media_type": "carousel",
         "thumbnails_position": "bottom",
