@@ -856,6 +856,7 @@ class VariantSelects extends HTMLElement {
   }
 
   toggleAddButton(disable = true, text, modifyClass = true) {
+
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
@@ -863,28 +864,28 @@ class VariantSelects extends HTMLElement {
    
     const inventoryNote = document.querySelector('.inventoryNote');
     const inventoryHtml = `We have ${variantStock[this.currentVariant.id]} in stock`;
+    const inventryHighHtml = `We have more than 10 in stock`;
     
-    if (!addButton) return;
 
-    if (disable) {
+      if (!addButton) return;
+
+      if (disable) {
         addButton.setAttribute('disabled', 'disabled');
         if (text) addButtonText.textContent = text;
         inventoryNote.innerHTML = "";
-    } else {        
+      } else {        
         addButton.removeAttribute('disabled');
         addButtonText.textContent = window.variantStrings.addToCart;
 
-        // Verificar si el stock es mayor que 0
-        if (variantStock[this.currentVariant.id] > 0) {
+        if (variantStock[this.currentVariant.id] > 0 && variantStock[this.currentVariant.id] <= 999999) {
           inventoryNote.textContent = inventoryHtml;
-        } else {
-          inventoryNote.textContent = "";
+        } else if (variantStock[this.currentVariant.id] > 10) {
+          inventoryNote.textContent = inventryHighHtml;
         }
-    }
-
+      }
+      
     if (!modifyClass) return;
-}
-
+  }
 
   setUnavailable() {
     const button = document.getElementById(`ap-productform-${this.dataset.section}`);
