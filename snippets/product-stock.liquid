@@ -6,16 +6,13 @@
             Out of Stock
         {% endif %}
     </span>
-    <script type="application/json">
+    <script type="application/json" id="variant-inventory-data">
         {
-            {%- assign _size = product.variants | size -%}
-            {%- for variant in product.variants -%}
-                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
-                
-            {%- endfor -%}
+            "{{ product.selected_or_first_available_variant.id }}": "{{ product.selected_or_first_available_variant.inventory_quantity }}"
         }
     </script>
 </ap-inventoryproduct>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
