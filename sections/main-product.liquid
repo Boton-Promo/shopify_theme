@@ -687,6 +687,11 @@
       </ap-contentmodal>
     {%- endif -%}
   {%- endfor -%}
+  <script>
+  {% for variant in product.variants %}
+    variantStock[{{- variant.id -}}] = {{ variant.inventory_quantity }};
+  {% endfor %}
+</script>
 {% schema %}
 {
   "name": "t:sections.main-product.name",
