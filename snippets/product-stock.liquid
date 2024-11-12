@@ -16,15 +16,20 @@
         }
     </script>
 </ap-inventoryproduct>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
     const inventoryDisplay = document.getElementById("inventory-display");
     const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
 
+    // Actualiza el inventario al cambiar la variante
     variantSelect.addEventListener("change", function() {
         const selectedVariantId = variantSelect.value;
         const inventoryQuantity = variantInventoryData[selectedVariantId];
+
+        // Limpia el contenido actual antes de actualizar
+        inventoryDisplay.textContent = '';
 
         if (inventoryQuantity > 0) {
             inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
