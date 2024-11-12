@@ -15,15 +15,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
     const inventoryDisplay = document.getElementById("inventory-display");
 
-    // Función para obtener inventario y actualizar el DOM
-    const updateInventory = (selectedVariant) => {
-        const inventoryQuantity = selectedVariant.getAttribute("data-inventory-quantity");
+    // Obtener los datos del inventario de variantes desde el JSON
+    const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
+
+    // Función para actualizar el inventario
+    const updateInventory = (variantId) => {
+        const inventoryQuantity = variantInventoryData[variantId];
 
         // Limpiar el contenido actual del inventario
-        inventoryDisplay.textContent = ""; // Limpia completamente el contenido
+        inventoryDisplay.innerHTML = "";  // Limpia completamente el contenido
 
         // Actualizar el inventario mostrado
-        if (parseInt(inventoryQuantity) > 0) {
+        if (inventoryQuantity > 0) {
             inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
         } else {
             inventoryDisplay.textContent = "Out of Stock";
@@ -31,16 +34,14 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // Llamar a la función al cargar la página para inicializar el valor del inventario
-    const initialSelectedVariant = variantSelect.options[variantSelect.selectedIndex];
-    updateInventory(initialSelectedVariant);
+    updateInventory(variantSelect.value);
 
     // Actualiza el inventario al cambiar la variante
     variantSelect.addEventListener("change", function() {
-        const selectedVariant = variantSelect.options[variantSelect.selectedIndex];
-        updateInventory(selectedVariant);
+        const selectedVariantId = variantSelect.value;
+        updateInventory(selectedVariantId);
     });
 });
-
 
 
 </script>
