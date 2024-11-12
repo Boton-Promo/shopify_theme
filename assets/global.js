@@ -959,7 +959,6 @@ class ProductRecommendations extends HTMLElement {
 customElements.define('ap-productrecommendations', ProductRecommendations);
 
 
-
 document.addEventListener("DOMContentLoaded", function() {
   const variantSelect = document.getElementById("product-select-{{ section.id }}-{{ product.id }}");
   const inventoryDisplay = document.getElementById("inventory-display");
