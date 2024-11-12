@@ -8,7 +8,7 @@
     </span>
     <script type="application/json" id="variant-inventory-data">
         {
-            "{{ product.selected_or_first_available_variant.id }}": "{{ product.selected_or_first_available_variant.inventory_quantity }}"
+            "{{ product.selected_or_first_available_variant.id }}": "{{ inventoryQuantity }}"
         }
     </script>
 </ap-inventoryproduct>
@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
             inventoryDisplay.textContent = "Out of Stock";
         }
     };
-window.onload=updateInventory();
     // Llamar a la función al cargar la página para inicializar el valor del inventario
     updateInventory(variantSelect.value);
 
