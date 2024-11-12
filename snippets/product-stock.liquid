@@ -1,5 +1,11 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
-   
+    <span id="inventory-display" class="inventory">
+        {% if product.selected_or_first_available_variant.available %}
+            Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
+        {% else %}
+            Out of Stock
+        {% endif %}
+    </span>
     <script type="application/json" id="variant-inventory-data">
         {
             {%- assign _size = product.variants | size -%}
@@ -17,20 +23,27 @@ document.addEventListener("DOMContentLoaded", function() {
     const inventoryDisplay = document.getElementById("inventory-display");
     const variantInventoryData = JSON.parse(document.getElementById("variant-inventory-data").textContent);
 
+    // Función para actualizar el inventario
+    const updateInventory = (variantId) => {
+        const inventoryQuantity = variantInventoryData[variantId];
+
+        // Limpiar el contenido actual
+        inventoryDisplay.textContent = '';
+
+        if (inventoryQuantity > 0) {
+            inventoryDisplay.textContent = `Stock: ${inventoryQuantity}`;
+        } else {
+            inventoryDisplay.textContent = "Out of Stock";
+        }
+    };
+
+    // Llamar a la función al cargar la página para inicializar el valor del inventario
+    updateInventory(variantSelect.value);
+
     // Actualiza el inventario al cambiar la variante
     variantSelect.addEventListener("change", function() {
         const selectedVariantId = variantSelect.value;
-        const inventoryQuantity = variantInventoryData[selectedVariantId];
-
-        // Limpia completamente el contenido de inventory-display
-        inventoryDisplay.innerHTML = '';
-
-        // Inserta el nuevo valor de inventario
-        if (inventoryQuantity > 0) {
-            inventoryDisplay.innerHTML = `Stock: ${inventoryQuantity}`;
-        } else {
-            inventoryDisplay.innerHTML = "Out of Stock";
-        }
+        updateInventory(selectedVariantId);
     });
 });
 </script>
