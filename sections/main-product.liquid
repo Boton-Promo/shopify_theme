@@ -317,6 +317,17 @@
                       {% if product.metafields.my_fields.countdown_timer != blank %}
                         {% render 'product-countdown' %}
                       {%endif %}
+
+                      {% assign product_qty = 0 %}
+                      {% for variant in product.variants %}
+                      {% if variant.inventory_quantity > 0 %}
+                      {% assign product_qty = product_qty | plus: variant.inventory_quantity %}
+                      {% endif %}
+                      {% endfor %}
+                      {% if product_qty > 0 %}
+                            <span class="products-available-container ws-widget" style=" height:25px;margin-bottom:30px;"><span class="products-available" style="color: white; margin-top:6px;"><p style="margin-top:6px;"><span> <span style="background-color: rgb(230, 0, 0); color: rgb(255, 255, 255); border-radius: 3px;">&nbsp;Cantidad Total&nbsp;</span>&nbsp;Selling out fast! Only <strong style="color: rgb(230, 0, 0);"><span class="glowing odometer">{{ product_qty }}</span></strong> left in stock!</span></p>
+                                      </span>
+                            {% endif %}
       
                       {%- when 'product_variants' -%}
                         {%- render 'ap-productvariants', product: product show_size_chart: true color_variant: block.settings.color_variant variant_type: block.settings.variant_type -%}
@@ -469,16 +480,6 @@
       
                 </div>
             </ap-productmeta>
-{% assign product_qty = 0 %}
-{% for variant in product.variants %}
-{% if variant.inventory_quantity > 0 %}
-{% assign product_qty = product_qty | plus: variant.inventory_quantity %}
-{% endif %}
-{% endfor %}
-{% if product_qty > 0 %}
-      <span class="products-available-container ws-widget" style=" height:25px;margin-bottom:30px;"><span class="products-available" style="color: white; margin-top:6px;"><p style="margin-top:6px;"><span> <span style="background-color: rgb(230, 0, 0); color: rgb(255, 255, 255); border-radius: 3px;">&nbsp;Cantidad Total&nbsp;</span>&nbsp;Selling out fast! Only <strong style="color: rgb(230, 0, 0);"><span class="glowing odometer">{{ product_qty }}</span></strong> left in stock!</span></p>
-                 </span>
-      {% endif %}
             {% liquid
               assign _size_chart_name = ''
               if settings.size_chart_1_collection and _size_chart_name == ''
