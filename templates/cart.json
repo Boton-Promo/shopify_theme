@@ -12,7 +12,7 @@
     "image_banner_GyGqr7": {
       "type": "image-banner",
       "custom_css": [
-        "@media (max-width: 1199px) {.image-banner {display: none; }}"
+        ".image-banner {display: none; }"
       ],
       "settings": {
         "setwidthout": "full",
