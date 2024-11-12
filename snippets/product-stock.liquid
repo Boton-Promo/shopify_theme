@@ -2,8 +2,6 @@
     <span id="inventory-display" class="inventory">
         {% if product.selected_or_first_available_variant.available %}
             Stock1: {{ product.selected_or_first_available_variant.inventory_quantity }}
-        {% else %}
-            Out of Stock
         {% endif %}
     </span>
     <script type="application/json" id="variant-inventory-data">
