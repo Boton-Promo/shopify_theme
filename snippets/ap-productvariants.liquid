@@ -385,7 +385,7 @@
         <div class="select-wrapper">
             
             <select class="select" autocomplete="off" id="color-select-{{ section.id }}-{{ product.id }}" name="color" form="ap-productform-{{ section.id }}-{{ product.id }}">
-  {% for option_value in product.options_by_name['Color'].values %}
+  {% for option_value in product.options_with_values['Color'].values %}
     <option value="{{ option_value }}">
       {{ option_value }} 
       {% for variant in product.variants %}
