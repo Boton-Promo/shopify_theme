@@ -332,6 +332,11 @@
                                     </span>
                           {% endif %}
                       {% endcomment %}
+                      <div class="inventoryNote form__label">
+  {% if product.selected_or_first_available_variant.available %}
+    Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
+  {% endif %}
+</div>
                       {%- when 'quantity_selector' -%}
                         <div class="quantity_wrapper">
                           {%- render 'product-quantity', product: product -%}
