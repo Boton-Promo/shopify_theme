@@ -877,7 +877,7 @@ class VariantSelects extends HTMLElement {
         addButton.removeAttribute('disabled');
         addButtonText.textContent = window.variantStrings.addToCart;
 
-        if (variantStock[this.currentVariant.id] > 0 && variantStock[this.currentVariant.id] <= 10) {
+        if (variantStock[this.currentVariant.id] > 0 && variantStock[this.currentVariant.id] <= 999999) {
           inventoryNote.textContent = inventoryHtml;
         } else if (variantStock[this.currentVariant.id] > 10) {
           inventoryNote.textContent = inventryHighHtml;
