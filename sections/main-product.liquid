@@ -320,7 +320,7 @@
       
                       {%- when 'product_variants' -%}
                         {%- render 'ap-productvariants', product: product show_size_chart: true color_variant: block.settings.color_variant variant_type: block.settings.variant_type -%}
-                      
+                    {% comment %}
                     {% assign product_qty = 0 %}
                     {% for variant in product.variants %}
                     {% if variant.inventory_quantity > 0 %}
@@ -331,7 +331,7 @@
                           <span class="products-available-container ws-widget" style=" height:25px;margin-bottom:30px;"><span class="products-available" style="color: black; margin-top:6px;"><p style="margin-top:6px;"><span> <span style="background-color: #ED2E34; color: rgb(255, 255, 255); border-radius: 3px;">&nbsp;Cantidad Total&nbsp;</span>&nbsp;Solo Quedan <strong style="color: #ED2E34;"><span class="glowing odometer">{{ product_qty }}</span></strong> Unidades Disponibles</span></p>
                                     </span>
                           {% endif %}
-
+                      {% endcomment %}
                       {%- when 'quantity_selector' -%}
                         <div class="quantity_wrapper">
                           {%- render 'product-quantity', product: product -%}
