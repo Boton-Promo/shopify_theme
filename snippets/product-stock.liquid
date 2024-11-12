@@ -6,7 +6,16 @@
             Out of Stock
         {% endif %}
     </span>
+    <script type="application/json" id="variant-inventory-data">
+        {
+            {% for variant in product.variants %}
+                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
+                {% if forloop.index < product.variants.size %},{% endif %}
+            {% endfor %}
+        }
+    </script>
 </ap-inventoryproduct>
+
 
 
 
