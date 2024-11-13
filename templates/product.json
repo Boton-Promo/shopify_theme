@@ -99,7 +99,9 @@
         "share",
         "text_6jaijK"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "details:hover{cursor: pointer;}"
+      ],
       "settings": {
         "media_type": "carousel",
         "thumbnails_position": "bottom",
