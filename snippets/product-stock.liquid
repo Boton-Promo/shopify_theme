@@ -1,7 +1,7 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
     <span id="inventory-display" class="inventory">
         {% if product.selected_or_first_available_variant.available %}
-            Stock1: {{ product.selected_or_first_available_variant.inventory_quantity }}
+            Stock12: {{ product.selected_or_first_available_variant.inventory_quantity }}
         {% else %}
             Out of Stock
         {% endif %}
