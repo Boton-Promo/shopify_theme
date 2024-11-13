@@ -878,9 +878,9 @@ class VariantSelects extends HTMLElement {
         addButtonText.textContent = window.variantStrings.addToCart;
 
         if (variantStock[this.currentVariant.id] > 0) {
-          inventoryNote.textContent = inventoryHtml;
+         alert(inventoryNote.textContent = inventoryHtml);
         } else if (variantStock[this.currentVariant.id] > 10) {
-          inventoryNote.textContent = inventryHighHtml;
+          alert(inventoryNote.textContent = inventoryHtml);
         }
       }
       
