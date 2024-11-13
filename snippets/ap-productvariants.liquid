@@ -391,8 +391,7 @@
       value="{{ variant.id }}"
       data-sku="{{ variant.sku }}"
     >
-      {{ product.title }} {{ variant.title }} - {{ variant.price | money }}
-        {{ current_variant.inventory_quantity }}
+      {{ variant.inventory_quantity }} {{ variant.title }} - {{ variant.price | money }}
     </option>
   {% endfor %}
 </select>
