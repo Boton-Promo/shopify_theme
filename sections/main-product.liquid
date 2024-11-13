@@ -340,15 +340,13 @@
 </div>
 {% endcomment %}
                   <div id="variant-inventory"> 
-                  {% if product.variants.first.inventory_management == "shopify" %} 
-                      {% if product.variants.first.inventory_quantity > 0 %} 
-                        Actualmente tenemos {{ variant.inventory_quantity }} en stock. 
+                      {% if product.selected_or_first_available_variant.available > 0 %} 
+                        Actualmente tenemos {{ product.selected_or_first_available_variant.inventory_quantity }} en stock. 
                       {% else %} 
                         El producto está agotado 
                       {% endif %} 
                   {% else %} 
                       Este producto está disponible 
-                  {% endif %} 
                   </div>
 
                       {%- when 'quantity_selector' -%}
