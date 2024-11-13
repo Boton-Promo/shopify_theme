@@ -46,7 +46,7 @@
         "custom_liquid_Wx6Mti": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% assign current_variant = product.selected_or_first_available_variant %}\n  <div class=\"inventoryNote form__label\">\n  {% if current_variant.available %}\n    {% if current_variant.inventory_quantity > 0 %}\n    Se {{ current_variant.inventory_quantity }} in stock\n    {% endif %}\n  {% endif %}\n</div>"
+            "custom_liquid": "<details>\n    <summary>Inventario Disponible</summary>\n    <div class=\"divDetails\">\n      {% for variant in product.variants %}\n        <p>{{ variant.title }} - ({{ variant.inventory_quantity }}: Articulos)</p>\n      {% endfor %}\n    </div>\n  </details>"
           }
         },
         "quantity_selector": {
@@ -99,7 +99,12 @@
         "share",
         "text_6jaijK"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".details:hover{cursor: pointer;}",
+        ".divDetails{padding: 10px 26px;}",
+        "details {border: 1px solid #ccc; border-radius: 5px; margin: 10px 0px; transition: 3s ease-in-out;}",
+        "summary {cursor: pointer; padding: 10px; background-color: #f0f0f0;"
+      ],
       "settings": {
         "media_type": "carousel",
         "thumbnails_position": "bottom",
