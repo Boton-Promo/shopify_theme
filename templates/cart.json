@@ -12,7 +12,7 @@
     "image_banner_GyGqr7": {
       "type": "image-banner",
       "custom_css": [
-        ".image-banner {display: none; }"
+        ".image-banner {display: none;}"
       ],
       "settings": {
         "setwidthout": "full",
@@ -45,7 +45,8 @@
       "type": "main-cart-footer",
       "settings": {
         "enable_payment_methods": true,
-        "payment_methods_label": "Aceptamos todas las tarjetas."
+        "payment_methods_label": "Aceptamos todas las tarjetas.",
+        "payment_methods_image": "shopify://shop_images/PAGOS.jpg"
       }
     },
     "product-recommendations": {
