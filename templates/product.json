@@ -46,7 +46,7 @@
         "custom_liquid_Wx6Mti": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<details>\n    <summary>Inventario Disponible</summary>\n    <div class=\"divDetails\">\n      {% if product.variants.size > 1 %}\n        {% for variant in product.variants %}\n          <ul>\n            <li>\n              <p>{{ variant.title }} - ({{ variant.inventory_quantity }}: Artículos)</p>\n            </li>\n          </ul> \n        {% endfor %}\n      {% else %}\n        <p>Cantidad en stock: {{ variant.inventory_quantity }}</p>\n      {% endif %}\n    </div>\n  </details>"
+            "custom_liquid": "<details>\n    <summary>Inventario Disponible</summary>\n    <div class=\"divDetails\">\n      \n        {% for variant in product.variants %}\n          <ul>\n            <li>\n              <p>{{ variant.title }} - ({{ variant.inventory_quantity }}: Artículos)</p>\n            </li>\n          </ul> \n        {% endfor %}\n     {% if product.variants.size <= 1 %}\n        <p>Cantidad en stock: {{ variant.inventory_quantity }}</p>\n      {% endif %}\n    </div>\n  </details>"
           }
         },
         "quantity_selector": {
