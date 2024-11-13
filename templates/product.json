@@ -46,7 +46,7 @@
         "custom_liquid_Wx6Mti": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% assign current_variant = product.selected_or_first_available_variant %}\n  <div class=\"inventoryNote form__label\">\n  {% if current_variant.available %}\n    {% if current_variant.inventory_quantity > 0 %}\n    Se {{ current_variant.inventory_quantity }} in stock\n    {% endif %}\n  {% endif %}\n</div>"
+            "custom_liquid": "{% assign current_variant = product.selected_or_first_available_variant %}\n  <div class=\"inventoryNote form__label\">\n  {% if current_variant.available %}\n    {% if current_variant.inventory_quantity > 0 %}\n    Se {{ current_variant.inventory_quantity }} in stock\n    {% endif %}\n  {% endif %}\n</div>\n\n<script>\n  document.addEventListener('DOMContentLoaded', function() {\n    const variantSelect = document.getElementById('variant-select-{{ product.id }}');\n\n    variantSelect.addEventListener('change', function() {\n      // Obtener la variante seleccionada\n      const selectedOption = variantSelect.options[variantSelect.selectedIndex];\n      \n      // Obtener la cantidad de inventario de la variante seleccionada\n      const inventory = selectedOption.getAttribute('data-inventory');\n      \n      // Mostrar alerta con la cantidad de inventario\n      if (inventory > 0) {\n        alert(`Se ${inventory} in stock`);\n      } else {\n        alert('Out of stock');\n      }\n    });\n  });\n</script>"
           }
         },
         "quantity_selector": {
