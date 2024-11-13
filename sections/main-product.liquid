@@ -468,7 +468,7 @@
     {%- when 6, 7, 8, 9, 10 -%}
         <p class="inventory-status medium-stock">{{ product.selected_or_first_available_variant.inventory_quantity }} in stock</p>
     {%- else -%}
-        <p class="inventory-status in-stock">Plenty in stock: {{ product.selected_or_first_available_variant.inventory_quantity }}</p>
+        <p class="inventory-status in-stock">Plenty in stock: {{ product.selected_variant.inventory_quantity }}</p>
 {% endcase %}
 
                       {%- when 'categories' -%}
