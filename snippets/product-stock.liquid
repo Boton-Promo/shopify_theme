@@ -1,7 +1,7 @@
 <ap-inventoryproduct form-id="ap-productform-{{ section.id }}-{{ product.id }}" class="ap-productform__inventory-wrapper">
     <span id="inventory-display" class="inventory">
         {% if product.selected_or_first_available_variant.available %}
-            Stock5: {{ product.selected_or_first_available_variant.inventory_quantity }}
+            Stock: {{ product.selected_or_first_available_variant.inventory_quantity }}
         {% else %}
             Out of Stock
         {% endif %}
@@ -10,7 +10,7 @@
         {
             {%- assign _size = product.variants | size -%}
             {%- for variant in product.variants -%}
-                "{{ variant.id }}": "{{ product.selected_or_first_available_variant.inventory_quantity }}"
+                "{{ variant.id }}": "{{ variant.inventory_quantity }}"
                 {%- if forloop.index < _size and _size > 1 -%},{%- endif -%}
             {%- endfor -%}
         }
