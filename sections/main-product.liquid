@@ -341,7 +341,7 @@
 {% endcomment %}
 {% comment %} Inventory tracking on product page {% endcomment %}
             <div id="variant-inventory" class="{% unless current_variant.available %} hide {% endunless %}">
-              {% if current_variant.inventory_management == "shopify" and current_variant.inventory_policy != "continue" %}
+              {% if current_variant.inventory_management == "shopify"%}
               We have {{ current_variant.inventory_quantity }} in stock.
               {% else %}
               We have {{ current_variant.inventory_quantity }} in stock.
