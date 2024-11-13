@@ -339,15 +339,6 @@
   {% endif %}
 </div>
 {% endcomment %}
-                  <div id="variant-inventory"> 
-                      {% if product.selected_or_first_available_variant.available > 0 %} 
-                        Actualmente tenemos {{ product.selected_or_first_available_variant.inventory_quantity }} en stock. 
-                      {% else %} 
-                        {{ product.selected_or_first_available_variant.inventory_quantity }}
-                      {% endif %} 
-                  {% else %} 
-                      {{ product.selected_or_first_available_variant.inventory_quantity }}
-                  </div>
 
                       {%- when 'quantity_selector' -%}
                         <div class="quantity_wrapper">
