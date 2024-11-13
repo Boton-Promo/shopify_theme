@@ -385,16 +385,10 @@
         <div class="select-wrapper">
             
             <select class="select" autocomplete="off" id="product-select-{{ section.id }}-{{ product.id }}" name="id" form="ap-productform-{{ section.id }}-{{ product.id }}">
-  {% for variant in product.variants %}
-    <option
-      {% if product.selected_or_first_available_variant.id == variant.id %}selected="selected"{% endif %}
-      value="{{ variant.id }}"
-      data-sku="{{ variant.sku }}"
-    >
-      {{ variant.inventory_quantity }} {{ variant.title }} - {{ variant.price | money }}
-    </option>
-  {% endfor %}
-</select>
+                {% for variant in product.variants %}
+                    <option {% if product.selected_or_first_available_variant.id == variant.id %}selected="selected"{% endif %} value="{{ variant.id }}" data-sku="{{ variant.sku }}">{{ product.title }} {{ variant.title }} - {{ variant.price | money }}</option>
+                {% endfor %}
+            </select>
             <svg focusable="false" width="12" height="8" class="icon icon--chevron   " viewBox="0 0 12 8">
                 <path fill="none" d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2"></path>
             </svg>
