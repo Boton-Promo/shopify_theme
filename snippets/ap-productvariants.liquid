@@ -392,11 +392,7 @@
       data-sku="{{ variant.sku }}"
     >
       {{ product.title }} {{ variant.title }} - {{ variant.price | money }}
-      {% if current_variant.inventory_quantity %}
         {{ current_variant.inventory_quantity }}
-      {% else %}
-        (Out of Stock)
-      {% endif %}
     </option>
   {% endfor %}
 </select>
