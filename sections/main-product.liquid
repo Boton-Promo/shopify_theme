@@ -458,6 +458,19 @@
                           {% endfor %}
                         </div>
 
+                        {% case product.selected_or_first_available_variant.inventory_quantity %}
+    {%- when 0 -%}
+        <p class="inventory-status out-of-stock">Out of Stock</p>
+    {%- when 1 -%}
+        <p class="inventory-status low-stock">Only 1 left in stock!</p>
+    {%- when 2, 3, 4, 5 -%}
+        <p class="inventory-status low-stock">Only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!</p>
+    {%- when 6, 7, 8, 9, 10 -%}
+        <p class="inventory-status medium-stock">{{ product.selected_or_first_available_variant.inventory_quantity }} in stock</p>
+    {%- else -%}
+        <p class="inventory-status in-stock">Plenty in stock: {{ product.selected_or_first_available_variant.inventory_quantity }}</p>
+{% endcase %}
+
                       {%- when 'categories' -%}
                         <div class="categories-product">
                           <span>{{ 'products.product.categories' | t }}</span>
