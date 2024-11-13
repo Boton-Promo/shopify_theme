@@ -344,7 +344,7 @@
               {% if current_variant.inventory_management == "shopify" and current_variant.inventory_policy != "continue" %}
               We have {{ current_variant.inventory_quantity }} in stock.
               {% else %}
-              This product is available.
+              We have {{ current_variant.inventory_quantity }} in stock.
               {% endif %}
             </div>
 
