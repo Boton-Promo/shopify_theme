@@ -46,7 +46,7 @@
         "custom_liquid_Wx6Mti": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<select class=\"product-select\">\n    <option disabled selected>Inventario Disponible</option>\n    {% for variant in product.variants %}\n      <option value=\"{{ variant.id }}\">\n        {{ variant.title }} - (Articulos Disponibles: {{ variant.inventory_quantity }})\n      </option>\n    {% endfor %}\n  </select>"
+            "custom_liquid": "<details>\n    <summary>Inventario Disponible</summary>\n    <div>\n      {% for variant in product.variants %}\n        <p>{{ variant.title }} - (Articulos Disponibles: {{ variant.inventory_quantity }})</p>\n      {% endfor %}\n    </div>\n  </details>"
           }
         },
         "quantity_selector": {
