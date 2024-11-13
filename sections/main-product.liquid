@@ -339,6 +339,14 @@
   {% endif %}
 </div>
 {% endcomment %}
+{% comment %} Inventory tracking on product page {% endcomment %}
+            <div id="variant-inventory" class="{% unless current_variant.available %} hide {% endunless %}">
+              {% if current_variant.inventory_management == "shopify" and current_variant.inventory_policy != "continue" %}
+              We have {{ current_variant.inventory_quantity }} in stock.
+              {% else %}
+              This product is available.
+              {% endif %}
+            </div>
 
                       {%- when 'quantity_selector' -%}
                         <div class="quantity_wrapper">
