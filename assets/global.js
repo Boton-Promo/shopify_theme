@@ -987,3 +987,28 @@ document.addEventListener("DOMContentLoaded", function() {
       updateInventory(selectedVariant);
   });
 });
+
+
+
+// Assuming you have a variant selection element (e.g., dropdown) with the ID "variant-selector"
+const variantSelector = document.getElementById('variant-selector');
+
+variantSelector.addEventListener('change', function(event) {
+  const selectedVariantId = event.target.value;
+  const inventoryDisplay = document.getElementById('inventory-display');
+
+  // Clear the inventory display before updating with the new variant
+  inventoryDisplay.textContent = '';
+
+  // Fetch inventory data from hidden JSON script
+  const variantInventoryData = JSON.parse(document.getElementById('variant-inventory-data').textContent);
+
+  // Find the selected variant's inventory quantity
+  const selectedVariantQuantity = variantInventoryData[selectedVariantId];
+
+  if (selectedVariantQuantity) {
+    inventoryDisplay.textContent = `Stock: ${selectedVariantQuantity}`;
+  } else {
+    inventoryDisplay.textContent = 'Out of Stock';
+  }
+});
