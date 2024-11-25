@@ -1026,16 +1026,16 @@
               "link": "shopify://collections/alcancias"
             }
           },
-          "image_block_yBCjh3": {
+          "image_block_ErU633": {
             "type": "image_block",
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/BICICLETAS_Y_ACCESORIOS_d71034b6-a013-4ebe-8240-e7e09126c8e8.jpg",
-              "heading": "Bicicletas Y Accesorios",
+              "image": "shopify://shop_images/BOTILITOS_1.jpg",
+              "heading": "Botilitos",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/bicicletas-y-accesorios"
+              "link": "shopify://collections/botilitos"
             }
           },
           "image_block_JKYqd4": {
@@ -1050,16 +1050,16 @@
               "link": "shopify://collections/bolsas"
             }
           },
-          "image_block_ErU633": {
+          "image_block_yBCjh3": {
             "type": "image_block",
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
-              "image": "shopify://shop_images/BOTILITOS_1.jpg",
-              "heading": "Botilitos",
+              "image": "shopify://shop_images/BICICLETAS_Y_ACCESORIOS_d71034b6-a013-4ebe-8240-e7e09126c8e8.jpg",
+              "heading": "Bicicletas Y Accesorios",
               "heading_size": "heading--xxsmall",
               "description": "",
-              "link": "shopify://collections/botilitos"
+              "link": "shopify://collections/bicicletas-y-accesorios"
             }
           },
           "image_block_HrWPEJ": {
@@ -1586,9 +1586,9 @@
           "child_menu_vertical_bRJ4zb",
           "image_block_e4GBR7",
           "image_block_agHyCp",
-          "image_block_yBCjh3",
-          "image_block_JKYqd4",
           "image_block_ErU633",
+          "image_block_JKYqd4",
+          "image_block_yBCjh3",
           "image_block_HrWPEJ",
           "image_block_KxbUWP",
           "image_block_AmVwWn",
