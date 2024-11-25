@@ -8597,8 +8597,8 @@ img.article-item__image {
 .cart__total-container,
 .cart__discount {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center; */
+  justify-content: flex-end;
   flex-wrap: wrap;
   grid-gap: 10px;
   gap: 10px;
