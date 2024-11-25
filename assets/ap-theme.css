@@ -8576,6 +8576,7 @@ img.article-item__image {
   padding: var(--container-distance);
   background: rgb(var(--secondary-background));
   border-radius: var(--block-border-radius-reduced);
+  text-align: end;
 }
 
 .cart__recap-block {
