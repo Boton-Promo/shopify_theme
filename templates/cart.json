@@ -43,9 +43,7 @@
     },
     "cart-footer": {
       "type": "main-cart-footer",
-      "custom_css": [
-        "button {width: 50%;}"
-      ],
+      "custom_css": [],
       "settings": {
         "enable_payment_methods": true,
         "payment_methods_label": "Aceptamos todas las tarjetas.",
