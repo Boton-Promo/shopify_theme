@@ -1,4 +1,5 @@
 {% assign product_form_id = 'ap-productform-' | append: section.id | append: "-" | append: product.id %}
+{% comment %}
 <div class="ap-productform__quantity">
     <span class="ap-productform__quantity-label">{{ 'products.product.quantity.label' | t }}</span>
     <ap-quantityselector class="ap-quantityselector">
@@ -17,3 +18,4 @@
       </button>
     </ap-quantityselector>
 </div>
+{% endcomment %}
