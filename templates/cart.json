@@ -46,8 +46,8 @@
       "custom_css": [],
       "settings": {
         "enable_payment_methods": true,
-        "payment_methods_label": "Aceptamos todas las tarjetas.",
-        "payment_methods_image": "shopify://shop_images/PAGOS.jpg"
+        "payment_methods_label": "Medios de Pago.",
+        "payment_methods_image": "shopify://shop_images/MEDIO_DE_PAGO.jpg"
       }
     },
     "product-recommendations": {
