@@ -9,7 +9,16 @@
                     <a href="https://shopify.com/60435038275/account/profile" title="My Account">{{ 'general.users.hello' | t }} {{ customer.first_name }}</a>
                 </li>
             
+            {% comment %}
+                <li>   
+                    <a href="/account/register" title="{{ 'general.users.register' | t }}">{{ 'general.users.register' | t }}</a>
+                </li>
             
+            
+            <li>
+                <a href="/cart" title="{{ 'general.users.check_out' | t }}">{{ 'general.users.check_out' | t }}</a>
+            </li>
+            {% endcomment %}
             <li>
                 <a href="/pages/wishlist" class="compare-link">
                     {{ 'general.users.wishlist' | t }} (<ap-wishlistcount id="wishlistcount"></ap-wishlistcount>)
@@ -34,12 +43,14 @@
             <li>
                 <a href="/account/login" class="header__icon-wrapper tap-area" aria-label="{{ 'general.users.login' | t }}">{{ 'general.users.login' | t }}</a>
             </li>
+            {% comment %}
             <li>
                 <a href="/account/register" title="{{ 'general.users.register' | t }}">{{ 'general.users.register' | t }}</a>
             </li>
             <li>
                 <a href="/cart" title="{{ 'general.users.check_out' | t }}">{{ 'general.users.check_out' | t }}</a>
             </li>
+            {% endcomment %}
             <li>
                 <a href="/pages/wishlist" class="compare-link">
                     {{ 'general.users.wishlist' | t }} (<ap-wishlistcount id="wishlistcount"></ap-wishlistcount>)
