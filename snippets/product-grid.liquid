@@ -239,6 +239,7 @@
                                     <input type="hidden" name="utf8" value="✓">
                                     <input type="hidden" name="quantity" value="1">
                                     <input type="hidden" name="id" value="{{ product.variants[0]['id'] }}">
+                                    {% comment %}
                                     <button is="loader-button" type="submit" class="button button--outline button--text button--full">
                                     <span class="ap-text-loaderbutton">
                                         <span class="text-name">
@@ -254,6 +255,7 @@
                                         </div>
                                     </span>
                                     </button>
+                                    {% endcomment %}
                                     <button type="submit" class="product-item__quick-buy-button hd-no-touch">
                                     <span class="visually-hidden">
                                         <span class="text-name">
