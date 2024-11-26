@@ -58,6 +58,34 @@
 .custom__ficha-list {
   padding-bottom: 0px!important;
 }
+table{
+  border: 1px solid rgb(0, 0, 0);
+  width: 100%;
+        }
+    
+th, td{
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
+    }
+    
+.ficha{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+    }
+
+@media (max-width: 999px) {
+    .ficha{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+table{
+            width: 100%;
+        }
+th, td{
+width: 100%;
+    }
+        }
 #shopify-section-{{ section.id }} .ap-navtabs__item[ap-expanded-aria=true] {
   background-color: var(--primary);
   color: #fff;
