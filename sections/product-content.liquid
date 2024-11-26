@@ -52,6 +52,10 @@
   gap: 0;
   margin-bottom: 60px;
 }
+.custom__ficha {
+  padding-bottom: 0px;
+  border-radius: 5px 5px 0px 0px;
+}
 #shopify-section-{{ section.id }} .ap-navtabs__item[ap-expanded-aria=true] {
   background-color: var(--primary);
   color: #fff;
@@ -102,7 +106,7 @@
           <ap-navtabs arrows="" class="ap-navtabs ap-navtabs--loose hd-pocket">
             <ap-scrollablecontent class="ap-navtabs__scroller hide-scrollbar">
               <div class="ap-navtabs__scroller-inner">
-                <div class="ap-navtabs__item-list">
+                <div class="ap-navtabs__item-list custom__ficha">
                   {% for block in section.blocks %}
 
                     {%- case block.type -%}
@@ -116,7 +120,7 @@
                         <button type="button" class="ap-navtabs__item heading heading--small" ap-expanded-aria="{% if forloop.index == 1 %}true{% else %}false{% endif %}" ap-controlsaria="block-{{ block.id }}">{{ block.settings.tab_name }}</button>
 
                       {%- when 'tab_custom' -%}
-                        <button type="button" class="ap-navtabs__item heading heading--small" ap-expanded-aria="{% if forloop.index == 1 %}true{% else %}false{% endif %}" ap-controlsaria="block-{{ block.id }}">{{ block.settings.tab_name }}</button>
+                        <button type="button" class="ap-navtabs__item custom__ficha heading heading--small" ap-expanded-aria="{% if forloop.index == 1 %}true{% else %}false{% endif %}" ap-controlsaria="block-{{ block.id }}">{{ block.settings.tab_name }}</button>
 
                     {%- endcase -%}
 
