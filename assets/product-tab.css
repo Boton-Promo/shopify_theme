@@ -22,7 +22,7 @@
 .ap-navtabs__item.p {
   font-size: 14px;
   line-height: 22px;
-  font-family: var(--g-font-other);
+  font-family: Manrope;
 }
 
 .ap-navtabs__item[ap-expanded-aria="true"],
