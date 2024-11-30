@@ -624,7 +624,19 @@ class SlideshowComponent extends SliderComponent {
     if (this.slider.getAttribute('data-autoplay') === 'true') this.setAutoPlay();
   }
 
- 
+  setAutoPlay() {
+    this.sliderAutoplayButton = this.querySelector('.slideshow__autoplay');
+    this.autoplaySpeed = this.slider.dataset.speed * 1000;
+
+    this.sliderAutoplayButton.addEventListener('click', this.autoPlayToggle.bind(this));
+    this.addEventListener('mouseover', this.focusInHandling.bind(this));
+    this.addEventListener('mouseleave', this.focusOutHandling.bind(this));
+    this.addEventListener('focusin', this.focusInHandling.bind(this));
+    this.addEventListener('focusout', this.focusOutHandling.bind(this));
+
+    this.play();
+    this.autoplayButtonIsSetToPlay = true;
+  }
 
   onButtonClick(event) {
     super.onButtonClick(event);
