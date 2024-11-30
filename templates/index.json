@@ -1098,6 +1098,7 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "setwidthout": "full",
@@ -1125,6 +1126,7 @@
           "type": "slide",
           "settings": {
             "image_link": "",
+            "image_1": "shopify://shop_images/NUEVOS.jpg",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
@@ -1166,6 +1168,9 @@
       },
       "block_order": [
         "slide_AWMkQP"
+      ],
+      "custom_css": [
+        "@media (min-width: 1200px) {.slideshow--small {--slideshow-min-height: 16vw; }}"
       ],
       "settings": {
         "setwidthout": "full",
