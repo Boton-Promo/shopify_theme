@@ -1098,11 +1098,8 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
-      "custom_css": [
-        ".image-banner {cursor: pointer;}"
-      ],
+      "custom_css": [],
       "settings": {
-        "image_link": "shopify://products/abalos",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
         "height_img": false,
@@ -1158,7 +1155,6 @@
       "type": "image-banner",
       "disabled": true,
       "settings": {
-        "image_link": "",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/ALCANCIAS.jpg",
         "height_img": false,
@@ -1232,7 +1228,6 @@
       "type": "image-banner",
       "disabled": true,
       "settings": {
-        "image_link": "",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/BOLSAS.jpg",
         "height_img": false,
@@ -1306,7 +1301,6 @@
       "type": "image-banner",
       "disabled": true,
       "settings": {
-        "image_link": "",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/CUIDADO_PERSONAL.jpg",
         "height_img": false,
@@ -1380,7 +1374,6 @@
       "type": "image-banner",
       "disabled": true,
       "settings": {
-        "image_link": "",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/HERRAMIENTAS.jpg",
         "height_img": false,
