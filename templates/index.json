@@ -1102,7 +1102,7 @@
         ".image-banner {cursor: pointer;}"
       ],
       "settings": {
-        "image_link": "shopify://collections",
+        "image_link": "shopify://products/abalos",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
         "height_img": false,
