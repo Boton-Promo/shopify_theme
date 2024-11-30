@@ -624,15 +624,7 @@ class SlideshowComponent extends SliderComponent {
     if (this.slider.getAttribute('data-autoplay') === 'true') this.setAutoPlay();
   }
 
-  setAutoPlay() {
-    this.sliderAutoplayButton = this.querySelector('.slideshow__autoplay');
-    this.autoplaySpeed = this.slider.dataset.speed * 1000;
-
-
-
-    this.play();
-    this.autoplayButtonIsSetToPlay = true;
-  }
+ 
 
   onButtonClick(event) {
     super.onButtonClick(event);
