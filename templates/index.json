@@ -1102,7 +1102,7 @@
         ".image-banner {cursor: pointer;}"
       ],
       "settings": {
-        "image_link": "shopify://products/abakan",
+        "image_link": "shopify://collections",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
         "height_img": false,
