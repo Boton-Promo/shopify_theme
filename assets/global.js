@@ -692,7 +692,7 @@ class SlideshowComponent extends SliderComponent {
   }
 
   play() {
-    this.slider.setAttribute('aria-live', 'off');
+    this.slider.setAttribute('aria-live', 'on');
     clearInterval(this.autoplay);
     this.autoplay = setInterval(this.autoRotateSlides.bind(this), this.autoplaySpeed);
   }
