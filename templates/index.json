@@ -243,7 +243,7 @@
         "progress_bar_color": "#ffffff",
         "bg_btn_arrow": "#ffffff",
         "color_btn_arrow": "#000000",
-        "autoplay_duration": 9,
+        "autoplay_duration": 3,
         "background_color": "#f1f4f6",
         "slideshow_height": "slideshow--small",
         "show_dot": false,
