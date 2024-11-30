@@ -4,7 +4,7 @@
   #shopify-section-{{ section.id }} {
     --progress-bar-color: {{ section.settings.progress_bar_color | color_extract: 'red' }}, {{ section.settings.progress_bar_color | color_extract: 'green' }}, {{ section.settings.progress_bar_color | color_extract: 'blue' }};
     --section-autoplay-duration: {{ section.settings.autoplay_duration }}s;
-    --section-animation-play-state: runnig;
+    --section-animation-play-state: paused;
     background-color: {{ section.settings.background_color }};
   }
   {% for block in section.blocks %}
@@ -214,7 +214,7 @@
 <section class="section section--flush {{ section.settings.class }}">
   <div class="{{ section.settings.setwidthout }}">
     <div class="slide-row">
-      <ap-slideshow reveal-on-scroll="" auto-play="" transition-type="sweep" class="slideshow {{ section.settings.slideshow_height }} ap-object-loaded" style="">
+      <ap-slideshow reveal-on-scroll="" auto-play="true" transition-type="sweep" class="slideshow {{ section.settings.slideshow_height }} ap-object-loaded" style="">
         <div class="slideshow__slide-list">
   
           {%- for block in section.blocks -%}
