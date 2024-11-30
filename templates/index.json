@@ -1102,7 +1102,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
-        "image_link": "https://esferos.com/collections/nuevos",
+        "image_link": "shopify://collections",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
