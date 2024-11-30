@@ -1127,7 +1127,7 @@
       ],
       "custom_css": [],
       "settings": {
-        "setwidthout": "container-fluid",
+        "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
         "image_link": "shopify://collections",
         "height_img": true,
