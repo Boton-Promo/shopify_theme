@@ -243,7 +243,7 @@
         "progress_bar_color": "#ffffff",
         "bg_btn_arrow": "#ffffff",
         "color_btn_arrow": "#000000",
-        "autoplay_duration": 3,
+        "autoplay_duration": 9,
         "background_color": "#f1f4f6",
         "slideshow_height": "slideshow--small",
         "show_dot": false,
@@ -252,7 +252,7 @@
         "margin_desktop": "0px 0px",
         "margin_tablet": "0px 0px",
         "class": "",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/e3a116117ced4b44813c03a0d6275804.mp4"
+        "video_url": ""
       }
     },
     "child_collections_CjPPwx": {
