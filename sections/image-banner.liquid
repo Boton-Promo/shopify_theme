@@ -57,7 +57,6 @@
     {% endif %}
     <banner-content reveal-on-scroll="" class="wrapper-banner-content">
       <div class="banner-content has-overlay">
-        <a href="https://esferos.com/collections/nuevos">
         <div class="banner-image {% if section.settings.height_img %}height-custom{% endif %}">
           {% if section.settings.show_video_img %}
             <iframe src="{{ section.settings.video_url }}" width="426" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Bigelow_homepage_video_loop.mp4" data-ready="true" class="elementor-background-video-embed" style="width: 1903px; height: 1072.11px;"></iframe>
@@ -78,9 +77,11 @@
                 </div>
             {% endif %}
           {% endif %}
-          </a>
         </div>
         {% for block in section.blocks %}
+        {% if block.settings.image_link != blank %}
+          <a href="{{ block.settings.image_link }}">
+        {% endif %} 
           {% case block.type %}
             {%- when 'text' -%}
             <div id="text-{{ block.id }}" class="banner-text {% if block.settings.text_row %}imgae-banner-text-row{% endif %} text-{{ block.settings.text_align }}">
@@ -161,7 +162,10 @@
             </div>
   
           {% endcase %}
-        {% endfor %}  
+          {% if block.settings.image_link != blank %}
+                 </a>
+              {% endif %} 
+        {% endfor %}
       </div>
     </banner-content>
   </div>
@@ -198,6 +202,11 @@
       "id": "featured_image",
       "label": "Image"
     },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image Link"
+  },
     {
       "type": "checkbox",
       "id": "height_img",
