@@ -4,7 +4,7 @@
   #shopify-section-{{ section.id }} {
     --progress-bar-color: {{ section.settings.progress_bar_color | color_extract: 'red' }}, {{ section.settings.progress_bar_color | color_extract: 'green' }}, {{ section.settings.progress_bar_color | color_extract: 'blue' }};
     --section-autoplay-duration: {{ section.settings.autoplay_duration }}s;
-    --section-animation-play-state: paused;
+    --section-animation-play-state: runnig;
     background-color: {{ section.settings.background_color }};
   }
   {% for block in section.blocks %}
