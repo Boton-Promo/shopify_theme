@@ -237,9 +237,7 @@
         "slide_ryhwjV",
         "slide_LMbLW9"
       ],
-      "custom_css": [
-        ".slideshow {animation: slide var(--section-autoplay-duration) infinite; animation-play-state: var(--section-animation-play-state);}"
-      ],
+      "custom_css": [],
       "settings": {
         "setwidthout": "full",
         "progress_bar_color": "#ffffff",
