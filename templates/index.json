@@ -1098,12 +1098,39 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
+      "blocks": {
+        "text_JfcYGD": {
+          "type": "text",
+          "settings": {
+            "text_align": "center",
+            "text_row": false,
+            "heading_title": "",
+            "color_title": "",
+            "heading": "",
+            "heading_size": "h2",
+            "color_title_center": "",
+            "description": "",
+            "description_2": "",
+            "color_description": "",
+            "button1_label": "",
+            "color_btn": "",
+            "bg_btn": "",
+            "color_btn_hover": "",
+            "bg_btn_hover": "",
+            "link1": "shopify://collections/aseo-hogar",
+            "style_btn": "btn-line"
+          }
+        }
+      },
+      "block_order": [
+        "text_JfcYGD"
+      ],
       "custom_css": [],
       "settings": {
-        "setwidthout": "full",
+        "setwidthout": "container-fluid",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
         "image_link": "shopify://collections",
-        "height_img": false,
+        "height_img": true,
         "show_video_img": false,
         "video_url": "",
         "margin_desktop": "20px 0px 20px 0px",
@@ -1116,6 +1143,15 @@
         "text_color": "",
         "overlay": "#000000",
         "overlay_opacity": 1
+      }
+    },
+    "custom_liquid_pnmBKy": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "product_list_TwgUHU": {
@@ -2066,6 +2102,7 @@
     "child_collections_dHB9em",
     "collection_1_Knt9jr",
     "image_banner_KKfRRt",
+    "custom_liquid_pnmBKy",
     "product_list_TwgUHU",
     "image_banner_VAdJra",
     "product_tab_k6gfhF",
