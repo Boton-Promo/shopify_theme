@@ -41,9 +41,6 @@
 </style>
 
 <div class="image-banner">
-{% if block.settings.image_link != blank %}
-          <a href="{{ block.settings.image_link }}">
-        {% endif %} 
   <div class="{{ section.settings.setwidthout }}">
     {% if section.settings.tab_heading != blank %}
     <header class="section__header ">
@@ -65,6 +62,7 @@
             <iframe src="{{ section.settings.video_url }}" width="426" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Bigelow_homepage_video_loop.mp4" data-ready="true" class="elementor-background-video-embed" style="width: 1903px; height: 1072.11px;"></iframe>
           {% else %}
             {% if section.settings.featured_image != blank %}
+          <a href="{{ block.settings.image_link }}">
                 <img class="banner-list-image" reveal="" loading="lazy" 
                 sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
                 alt="" 
@@ -74,15 +72,13 @@
                 src="{{ section.settings.featured_image | image_url: width: 1500 }}"
                 height="{{ section.settings.featured_image.height }}"
                 width="{{ section.settings.featured_image.width }}">
+                 </a>
             {% else %}
                 <div class="banner-list-image">
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 </div>
             {% endif %}
           {% endif %}
-{% if block.settings.image_link != blank %}
-                 </a>
-              {% endif %} 
         </div>
         {% for block in section.blocks %}
           {% case block.type %}
