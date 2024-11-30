@@ -1098,9 +1098,11 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
-      "custom_css": [],
+      "custom_css": [
+        ".image-banner {cursor: pointer;}"
+      ],
       "settings": {
-        "image_link": "shopify://collections/nuevos",
+        "image_link": "shopify://products/abakan",
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
         "height_img": false,
