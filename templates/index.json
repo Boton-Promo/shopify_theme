@@ -1098,11 +1098,12 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
-        "image_link": "https://esferos.com/collections/nuevos",
+        "image_link": "shopify://collections",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
@@ -1116,6 +1117,76 @@
         "text_color": "",
         "overlay": "#000000",
         "overlay_opacity": 1
+      }
+    },
+    "slideshow_XiYPGx": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_AWMkQP": {
+          "type": "slide",
+          "settings": {
+            "image_link": "shopify://collections/nuevos",
+            "image_1": "shopify://shop_images/NUEVOS.jpg",
+            "heading": "",
+            "heading_size": "h3",
+            "subheading": "",
+            "subheading_size": "h2",
+            "subheading2": "",
+            "subheading_size_2": "h4",
+            "description": "",
+            "color_des": "",
+            "color_description_service": "#86938D",
+            "icon": "",
+            "description_service": "",
+            "icon2": "",
+            "description_service2": "",
+            "icon3": "",
+            "description_service3": "",
+            "icon4": "",
+            "description_service4": "",
+            "button1_label": "",
+            "link1": "",
+            "button2_label": "",
+            "custom_icon": "",
+            "box_size": "small",
+            "box_align": "center",
+            "text_align": "left",
+            "color_caption": "#FFFFFF",
+            "heading_color": "#FFFFFF",
+            "text_color": "#FFFFFF",
+            "button_background": "#F3FF34",
+            "button_text_color": "#000000",
+            "button_text_color_hover": "#fff",
+            "button_bg_hover": "#CA9236",
+            "button_background2": "#F3FF34",
+            "button_text_color2": "#000000",
+            "button_opacity": 0,
+            "blocks_overlay_color": "#000000",
+            "overlay_opacity": 1
+          }
+        }
+      },
+      "block_order": [
+        "slide_AWMkQP"
+      ],
+      "custom_css": [
+        "@media (min-width: 1200px) {.slideshow--small {--slideshow-min-height: 16vw; }}"
+      ],
+      "settings": {
+        "setwidthout": "full",
+        "progress_bar_color": "#FFFFFF",
+        "bg_btn_arrow": "",
+        "color_btn_arrow": "#FFFFFF",
+        "autoplay_duration": 5,
+        "background_color": "#282828",
+        "slideshow_height": "slideshow--small",
+        "show_dot": false,
+        "show_btn": false,
+        "show_bg_content": false,
+        "margin_desktop": "",
+        "margin_tablet": "",
+        "class": "",
+        "video_url": ""
       }
     },
     "product_list_TwgUHU": {
@@ -2066,6 +2137,7 @@
     "child_collections_dHB9em",
     "collection_1_Knt9jr",
     "image_banner_KKfRRt",
+    "slideshow_XiYPGx",
     "product_list_TwgUHU",
     "image_banner_VAdJra",
     "product_tab_k6gfhF",
