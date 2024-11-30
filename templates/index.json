@@ -1098,33 +1098,6 @@
     },
     "image_banner_KKfRRt": {
       "type": "image-banner",
-      "blocks": {
-        "text_JfcYGD": {
-          "type": "text",
-          "settings": {
-            "text_align": "center",
-            "text_row": false,
-            "heading_title": "",
-            "color_title": "",
-            "heading": "",
-            "heading_size": "h2",
-            "color_title_center": "",
-            "description": "",
-            "description_2": "",
-            "color_description": "",
-            "button1_label": "",
-            "color_btn": "",
-            "bg_btn": "",
-            "color_btn_hover": "",
-            "bg_btn_hover": "",
-            "link1": "shopify://collections/aseo-hogar",
-            "style_btn": "btn-line"
-          }
-        }
-      },
-      "block_order": [
-        "text_JfcYGD"
-      ],
       "custom_css": [],
       "settings": {
         "setwidthout": "full",
@@ -1145,13 +1118,70 @@
         "overlay_opacity": 1
       }
     },
-    "custom_liquid_pnmBKy": {
-      "type": "custom-liquid",
+    "slideshow_XiYPGx": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_AWMkQP": {
+          "type": "slide",
+          "settings": {
+            "image_link": "",
+            "heading": "",
+            "heading_size": "h3",
+            "subheading": "",
+            "subheading_size": "h2",
+            "subheading2": "",
+            "subheading_size_2": "h4",
+            "description": "",
+            "color_des": "",
+            "color_description_service": "#86938D",
+            "icon": "",
+            "description_service": "",
+            "icon2": "",
+            "description_service2": "",
+            "icon3": "",
+            "description_service3": "",
+            "icon4": "",
+            "description_service4": "",
+            "button1_label": "",
+            "link1": "",
+            "button2_label": "",
+            "custom_icon": "",
+            "box_size": "small",
+            "box_align": "center",
+            "text_align": "left",
+            "color_caption": "#FFFFFF",
+            "heading_color": "#FFFFFF",
+            "text_color": "#FFFFFF",
+            "button_background": "#F3FF34",
+            "button_text_color": "#000000",
+            "button_text_color_hover": "#fff",
+            "button_bg_hover": "#CA9236",
+            "button_background2": "#F3FF34",
+            "button_text_color2": "#000000",
+            "button_opacity": 0,
+            "blocks_overlay_color": "#000000",
+            "overlay_opacity": 1
+          }
+        }
+      },
+      "block_order": [
+        "slide_AWMkQP"
+      ],
       "settings": {
-        "custom_liquid": "",
-        "color_scheme": "background-1",
-        "padding_top": 40,
-        "padding_bottom": 52
+        "setwidthout": "full",
+        "progress_bar_color": "#FFFFFF",
+        "bg_btn_arrow": "",
+        "color_btn_arrow": "#FFFFFF",
+        "autoplay_duration": 5,
+        "background_color": "#282828",
+        "slideshow_height": "slideshow--small",
+        "show_dot": false,
+        "show_btn": false,
+        "show_bg_content": false,
+        "margin_desktop": "",
+        "margin_tablet": "",
+        "class": "",
+        "video_url": ""
       }
     },
     "product_list_TwgUHU": {
@@ -2102,7 +2132,7 @@
     "child_collections_dHB9em",
     "collection_1_Knt9jr",
     "image_banner_KKfRRt",
-    "custom_liquid_pnmBKy",
+    "slideshow_XiYPGx",
     "product_list_TwgUHU",
     "image_banner_VAdJra",
     "product_tab_k6gfhF",
