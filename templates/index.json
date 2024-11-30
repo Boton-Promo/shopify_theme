@@ -1102,6 +1102,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/NUEVOS.jpg",
+        "image_link": "https://esferos.com/collections/nuevos",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
@@ -1157,6 +1158,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/ALCANCIAS.jpg",
+        "image_link": "",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
@@ -1230,6 +1232,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/BOLSAS.jpg",
+        "image_link": "",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
@@ -1303,6 +1306,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/CUIDADO_PERSONAL.jpg",
+        "image_link": "",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
@@ -1376,6 +1380,7 @@
       "settings": {
         "setwidthout": "full",
         "featured_image": "shopify://shop_images/HERRAMIENTAS.jpg",
+        "image_link": "",
         "height_img": false,
         "show_video_img": false,
         "video_url": "",
