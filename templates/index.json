@@ -17,6 +17,7 @@
           "settings": {
             "image_link": "https://esferos.com/account/register",
             "image_1": "shopify://shop_images/login.jpg",
+            "image_mobile": "shopify://shop_images/CELULAR.jpg",
             "heading": "",
             "heading_size": "h6",
             "subheading": "",
