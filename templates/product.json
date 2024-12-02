@@ -124,6 +124,7 @@
       "blocks": {
         "whatsapp_chat_widget_app_block_kegQfm": {
           "type": "shopify://apps/whatsapp-chat-widget/blocks/app-block/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
+          "disabled": true,
           "settings": {
             "button_label": "Necesitas ayuda? Habla con nosotros",
             "button_style": "round",
