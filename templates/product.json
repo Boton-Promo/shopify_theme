@@ -119,6 +119,26 @@
         "padding_bottom": 12
       }
     },
+    "1733147411412cfeb4": {
+      "type": "apps",
+      "blocks": {
+        "whatsapp_chat_widget_app_block_kegQfm": {
+          "type": "shopify://apps/whatsapp-chat-widget/blocks/app-block/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
+          "settings": {
+            "button_label": "Necesitas ayuda? Habla con nosotros",
+            "button_style": "round",
+            "background_color": "#2DB742",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "whatsapp_chat_widget_app_block_kegQfm"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "b4b2e57a-b15e-4f11-b27e-b0500d52dc70": {
       "type": "product-content",
       "blocks": {
@@ -173,6 +193,7 @@
   },
   "order": [
     "main",
+    "1733147411412cfeb4",
     "b4b2e57a-b15e-4f11-b27e-b0500d52dc70",
     "7f59f038-f024-4094-9ff4-3fb2cc033feb"
   ]
