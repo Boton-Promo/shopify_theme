@@ -46,7 +46,7 @@
         "custom_liquid_Wx6Mti": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% if customer %}\n<details>\n    <summary>Inventario Disponible</summary>\n    <div class=\"divDetails\">\n      {% for variant in product.variants %}\n        <p>{{ variant.title }} - ({{ variant.inventory_quantity }}: Articulos)</p>\n      {% endfor %}\n    </div>\n  </details>\n{% endif %}"
+            "custom_liquid": "{% comment %}\n{% if customer %}\n<details>\n    <summary>Inventario Disponible</summary>\n    <div class=\"divDetails\">\n      {% for variant in product.variants %}\n        <p>{{ variant.title }} - ({{ variant.inventory_quantity }}: Articulos)</p>\n      {% endfor %}\n    </div>\n  </details>\n{% endif %}\n{% endcomment %}"
           }
         },
         "quantity_selector": {
@@ -128,7 +128,7 @@
           "settings": {
             "button_label": "Necesitas ayuda? Habla con nosotros",
             "button_style": "round",
-            "background_color": "#2DB742",
+            "background_color": "#2db742",
             "text_color": "#ffffff"
           }
         }
