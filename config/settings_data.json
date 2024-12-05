@@ -421,7 +421,7 @@
       "cookie-bar": {
         "type": "cookie-bar",
         "custom_css": [
-          "[dir=ltr] .ap-cookiebar {right: auto;}"
+          ".ap-cookiebar {right: 5rem !important;}"
         ],
         "settings": {
           "show_cookie_bar": true,
