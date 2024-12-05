@@ -420,6 +420,9 @@
       },
       "cookie-bar": {
         "type": "cookie-bar",
+        "custom_css": [
+          "[dir=ltr] .ap-cookiebar {right: auto;}"
+        ],
         "settings": {
           "show_cookie_bar": true,
           "heading": "Política de cookies",
