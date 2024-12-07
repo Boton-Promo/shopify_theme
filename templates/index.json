@@ -12,6 +12,50 @@
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6": {
       "type": "slideshow",
       "blocks": {
+        "slide_ryhwjV": {
+          "type": "slide",
+          "settings": {
+            "image_link": "shopify://collections/navidad",
+            "image_1": "shopify://shop_images/santa-banner-100.jpg",
+            "image_mobile": "shopify://shop_images/santa-banner-mobile-100.jpg",
+            "heading": "",
+            "heading_size": "h3",
+            "subheading": "",
+            "subheading_size": "h2",
+            "subheading2": "",
+            "subheading_size_2": "h4",
+            "description": "",
+            "color_des": "",
+            "color_description_service": "#86938d",
+            "icon": "",
+            "description_service": "",
+            "icon2": "",
+            "description_service2": "",
+            "icon3": "",
+            "description_service3": "",
+            "icon4": "",
+            "description_service4": "",
+            "button1_label": "",
+            "link1": "",
+            "button2_label": "",
+            "custom_icon": "",
+            "box_size": "small",
+            "box_align": "center",
+            "text_align": "left",
+            "color_caption": "#ffffff",
+            "heading_color": "#ffffff",
+            "text_color": "#ffffff",
+            "button_background": "#f3ff34",
+            "button_text_color": "#000000",
+            "button_text_color_hover": "#ffffff",
+            "button_bg_hover": "#ca9236",
+            "button_background2": "#f3ff34",
+            "button_text_color2": "#000000",
+            "button_opacity": 0,
+            "blocks_overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "2d9c8ec9-a15c-4f73-b5a4-5ac6bd0598ad": {
           "type": "slide",
           "settings": {
@@ -143,50 +187,6 @@
             "overlay_opacity": 0
           }
         },
-        "slide_ryhwjV": {
-          "type": "slide",
-          "settings": {
-            "image_link": "shopify://collections/navidad",
-            "image_1": "shopify://shop_images/santa-banner-100.jpg",
-            "image_mobile": "shopify://shop_images/santa-banner-mobile-100.jpg",
-            "heading": "",
-            "heading_size": "h3",
-            "subheading": "",
-            "subheading_size": "h2",
-            "subheading2": "",
-            "subheading_size_2": "h4",
-            "description": "",
-            "color_des": "",
-            "color_description_service": "#86938d",
-            "icon": "",
-            "description_service": "",
-            "icon2": "",
-            "description_service2": "",
-            "icon3": "",
-            "description_service3": "",
-            "icon4": "",
-            "description_service4": "",
-            "button1_label": "",
-            "link1": "",
-            "button2_label": "",
-            "custom_icon": "",
-            "box_size": "small",
-            "box_align": "center",
-            "text_align": "left",
-            "color_caption": "#ffffff",
-            "heading_color": "#ffffff",
-            "text_color": "#ffffff",
-            "button_background": "#f3ff34",
-            "button_text_color": "#000000",
-            "button_text_color_hover": "#ffffff",
-            "button_bg_hover": "#ca9236",
-            "button_background2": "#f3ff34",
-            "button_text_color2": "#000000",
-            "button_opacity": 0,
-            "blocks_overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
         "slide_LMbLW9": {
           "type": "slide",
           "settings": {
@@ -232,10 +232,10 @@
         }
       },
       "block_order": [
+        "slide_ryhwjV",
         "2d9c8ec9-a15c-4f73-b5a4-5ac6bd0598ad",
         "slide_NqCkNW",
         "slide_NEKPPB",
-        "slide_ryhwjV",
         "slide_LMbLW9"
       ],
       "custom_css": [],
