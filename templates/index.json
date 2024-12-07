@@ -146,9 +146,9 @@
         "slide_ryhwjV": {
           "type": "slide",
           "settings": {
-            "image_link": "shopify://collections/llaveros",
-            "image_1": "shopify://shop_images/banner_llaveros.jpg",
-            "image_mobile": "shopify://shop_images/banner_b_mobile.jpg",
+            "image_link": "shopify://collections/navidad",
+            "image_1": "shopify://shop_images/santa-banner-100.jpg",
+            "image_mobile": "shopify://shop_images/santa-banner-mobile-100.jpg",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
