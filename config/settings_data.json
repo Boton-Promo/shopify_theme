@@ -405,6 +405,9 @@
           "payment_methods_mniNQF",
           "social_3wAfzE"
         ],
+        "custom_css": [
+          "svg {display: none;}"
+        ],
         "settings": {
           "fullwidth": false,
           "background": "#f1f2f8",
@@ -420,6 +423,9 @@
       },
       "cookie-bar": {
         "type": "cookie-bar",
+        "custom_css": [
+          ".ap-cookiebar {right: 5rem !important;}"
+        ],
         "settings": {
           "show_cookie_bar": true,
           "heading": "Política de cookies",
@@ -520,7 +526,7 @@
         "custom_css": [],
         "settings": {
           "title": "¡Suscríbete a nuestro boletín!",
-          "desciption": "Nuestro sitio web utiliza cookies para mejorar tu experiencia.",
+          "desciption": "Descubre ideas únicas para regalos promocionales y productos para el hogar! Sé el primero en conocer nuestras ofertas, novedades y tendencias.",
           "input": "Tu correo...",
           "button_text": "Suscribete",
           "time_delay": 6,
