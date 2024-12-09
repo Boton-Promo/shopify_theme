@@ -3,7 +3,7 @@
 <div class="ap-productmeta__price-list-container" role="region" aria-live="polite">
   <div class="price-list" data-product-price-list=""><span class="price price--highlight price--large">
     {%- if variant.compare_at_price > variant.price -%}
-      <span class="price"><span class="visually-hidden">Sale price</span>{{ variant.price | money }}</span>
+      <span class="price"><span class="visually-hidden">Sale price</span>{{ variant.price | money }} +IVA</span>
       <span class="price price--compare"><span class="visually-hidden">Regular price</span>{{ variant.compare_at_price | money }}</span>
     {%- else -%}
       <span class="price"><span class="visually-hidden">Regular price</span>{{ variant.price | money }} +IVA</span>
