@@ -362,8 +362,17 @@
         "collection_NnWKxK": {
           "type": "collection",
           "settings": {
-            "collection": "dtf-uv",
+            "collection": "dtf-uv-1",
             "image": "shopify://shop_images/dtf_uv.png",
+            "icon_svg": "",
+            "title": ""
+          }
+        },
+        "collection_6GNj7C": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "",
             "icon_svg": "",
             "title": ""
           }
@@ -381,7 +390,8 @@
         "collection_PfRE7e",
         "collection_MbCmJi",
         "collection_MRi3FU",
-        "collection_NnWKxK"
+        "collection_NnWKxK",
+        "collection_6GNj7C"
       ],
       "settings": {
         "setwidthout": "container",
