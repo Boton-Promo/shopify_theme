@@ -257,6 +257,30 @@
         "video_url": ""
       }
     },
+    "17341062049e60aeef": {
+      "type": "apps",
+      "blocks": {
+        "smartbn_banner_slider_banner_NxfpRF": {
+          "type": "shopify://apps/smartbn-banner-slider/blocks/banner/4e519896-1b18-4c51-970e-35631a56cec7",
+          "settings": {
+            "scm_banner_slider": "34737"
+          }
+        },
+        "smartbn_banner_slider_banner_Ghd8xn": {
+          "type": "shopify://apps/smartbn-banner-slider/blocks/banner/4e519896-1b18-4c51-970e-35631a56cec7",
+          "settings": {
+            "scm_banner_slider": "34737"
+          }
+        }
+      },
+      "block_order": [
+        "smartbn_banner_slider_banner_NxfpRF",
+        "smartbn_banner_slider_banner_Ghd8xn"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "child_collections_CjPPwx": {
       "type": "child-collections",
       "blocks": {
@@ -409,156 +433,6 @@
         "row_items": 6,
         "margin_desktop": "50px 0px",
         "margin_tablet": "",
-        "margin_mobile": "",
-        "padding_desktop": "0px 0px 0px 0px",
-        "padding_tablet": "0px 0px 0px 0px",
-        "padding_mobile": "0px 0px 0px 0px"
-      }
-    },
-    "child_collections_T9xhGz": {
-      "type": "child-collections",
-      "blocks": {
-        "collection_PcykVQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "esferos",
-            "image": "shopify://shop_images/Recurso_9-100.jpg",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_y77wAm": {
-          "type": "collection",
-          "settings": {
-            "collection": "agendas",
-            "image": "shopify://shop_images/agendas_09a1bc87-aeba-4cd4-b411-80f795ced1bb.jpg",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_iGpiQ9": {
-          "type": "collection",
-          "settings": {
-            "collection": "mugs",
-            "image": "shopify://shop_images/mugs_0b874f3d-7ad3-4afe-96fe-224441af66c3.jpg",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_EjBpMT": {
-          "type": "collection",
-          "settings": {
-            "collection": "hogar",
-            "image": "shopify://shop_images/hogar_140762ca-d509-46b0-addc-7b855d413256.jpg",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_pAeq3c": {
-          "type": "collection",
-          "settings": {
-            "collection": "botilitos",
-            "image": "shopify://shop_images/botilitos_b9734606-aad3-45ed-bb05-097683d2e619.jpg",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_VBpXkw": {
-          "type": "collection",
-          "settings": {
-            "collection": "botones",
-            "image": "shopify://shop_images/botones_4816e1de-7163-4afa-9797-1ff86cf21df4.jpg",
-            "icon_svg": "",
-            "title": ""
-          }
-        },
-        "collection_r8TKDp": {
-          "type": "collection",
-          "settings": {
-            "collection": "booklets",
-            "image": "shopify://shop_images/botones_4816e1de-7163-4afa-9797-1ff86cf21df4.jpg",
-            "icon_svg": "",
-            "title": "Morrales"
-          }
-        },
-        "collection_CTkCKX": {
-          "type": "collection",
-          "settings": {
-            "collection": "accessories",
-            "image": "shopify://shop_images/esferos_656b8b10-7cf5-4b10-8c4a-ec68330fecc5.jpg",
-            "icon_svg": "",
-            "title": "Tecnologia & Gadgets"
-          }
-        },
-        "collection_8ajFxk": {
-          "type": "collection",
-          "settings": {
-            "collection": "celebrations-gifts",
-            "image": "shopify://shop_images/hogar_140762ca-d509-46b0-addc-7b855d413256.jpg",
-            "icon_svg": "",
-            "title": "Sombrillas"
-          }
-        },
-        "collection_6RJRwV": {
-          "type": "collection",
-          "settings": {
-            "collection": "design-logo",
-            "image": "shopify://shop_images/botilitos_b9734606-aad3-45ed-bb05-097683d2e619.jpg",
-            "icon_svg": "",
-            "title": "Alcancías"
-          }
-        },
-        "collection_Haz9EK": {
-          "type": "collection",
-          "settings": {
-            "collection": "wedding",
-            "image": "shopify://shop_images/mugs_0b874f3d-7ad3-4afe-96fe-224441af66c3.jpg",
-            "icon_svg": "",
-            "title": "Sillas"
-          }
-        },
-        "collection_fdAFh7": {
-          "type": "collection",
-          "settings": {
-            "collection": "brochures",
-            "image": "shopify://shop_images/agendas_09a1bc87-aeba-4cd4-b411-80f795ced1bb.jpg",
-            "icon_svg": "",
-            "title": "Gorras"
-          }
-        }
-      },
-      "block_order": [
-        "collection_PcykVQ",
-        "collection_y77wAm",
-        "collection_iGpiQ9",
-        "collection_EjBpMT",
-        "collection_pAeq3c",
-        "collection_VBpXkw",
-        "collection_r8TKDp",
-        "collection_CTkCKX",
-        "collection_8ajFxk",
-        "collection_6RJRwV",
-        "collection_Haz9EK",
-        "collection_fdAFh7"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "setwidthout": "container",
-        "background": "#ffffff",
-        "heading_color": "#222222",
-        "text_color": "#282828",
-        "color_svg": "#282828",
-        "button_background": "#ffffff",
-        "button_color": "#282828",
-        "sub_heading": "",
-        "tab_heading": "",
-        "tab_heading_size": 1,
-        "btn_text": "",
-        "btn_link": "",
-        "row_items": 5,
-        "margin_desktop": "100px 0 30px",
-        "margin_tablet": "30px 0",
         "margin_mobile": "",
         "padding_desktop": "0px 0px 0px 0px",
         "padding_tablet": "0px 0px 0px 0px",
@@ -2142,8 +2016,8 @@
   },
   "order": [
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
+    "17341062049e60aeef",
     "child_collections_CjPPwx",
-    "child_collections_T9xhGz",
     "child_collections_TwtJwE",
     "child_collections_tGn6Kx",
     "child_collections_dHB9em",
