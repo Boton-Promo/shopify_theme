@@ -257,18 +257,18 @@
         "video_url": ""
       }
     },
-    "17341062522e0fc5a1": {
+    "17341271302f642def": {
       "type": "apps",
       "blocks": {
-        "smartbn_banner_slider_banner_P8PYVy": {
-          "type": "shopify://apps/smartbn-banner-slider/blocks/banner/4e519896-1b18-4c51-970e-35631a56cec7",
+        "image_slider_pro_embed_code_Yce9mC": {
+          "type": "shopify://apps/image-slider-pro/blocks/embed-code/187cfdb3-f7ca-4af8-9477-517eb71154e7",
           "settings": {
-            "scm_banner_slider": "34737"
+            "embed-code": "<div id=\"enap-slider-36440\"></div>"
           }
         }
       },
       "block_order": [
-        "smartbn_banner_slider_banner_P8PYVy"
+        "image_slider_pro_embed_code_Yce9mC"
       ],
       "settings": {
         "include_margins": true
@@ -2009,7 +2009,7 @@
   },
   "order": [
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
-    "17341062522e0fc5a1",
+    "17341271302f642def",
     "child_collections_CjPPwx",
     "child_collections_TwtJwE",
     "child_collections_tGn6Kx",
