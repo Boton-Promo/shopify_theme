@@ -262,7 +262,8 @@
       "type": "custom-liquid",
       "custom_css": [
         ".watermark-create-free {display: none !important;}",
-        ".powrMark__logo-block {display: none !important;}"
+        ".powrMark__logo-block {display: none !important;}",
+        ".blog js-powrMark pad-m pad-top-l powrMark text-center{display: none !important;}"
       ],
       "settings": {
         "custom_liquid": "<div class=\"powr-image-slider\" id=\"b3c16820_1734185316\"></div><script src=\"https://www.powr.io/powr.js?platform=shopify\"></script>",
