@@ -260,13 +260,9 @@
     },
     "custom_liquid_yqWJjw": {
       "type": "custom-liquid",
-      "custom_css": [
-        ".watermark-create-free {display: none !important;}",
-        ".powrMark__logo-block {display: none !important;}",
-        ".blog .js-powrMark .pad-m .pad-top-l .powrMark {display: none !important; background-color: black;}"
-      ],
+      "custom_css": [],
       "settings": {
-        "custom_liquid": "<div class=\"powr-image-slider\" id=\"b3c16820_1734185316\"></div><script src=\"https://www.powr.io/powr.js?platform=shopify\"></script>",
+        "custom_liquid": "<section class=\"carousel\" aria-label=\"Gallery\">\n  <ol class=\"carousel__viewport\">\n    <li id=\"carousel__slide1\"\n        tabindex=\"0\"\n        class=\"carousel__slide\">\n      <div class=\"carousel__snapper\">\n        <a href=\"#carousel__slide4\"\n           class=\"carousel__prev\">Go to last slide</a>\n        <a href=\"#carousel__slide2\"\n           class=\"carousel__next\">Go to next slide</a>\n      </div>\n    </li>\n    <li id=\"carousel__slide2\"\n        tabindex=\"0\"\n        class=\"carousel__slide\">\n      <div class=\"carousel__snapper\"></div>\n      <a href=\"#carousel__slide1\"\n         class=\"carousel__prev\">Go to previous slide</a>\n      <a href=\"#carousel__slide3\"\n         class=\"carousel__next\">Go to next slide</a>\n    </li>\n    <li id=\"carousel__slide3\"\n        tabindex=\"0\"\n        class=\"carousel__slide\">\n      <div class=\"carousel__snapper\"></div>\n      <a href=\"#carousel__slide2\"\n         class=\"carousel__prev\">Go to previous slide</a>\n      <a href=\"#carousel__slide4\"\n         class=\"carousel__next\">Go to next slide</a>\n    </li>\n    <li id=\"carousel__slide4\"\n        tabindex=\"0\"\n        class=\"carousel__slide\">\n      <div class=\"carousel__snapper\"></div>\n      <a href=\"#carousel__slide3\"\n         class=\"carousel__prev\">Go to previous slide</a>\n      <a href=\"#carousel__slide1\"\n         class=\"carousel__next\">Go to first slide</a>\n    </li>\n  </ol>\n  <aside class=\"carousel__navigation\">\n    <ol class=\"carousel__navigation-list\">\n      <li class=\"carousel__navigation-item\">\n        <a href=\"#carousel__slide1\"\n           class=\"carousel__navigation-button\">Go to slide 1</a>\n      </li>\n      <li class=\"carousel__navigation-item\">\n        <a href=\"#carousel__slide2\"\n           class=\"carousel__navigation-button\">Go to slide 2</a>\n      </li>\n      <li class=\"carousel__navigation-item\">\n        <a href=\"#carousel__slide3\"\n           class=\"carousel__navigation-button\">Go to slide 3</a>\n      </li>\n      <li class=\"carousel__navigation-item\">\n        <a href=\"#carousel__slide4\"\n           class=\"carousel__navigation-button\">Go to slide 4</a>\n      </li>\n    </ol>\n  </aside>\n</section>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52
