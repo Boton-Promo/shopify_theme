@@ -258,21 +258,17 @@
         "video_url": ""
       }
     },
-    "1734185458681b56c4": {
-      "type": "apps",
-      "blocks": {
-        "powr_image_slider_app_block_aAT8gF": {
-          "type": "shopify://apps/powr-image-slider/blocks/app-block/db02efbb-fd06-4a97-88f3-663cfa9effba",
-          "settings": {
-            "app_id": "b3c16820_1734185316"
-          }
-        }
-      },
-      "block_order": [
-        "powr_image_slider_app_block_aAT8gF"
+    "custom_liquid_yqWJjw": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".watermark-create-free {display: none !important;}",
+        ".powrMark__logo-block {display: none !important;}"
       ],
       "settings": {
-        "include_margins": true
+        "custom_liquid": "<div class=\"powr-image-slider\" id=\"b3c16820_1734185316\"></div><script src=\"https://www.powr.io/powr.js?platform=shopify\"></script>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "child_collections_CjPPwx": {
@@ -2010,7 +2006,7 @@
   },
   "order": [
     "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
-    "1734185458681b56c4",
+    "custom_liquid_yqWJjw",
     "child_collections_CjPPwx",
     "child_collections_TwtJwE",
     "child_collections_tGn6Kx",
