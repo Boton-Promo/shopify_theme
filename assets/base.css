@@ -2957,12 +2957,3 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
-
-.gradient {
-  background: var(--gradient-background) !important;
-  background-attachment: fixed;
-  background-image: url(https://cdn.shopify.com/s/files/1/0604/3503/8275/files/pattern-school.jpg) !important;
-  background-color: transparent !important;
-  background-position: top left !important;
-  background-size: auto !important;
-}
