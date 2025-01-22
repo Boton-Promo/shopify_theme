@@ -1775,7 +1775,7 @@
             "bg_btn": "rgba(0,0,0,0)",
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
-            "link1": "shopify://pages/botones",
+            "link1": "shopify://collections/botones",
             "service_hover-right1": "shopify://shop_images/SERVICIO_01jpg_53c2d508-c78b-4900-95dc-2d3a6505510d.jpg"
           }
         },
@@ -1786,7 +1786,7 @@
             "bg_color_block": "#f1f2f8",
             "title_small": "",
             "color_title_small": "#ff1c6a",
-            "title": "VINILO TEXTIL<hr>",
+            "title": "VINILO TEXTIL",
             "color_title": "#222222",
             "description": "",
             "color_des": "#666666",
