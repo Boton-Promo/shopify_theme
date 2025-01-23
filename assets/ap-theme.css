@@ -9819,6 +9819,12 @@ main#main {
   z-index: 1;
 }
 
+@media (max-width: 1382px) {
+  .mega-menu__inner {
+    max-height: none;
+  }
+}
+
 .mega-menu__columns-wrapper {
   display: flex;
   flex-wrap: wrap;
