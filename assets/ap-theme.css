@@ -9819,7 +9819,7 @@ main#main {
   z-index: 1;
 }
 
-@media (max-width: 1382px) {
+@media (max-width: 1419px) {
   .mega-menu__inner {
     max-height: none;
   }
