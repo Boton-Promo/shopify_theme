@@ -262,7 +262,7 @@
       "type": "custom-liquid",
       "custom_css": [],
       "settings": {
-        "custom_liquid": "<div class=\"slider-frame\">\n        <ul>\n            <li><a href=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/vacaciones-boton-promo-1734131086-675cbd8e3e75f.jpg?v=1734131092\" alt=\"\"></a></li>\n            <li><a href=\"https://esferos.com/account/register\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/login-1734126923-675cad4bc710a.jpg?v=1734126927\" alt=\"\"></a></li>\n            <li><a href=\"https://esferos.com/collections/navidad\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/santa-banner-100-1734127387-675caf1bc4ff1.jpg?v=1734127391\" alt=\"\"></a></li>\n            <li><a href=\"https://esferos.com/products/colador-de-cafe-1-600ml?_pos=4&_sid=6c8d3ecb1&_ss=r\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/colador-de-cafe-1734126918-675cad465a3d0.jpg?v=1734126921\" alt=\"\"></a></li>\n        </ul>\n    </div>\n    <style>\n        .slider-frame {\n\twidth: 100%;\n    height: auto;\n\tmargin:0px auto 0;\n\toverflow: hidden;\n}\n\n.slider-frame ul {\n\tdisplay: flex;\n\tpadding: 0;\n\twidth: 400%;\n\t\n\tanimation: slide 30s infinite alternate ease-in-out;\n}\n\n.slider-frame li {\n\twidth: 100%;\n\tlist-style: none;\n}\n\n.slider-frame img {\n\twidth: 100%;\n}\n\n@keyframes slide {\n\t0% {margin-left: 0;}\n\t20% {margin-left: 0;}\n\t\n\t25% {margin-left: -100%;}\n\t45% {margin-left: -100%;}\n\t\n\t50% {margin-left: -200%;}\n\t70% {margin-left: -200%;}\n\t\n\t75% {margin-left: -300%;}\n\t100% {margin-left: -300%;}\n}\n    </style>",
+        "custom_liquid": "<div class=\"slider-frame\">\n    <ul>\n        <li><a href=\"https://esferos.com/account/register\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/slide-01-01.jpg?v=1737557551\" alt=\"\"></a></li>\n        <li><a href=\"https://esferos.com/products/colador-de-cafe-1-600ml?_pos=4&_sid=6c8d3ecb1&_ss=r\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/BANNER_CAFE.jpg?v=17375755341\" alt=\"\"></a></li>\n        <li><a href=\"https://esferos.com/account/register\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/BANNER_REGISTRAR.jpg?v=1737565793\" alt=\"\"></a></li>\n        <li><a href=\"https://esferos.com/products/colador-de-cafe-1-600ml?_pos=4&_sid=6c8d3ecb1&_ss=r\"><img src=\"https://cdn.shopify.com/s/files/1/0604/3503/8275/files/BANNER_CAFE.jpg?v=1737575534\" alt=\"\"></a></li>\n\n    </ul>\n</div>\n<style>\n    .slider-frame {\n    width: 100%;\n    height: auto;\n    margin:0px auto 0;\n    overflow: hidden;\n}\n\n.slider-frame ul {\ndisplay: flex;\npadding: 0;\nwidth: 400%;\n\nanimation: slide 30s infinite alternate ease-in-out;\n}\n\n.slider-frame li {\nwidth: 100%;\nlist-style: none;\n}\n\n.slider-frame img {\nwidth: 100%;\n}\n\n@keyframes slide {\n0% {margin-left: 0;}\n20% {margin-left: 0;}\n\n25% {margin-left: -100%;}\n45% {margin-left: -100%;}\n\n50% {margin-left: -200%;}\n70% {margin-left: -200%;}\n\n75% {margin-left: -300%;}\n100% {margin-left: -300%;}\n}\n</style>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52
@@ -1765,7 +1765,7 @@
             "bg_color_block": "#ffffff",
             "title_small": "",
             "color_title_small": "#ed2e34",
-            "title": "BOTONES<hr>",
+            "title": "BOTONES",
             "color_title": "#222222",
             "description": "",
             "color_des": "#666666",
@@ -1775,7 +1775,7 @@
             "bg_btn": "rgba(0,0,0,0)",
             "color_btn_hover": "#ed2e34",
             "bg_btn_hover": "rgba(0,0,0,0)",
-            "link1": "shopify://collections/botones",
+            "link1": "shopify://pages/botones",
             "service_hover-right1": "shopify://shop_images/SERVICIO_01jpg_53c2d508-c78b-4900-95dc-2d3a6505510d.jpg"
           }
         },
@@ -1786,7 +1786,7 @@
             "bg_color_block": "#f1f2f8",
             "title_small": "",
             "color_title_small": "#ff1c6a",
-            "title": "VINILO TEXTIL<hr>",
+            "title": "VINILO TEXTIL",
             "color_title": "#222222",
             "description": "",
             "color_des": "#666666",

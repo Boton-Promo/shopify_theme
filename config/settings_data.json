@@ -2063,16 +2063,6 @@
           "distance_right": 30,
           "distance_bottom": 30
         }
-      },
-      "14927024384642293474": {
-        "type": "shopify://apps/image-slider-pro/blocks/embed-js/187cfdb3-f7ca-4af8-9477-517eb71154e7",
-        "disabled": false,
-        "settings": {}
-      },
-      "1471279892117976293": {
-        "type": "shopify://apps/powr-image-slider/blocks/app-embed/db02efbb-fd06-4a97-88f3-663cfa9effba",
-        "disabled": false,
-        "settings": {}
       }
     }
   },
