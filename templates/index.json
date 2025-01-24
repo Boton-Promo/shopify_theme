@@ -406,7 +406,7 @@
       ],
       "settings": {
         "setwidthout": "container",
-        "background": "rgba(0,0,0,0)",
+        "background": "#ffffff",
         "heading_color": "#282828",
         "text_color": "#282828",
         "color_svg": "#282828",
@@ -1071,7 +1071,7 @@
         "padding_desktop": "",
         "padding_mobile": "",
         "product_list_2": false,
-        "background-color": "#ffffff",
+        "background-color": "rgba(0,0,0,0)",
         "heading_color": "#282828",
         "text_color": "#282828",
         "prev_next_button_background": "#ffffff",
