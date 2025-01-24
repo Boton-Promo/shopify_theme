@@ -3,10 +3,10 @@
 <div class="product-item-meta__price-list-container">
   <div class="price-list {%- if variant.compare_at_price > variant.price -%}{{ 'price-sale' | prepend: ' ' }}{% endif %}">
     {%- if variant.compare_at_price > variant.price -%}
-      <span class="price"><span class="visually-hidden">Precio de venta</span>{{ variant.price | money }}</span>
-      <span class="price price--compare"><span class="visually-hidden">Regular price</span>{{ variant.compare_at_price | money }}</span>
+      <span class="price"><span class="visually-hidden">Precio de venta</span>{{ variant.price | money }} + IVA</span>
+      <span class="price price--compare"><span class="visually-hidden">Regular price</span>{{ variant.compare_at_price | money }} + IVA</span>
     {%- else -%}
-      <span class="price"><span class="visually-hidden">Precio normal</span>{{ variant.price | money }}</span>
+      <span class="price"><span class="visually-hidden">Precio normal</span>{{ variant.price | money }} + IVA</span>
     {%- endif -%}
 
     {% if  variant.selected_or_first_available_variant.unit_price_measurement.reference_unit %}
