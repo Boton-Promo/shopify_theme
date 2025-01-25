@@ -272,6 +272,28 @@
               "social_linkedin": ""
             }
           },
+          "footer_item_6xbCJL": {
+            "type": "footer_item",
+            "settings": {
+              "width": "auto",
+              "bottom_logo_width": 125,
+              "heading": "Celular",
+              "heading_size": "heading--xsmall",
+              "menu": "",
+              "content_icon": "",
+              "content": "<ul><li><a href=\"tel:3113590375\" title=\"tel:3113590375\">311 359 0375</a></li><li><a href=\"tel:3212404786\" title=\"tel:3212404786\">321 240 4786</a></li><li><a href=\"tel:3005720451\" title=\"tel:3005720451\">300 572 0451</a></li></ul>",
+              "content_icon_2": "",
+              "content_2": "",
+              "content_icon_3": "",
+              "content_3": "",
+              "social_heading": "",
+              "social_facebook": "",
+              "social_instagram": "",
+              "social_pinterest": "",
+              "social_youtube": "",
+              "social_linkedin": ""
+            }
+          },
           "b2953f00-9748-4b2b-b8b5-66130881f1f8": {
             "type": "footer_item",
             "settings": {
@@ -345,6 +367,7 @@
           "newsletter_tdnccH",
           "0f340da5-ac4a-4d2f-82b5-43397293e7cb",
           "f8431dd1-2dc2-466a-b6ca-41d6d4a23ae6",
+          "footer_item_6xbCJL",
           "b2953f00-9748-4b2b-b8b5-66130881f1f8",
           "footer_item_gtVUNE",
           "footer_item_MMrrjR"
