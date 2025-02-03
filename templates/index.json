@@ -1000,6 +1000,7 @@
           "settings": {
             "image_link": "shopify://collections/nuevos",
             "image_1": "shopify://shop_images/NUEVOS.jpg",
+            "image_mobile": "shopify://shop_images/Nuevo_para_celular.jpg",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
