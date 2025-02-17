@@ -1800,11 +1800,34 @@
             "link1": "shopify://pages/vinilo-textil-o-dtf-1",
             "service_hover-left1": "shopify://shop_images/SERVICIO_02_72cc4895-03c4-4ecf-ad7d-e08cc5ec8290.jpg"
           }
+        },
+        "service_nayNrh": {
+          "type": "service",
+          "settings": {
+            "featured_image": "shopify://shop_images/Gran_formato_7d008e67-c9dc-45dd-9af1-3984feae75a6.png",
+            "bg_color_block": "#ffffff",
+            "title_small": "",
+            "color_title_small": "#ed2e34",
+            "title": "GRAN FORMATO",
+            "color_title": "#222222",
+            "description": "",
+            "color_des": "#666666",
+            "custom_icon": "",
+            "button1_label": "Ver más",
+            "color_btn": "#005ca5",
+            "bg_btn": "rgba(0,0,0,0)",
+            "color_btn_hover": "#ed2e34",
+            "bg_btn_hover": "rgba(0,0,0,0)",
+            "link1": "shopify://pages/gran-formato",
+            "service_hover-left1": "shopify://shop_images/01_02d0832f-46ef-49a4-b24a-cd9b4862e216.jpg",
+            "service_hover-left2": "shopify://shop_images/02_71114b45-7ee5-4208-91ff-b8e8b9c0d074.jpg"
+          }
         }
       },
       "block_order": [
         "service_cdkpdF",
-        "service_GRdU77"
+        "service_GRdU77",
+        "service_nayNrh"
       ],
       "settings": {
         "fullwidth": false,
