@@ -1,3 +1,4 @@
+{% if customer %}
 {{ 'service.css' | asset_url | stylesheet_tag }}
 
 {% render 'section-style' %}
@@ -6,7 +7,7 @@
     #shopify-section-{{ section.id }} {
     }
 </style>
-{% if customer %}
+
 <div class="service">
     <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
       {% if section.settings.tab_heading != blank %}
