@@ -15,7 +15,7 @@
     {%- else -%}
       <span class="price">
         <span class="visually-hidden">Regular price</span>
-        {{ variant.price | money }}{%- if variant.taxable -%} +IVA{%- endif -%}
+        {{ variant.price | money }} +IVA{%- if variant.taxable -%}{%- endif -%}
       </span>
     {%- endif -%}
   </span>
