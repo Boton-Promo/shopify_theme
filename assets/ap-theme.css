@@ -11569,7 +11569,7 @@ button.mobile-nav__link,
 
 .predictive-search__input {
   padding: 0;
-  min-width: 300px;
+  width: 100%;
   background: transparent;
   box-shadow: none;
   border: none;
