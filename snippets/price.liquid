@@ -38,7 +38,7 @@
         </span>
       {%- endcapture -%}
       <span class="product-unit-price">
-        <span class="sr-only invisible">{{ 'products.product.price.unit_price' | t }}</span>
+        <span class="sr-only invisible">{{ 'products.product.price.unit_price' | t }} + IVA</span>
         <span data-unit-price>{{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
       </span>
     </div>
