@@ -1,75 +1,173 @@
 {% if customer %}
-  {{ 'service.css' | asset_url | stylesheet_tag }}
+{{ 'service.css' | asset_url | stylesheet_tag }}
 
-  {% render 'section-style' %}
+{% render 'section-style' %}
 
-  <style>
-      #shopify-section-{{ section.id }} {
-      }
-  </style>
+<style>
+    #shopify-section-{{ section.id }} {
+    }
+</style>
 
-  <div class="service">
-      <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
-        {% if section.settings.tab_heading != blank %}
-        <header class="section__header text-{{ section.settings.text_align }}">
-            <p class="heading sub-heading mb-10" style="color: {{ section.settings.subheading_color }}">
-              {% render 'icon-heading' %}{{ section.settings.sub_heading }}
-            </p>
-            <h2 class="heading h{{ section.settings.tab_heading_size }}" style="color: {{ section.settings.heading_color }}">
-              {{ section.settings.tab_heading }}
-            </h2>
-            {% if section.settings.tab_description != blank %}
-              <div class="heading-description">
-                {{ section.settings.tab_description }}
-              </div>
-            {% endif %}
-            {% if section.settings.btn_text != blank %}
-            <div class="btn-more">
-              <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
-                {{ section.settings.btn_text }}
-              </a>
+<div class="service">
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+      {% if section.settings.tab_heading != blank %}
+      <header class="section__header text-{{ section.settings.text_align }}">
+          <p class="heading sub-heading mb-10" style="color: {{ section.settings.subheading_color }}">{% render 'icon-heading' %}{{ section.settings.sub_heading }}</p>
+          <h2 class="heading h{{ section.settings.tab_heading_size }}" style="color: {{ section.settings.heading_color }}">{{ section.settings.tab_heading }}</h2>
+          {% if section.settings.tab_description != blank %}
+            <div class="heading-description">
+              {{ section.settings.tab_description }}
             </div>
-            {% endif %}
-        </header>
-        {% endif %}
-        
-        <div class="service-list">
-            {% for block in section.blocks %}
-              {% case block.type %}
+          {% endif %}
+          {% if section.settings.btn_text != blank %}
+          <div class="btn-more">
+            <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+              {{ section.settings.btn_text }}
+            </a>
+            </div>
+          {% endif %}
+      </header>
+      {% endif %}
+      <div class="service-list">
+          {% for block in section.blocks %}
+            {% case block.type %}
 
-                {%- when 'service' -%}
-                  <service-item style="background-color: {{ block.settings.bg_color_block }}" reveal-on-scroll="">
-                    <div class="service-item">
-                      <div class="service-list-content">
-                          {% if block.settings.title_small != blank %}
-                            <h6 style="color: {{ block.settings.color_title_small }}" reveal="" class="service-list-title_small">
-                              {{ block.settings.title_small }}
-                            </h6>
-                          {% endif %}
-                          <h3 style="color: {{ block.settings.color_title }}" reveal="" class="service-list-title">
-                            {{ block.settings.title }}
-                          </h3>
-                          <p style="color: {{ block.settings.color_des }}" reveal="" class="service-list-description">
-                            {{ block.settings.description }}
-                          </p>
+              {%- when 'service' -%}
+                <service-item style="background-color: {{ block.settings.bg_color_block }}" reveal-on-scroll="">
+                  <div class="service-item">
+                  {% comment %} {% if block.settings.featured_image != blank %}
+                    <div class="service-item-img">
+                          <img class="service-list-image" reveal="" loading="lazy" 
+                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                          alt="" 
+                          src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                          srcset="{%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                              {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                          src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                          height="{{ block.settings.featured_image.height }}"
+                          width="{{ block.settings.featured_image.width }}">
+                    </div>
+                   {% endif %}
+                   {% endcomment %}
+                    <div class="service-list-content">
+                        {% if block.settings.title_small != blank %}
+                          <h6 style="color: {{ block.settings.color_title_small }}" reveal="" class="service-list-title_small">{{ block.settings.title_small }}</h6>
+                        {% endif %}
+                        <h3 style="color: {{ block.settings.color_title }}" reveal="" class="service-list-title">{{ block.settings.title }}</h3>
+                        <p style="color: {{ block.settings.color_des }}" reveal="" class="service-list-description">{{ block.settings.description }}</p>
+                        {% if block.settings.featured_image != blank %}
+                    <div class="service-item-img">
+                          <img class="service-list-image" reveal="" loading="lazy" 
+                          sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                          alt="" 
+                          src="{{ block.settings.featured_image | image_url: width: block.settings.featured_image.width }}" 
+                          srcset="{%- if block.settings.featured_image.width >= 3000 -%}{{ block.settings.featured_image | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                              {{ block.settings.featured_image | image_url }} {{ block.settings.featured_image.width }}w"
+                          src="{{ block.settings.featured_image | image_url: width: 1500 }}"
+                          height="{{ block.settings.featured_image.height }}"
+                          width="{{ block.settings.featured_image.width }}">
+                    </div>
+                   {% endif %}
+                          <style>
+                                 #shopify-section-{{ section.id }} a.button.btn-base-2, 
+                                 #shopify-section-{{ section.id }} .btn-base-2 {
+                                  color: {{ block.settings.color_btn }};
+                                  background-color: {{ block.settings.bg_btn }};
+                                }
+                                #shopify-section-{{ section.id }} a.button.btn-base-2 path , 
+                                #shopify-section-{{ section.id }} .btn-base-2 path {
+                                  fill: {{ block.settings.color_btn }};
+                                }
+                                #shopify-section-{{ section.id }} a.button.btn-base-2:hover, 
+                                #shopify-section-{{ section.id }} .btn-base-2:hover {
+                                  color: {{ block.settings.color_btn_hover }};
+                                  background-color: {{ block.settings.bg_btn_hover }};
+                                }
+                                #shopify-section-{{ section.id }} a.button.btn-base-2:hover path , 
+                                #shopify-section-{{ section.id }} .btn-base-2:hover path {
+                                  fill: {{ block.settings.color_btn_hover }};
+                                }
+                              </style>
                           {% if block.settings.button1_label != blank %}
                             <div class="button-group">
                               <a href="{{ block.settings.link1 }}" reveal="" class="button btn-base-2">
                                 {{ block.settings.button1_label }}
                                 {% render 'icon-arrow-2' %}
                               </a>
+                              {% if block.settings.service_hover-left1 != blank %}
+                                <div class="service_hover-block service_hover-left">
+                                      <img class="service_hover-left" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-left1 | image_url: width: block.settings.service_hover-left1.width }}" 
+                                      srcset="{%- if block.settings.service_hover-left1.width >= 3000 -%}{{ block.settings.service_hover-left1 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-left1 | image_url }} {{ block.settings.service_hover-left1.width }}w"
+                                      src="{{ block.settings.service_hover-left1 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-left1.height }}"
+                                      width="{{ block.settings.service_hover-left1.width }}">
+                                      <img class="service_hover-left" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-left2 | image_url: width: block.settings.service_hover-left2.width }}" 
+                                      srcset="{%- if block.settings.service_hover-left2.width >= 3000 -%}{{ block.settings.service_hover-left2 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-left2 | image_url }} {{ block.settings.service_hover-left2.width }}w"
+                                      src="{{ block.settings.service_hover-left2 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-left2.height }}"
+                                      width="{{ block.settings.service_hover-left2.width }}">
+                                      <img class="service_hover-left" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-left3 | image_url: width: block.settings.service_hover-left3.width }}" 
+                                      srcset="{%- if block.settings.service_hover-left3.width >= 3000 -%}{{ block.settings.service_hover-left3 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-left3 | image_url }} {{ block.settings.service_hover-left3.width }}w"
+                                      src="{{ block.settings.service_hover-left3 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-left3.height }}"
+                                      width="{{ block.settings.service_hover-left3.width }}">
+                                </div>
+                              {% endif %}
+                              {% if block.settings.service_hover-right1 != blank %}
+                                <div class="service_hover-block service_hover-right">
+                                      <img class="service_hover-right" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-right1 | image_url: width: block.settings.service_hover-right1.width }}" 
+                                      srcset="{%- if block.settings.service_hover-right1.width >= 3000 -%}{{ block.settings.service_hover-right1 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-right1 | image_url }} {{ block.settings.service_hover-right1.width }}w"
+                                      src="{{ block.settings.service_hover-right1 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-right1.height }}"
+                                      width="{{ block.settings.service_hover-right1.width }}">
+                                      <img class="service_hover-right" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-right2 | image_url: width: block.settings.service_hover-right2.width }}" 
+                                      srcset="{%- if block.settings.service_hover-right2.width >= 3000 -%}{{ block.settings.service_hover-right2 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-right2 | image_url }} {{ block.settings.service_hover-right2.width }}w"
+                                      src="{{ block.settings.service_hover-right2 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-right2.height }}"
+                                      width="{{ block.settings.service_hover-right2.width }}">
+                                      <img class="service_hover-right" reveal="" loading="lazy" 
+                                      sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
+                                      alt="" 
+                                      src="{{ block.settings.service_hover-right3 | image_url: width: block.settings.service_hover-right3.width }}" 
+                                      srcset="{%- if block.settings.service_hover-right3.width >= 3000 -%}{{ block.settings.service_hover-right3 | image_url: width: 3000, crop: 'center' }} 3000w,{%- endif -%}
+                                          {{ block.settings.service_hover-right3 | image_url }} {{ block.settings.service_hover-right3.width }}w"
+                                      src="{{ block.settings.service_hover-right3 | image_url: width: 1500 }}"
+                                      height="{{ block.settings.service_hover-right3.height }}"
+                                      width="{{ block.settings.service_hover-right3.width }}">
+                                </div>
+                              {% endif %} 
                             </div>
                           {% endif %}
-                      </div>  
-                    </div>
-                  </service-item>
+    
+                    </div>  
+                  </div>
+                </service-item>
 
-              {% endcase %}
-            {% endfor %}
-        </div>
+            {% endcase %}
+          {% endfor %}
       </div>
-  </div>
-
+    </div>
+</div>
 {% else %}
   <div class="login-required">
     <h2 class="login-message" style="text-align: center; margin-top: 50px; font-size: 24px; color: #333;">
@@ -88,7 +186,6 @@
     });
   </script>
 {% endif %}
-
 
 
 {% schema %}
