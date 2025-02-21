@@ -7,8 +7,6 @@
     #shopify-section-{{ section.id }} {
     }
 </style>
-{% else %}
-<h2>Para ver esta sección de servicios debes registrarte</h2>
 <div class="service">
     <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
       {% if section.settings.tab_heading != blank %}
@@ -168,6 +166,15 @@
           {% endfor %}
       </div>
     </div>
+</div>
+{% else %}
+<div class="service">
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+      {% if section.settings.tab_heading != blank %}
+      <header class="section__header text-{{ section.settings.text_align }}">
+          <p class="heading sub-heading mb-10" style="color: {{ section.settings.subheading_color }}">{% render 'icon-heading' %}{{ section.settings.sub_heading }}</p>
+          <h2 class="heading h{{ section.settings.tab_heading_size }}" style="color: {{ section.settings.heading_color }}">Iniciar Sesion para visualizar los servicios</h2>
+      
 </div>
 {% endif %}
 
