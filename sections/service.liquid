@@ -1,4 +1,4 @@
-
+{% if customer %}
 {{ 'service.css' | asset_url | stylesheet_tag }}
 
 {% render 'section-style' %}
@@ -7,8 +7,7 @@
     #shopify-section-{{ section.id }} {
     }
 </style>
-INICIAR SESION
-{% if customer %}
+
 <div class="service">
     <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
       {% if section.settings.tab_heading != blank %}
@@ -169,6 +168,8 @@ INICIAR SESION
       </div>
     </div>
 </div>
+{% else %}
+<img src="https://cdn.shopify.com/s/files/1/0604/3503/8275/files/BANNER_IMPRESION_DIGITAL_6350883d-8840-492e-8d43-d24eed674a07.jpg?v=1740092395"
 {% endif %}
 
 {% schema %}
