@@ -1093,6 +1093,7 @@
           },
           "image_block_HrWPEJ": {
             "type": "image_block",
+            "disabled": true,
             "settings": {
               "parent_menu": "Promocionales",
               "parent_megamenu": "main-menu",
