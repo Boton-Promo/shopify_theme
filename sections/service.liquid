@@ -7,7 +7,8 @@
     #shopify-section-{{ section.id }} {
     }
 </style>
-
+{% else %}
+<h2>Para ver esta sección de servicios debes registrarte</h2>
 <div class="service">
     <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
       {% if section.settings.tab_heading != blank %}
@@ -168,8 +169,6 @@
       </div>
     </div>
 </div>
-{% else %}
-<h2>Para ver esta sección de servicios debes registrarte</h2>
 {% endif %}
 
 {% schema %}
