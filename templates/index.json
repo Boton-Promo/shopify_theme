@@ -999,8 +999,8 @@
           "type": "slide",
           "settings": {
             "image_link": "shopify://collections/nuevos",
-            "image_1": "shopify://shop_images/NUEVOS.jpg",
-            "image_mobile": "shopify://shop_images/Nuevo_para_celular.jpg",
+            "image_1": "shopify://shop_images/Banner_Web_Mesa_de_trabajo_1.png",
+            "image_mobile": "shopify://shop_images/Banner_Web-02.png",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
