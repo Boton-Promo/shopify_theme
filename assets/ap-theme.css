@@ -12419,6 +12419,16 @@ shopify-payment-terms {
   line-height: 22px;
 }
 
+
+.ad-img .ad-img-text{
+  background: rgb(var(--product-in-stock-text-color));
+  color: white;
+  padding: 0 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
 .inventory .inventory_outstock{
   background: #E1E1E1;
   color: black;
