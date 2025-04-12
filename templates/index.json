@@ -1036,7 +1036,7 @@
             "button_text_color2": "#000000",
             "button_opacity": 0,
             "blocks_overlay_color": "#000000",
-            "overlay_opacity": 1
+            "overlay_opacity": 0
           }
         }
       },
