@@ -999,8 +999,8 @@
           "type": "slide",
           "settings": {
             "image_link": "shopify://collections/nuevos",
-            "image_1": "shopify://shop_images/Banner_Web_Mesa_de_trabajo_1.png",
-            "image_mobile": "shopify://shop_images/Banner_Web-02.png",
+            "image_1": "shopify://shop_images/Banner_Web_Desktop.png",
+            "image_mobile": "shopify://shop_images/Banner_Web_Mobile.png",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
