@@ -12421,7 +12421,8 @@ shopify-payment-terms {
 
 
 .ad-img .ad-img-text{
-  background: rgb(246 183 0);
+  background: #00b6a1;
+  font-weight: bold;
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
