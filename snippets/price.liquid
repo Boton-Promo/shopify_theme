@@ -6,7 +6,7 @@
     {%- if variant.compare_at_price > variant.price -%}
       <span class="price">
         <span class="visually-hidden">Sale price</span>
-        {{ variant.price | money }} {%- if variant.taxable -%}{%- endif -%}+IVA
+        {{ variant.price | money }} +IVA
       </span>
       <span class="price price--compare">
         <span class="visually-hidden">Regular price</span>
