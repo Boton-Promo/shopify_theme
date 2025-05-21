@@ -308,7 +308,7 @@
                       {%- when 'price' -%}
                         {% if customer %}
                         {% liquid
-                          render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large'
+                          render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large'
                         %}
                         {% else %}
                           <a href="https://esferos.com/account/login"><p>Inicia sesión para ver los precios.</p></a>
