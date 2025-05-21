@@ -22,7 +22,7 @@
 </div>
 
 
-
+  {% if  variant.selected_or_first_available_variant.unit_price_measurement.reference_unit %}
     <div class="product-single__unit">
       {%- capture unit_price_separator -%}
         <span aria-hidden="true">/</span><span class="sr-only invisible">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
