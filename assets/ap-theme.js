@@ -8847,22 +8847,19 @@
         listProductPrices.style.display = "none";
       } else {
         listProductPrices.innerHTML = "";
-        if (variant["compare_at_price"] > variant["price"]) {
-          listProductPrices.innerHTML += `<span class="price price--highlight ${
-            this.priceClass
-          }"><span class="visually-hidden">${
-            window.themeVariables.strings.productSalePrice
-          }</span>${apMoneyFormat(variant["price"], currencyFormat)}</span>`;
-          listProductPrices.innerHTML += `<span class="price price--compare"><span class="visually-hidden">${
-            window.themeVariables.strings.productRegularPrice
-          }</span>${apMoneyFormat(variant["compare_at_price"], currencyFormat)}</span>`;
-        } else {
-          listProductPrices.innerHTML += `<span class="price ${
-            this.priceClass
-          }"><span class="visually-hidden">${
-            window.themeVariables.strings.productSalePrice
-          }</span>${apMoneyFormat(variant["price"], currencyFormat)}</span>`;
-        }
+        const ivaText = variant.taxable ? " +IVA" : "";
+       if (variant["compare_at_price"] > variant["price"]) {
+  listProductPrices.innerHTML += `<span class="price price--highlight ${this.priceClass}">
+    <span class="visually-hidden">${window.themeVariables.strings.productSalePrice}</span>
+    ${apMoneyFormat(variant["price"], currencyFormat)}${ivaText}</span>`;
+  listProductPrices.innerHTML += `<span class="price price--compare">
+    <span class="visually-hidden">${window.themeVariables.strings.productRegularPrice}</span>
+    ${apMoneyFormat(variant["compare_at_price"], currencyFormat)}${ivaText}</span>`;
+} else {
+  listProductPrices.innerHTML += `<span class="price ${this.priceClass}">
+    <span class="visually-hidden">${window.themeVariables.strings.productSalePrice}</span>
+    ${apMoneyFormat(variant["price"], currencyFormat)}${ivaText}</span>`;
+}
         if (variant["unit_price_measurement"]) {
           let referenceValue = "";
           if (variant["unit_price_measurement"]["reference_value"] !== 1) {
