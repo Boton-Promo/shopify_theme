@@ -44,16 +44,7 @@
     </div>
   {% endif %}
 
-  <div class="ap-productmeta__label-list label-list" data-product-label-list="">
-    {%- if variant.available == false -%}
-      <span class="label label--subdued">Agotado</span>
-    {%- endif -%}
-    {%- if variant.compare_at_price > variant.price -%}
-      {% assign discount = variant.compare_at_price | minus: variant.price %}
-    <!-- <span class="label label--highlight">Ahorra {{ discount | money }}</span> -->
-    {% endif %}
-  </div>
-</div>
+ 
 {% endif %}
 
 
