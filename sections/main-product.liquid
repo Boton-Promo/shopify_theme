@@ -303,7 +303,8 @@
                       {%- when '@app' -%}
                         {% render block %}
                       
-                   
+                      {%- when 'title' -%}
+                        <h1 class="ap-productmeta__title heading h3">{{ product.title }}</h1>
                       {%- when 'price' -%}
                         {% if customer %}
                         {% liquid
