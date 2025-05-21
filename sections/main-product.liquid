@@ -307,9 +307,7 @@
                         <h1 class="ap-productmeta__title heading h3">{{ product.title }}</h1>
                       {%- when 'price' -%}
                         {% if customer %}
-                        {% liquid
-                          render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large'
-                        %}
+                        
                         {% else %}
                           <a href="https://esferos.com/account/login"><p>Inicia sesión para ver los precios.</p></a>
                         {% endif %}
