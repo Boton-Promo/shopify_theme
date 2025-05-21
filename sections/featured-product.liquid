@@ -41,7 +41,9 @@
                   </h2>
 
                 {%- when 'price' -%}
-                  
+                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                    {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
+                  </div>
                 
                 
               {% endcase %}
