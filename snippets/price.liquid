@@ -1,8 +1,8 @@
 {% assign variant = product.selected_or_first_available_variant %}
 
-  {% if quantity=<10 %}
-  alert("hgoloakaa");
-  {% endif %}
+  {% if product.variants.first.inventory_quantity <= 10 %}
+  <p class="text-red-500">¡Quedan pocas unidades disponibles!</p>
+{% endif %}
 
 {% if customer %}
 <div class="ap-productmeta__price-list-container" role="region" aria-live="polite">
