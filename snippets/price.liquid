@@ -1,4 +1,9 @@
 {% assign variant = product.selected_or_first_available_variant %}
+
+  {% if quantity=<10 %}
+  alert("hgoloakaa");
+  {% endif %}
+
 {% if customer %}
 <div class="ap-productmeta__price-list-container" role="region" aria-live="polite">
   <div class="price-list" data-product-price-list="">
