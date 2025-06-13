@@ -49,6 +49,12 @@
             "custom_liquid": "{% if customer %}\n<details>\n    <summary>Inventario Disponible</summary>\n    <div class=\"divDetails\">\n      {% for variant in product.variants %}\n        <p>{{ variant.title }} - ({{ variant.inventory_quantity }}: Articulos)</p>\n      {% endfor %}\n    </div>\n  </details>\n{% endif %}"
           }
         },
+        "custom_liquid_aN9t8w": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.variants.first.inventory_quantity <= 10 %}\n  <p class=\"text-red-500\">¡Quedan pocas unidades disponibles!</p>\n{% endif %}"
+          }
+        },
         "custom_liquid_czYBpy": {
           "type": "custom_liquid",
           "settings": {
@@ -97,6 +103,7 @@
         "375e1ccb-99cc-41e5-813c-45a1a57566be",
         "b8da14d9-fa65-4645-913b-4e91ff632b94",
         "custom_liquid_Wx6Mti",
+        "custom_liquid_aN9t8w",
         "custom_liquid_czYBpy",
         "quantity_selector",
         "83916474-fbe9-46c1-afd0-c761ee898dc6",
