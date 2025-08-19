@@ -1,3 +1,8 @@
+/*This root is for fix the color var from the foooter*/
+:root {
+  --form-input-color: #333333 !important; /* Color más oscuro */
+}
+
 .hd {
   display: none !important;
 }
