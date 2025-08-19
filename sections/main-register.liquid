@@ -127,11 +127,6 @@
         {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
       </span>
     {%- endif -%}
-    {%- comment -%} This code was add for the check box newsletter {%- endcomment -%}
-    <label for="marketing">
-  <input type="checkbox" name="customer[accepts_marketing]" value="true" id="marketing" />
-  Estoy de acuerdo a recibir notificaciones a mi email.
-</label>
     <button>
       {{ 'customer.register.submit' | t }}
     </button>
