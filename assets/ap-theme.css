@@ -33,7 +33,7 @@
 
 @media (max-width: 999px) {
   .hd-pocket {
-    display: none !important;
+    display: block;
   }
 }
 
