@@ -30,7 +30,7 @@
     "price_regular": "#222222",
     "product_on_price": "#ed2e34",
     "product_on_sale": "#999999",
-    "product_on_sold_out": "#636569",
+    "product_on_sold_out": "#ff1f1f",
     "product_custom_label_bg": "#d81324",
     "product_custom_label_color": "#ffffff",
     "product_custom_label_bg_2": "#111d36",
