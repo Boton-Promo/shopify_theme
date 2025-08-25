@@ -372,7 +372,9 @@
           "footer_item_gtVUNE",
           "footer_item_MMrrjR"
         ],
-        "custom_css": [],
+        "custom_css": [
+          "a:hover {color: #ffffff;}"
+        ],
         "settings": {
           "fullwidth": true,
           "background": "#101820",
