@@ -11,6 +11,10 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "custom_css": [
+        ".breadcrumb-wp h1 {display: none;}",
+        ".breadcrumb {margin-top: 140px !important;}"
+      ],
       "settings": {
         "setwidthout": "full",
         "padding_top": 0,
