@@ -8081,6 +8081,7 @@ img.article-item__image {
 }
 
 .price-sale .price--compare {
+  display: none;
   color: rgb(var(--product-on-sale-accent));
   font-size: var(--base-font-size);
 }
