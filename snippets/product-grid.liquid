@@ -18,7 +18,7 @@
                                 {% if settings.sale_label_layout == 'text' %}
                                     {{ settings.sale_label_text | default:'sale' }}
                                 {% else %}
-                                 En oferta <!-- {{ sale_percent | append: '%'}} off -->
+                                 Oferta <!-- {{ sale_percent | append: '%'}} off -->
                                 {%- endif -%}
                             </div>
                         {%- endif -%}
