@@ -1492,7 +1492,6 @@
         "service_iAnbry",
         "service_dacpRA"
       ],
-      "disabled": true,
       "settings": {
         "fullwidth": false,
         "background-color": "#e1e1e1",
@@ -1612,7 +1611,6 @@
         "service_D7NrEa",
         "service_HcwAcF"
       ],
-      "disabled": true,
       "settings": {
         "fullwidth": false,
         "background-color": "#e1e1e1",
@@ -1831,7 +1829,6 @@
         "service_GRdU77",
         "service_nayNrh"
       ],
-      "disabled": true,
       "settings": {
         "fullwidth": false,
         "background-color": "#ffffff",
