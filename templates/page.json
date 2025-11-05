@@ -20,9 +20,9 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "margin_desktop": "",
-        "background_color": "#ffffff",
-        "color_title": "#ffffff",
-        "color_breadcrumb": "#ffffff"
+        "background_color": "#e6e6e6",
+        "color_title": "#ff0000",
+        "color_breadcrumb": "#000000"
       }
     }
   },
