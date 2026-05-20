@@ -1,13 +1,12 @@
 {% if customer %}
     <div class="show_login">
-        <a href="https://esferos.com/account" class="login-icon" aria-label="My Account">
+        <a href="#" class="login-icon" aria-label="My Account">
             {% render 'icon-user' %}
         </a>
         <ul class="user-block">
             
                 <li>
-                    <a href="https://esferos.com/account
-" title="Mi cuenta">Mi cuenta</a>
+                    <a href="/account" title="Mi cuenta">Mi cuenta</a>
                 </li>
             
             {% comment %}
@@ -42,7 +41,7 @@
         </div>
         <ul class="user-block">
             <li>
-                <a href="https://esferos.com/account" class="header__icon-wrapper tap-area" aria-label="{{ 'general.users.login' | t }}">{{ 'general.users.login' | t }}</a>
+                <a href="/account/login" class="header__icon-wrapper tap-area" aria-label="{{ 'general.users.login' | t }}">{{ 'general.users.login' | t }}</a>
             </li>
             {% comment %}
             <li>
