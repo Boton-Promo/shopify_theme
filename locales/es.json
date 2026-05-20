@@ -91,7 +91,7 @@
     },
     "users": {
       "hello": "Hola",
-      "login": "Entrar2",
+      "login": "Entrar",
       "logout": "Salir",
       "check_out": "Carrito",
       "wishlist": "Mi Lista",
