@@ -37,10 +37,9 @@
     </div>
 {% else %}
     <div class="show_login">
-        <a href="https://esferos.com/account/" class="login-icon" aria-label="Login">
-   
-</a>
-
+        <div class="login-icon" aria-label="Login">
+            {% render 'icon-user' %}
+        </div>
         <ul class="user-block">
             <li>
                 <a href="https://esferos.com/account" class="header__icon-wrapper tap-area" aria-label="{{ 'general.users.login' | t }}">{{ 'general.users.login' | t }}</a>
