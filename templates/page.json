@@ -11,19 +11,15 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "custom_css": [
-        ".breadcrumb-wp h1 {display: none;}",
-        ".breadcrumb {margin-top: 140px !important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "setwidthout": "full",
         "padding_top": 0,
         "padding_bottom": 0,
         "margin_desktop": "",
-        "bg_img": "shopify://shop_images/1_b1e1cf14-3492-4f31-883d-f482c905afde.jpg",
-        "background_color": "#ffffff",
-        "color_title": "#ffffff",
-        "color_breadcrumb": "#ffffff"
+        "background_color": "#e6e6e6",
+        "color_title": "#000000",
+        "color_breadcrumb": "#000000"
       }
     }
   },
