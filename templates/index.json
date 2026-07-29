@@ -61,7 +61,7 @@
           "settings": {
             "image_link": "",
             "image_1": "shopify://shop_images/BANNER-2.jpg",
-            "image_mobile": "shopify://shop_images/BANNER-2.jpg",
+            "image_mobile": "shopify://shop_images/BANNER_VERSION_MOBIL_2.png",
             "heading": "",
             "heading_size": "h6",
             "subheading": "",
@@ -105,7 +105,7 @@
           "settings": {
             "image_link": "shopify://collections/hogarplus",
             "image_1": "shopify://shop_images/BANNER-3.png",
-            "image_mobile": "shopify://shop_images/BANNER_VERSION_MOBIL_1.png",
+            "image_mobile": "shopify://shop_images/BANNER_VERSION_MOBIL_3.png",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
@@ -149,7 +149,7 @@
           "settings": {
             "image_link": "shopify://collections/laser",
             "image_1": "shopify://shop_images/BANNER-4.png",
-            "image_mobile": "shopify://shop_images/BANNER-4.png",
+            "image_mobile": "shopify://shop_images/BANNER_VERSION_MOBIL_4.png",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
@@ -193,7 +193,7 @@
           "settings": {
             "image_link": "shopify://collections/sublimacion",
             "image_1": "shopify://shop_images/BANNER-5.png",
-            "image_mobile": "shopify://shop_images/BANNER-5.png",
+            "image_mobile": "shopify://shop_images/BANNER_VERSION_MOBIL_5.png",
             "heading": "",
             "heading_size": "h3",
             "subheading": "",
