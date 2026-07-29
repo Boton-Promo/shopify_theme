@@ -14317,7 +14317,7 @@ shopify-payment-terms {
 
 .slideshow__image {
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: contain;
   -o-object-position: center;
   object-position: center;
 }
