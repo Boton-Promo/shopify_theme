@@ -1,4 +1,4 @@
-{% if customer %}
+
 {{ 'service.css' | asset_url | stylesheet_tag }}
 
 {% render 'section-style' %}
@@ -168,24 +168,7 @@
       </div>
     </div>
 </div>
-{% else %}
-  <div class="login-required">
-    <h2 class="login-message" style="text-align: center; margin-top: 50px; font-size: 24px; color: #333;">
-      Debe iniciar sesión para ver los servicios disponibles
-    </h2>
-  </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let messages = document.querySelectorAll(".login-message");
-      if (messages.length > 1) {
-        for (let i = 1; i < messages.length; i++) {
-          messages[i].remove();
-        }
-      }
-    });
-  </script>
-{% endif %}
 
 
 {% schema %}
