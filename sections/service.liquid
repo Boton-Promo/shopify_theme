@@ -20,11 +20,12 @@
             </div>
           {% endif %}
           {% if customer and section.settings.btn_text != blank %}
-  <div class="btn-none">
+  <div class="btn-more">
     <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
       {{ section.settings.btn_text }}
     </a>
   </div>
+
           {% endif %}
       </header>
       {% endif %}
