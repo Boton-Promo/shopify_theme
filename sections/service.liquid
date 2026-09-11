@@ -19,12 +19,13 @@
               {{ section.settings.tab_description }}
             </div>
           {% endif %}
-          {% if section.settings.btn_text != blank %}
-          <div class="btn-more">
-            <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
-              {{ section.settings.btn_text }}
-            </a>
-            </div>
+          {% if customer and section.settings.btn_text != blank %}
+  <div class="btn-none">
+    <a href="{{ section.settings.btn_link }}" class="button {{ section.settings.style_btn }}">
+      {{ section.settings.btn_text }}
+    </a>
+  </div>
+
           {% endif %}
       </header>
       {% endif %}
