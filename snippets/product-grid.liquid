@@ -1,4 +1,4 @@
-{% assign show_secondary_image = true %}
+{% if section and section.location != blank %}{% assign show_secondary_image = true %}
 <div class="slider__item " reveal="" style="opacity: 1;" id="product-item-{{ product.id }}">
     <div class="h-100" style="background-color: var(--background-product);">
         <div class="product-item-wrapper">
@@ -288,4 +288,1035 @@
             </div>
         </div>
     </div>
-</div>
+</div>{% else %}{% assign show_secondary_image = true %}
+<div class="slider__item " reveal="" style="opacity: 1;" id="product-item-{{ product.id }}">
+    <div class="h-100" style="background-color: var(--background-product);">
+        <div class="product-item-wrapper">
+            <span class="product-line"></span>
+        
+            <div class="product-item__image-wrapper product-item__image-wrapper--multiple">
+                <div class="product-item__label-list label-list">
+                    {% if product.available == false %}
+                        <span class="label label--subdued">{{ 'products.product.sold_out' | t }}</span>
+                    {% endif %}
+                    {% if product.compare_at_price > product.price and product.available %}
+                        {% if settings.sale_label_enable %}
+                            {%- assign sale_minus = product.compare_at_price_min | minus: product.price_min -%}
+                            {%- assign sale_percent = sale_minus | times:100 | divided_by: product.compare_at_price_min -%}
+                            
+                            <div class="label label--highlight" aria-hidden="true">
+                                {% if settings.sale_label_layout == 'text' %}
+                                    {{ settings.sale_label_text | default:'sale' }}
+                                {% else %}
+                                 Oferta <!-- {{ sale_percent | append: '%'}} off -->
+                                {%- endif -%}
+                            </div>
+                        {%- endif -%}
+                    {% endif %}
+                </div>
+                {%- capture sizes -%}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2){%- endcapture -%}
+                <a href="{{ product.url }}" class="product-item__aspect-ratio aspect-ratio " style="padding-bottom: 100.0%; --aspect-ratio: {{ settings.size_img }}">
+                    <img class="product-item__primary-image" loading="eager" data-media-id="{{ product.featured_media.id }}" 
+                        sizes= "{{ sizes }}"
+                        alt="{{ product.title }}" 
+                        src="{{ product.featured_image | image_url: width: product.featured_media.width }}" 
+                        srcset="
+                            {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                            {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                            {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                            {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                            {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                        "
+                        width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}">
+                    
+                    {% if product.media[1] != nil and show_secondary_image %}
+                        <img class="product-item__secondary-image" loading="lazy" sizes="(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)" 
+                            alt="{{ product.title }}" 
+                            src="{{ product.media[1] | image_url: width: 800 }}" 
+                            srcset="
+                                {%- if product.media[1].width >= 165 -%}{{ product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if product.media[1].width >= 360 -%}{{ product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if product.media[1].width >= 533 -%}{{ product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+                                {%- if product.media[1].width >= 720 -%}{{ product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+                                {%- if product.media[1].width >= 940 -%}{{ product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+                                {%- if product.media[1].width >= 1066 -%}{{ product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                {{ product.media[1] | image_url }} {{ product.media[1].width }}w
+                            "
+                            width="{{ product.media[1].width }}" height="{{ product.media[1].height }}">
+                    {% else %}
+                        <img class="product-item__secondary-image" loading="lazy" data-media-id="{{ product.featured_media.id }}" 
+                            sizes= "{{ sizes }}"
+                            alt="{{ product.title }}" 
+                            src="{{ product.featured_image | image_url: width: product.featured_media.width }}" 
+                            srcset="
+                                {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                            "
+                            width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}">
+                    {% endif %}
+                </a>
+                <div class="service-product-ctn">
+                    <div class="service-product">
+                        <div title="" class="btn-service btn-quickview">
+                            <div class="product-item__quick-form">
+                                <button is="toggle-button" loader="" ap-controlsaria="product-{{ section.id }}-{{ product.id }}-drawer" ap-expanded-aria="false" class="button button--outline button--text button--full">
+                                    <span class="ap-text-loaderbutton">
+                                        {% render 'icon-quickview' %}
+                                        <span class="text-name name-btn-product">
+                                            Vista Rápida
+                                        </span>
+                                    </span>
+                                    <span class="ap-loader-loaderbutton" hidden="">
+                                    <div class="spinner">
+                                        <svg focusable="false" width="24" height="24" class="icon icon--spinner" viewBox="25 25 50 50">
+                                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+                                        </svg>
+                                    </div>
+                                    </span>
+                                </button>
+                                <button is="toggle-button" ap-controlsaria="product-{{ section.id }}-{{ product.id }}-drawer" ap-expanded-aria="false" class="product-item__quick-buy-button hd-no-touch hd-phone">
+                                    <span class="visually-hidden">
+                                        {% render 'icon-quickview' %}
+                                        <span class="text-name">
+                                            Vista Rápida
+                                        </span>
+                                    </span>
+                                    <svg focusable="false" width="22" height="21" class="icon icon--quick-buy   " fill="none" viewBox="0 0 22 21">
+                                        <path d="M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M7 7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M18 0V8M14 4H22" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                </button>
+                
+                                <button is="toggle-button" ap-controlsaria="product-{{ section.id }}-{{ product.id }}-popover" ap-expanded-aria="false" class="product-item__quick-buy-button hd-tablet-and-up">
+                                    <span class="visually-hidden">
+                                        {% render 'icon-quickview' %}
+                                        <span class="text-name">
+                                            Vista Rápida
+                                        </span>
+                                    </span>
+                                    <svg focusable="false" width="22" height="21" class="icon icon--quick-buy   " fill="none" viewBox="0 0 22 21">
+                                        <path d="M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M7 7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M18 0V8M14 4H22" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <ap-popoverquickbuy id="product-{{ section.id }}-{{ product.id }}-popover" href="/products/{{ product.handle }}?view=ap-popoverquickbuy" class="popover popover--quick-buy hd-tablet-and-up"></ap-popoverquickbuy>
+                            <ap-quickbuy id="product-{{ section.id }}-{{ product.id }}-drawer" href="/products/{{ product.handle }}?view=quick-buy-drawer" class="drawer drawer--large drawer--quick-buy hd-phone"></ap-quickbuy>
+                        </div>
+    
+                        <div title="">
+                            <ap-wishlistbutton  class="btn-service btn-wishlist {% if template =='page.wishlist' %}deletewishlist{% endif %}" data-action="add" data-id="{{ product.id }}" alt="Add to wishlist">
+                                {% render 'icon-wishlist' %}
+                                <span class="text-name name-btn-product">
+                                    Añadir a mi lista de deseos   
+                                </span>
+                            </ap-wishlistbutton>
+                        </div>
+    
+                        <div title="">
+                            <ap-comparebutton class="btn-service btn-compare {% if template =='page.compare' %}deletecompare{% endif %}"
+                                data-action="add" data-id="{{ product.id }}" alt="Add to comparebutton">
+                                {% render 'icon-compare' %}
+                                <span class="text-name name-btn-product">
+                                    Comparar
+                                </span>
+                            </ap-comparebutton>
+                        </div>
+                    
+                    </div>
+                </div>
+
+
+            </div>
+        
+            <div class="product-item__info  ">
+                <div class="product-item-meta">
+
+                    <div class="type-product d-none">{{ product.type }}</div>
+                    
+                    <a href="{{ product.url }}" class="product-item-meta__title">{{ product.title }}</a>
+                
+                    <div class="product-price">
+
+                        <!-- Start of Judge.me code -->
+                        <div class='jdgm-widget jdgm-preview-badge'>
+                            {{ product.metafields.judgeme.badge }}
+                        </div>
+                        <!-- End of Judge.me code -->
+    
+                        {% render 'price-product-grid', product: product %}
+
+                        <div class="service-add-cart">
+                            {%- if settings.show_variants == true -%}
+                            <div class="product-item-meta__swatch-list color-swatch-list color-swatch-list--mini d-none">
+                                {% liquid
+                                    assign options_color = ''
+                                    assign option_position = 0
+                                    assign is_checked = true
+                                    for option in product.options
+                                        assign optionName = option.name | handleize | downcase
+                                        if optionName contains 'colo'
+                                            assign options_color = option
+                                            assign option_position = 'option' | append: forloop.index
+                                        endif
+                                    endfor
+                                %}
+                
+                                <div class="{%- if settings.show_variants -%}{{ 'variants-product-item' | prepend: ' ' }}{% else %}{{ 'd-none' | prepend: ' ' }}{% endif %} input
+                                {%- if settings.variants_color -%}{{ 'show-variants-color' | prepend: ' ' }}{% endif %}
+                                {%- if settings.variants_size -%}{{ 'show-variants-size' | prepend: ' ' }}{% endif %}
+                                " >
+                                    {%- for option in product.options_with_values -%}
+                                    {%- assign checked = 1 -%}
+                                    {% assign isColor = false %}
+                                    {% assign optionName = option.name | handleize %}
+                                    {% if optionName contains 'color' %}
+                                    {% assign isColor = true %}
+                                    {% endif %}
+                                    {% assign option_index = forloop.index %}
+                                
+                                    <div class="variants-item variants-item-{{ option.name | downcase | replace: " ", " -"}}">
+                                        <legend class="form__label">{{ option.name }}</legend>
+                                        {%- for value in option.values -%}
+                                
+                                            {% for variant in product.variants %}
+                                                {% assign vOption = 'option' | append: option_index %}
+                                                {% if value == variant[vOption] %}
+                                                    {% assign currenVariant = variant %}
+                                                    {% break %}
+                                                {% endif %}
+                                            {% endfor %}
+        
+                                            {% liquid assign hasImage = true %}
+                            
+                                                {%- assign active = 'active' | prepend: " " -%}
+                                                <div class="variant variant-{{ option.name | downcase | replace: " ", " -"}} variant-{{ value | downcase | replace: " ", "-" }} {% if checked == 1 %}active{% endif %}">
+                                                    <input type="radio" class="{{ option.name }}-{{ product.id }}"
+                                                        id="{{ option.name }}-{{ forloop.index0 }}-{{ product.id }}"
+                                                        name="{{ option.name }}" value="{{ value | escape }}" {%- if checked['1'] -%}checked="checked" {%- endif -%}>
+                                                    <label for="{{ option.name }}-{{ forloop.index0 }}-{{ product.id }}" {%- if bg_color -%} class="label-image" {%- endif -%}>
+        
+                                                        {{ value }}   
+                    
+                                                    </label>
+                                                </div>
+                                                {%- assign checked = 0 -%}
+        
+                                        {%- endfor -%}
+                                    </div>
+                                    {%- endfor -%}
+                                </div>
+        
+                            </div>
+                            {%- endif -%}
+                            {% if customer %}
+                            <div title="Add to cart" class="btn-service btn-addcart">
+                            {%- if product.selected_or_first_available_variant.available -%}
+                                <form method="post" action="/cart/add" id="product_form_{{ section.id }}__{{ product.id }}_0" accept-charset="UTF-8" class="product-item__quick-form" enctype="multipart/form-data" is="ap-productform">
+                                    <input type="hidden" name="form_type" value="product">
+                                    <input type="hidden" name="utf8" value="✓">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="id" value="{{ product.variants[0]['id'] }}">
+                                    {% comment %}
+                                    <button is="loader-button" type="submit" class="button button--outline button--text button--full">
+                                    <span class="ap-text-loaderbutton">
+                                        <span class="text-name">
+                                            Añadir al carrito
+                                        </span>
+                                        {% render 'icon-addcart' %}
+                                    </span>
+                                    <span class="ap-loader-loaderbutton" hidden="">
+                                        <div class="spinner">
+                                        <svg focusable="false" width="24" height="24" class="icon icon--spinner" viewBox="25 25 50 50">
+                                            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+                                        </svg>
+                                        </div>
+                                    </span>
+                                    </button>
+                                    {% endcomment %}
+                                    <button type="submit" class="product-item__quick-buy-button hd-no-touch">
+                                    <span class="visually-hidden">
+                                        <span class="text-name">
+                                            Añadir al carrito
+                                        </span>
+                                        {% render 'icon-addcart' %}
+                                    </span>
+                                    <svg focusable="false" width="22" height="21" class="icon icon--quick-buy   " fill="none" viewBox="0 0 22 21">
+                                        <path d="M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M7 7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7" stroke="currentColor" stroke-width="2"></path>
+                                        <path d="M18 0V8M14 4H22" stroke="currentColor" stroke-width="2"></path>
+                                    </svg>
+                                    </button>
+                                </form>
+                            {%- else -%}
+                                <div class="sold-out">
+                                    {% render 'icon-addcart' %}
+                                    <span class="text-name">
+                                        Agotado
+                                    </span>
+                                </div>
+                            {%- endif -%}
+                            </div>
+                        {% endif %}
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% assign show_secondary_image = true %}\n<div class=\"slider__item \" reveal=\"\"
+    style=\"opacity: 1;\" id=\"product-item-{{ product.id }}\">\n    <div class=\"h-100\"
+    style=\"background-color: var(--background-product);\">\n        <div class=\"product-item-wrapper\">\n
+    \           <span class=\"product-line\"></span>\n        \n            <div class=\"product-item__image-wrapper
+    product-item__image-wrapper--multiple\">\n                <div class=\"product-item__label-list
+    label-list\">\n                    {% if product.available == false %}\n                        <span
+    class=\"label label--subdued\">{{ 'products.product.sold_out' | t }}</span>\n
+    \                   {% endif %}\n                    {% if product.compare_at_price
+    > product.price and product.available %}\n                        {% if settings.sale_label_enable
+    %}\n                            {%- assign sale_minus = product.compare_at_price_min
+    | minus: product.price_min -%}\n                            {%- assign sale_percent
+    = sale_minus | times:100 | divided_by: product.compare_at_price_min -%}\n                            \n
+    \                           <div class=\"label label--highlight\" aria-hidden=\"true\">\n
+    \                               {% if settings.sale_label_layout == 'text' %}\n
+    \                                   {{ settings.sale_label_text | default:'sale'
+    }}\n                                {% else %}\n                                 Oferta
+    <!-- {{ sale_percent | append: '%'}} off -->\n                                {%-
+    endif -%}\n                            </div>\n                        {%- endif
+    -%}\n                    {% endif %}\n                </div>\n                {%-
+    capture sizes -%}(min-width: {{ settings.page_width }}px) {{ settings.page_width
+    | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2),
+    calc((100vw - 50px) / 2){%- endcapture -%}\n                <a href=\"{{ product.url
+    }}\" class=\"product-item__aspect-ratio aspect-ratio \" style=\"padding-bottom:
+    100.0%; --aspect-ratio: {{ settings.size_img }}\">\n                    <img class=\"product-item__primary-image\"
+    loading=\"eager\" data-media-id=\"{{ product.featured_media.id }}\" \n                        sizes=
+    \"{{ sizes }}\"\n                        alt=\"{{ product.title }}\" \n                        src=\"{{
+    product.featured_image | image_url: width: product.featured_media.width }}\" \n
+    \                       srcset=\"\n                            {%- if product.featured_media.width
+    >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif
+    -%}\n                            {%- if product.featured_media.width >= 360 -%}{{
+    product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}\n                            {%-
+    if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url:
+    width: 533 }} 533w,{%- endif -%}\n                            {%- if product.featured_media.width
+    >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif
+    -%}\n                            {%- if product.featured_media.width >= 940 -%}{{
+    product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}\n                            {%-
+    if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url:
+    width: 1066 }} 1066w,{%- endif -%}\n                            {{ product.featured_media
+    | image_url }} {{ product.featured_media.width }}w\n                        \"\n
+    \                       width=\"{{ product.featured_media.width }}\" height=\"{{
+    product.featured_media.height }}\">\n                    \n                    {%
+    if product.media[1] != nil and show_secondary_image %}\n                        <img
+    class=\"product-item__secondary-image\" loading=\"lazy\" sizes=\"(max-width: 740px)
+    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)\" \n                            alt=\"{{
+    product.title }}\" \n                            src=\"{{ product.media[1] | image_url:
+    width: 800 }}\" \n                            srcset=\"\n                                {%-
+    if product.media[1].width >= 165 -%}{{ product.media[1] | image_url: width: 165
+    }} 165w,{%- endif -%}\n                                {%- if product.media[1].width
+    >= 360 -%}{{ product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}\n
+    \                               {%- if product.media[1].width >= 533 -%}{{ product.media[1]
+    | image_url: width: 533 }} 533w,{%- endif -%}\n                                {%-
+    if product.media[1].width >= 720 -%}{{ product.media[1] | image_url: width: 720
+    }} 720w,{%- endif -%}\n                                {%- if product.media[1].width
+    >= 940 -%}{{ product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}\n
+    \                               {%- if product.media[1].width >= 1066 -%}{{ product.media[1]
+    | image_url: width: 1066 }} 1066w,{%- endif -%}\n                                {{
+    product.media[1] | image_url }} {{ product.media[1].width }}w\n                            \"\n
+    \                           width=\"{{ product.media[1].width }}\" height=\"{{
+    product.media[1].height }}\">\n                    {% else %}\n                        <img
+    class=\"product-item__secondary-image\" loading=\"lazy\" data-media-id=\"{{ product.featured_media.id
+    }}\" \n                            sizes= \"{{ sizes }}\"\n                            alt=\"{{
+    product.title }}\" \n                            src=\"{{ product.featured_image
+    | image_url: width: product.featured_media.width }}\" \n                            srcset=\"\n
+    \                               {%- if product.featured_media.width >= 165 -%}{{
+    product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}\n                                {%-
+    if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url:
+    width: 360 }} 360w,{%- endif -%}\n                                {%- if product.featured_media.width
+    >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif
+    -%}\n                                {%- if product.featured_media.width >= 720
+    -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}\n                                {%-
+    if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url:
+    width: 940 }} 940w,{%- endif -%}\n                                {%- if product.featured_media.width
+    >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif
+    -%}\n                                {{ product.featured_media | image_url }}
+    {{ product.featured_media.width }}w\n                            \"\n                            width=\"{{
+    product.featured_media.width }}\" height=\"{{ product.featured_media.height }}\">\n
+    \                   {% endif %}\n                </a>\n                <div class=\"service-product-ctn\">\n
+    \                   <div class=\"service-product\">\n                        <div
+    title=\"\" class=\"btn-service btn-quickview\">\n                            <div
+    class=\"product-item__quick-form\">\n                                <button is=\"toggle-button\"
+    loader=\"\" ap-controlsaria=\"product-{{ section.id }}-{{ product.id }}-drawer\"
+    ap-expanded-aria=\"false\" class=\"button button--outline button--text button--full\">\n
+    \                                   <span class=\"ap-text-loaderbutton\">\n                                        {%
+    render 'icon-quickview' %}\n                                        <span class=\"text-name
+    name-btn-product\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <span class=\"ap-loader-loaderbutton\" hidden=\"\">\n
+    \                                   <div class=\"spinner\">\n                                        <svg
+    focusable=\"false\" width=\"24\" height=\"24\" class=\"icon icon--spinner\" viewBox=\"25
+    25 50 50\">\n                                        <circle cx=\"50\" cy=\"50\"
+    r=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"></circle>\n
+    \                                       </svg>\n                                    </div>\n
+    \                                   </span>\n                                </button>\n
+    \                               <button is=\"toggle-button\" ap-controlsaria=\"product-{{
+    section.id }}-{{ product.id }}-drawer\" ap-expanded-aria=\"false\" class=\"product-item__quick-buy-button
+    hd-no-touch hd-phone\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       {% render 'icon-quickview' %}\n                                        <span
+    class=\"text-name\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <svg focusable=\"false\" width=\"22\" height=\"21\"
+    class=\"icon icon--quick-buy   \" fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                               </button>\n                \n                                <button
+    is=\"toggle-button\" ap-controlsaria=\"product-{{ section.id }}-{{ product.id
+    }}-popover\" ap-expanded-aria=\"false\" class=\"product-item__quick-buy-button
+    hd-tablet-and-up\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       {% render 'icon-quickview' %}\n                                        <span
+    class=\"text-name\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <svg focusable=\"false\" width=\"22\" height=\"21\"
+    class=\"icon icon--quick-buy   \" fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                               </button>\n                            </div>\n
+    \                           \n                            <ap-popoverquickbuy
+    id=\"product-{{ section.id }}-{{ product.id }}-popover\" href=\"/products/{{ product.handle
+    }}?view=ap-popoverquickbuy\" class=\"popover popover--quick-buy hd-tablet-and-up\"></ap-popoverquickbuy>\n
+    \                           <ap-quickbuy id=\"product-{{ section.id }}-{{ product.id
+    }}-drawer\" href=\"/products/{{ product.handle }}?view=quick-buy-drawer\" class=\"drawer
+    drawer--large drawer--quick-buy hd-phone\"></ap-quickbuy>\n                        </div>\n
+    \   \n                        <div title=\"\">\n                            <ap-wishlistbutton
+    \ class=\"btn-service btn-wishlist {% if template =='page.wishlist' %}deletewishlist{%
+    endif %}\" data-action=\"add\" data-id=\"{{ product.id }}\" alt=\"Add to wishlist\">\n
+    \                               {% render 'icon-wishlist' %}\n                                <span
+    class=\"text-name name-btn-product\">\n                                    Añadir
+    a mi lista de deseos   \n                                </span>\n                            </ap-wishlistbutton>\n
+    \                       </div>\n    \n                        <div title=\"\">\n
+    \                           <ap-comparebutton class=\"btn-service btn-compare
+    {% if template =='page.compare' %}deletecompare{% endif %}\"\n                                data-action=\"add\"
+    data-id=\"{{ product.id }}\" alt=\"Add to comparebutton\">\n                                {%
+    render 'icon-compare' %}\n                                <span class=\"text-name
+    name-btn-product\">\n                                    Comparar\n                                </span>\n
+    \                           </ap-comparebutton>\n                        </div>\n
+    \                   \n                    </div>\n                </div>\n\n\n
+    \           </div>\n        \n            <div class=\"product-item__info  \">\n
+    \               <div class=\"product-item-meta\">\n\n                    <div
+    class=\"type-product d-none\">{{ product.type }}</div>\n                    \n
+    \                   <a href=\"{{ product.url }}\" class=\"product-item-meta__title\">{{
+    product.title }}</a>\n                \n                    <div class=\"product-price\">\n\n
+    \                       <!-- Start of Judge.me code -->\n                        <div
+    class='jdgm-widget jdgm-preview-badge'>\n                            {{ product.metafields.judgeme.badge
+    }}\n                        </div>\n                        <!-- End of Judge.me
+    code -->\n    \n                        {% render 'price-product-grid', product:
+    product %}\n\n                        <div class=\"service-add-cart\">\n                            {%-
+    if settings.show_variants == true -%}\n                            <div class=\"product-item-meta__swatch-list
+    color-swatch-list color-swatch-list--mini d-none\">\n                                {%
+    liquid\n                                    assign options_color = ''\n                                    assign
+    option_position = 0\n                                    assign is_checked = true\n
+    \                                   for option in product.options\n                                        assign
+    optionName = option.name | handleize | downcase\n                                        if
+    optionName contains 'colo'\n                                            assign
+    options_color = option\n                                            assign option_position
+    = 'option' | append: forloop.index\n                                        endif\n
+    \                                   endfor\n                                %}\n
+    \               \n                                <div class=\"{%- if settings.show_variants
+    -%}{{ 'variants-product-item' | prepend: ' ' }}{% else %}{{ 'd-none' | prepend:
+    ' ' }}{% endif %} input\n                                {%- if settings.variants_color
+    -%}{{ 'show-variants-color' | prepend: ' ' }}{% endif %}\n                                {%-
+    if settings.variants_size -%}{{ 'show-variants-size' | prepend: ' ' }}{% endif
+    %}\n                                \" >\n                                    {%-
+    for option in product.options_with_values -%}\n                                    {%-
+    assign checked = 1 -%}\n                                    {% assign isColor
+    = false %}\n                                    {% assign optionName = option.name
+    | handleize %}\n                                    {% if optionName contains
+    'color' %}\n                                    {% assign isColor = true %}\n
+    \                                   {% endif %}\n                                    {%
+    assign option_index = forloop.index %}\n                                \n                                    <div
+    class=\"variants-item variants-item-{{ option.name | downcase | replace: \" \",
+    \" -\"}}\">\n                                        <legend class=\"form__label\">{{
+    option.name }}</legend>\n                                        {%- for value
+    in option.values -%}\n                                \n                                            {%
+    for variant in product.variants %}\n                                                {%
+    assign vOption = 'option' | append: option_index %}\n                                                {%
+    if value == variant[vOption] %}\n                                                    {%
+    assign currenVariant = variant %}\n                                                    {%
+    break %}\n                                                {% endif %}\n                                            {%
+    endfor %}\n        \n                                            {% liquid assign
+    hasImage = true %}\n                            \n                                                {%-
+    assign active = 'active' | prepend: \" \" -%}\n                                                <div
+    class=\"variant variant-{{ option.name | downcase | replace: \" \", \" -\"}} variant-{{
+    value | downcase | replace: \" \", \"-\" }} {% if checked == 1 %}active{% endif
+    %}\">\n                                                    <input type=\"radio\"
+    class=\"{{ option.name }}-{{ product.id }}\"\n                                                        id=\"{{
+    option.name }}-{{ forloop.index0 }}-{{ product.id }}\"\n                                                        name=\"{{
+    option.name }}\" value=\"{{ value | escape }}\" {%- if checked==1\n                                                        -%}checked=\"checked\"
+    {%- endif -%}>\n                                                    <label for=\"{{
+    option.name }}-{{ forloop.index0 }}-{{ product.id }}\" {%- if\n                                                        bg_color==''
+    -%} class=\"label-image\" {%- endif -%}>\n        \n                                                        {{
+    value }}   \n                    \n                                                    </label>\n
+    \                                               </div>\n                                                {%-
+    assign checked = 0 -%}\n        \n                                        {%-
+    endfor -%}\n                                    </div>\n                                    {%-
+    endfor -%}\n                                </div>\n        \n                            </div>\n
+    \                           {%- endif -%}\n                            {% if customer
+    %}\n                            <div title=\"Add to cart\" class=\"btn-service
+    btn-addcart\">\n                            {%- if product.selected_or_first_available_variant.available
+    -%}\n                                <form method=\"post\" action=\"/cart/add\"
+    id=\"product_form_{{ section.id }}__{{ product.id }}_0\" accept-charset=\"UTF-8\"
+    class=\"product-item__quick-form\" enctype=\"multipart/form-data\" is=\"ap-productform\">\n
+    \                                   <input type=\"hidden\" name=\"form_type\"
+    value=\"product\">\n                                    <input type=\"hidden\"
+    name=\"utf8\" value=\"✓\">\n                                    <input type=\"hidden\"
+    name=\"quantity\" value=\"1\">\n                                    <input type=\"hidden\"
+    name=\"id\" value=\"{{ product.variants[0]['id'] }}\">\n                                    {%
+    comment %}\n                                    <button is=\"loader-button\" type=\"submit\"
+    class=\"button button--outline button--text button--full\">\n                                    <span
+    class=\"ap-text-loaderbutton\">\n                                        <span
+    class=\"text-name\">\n                                            Añadir al carrito\n
+    \                                       </span>\n                                        {%
+    render 'icon-addcart' %}\n                                    </span>\n                                    <span
+    class=\"ap-loader-loaderbutton\" hidden=\"\">\n                                        <div
+    class=\"spinner\">\n                                        <svg focusable=\"false\"
+    width=\"24\" height=\"24\" class=\"icon icon--spinner\" viewBox=\"25 25 50 50\">\n
+    \                                           <circle cx=\"50\" cy=\"50\" r=\"20\"
+    fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"></circle>\n                                        </svg>\n
+    \                                       </div>\n                                    </span>\n
+    \                                   </button>\n                                    {%
+    endcomment %}\n                                    <button type=\"submit\" class=\"product-item__quick-buy-button
+    hd-no-touch\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       <span class=\"text-name\">\n                                            Añadir
+    al carrito\n                                        </span>\n                                        {%
+    render 'icon-addcart' %}\n                                    </span>\n                                    <svg
+    focusable=\"false\" width=\"22\" height=\"21\" class=\"icon icon--quick-buy   \"
+    fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                                   </button>\n                                </form>\n
+    \                           {%- else -%}\n                                <div
+    class=\"sold-out\">\n                                    {% render 'icon-addcart'
+    %}\n                                    <span class=\"text-name\">\n                                        Agotado\n
+    \                                   </span>\n                                </div>\n
+    \                           {%- endif -%}\n                            </div>\n
+    \                       {% endif %}\n                        </div>\n\n                    </div>\n
+    \                   \n                </div>\n            </div>\n        </div>\n
+    \   </div>\n</div>"
+  to: "{% if section and section.location != blank %}{% assign show_secondary_image
+    = true %}\n<div class=\"slider__item \" reveal=\"\" style=\"opacity: 1;\" id=\"product-item-{{
+    product.id }}\">\n    <div class=\"h-100\" style=\"background-color: var(--background-product);\">\n
+    \       <div class=\"product-item-wrapper\">\n            <span class=\"product-line\"></span>\n
+    \       \n            <div class=\"product-item__image-wrapper product-item__image-wrapper--multiple\">\n
+    \               <div class=\"product-item__label-list label-list\">\n                    {%
+    if product.available == false %}\n                        <span class=\"label
+    label--subdued\">{{ 'products.product.sold_out' | t }}</span>\n                    {%
+    endif %}\n                    {% if product.compare_at_price > product.price and
+    product.available %}\n                        {% if settings.sale_label_enable
+    %}\n                            {%- assign sale_minus = product.compare_at_price_min
+    | minus: product.price_min -%}\n                            {%- assign sale_percent
+    = sale_minus | times:100 | divided_by: product.compare_at_price_min -%}\n                            \n
+    \                           <div class=\"label label--highlight\" aria-hidden=\"true\">\n
+    \                               {% if settings.sale_label_layout == 'text' %}\n
+    \                                   {{ settings.sale_label_text | default:'sale'
+    }}\n                                {% else %}\n                                 Oferta
+    <!-- {{ sale_percent | append: '%'}} off -->\n                                {%-
+    endif -%}\n                            </div>\n                        {%- endif
+    -%}\n                    {% endif %}\n                </div>\n                {%-
+    capture sizes -%}(min-width: {{ settings.page_width }}px) {{ settings.page_width
+    | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2),
+    calc((100vw - 50px) / 2){%- endcapture -%}\n                <a href=\"{{ product.url
+    }}\" class=\"product-item__aspect-ratio aspect-ratio \" style=\"padding-bottom:
+    100.0%; --aspect-ratio: {{ settings.size_img }}\">\n                    <img class=\"product-item__primary-image\"
+    loading=\"eager\" data-media-id=\"{{ product.featured_media.id }}\" \n                        sizes=
+    \"{{ sizes }}\"\n                        alt=\"{{ product.title }}\" \n                        src=\"{{
+    product.featured_image | image_url: width: product.featured_media.width }}\" \n
+    \                       srcset=\"\n                            {%- if product.featured_media.width
+    >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif
+    -%}\n                            {%- if product.featured_media.width >= 360 -%}{{
+    product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}\n                            {%-
+    if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url:
+    width: 533 }} 533w,{%- endif -%}\n                            {%- if product.featured_media.width
+    >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif
+    -%}\n                            {%- if product.featured_media.width >= 940 -%}{{
+    product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}\n                            {%-
+    if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url:
+    width: 1066 }} 1066w,{%- endif -%}\n                            {{ product.featured_media
+    | image_url }} {{ product.featured_media.width }}w\n                        \"\n
+    \                       width=\"{{ product.featured_media.width }}\" height=\"{{
+    product.featured_media.height }}\">\n                    \n                    {%
+    if product.media[1] != nil and show_secondary_image %}\n                        <img
+    class=\"product-item__secondary-image\" loading=\"lazy\" sizes=\"(max-width: 740px)
+    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)\" \n                            alt=\"{{
+    product.title }}\" \n                            src=\"{{ product.media[1] | image_url:
+    width: 800 }}\" \n                            srcset=\"\n                                {%-
+    if product.media[1].width >= 165 -%}{{ product.media[1] | image_url: width: 165
+    }} 165w,{%- endif -%}\n                                {%- if product.media[1].width
+    >= 360 -%}{{ product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}\n
+    \                               {%- if product.media[1].width >= 533 -%}{{ product.media[1]
+    | image_url: width: 533 }} 533w,{%- endif -%}\n                                {%-
+    if product.media[1].width >= 720 -%}{{ product.media[1] | image_url: width: 720
+    }} 720w,{%- endif -%}\n                                {%- if product.media[1].width
+    >= 940 -%}{{ product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}\n
+    \                               {%- if product.media[1].width >= 1066 -%}{{ product.media[1]
+    | image_url: width: 1066 }} 1066w,{%- endif -%}\n                                {{
+    product.media[1] | image_url }} {{ product.media[1].width }}w\n                            \"\n
+    \                           width=\"{{ product.media[1].width }}\" height=\"{{
+    product.media[1].height }}\">\n                    {% else %}\n                        <img
+    class=\"product-item__secondary-image\" loading=\"lazy\" data-media-id=\"{{ product.featured_media.id
+    }}\" \n                            sizes= \"{{ sizes }}\"\n                            alt=\"{{
+    product.title }}\" \n                            src=\"{{ product.featured_image
+    | image_url: width: product.featured_media.width }}\" \n                            srcset=\"\n
+    \                               {%- if product.featured_media.width >= 165 -%}{{
+    product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}\n                                {%-
+    if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url:
+    width: 360 }} 360w,{%- endif -%}\n                                {%- if product.featured_media.width
+    >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif
+    -%}\n                                {%- if product.featured_media.width >= 720
+    -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}\n                                {%-
+    if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url:
+    width: 940 }} 940w,{%- endif -%}\n                                {%- if product.featured_media.width
+    >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif
+    -%}\n                                {{ product.featured_media | image_url }}
+    {{ product.featured_media.width }}w\n                            \"\n                            width=\"{{
+    product.featured_media.width }}\" height=\"{{ product.featured_media.height }}\">\n
+    \                   {% endif %}\n                </a>\n                <div class=\"service-product-ctn\">\n
+    \                   <div class=\"service-product\">\n                        <div
+    title=\"\" class=\"btn-service btn-quickview\">\n                            <div
+    class=\"product-item__quick-form\">\n                                <button is=\"toggle-button\"
+    loader=\"\" ap-controlsaria=\"product-{{ section.id }}-{{ product.id }}-drawer\"
+    ap-expanded-aria=\"false\" class=\"button button--outline button--text button--full\">\n
+    \                                   <span class=\"ap-text-loaderbutton\">\n                                        {%
+    render 'icon-quickview' %}\n                                        <span class=\"text-name
+    name-btn-product\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <span class=\"ap-loader-loaderbutton\" hidden=\"\">\n
+    \                                   <div class=\"spinner\">\n                                        <svg
+    focusable=\"false\" width=\"24\" height=\"24\" class=\"icon icon--spinner\" viewBox=\"25
+    25 50 50\">\n                                        <circle cx=\"50\" cy=\"50\"
+    r=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"></circle>\n
+    \                                       </svg>\n                                    </div>\n
+    \                                   </span>\n                                </button>\n
+    \                               <button is=\"toggle-button\" ap-controlsaria=\"product-{{
+    section.id }}-{{ product.id }}-drawer\" ap-expanded-aria=\"false\" class=\"product-item__quick-buy-button
+    hd-no-touch hd-phone\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       {% render 'icon-quickview' %}\n                                        <span
+    class=\"text-name\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <svg focusable=\"false\" width=\"22\" height=\"21\"
+    class=\"icon icon--quick-buy   \" fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                               </button>\n                \n                                <button
+    is=\"toggle-button\" ap-controlsaria=\"product-{{ section.id }}-{{ product.id
+    }}-popover\" ap-expanded-aria=\"false\" class=\"product-item__quick-buy-button
+    hd-tablet-and-up\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       {% render 'icon-quickview' %}\n                                        <span
+    class=\"text-name\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <svg focusable=\"false\" width=\"22\" height=\"21\"
+    class=\"icon icon--quick-buy   \" fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                               </button>\n                            </div>\n
+    \                           \n                            <ap-popoverquickbuy
+    id=\"product-{{ section.id }}-{{ product.id }}-popover\" href=\"/products/{{ product.handle
+    }}?view=ap-popoverquickbuy\" class=\"popover popover--quick-buy hd-tablet-and-up\"></ap-popoverquickbuy>\n
+    \                           <ap-quickbuy id=\"product-{{ section.id }}-{{ product.id
+    }}-drawer\" href=\"/products/{{ product.handle }}?view=quick-buy-drawer\" class=\"drawer
+    drawer--large drawer--quick-buy hd-phone\"></ap-quickbuy>\n                        </div>\n
+    \   \n                        <div title=\"\">\n                            <ap-wishlistbutton
+    \ class=\"btn-service btn-wishlist {% if template =='page.wishlist' %}deletewishlist{%
+    endif %}\" data-action=\"add\" data-id=\"{{ product.id }}\" alt=\"Add to wishlist\">\n
+    \                               {% render 'icon-wishlist' %}\n                                <span
+    class=\"text-name name-btn-product\">\n                                    Añadir
+    a mi lista de deseos   \n                                </span>\n                            </ap-wishlistbutton>\n
+    \                       </div>\n    \n                        <div title=\"\">\n
+    \                           <ap-comparebutton class=\"btn-service btn-compare
+    {% if template =='page.compare' %}deletecompare{% endif %}\"\n                                data-action=\"add\"
+    data-id=\"{{ product.id }}\" alt=\"Add to comparebutton\">\n                                {%
+    render 'icon-compare' %}\n                                <span class=\"text-name
+    name-btn-product\">\n                                    Comparar\n                                </span>\n
+    \                           </ap-comparebutton>\n                        </div>\n
+    \                   \n                    </div>\n                </div>\n\n\n
+    \           </div>\n        \n            <div class=\"product-item__info  \">\n
+    \               <div class=\"product-item-meta\">\n\n                    <div
+    class=\"type-product d-none\">{{ product.type }}</div>\n                    \n
+    \                   <a href=\"{{ product.url }}\" class=\"product-item-meta__title\">{{
+    product.title }}</a>\n                \n                    <div class=\"product-price\">\n\n
+    \                       <!-- Start of Judge.me code -->\n                        <div
+    class='jdgm-widget jdgm-preview-badge'>\n                            {{ product.metafields.judgeme.badge
+    }}\n                        </div>\n                        <!-- End of Judge.me
+    code -->\n    \n                        {% render 'price-product-grid', product:
+    product %}\n\n                        <div class=\"service-add-cart\">\n                            {%-
+    if settings.show_variants == true -%}\n                            <div class=\"product-item-meta__swatch-list
+    color-swatch-list color-swatch-list--mini d-none\">\n                                {%
+    liquid\n                                    assign options_color = ''\n                                    assign
+    option_position = 0\n                                    assign is_checked = true\n
+    \                                   for option in product.options\n                                        assign
+    optionName = option.name | handleize | downcase\n                                        if
+    optionName contains 'colo'\n                                            assign
+    options_color = option\n                                            assign option_position
+    = 'option' | append: forloop.index\n                                        endif\n
+    \                                   endfor\n                                %}\n
+    \               \n                                <div class=\"{%- if settings.show_variants
+    -%}{{ 'variants-product-item' | prepend: ' ' }}{% else %}{{ 'd-none' | prepend:
+    ' ' }}{% endif %} input\n                                {%- if settings.variants_color
+    -%}{{ 'show-variants-color' | prepend: ' ' }}{% endif %}\n                                {%-
+    if settings.variants_size -%}{{ 'show-variants-size' | prepend: ' ' }}{% endif
+    %}\n                                \" >\n                                    {%-
+    for option in product.options_with_values -%}\n                                    {%-
+    assign checked = 1 -%}\n                                    {% assign isColor
+    = false %}\n                                    {% assign optionName = option.name
+    | handleize %}\n                                    {% if optionName contains
+    'color' %}\n                                    {% assign isColor = true %}\n
+    \                                   {% endif %}\n                                    {%
+    assign option_index = forloop.index %}\n                                \n                                    <div
+    class=\"variants-item variants-item-{{ option.name | downcase | replace: \" \",
+    \" -\"}}\">\n                                        <legend class=\"form__label\">{{
+    option.name }}</legend>\n                                        {%- for value
+    in option.values -%}\n                                \n                                            {%
+    for variant in product.variants %}\n                                                {%
+    assign vOption = 'option' | append: option_index %}\n                                                {%
+    if value == variant[vOption] %}\n                                                    {%
+    assign currenVariant = variant %}\n                                                    {%
+    break %}\n                                                {% endif %}\n                                            {%
+    endfor %}\n        \n                                            {% liquid assign
+    hasImage = true %}\n                            \n                                                {%-
+    assign active = 'active' | prepend: \" \" -%}\n                                                <div
+    class=\"variant variant-{{ option.name | downcase | replace: \" \", \" -\"}} variant-{{
+    value | downcase | replace: \" \", \"-\" }} {% if checked == 1 %}active{% endif
+    %}\">\n                                                    <input type=\"radio\"
+    class=\"{{ option.name }}-{{ product.id }}\"\n                                                        id=\"{{
+    option.name }}-{{ forloop.index0 }}-{{ product.id }}\"\n                                                        name=\"{{
+    option.name }}\" value=\"{{ value | escape }}\" {%- if checked==1\n                                                        -%}checked=\"checked\"
+    {%- endif -%}>\n                                                    <label for=\"{{
+    option.name }}-{{ forloop.index0 }}-{{ product.id }}\" {%- if\n                                                        bg_color==''
+    -%} class=\"label-image\" {%- endif -%}>\n        \n                                                        {{
+    value }}   \n                    \n                                                    </label>\n
+    \                                               </div>\n                                                {%-
+    assign checked = 0 -%}\n        \n                                        {%-
+    endfor -%}\n                                    </div>\n                                    {%-
+    endfor -%}\n                                </div>\n        \n                            </div>\n
+    \                           {%- endif -%}\n                            {% if customer
+    %}\n                            <div title=\"Add to cart\" class=\"btn-service
+    btn-addcart\">\n                            {%- if product.selected_or_first_available_variant.available
+    -%}\n                                <form method=\"post\" action=\"/cart/add\"
+    id=\"product_form_{{ section.id }}__{{ product.id }}_0\" accept-charset=\"UTF-8\"
+    class=\"product-item__quick-form\" enctype=\"multipart/form-data\" is=\"ap-productform\">\n
+    \                                   <input type=\"hidden\" name=\"form_type\"
+    value=\"product\">\n                                    <input type=\"hidden\"
+    name=\"utf8\" value=\"✓\">\n                                    <input type=\"hidden\"
+    name=\"quantity\" value=\"1\">\n                                    <input type=\"hidden\"
+    name=\"id\" value=\"{{ product.variants[0]['id'] }}\">\n                                    {%
+    comment %}\n                                    <button is=\"loader-button\" type=\"submit\"
+    class=\"button button--outline button--text button--full\">\n                                    <span
+    class=\"ap-text-loaderbutton\">\n                                        <span
+    class=\"text-name\">\n                                            Añadir al carrito\n
+    \                                       </span>\n                                        {%
+    render 'icon-addcart' %}\n                                    </span>\n                                    <span
+    class=\"ap-loader-loaderbutton\" hidden=\"\">\n                                        <div
+    class=\"spinner\">\n                                        <svg focusable=\"false\"
+    width=\"24\" height=\"24\" class=\"icon icon--spinner\" viewBox=\"25 25 50 50\">\n
+    \                                           <circle cx=\"50\" cy=\"50\" r=\"20\"
+    fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"></circle>\n                                        </svg>\n
+    \                                       </div>\n                                    </span>\n
+    \                                   </button>\n                                    {%
+    endcomment %}\n                                    <button type=\"submit\" class=\"product-item__quick-buy-button
+    hd-no-touch\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       <span class=\"text-name\">\n                                            Añadir
+    al carrito\n                                        </span>\n                                        {%
+    render 'icon-addcart' %}\n                                    </span>\n                                    <svg
+    focusable=\"false\" width=\"22\" height=\"21\" class=\"icon icon--quick-buy   \"
+    fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                                   </button>\n                                </form>\n
+    \                           {%- else -%}\n                                <div
+    class=\"sold-out\">\n                                    {% render 'icon-addcart'
+    %}\n                                    <span class=\"text-name\">\n                                        Agotado\n
+    \                                   </span>\n                                </div>\n
+    \                           {%- endif -%}\n                            </div>\n
+    \                       {% endif %}\n                        </div>\n\n                    </div>\n
+    \                   \n                </div>\n            </div>\n        </div>\n
+    \   </div>\n</div>{% else %}{% assign show_secondary_image = true %}\n<div class=\"slider__item
+    \" reveal=\"\" style=\"opacity: 1;\" id=\"product-item-{{ product.id }}\">\n    <div
+    class=\"h-100\" style=\"background-color: var(--background-product);\">\n        <div
+    class=\"product-item-wrapper\">\n            <span class=\"product-line\"></span>\n
+    \       \n            <div class=\"product-item__image-wrapper product-item__image-wrapper--multiple\">\n
+    \               <div class=\"product-item__label-list label-list\">\n                    {%
+    if product.available == false %}\n                        <span class=\"label
+    label--subdued\">{{ 'products.product.sold_out' | t }}</span>\n                    {%
+    endif %}\n                    {% if product.compare_at_price > product.price and
+    product.available %}\n                        {% if settings.sale_label_enable
+    %}\n                            {%- assign sale_minus = product.compare_at_price_min
+    | minus: product.price_min -%}\n                            {%- assign sale_percent
+    = sale_minus | times:100 | divided_by: product.compare_at_price_min -%}\n                            \n
+    \                           <div class=\"label label--highlight\" aria-hidden=\"true\">\n
+    \                               {% if settings.sale_label_layout == 'text' %}\n
+    \                                   {{ settings.sale_label_text | default:'sale'
+    }}\n                                {% else %}\n                                 Oferta
+    <!-- {{ sale_percent | append: '%'}} off -->\n                                {%-
+    endif -%}\n                            </div>\n                        {%- endif
+    -%}\n                    {% endif %}\n                </div>\n                {%-
+    capture sizes -%}(min-width: {{ settings.page_width }}px) {{ settings.page_width
+    | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2),
+    calc((100vw - 50px) / 2){%- endcapture -%}\n                <a href=\"{{ product.url
+    }}\" class=\"product-item__aspect-ratio aspect-ratio \" style=\"padding-bottom:
+    100.0%; --aspect-ratio: {{ settings.size_img }}\">\n                    <img class=\"product-item__primary-image\"
+    loading=\"eager\" data-media-id=\"{{ product.featured_media.id }}\" \n                        sizes=
+    \"{{ sizes }}\"\n                        alt=\"{{ product.title }}\" \n                        src=\"{{
+    product.featured_image | image_url: width: product.featured_media.width }}\" \n
+    \                       srcset=\"\n                            {%- if product.featured_media.width
+    >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif
+    -%}\n                            {%- if product.featured_media.width >= 360 -%}{{
+    product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}\n                            {%-
+    if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url:
+    width: 533 }} 533w,{%- endif -%}\n                            {%- if product.featured_media.width
+    >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif
+    -%}\n                            {%- if product.featured_media.width >= 940 -%}{{
+    product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}\n                            {%-
+    if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url:
+    width: 1066 }} 1066w,{%- endif -%}\n                            {{ product.featured_media
+    | image_url }} {{ product.featured_media.width }}w\n                        \"\n
+    \                       width=\"{{ product.featured_media.width }}\" height=\"{{
+    product.featured_media.height }}\">\n                    \n                    {%
+    if product.media[1] != nil and show_secondary_image %}\n                        <img
+    class=\"product-item__secondary-image\" loading=\"lazy\" sizes=\"(max-width: 740px)
+    52vw, calc(min(100vw - 80px, 1520px) / 4 - 18px)\" \n                            alt=\"{{
+    product.title }}\" \n                            src=\"{{ product.media[1] | image_url:
+    width: 800 }}\" \n                            srcset=\"\n                                {%-
+    if product.media[1].width >= 165 -%}{{ product.media[1] | image_url: width: 165
+    }} 165w,{%- endif -%}\n                                {%- if product.media[1].width
+    >= 360 -%}{{ product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}\n
+    \                               {%- if product.media[1].width >= 533 -%}{{ product.media[1]
+    | image_url: width: 533 }} 533w,{%- endif -%}\n                                {%-
+    if product.media[1].width >= 720 -%}{{ product.media[1] | image_url: width: 720
+    }} 720w,{%- endif -%}\n                                {%- if product.media[1].width
+    >= 940 -%}{{ product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}\n
+    \                               {%- if product.media[1].width >= 1066 -%}{{ product.media[1]
+    | image_url: width: 1066 }} 1066w,{%- endif -%}\n                                {{
+    product.media[1] | image_url }} {{ product.media[1].width }}w\n                            \"\n
+    \                           width=\"{{ product.media[1].width }}\" height=\"{{
+    product.media[1].height }}\">\n                    {% else %}\n                        <img
+    class=\"product-item__secondary-image\" loading=\"lazy\" data-media-id=\"{{ product.featured_media.id
+    }}\" \n                            sizes= \"{{ sizes }}\"\n                            alt=\"{{
+    product.title }}\" \n                            src=\"{{ product.featured_image
+    | image_url: width: product.featured_media.width }}\" \n                            srcset=\"\n
+    \                               {%- if product.featured_media.width >= 165 -%}{{
+    product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}\n                                {%-
+    if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url:
+    width: 360 }} 360w,{%- endif -%}\n                                {%- if product.featured_media.width
+    >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif
+    -%}\n                                {%- if product.featured_media.width >= 720
+    -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}\n                                {%-
+    if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url:
+    width: 940 }} 940w,{%- endif -%}\n                                {%- if product.featured_media.width
+    >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif
+    -%}\n                                {{ product.featured_media | image_url }}
+    {{ product.featured_media.width }}w\n                            \"\n                            width=\"{{
+    product.featured_media.width }}\" height=\"{{ product.featured_media.height }}\">\n
+    \                   {% endif %}\n                </a>\n                <div class=\"service-product-ctn\">\n
+    \                   <div class=\"service-product\">\n                        <div
+    title=\"\" class=\"btn-service btn-quickview\">\n                            <div
+    class=\"product-item__quick-form\">\n                                <button is=\"toggle-button\"
+    loader=\"\" ap-controlsaria=\"product-{{ section.id }}-{{ product.id }}-drawer\"
+    ap-expanded-aria=\"false\" class=\"button button--outline button--text button--full\">\n
+    \                                   <span class=\"ap-text-loaderbutton\">\n                                        {%
+    render 'icon-quickview' %}\n                                        <span class=\"text-name
+    name-btn-product\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <span class=\"ap-loader-loaderbutton\" hidden=\"\">\n
+    \                                   <div class=\"spinner\">\n                                        <svg
+    focusable=\"false\" width=\"24\" height=\"24\" class=\"icon icon--spinner\" viewBox=\"25
+    25 50 50\">\n                                        <circle cx=\"50\" cy=\"50\"
+    r=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"></circle>\n
+    \                                       </svg>\n                                    </div>\n
+    \                                   </span>\n                                </button>\n
+    \                               <button is=\"toggle-button\" ap-controlsaria=\"product-{{
+    section.id }}-{{ product.id }}-drawer\" ap-expanded-aria=\"false\" class=\"product-item__quick-buy-button
+    hd-no-touch hd-phone\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       {% render 'icon-quickview' %}\n                                        <span
+    class=\"text-name\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <svg focusable=\"false\" width=\"22\" height=\"21\"
+    class=\"icon icon--quick-buy   \" fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                               </button>\n                \n                                <button
+    is=\"toggle-button\" ap-controlsaria=\"product-{{ section.id }}-{{ product.id
+    }}-popover\" ap-expanded-aria=\"false\" class=\"product-item__quick-buy-button
+    hd-tablet-and-up\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       {% render 'icon-quickview' %}\n                                        <span
+    class=\"text-name\">\n                                            Vista Rápida\n
+    \                                       </span>\n                                    </span>\n
+    \                                   <svg focusable=\"false\" width=\"22\" height=\"21\"
+    class=\"icon icon--quick-buy   \" fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                               </button>\n                            </div>\n
+    \                           \n                            <ap-popoverquickbuy
+    id=\"product-{{ section.id }}-{{ product.id }}-popover\" href=\"/products/{{ product.handle
+    }}?view=ap-popoverquickbuy\" class=\"popover popover--quick-buy hd-tablet-and-up\"></ap-popoverquickbuy>\n
+    \                           <ap-quickbuy id=\"product-{{ section.id }}-{{ product.id
+    }}-drawer\" href=\"/products/{{ product.handle }}?view=quick-buy-drawer\" class=\"drawer
+    drawer--large drawer--quick-buy hd-phone\"></ap-quickbuy>\n                        </div>\n
+    \   \n                        <div title=\"\">\n                            <ap-wishlistbutton
+    \ class=\"btn-service btn-wishlist {% if template =='page.wishlist' %}deletewishlist{%
+    endif %}\" data-action=\"add\" data-id=\"{{ product.id }}\" alt=\"Add to wishlist\">\n
+    \                               {% render 'icon-wishlist' %}\n                                <span
+    class=\"text-name name-btn-product\">\n                                    Añadir
+    a mi lista de deseos   \n                                </span>\n                            </ap-wishlistbutton>\n
+    \                       </div>\n    \n                        <div title=\"\">\n
+    \                           <ap-comparebutton class=\"btn-service btn-compare
+    {% if template =='page.compare' %}deletecompare{% endif %}\"\n                                data-action=\"add\"
+    data-id=\"{{ product.id }}\" alt=\"Add to comparebutton\">\n                                {%
+    render 'icon-compare' %}\n                                <span class=\"text-name
+    name-btn-product\">\n                                    Comparar\n                                </span>\n
+    \                           </ap-comparebutton>\n                        </div>\n
+    \                   \n                    </div>\n                </div>\n\n\n
+    \           </div>\n        \n            <div class=\"product-item__info  \">\n
+    \               <div class=\"product-item-meta\">\n\n                    <div
+    class=\"type-product d-none\">{{ product.type }}</div>\n                    \n
+    \                   <a href=\"{{ product.url }}\" class=\"product-item-meta__title\">{{
+    product.title }}</a>\n                \n                    <div class=\"product-price\">\n\n
+    \                       <!-- Start of Judge.me code -->\n                        <div
+    class='jdgm-widget jdgm-preview-badge'>\n                            {{ product.metafields.judgeme.badge
+    }}\n                        </div>\n                        <!-- End of Judge.me
+    code -->\n    \n                        {% render 'price-product-grid', product:
+    product %}\n\n                        <div class=\"service-add-cart\">\n                            {%-
+    if settings.show_variants == true -%}\n                            <div class=\"product-item-meta__swatch-list
+    color-swatch-list color-swatch-list--mini d-none\">\n                                {%
+    liquid\n                                    assign options_color = ''\n                                    assign
+    option_position = 0\n                                    assign is_checked = true\n
+    \                                   for option in product.options\n                                        assign
+    optionName = option.name | handleize | downcase\n                                        if
+    optionName contains 'colo'\n                                            assign
+    options_color = option\n                                            assign option_position
+    = 'option' | append: forloop.index\n                                        endif\n
+    \                                   endfor\n                                %}\n
+    \               \n                                <div class=\"{%- if settings.show_variants
+    -%}{{ 'variants-product-item' | prepend: ' ' }}{% else %}{{ 'd-none' | prepend:
+    ' ' }}{% endif %} input\n                                {%- if settings.variants_color
+    -%}{{ 'show-variants-color' | prepend: ' ' }}{% endif %}\n                                {%-
+    if settings.variants_size -%}{{ 'show-variants-size' | prepend: ' ' }}{% endif
+    %}\n                                \" >\n                                    {%-
+    for option in product.options_with_values -%}\n                                    {%-
+    assign checked = 1 -%}\n                                    {% assign isColor
+    = false %}\n                                    {% assign optionName = option.name
+    | handleize %}\n                                    {% if optionName contains
+    'color' %}\n                                    {% assign isColor = true %}\n
+    \                                   {% endif %}\n                                    {%
+    assign option_index = forloop.index %}\n                                \n                                    <div
+    class=\"variants-item variants-item-{{ option.name | downcase | replace: \" \",
+    \" -\"}}\">\n                                        <legend class=\"form__label\">{{
+    option.name }}</legend>\n                                        {%- for value
+    in option.values -%}\n                                \n                                            {%
+    for variant in product.variants %}\n                                                {%
+    assign vOption = 'option' | append: option_index %}\n                                                {%
+    if value == variant[vOption] %}\n                                                    {%
+    assign currenVariant = variant %}\n                                                    {%
+    break %}\n                                                {% endif %}\n                                            {%
+    endfor %}\n        \n                                            {% liquid assign
+    hasImage = true %}\n                            \n                                                {%-
+    assign active = 'active' | prepend: \" \" -%}\n                                                <div
+    class=\"variant variant-{{ option.name | downcase | replace: \" \", \" -\"}} variant-{{
+    value | downcase | replace: \" \", \"-\" }} {% if checked == 1 %}active{% endif
+    %}\">\n                                                    <input type=\"radio\"
+    class=\"{{ option.name }}-{{ product.id }}\"\n                                                        id=\"{{
+    option.name }}-{{ forloop.index0 }}-{{ product.id }}\"\n                                                        name=\"{{
+    option.name }}\" value=\"{{ value | escape }}\" {%- if checked['1'] -%}checked=\"checked\"
+    {%- endif -%}>\n                                                    <label for=\"{{
+    option.name }}-{{ forloop.index0 }}-{{ product.id }}\" {%- if bg_color -%} class=\"label-image\"
+    {%- endif -%}>\n        \n                                                        {{
+    value }}   \n                    \n                                                    </label>\n
+    \                                               </div>\n                                                {%-
+    assign checked = 0 -%}\n        \n                                        {%-
+    endfor -%}\n                                    </div>\n                                    {%-
+    endfor -%}\n                                </div>\n        \n                            </div>\n
+    \                           {%- endif -%}\n                            {% if customer
+    %}\n                            <div title=\"Add to cart\" class=\"btn-service
+    btn-addcart\">\n                            {%- if product.selected_or_first_available_variant.available
+    -%}\n                                <form method=\"post\" action=\"/cart/add\"
+    id=\"product_form_{{ section.id }}__{{ product.id }}_0\" accept-charset=\"UTF-8\"
+    class=\"product-item__quick-form\" enctype=\"multipart/form-data\" is=\"ap-productform\">\n
+    \                                   <input type=\"hidden\" name=\"form_type\"
+    value=\"product\">\n                                    <input type=\"hidden\"
+    name=\"utf8\" value=\"✓\">\n                                    <input type=\"hidden\"
+    name=\"quantity\" value=\"1\">\n                                    <input type=\"hidden\"
+    name=\"id\" value=\"{{ product.variants[0]['id'] }}\">\n                                    {%
+    comment %}\n                                    <button is=\"loader-button\" type=\"submit\"
+    class=\"button button--outline button--text button--full\">\n                                    <span
+    class=\"ap-text-loaderbutton\">\n                                        <span
+    class=\"text-name\">\n                                            Añadir al carrito\n
+    \                                       </span>\n                                        {%
+    render 'icon-addcart' %}\n                                    </span>\n                                    <span
+    class=\"ap-loader-loaderbutton\" hidden=\"\">\n                                        <div
+    class=\"spinner\">\n                                        <svg focusable=\"false\"
+    width=\"24\" height=\"24\" class=\"icon icon--spinner\" viewBox=\"25 25 50 50\">\n
+    \                                           <circle cx=\"50\" cy=\"50\" r=\"20\"
+    fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"></circle>\n                                        </svg>\n
+    \                                       </div>\n                                    </span>\n
+    \                                   </button>\n                                    {%
+    endcomment %}\n                                    <button type=\"submit\" class=\"product-item__quick-buy-button
+    hd-no-touch\">\n                                    <span class=\"visually-hidden\">\n
+    \                                       <span class=\"text-name\">\n                                            Añadir
+    al carrito\n                                        </span>\n                                        {%
+    render 'icon-addcart' %}\n                                    </span>\n                                    <svg
+    focusable=\"false\" width=\"22\" height=\"21\" class=\"icon icon--quick-buy   \"
+    fill=\"none\" viewBox=\"0 0 22 21\">\n                                        <path
+    d=\"M12 4H3L2 20H18C17.7517 16.0273 17.375 10 17.375 10\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M7
+    7V7C7 8.65685 8.34315 10 10 10V10C11.6569 10 13 8.65685 13 7V7\" stroke=\"currentColor\"
+    stroke-width=\"2\"></path>\n                                        <path d=\"M18
+    0V8M14 4H22\" stroke=\"currentColor\" stroke-width=\"2\"></path>\n                                    </svg>\n
+    \                                   </button>\n                                </form>\n
+    \                           {%- else -%}\n                                <div
+    class=\"sold-out\">\n                                    {% render 'icon-addcart'
+    %}\n                                    <span class=\"text-name\">\n                                        Agotado\n
+    \                                   </span>\n                                </div>\n
+    \                           {%- endif -%}\n                            </div>\n
+    \                       {% endif %}\n                        </div>\n\n                    </div>\n
+    \                   \n                </div>\n            </div>\n        </div>\n
+    \   </div>\n</div>{% endif %}"
+  position: 0..42915
+{%- endcomment -%}
