@@ -499,6 +499,84 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
     </script>
+     <!-- Lluvia de Corazones de Colores - San Valentín -->
+<div id="heart-rain-container"></div>
+
+<style>
+  #heart-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999999;
+    overflow: hidden;
+  }
+  .falling-heart {
+    position: absolute;
+    top: -20px;
+    font-size: 24px;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(105vh) translateX(var(--drift)) rotate(var(--rotation));
+      opacity: 0.3;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const container = document.getElementById('heart-rain-container');
+    // Paleta de colores solicitada
+    const colors = [
+      '#FF0000', // Rojo
+      '#FFB6C1', // Rosa claro
+      '#C71585'  // Rosa oscuro
+    ];
+    
+    function createHeart() {
+      if (!container) return;
+      const heart = document.createElement('div');
+      heart.className = 'falling-heart';
+      heart.innerHTML = '♥';
+      
+      // Propiedades aleatorias
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = Math.floor(Math.random() * 20) + 12; // Entre 12px y 32px
+      const left = Math.random() * 100; // Posición horizontal inicial
+      const duration = Math.random() * 3 + 4; // Velocidad de caída (4s a 7s)
+      const drift = (Math.random() * 100 - 50) + 'px'; // Desplazamiento lateral
+      const rotation = (Math.random() * 360 - 180) + 'deg'; // Giro al caer
+
+      // Aplicar estilos y variables CSS
+      heart.style.color = color;
+      heart.style.fontSize = size + 'px';
+      heart.style.left = left + 'vw';
+      heart.style.animationDuration = duration + 's';
+      heart.style.setProperty('--drift', drift);
+      heart.style.setProperty('--rotation', rotation);
+      
+      container.appendChild(heart);
+      
+      // Eliminar el corazón una vez termine de caer para no saturar el navegador
+      setTimeout(() => {
+        heart.remove();
+      }, duration * 1000);
+    }
+    
+    // Generar un corazón cada 400ms para mantener un efecto sutil y elegante
+    setInterval(createHeart, 400);
+  })();
+</script>
 
   </body>
 </html>
