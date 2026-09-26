@@ -499,7 +499,7 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
     </script>
-     <!-- Lluvia de Corazones de Colores - San Valentín -->
+    <!-- Lluvia de Corazones de Colores - San Valentín -->
 <div id="heart-rain-container"></div>
 
 <style>
@@ -510,8 +510,8 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 999999;
     overflow: hidden;
+    /* z-index se asigna dinámicamente por JS según la página */
   }
   .falling-heart {
     position: absolute;
@@ -531,49 +531,92 @@
       opacity: 0.3;
     }
   }
+
+  /* ── Elevar imágenes de producto por encima de los corazones ── */
+  body.template-product .product__media-wrapper,
+  body.template-product .product-single__media,
+  body.template-product .product-media-container,
+  body.template-product .product__media-item,
+  body.template-product .product__media,
+  body.template-product .product-photo-container,
+  body.template-product .product-img-wrapper,
+  body.template-product [data-product-media-type-image],
+  body.template-product .product__thumbnail-item {
+    position: relative;
+    z-index: 10;   /* mayor que el z-index de los corazones en pág. de producto */
+  }
 </style>
 
 <script>
   (function() {
     const container = document.getElementById('heart-rain-container');
-    // Paleta de colores solicitada
-    const colors = [
-      '#FF0000', // Rojo
-      '#FFB6C1', // Rosa claro
-      '#C71585'  // Rosa oscuro
-    ];
-    
-    function createHeart() {
-      if (!container) return;
-      const heart = document.createElement('div');
-      heart.className = 'falling-heart';
-      heart.innerHTML = '♥';
-      
-      // Propiedades aleatorias
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      const size = Math.floor(Math.random() * 20) + 12; // Entre 12px y 32px
-      const left = Math.random() * 100; // Posición horizontal inicial
-      const duration = Math.random() * 3 + 4; // Velocidad de caída (4s a 7s)
-      const drift = (Math.random() * 100 - 50) + 'px'; // Desplazamiento lateral
-      const rotation = (Math.random() * 360 - 180) + 'deg'; // Giro al caer
+    if (!container) return;
 
-      // Aplicar estilos y variables CSS
-      heart.style.color = color;
-      heart.style.fontSize = size + 'px';
-      heart.style.left = left + 'vw';
-      heart.style.animationDuration = duration + 's';
-      heart.style.setProperty('--drift', drift);
-      heart.style.setProperty('--rotation', rotation);
-      
-      container.appendChild(heart);
-      
-      // Eliminar el corazón una vez termine de caer para no saturar el navegador
-      setTimeout(() => {
-        heart.remove();
-      }, duration * 1000);
+    /* ── Detectar si es página de producto ───────────────────────
+       Shopify asigna la clase "template-product" al <body>
+       en todas las páginas de producto.                          */
+    const isProductPage =
+      document.body.classList.contains('template-product') ||
+      window.location.pathname.includes('/products/');
+
+    /* ── Asignar z-index según el tipo de página ─────────────── */
+    container.style.zIndex = isProductPage ? '5' : '999999';
+
+    /* ── En página de producto: elevar imágenes por JS también ──
+       Cubre temas donde el CSS anterior no alcance por
+       especificidad o porque el tema ya tiene position/z-index   */
+    if (isProductPage) {
+      const imgSelectors = [
+        '.product__media-wrapper',
+        '.product-single__media',
+        '.product-media-container',
+        '.product__media-item',
+        '.product__media',
+        '.product-photo-container',
+        '.product-img-wrapper',
+        '[data-product-media-type-image]',
+        '.product__thumbnail-item',
+      ].join(',');
+
+      /* Espera a que el DOM esté listo para encontrar los elementos */
+      const elevate = () => {
+        document.querySelectorAll(imgSelectors).forEach(el => {
+          el.style.position = 'relative';
+          el.style.zIndex   = '10';
+        });
+      };
+
+      /* Intentar de inmediato y también después de que el DOM cargue */
+      elevate();
+      document.addEventListener('DOMContentLoaded', elevate);
     }
-    
-    // Generar un corazón cada 400ms para mantener un efecto sutil y elegante
+
+    /* ── Colores San Valentín ────────────────────────────────── */
+    const colors = ['#FF0000', '#FFB6C1', '#C71585'];
+
+    function createHeart() {
+      const heart       = document.createElement('div');
+      heart.className   = 'falling-heart';
+      heart.innerHTML   = '♥';
+
+      const color    = colors[Math.floor(Math.random() * colors.length)];
+      const size     = Math.floor(Math.random() * 20) + 12;
+      const left     = Math.random() * 100;
+      const duration = Math.random() * 3 + 4;
+      const drift    = (Math.random() * 100 - 50) + 'px';
+      const rotation = (Math.random() * 360 - 180) + 'deg';
+
+      heart.style.color             = color;
+      heart.style.fontSize          = size + 'px';
+      heart.style.left              = left + 'vw';
+      heart.style.animationDuration = duration + 's';
+      heart.style.setProperty('--drift',    drift);
+      heart.style.setProperty('--rotation', rotation);
+
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+
     setInterval(createHeart, 400);
   })();
 </script>
