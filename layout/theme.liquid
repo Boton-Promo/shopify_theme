@@ -498,334 +498,227 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
-    </script>
-    <!-- ═══════════════════════════════════════════════════════════════
-     HALLOWEEN INTERACTIVE EXPERIENCE v2.3 — Boton Promo
-     • Ceniza ambiental ascendente integrada
-     • Pantalla totalmente clara y navegable
-     • Trail de cursor fluido mediante Canvas (60 FPS)
-     • Dementores flotantes y murciélagos animados
-     • Fantasmas interactivos en clic + niebla inferior sutil
-     ═══════════════════════════════════════════════════════════════ -->
+    <!-- ==========================================
+     1. PÁGINA PRINCIPAL (HOME)
+     ========================================== -->
+<div id="hw-interactive-root" style="position:fixed; inset:0; pointer-events:none; z-index:99998; overflow:hidden;">
+  <canvas id="hw-canvas" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;"></canvas>
+  <div id="ha-spiders-home" style="position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:99998;"></div>
 
-<div id="hw-fog-wrap">
-  <div class="hw-fog" id="hf1"></div>
-  <div class="hw-fog" id="hf2"></div>
+  <!-- Caldero Mágico Flotante -->
+  <div id="hw-cauldron" style="position:absolute; bottom:25px; left:25px; pointer-events:auto; cursor:pointer; z-index:99999; transition:transform 0.3s ease;">
+    <div class="hw-cauldron-glow"></div>
+    <div style="font-size:45px; filter:drop-shadow(0 0 10px #ff6600);">🧪</div>
+    <div class="hw-tooltip">¡Haz clic para ver la pócima de promocionales!</div>
+  </div>
+
+  <!-- Contenedor Modal de Promocionales -->
+  <div id="hw-promo-modal" class="hw-modal-hidden">
+    <div class="hw-modal-content">
+      <button type="button" id="hw-close-modal" aria-label="Cerrar modal">&times;</button>
+      <h2>¡Descubre la Magia de Halloween!</h2>
+      <p>Has liberado los secretos de la temporada. Conoce nuestro catálogo exclusivo de merchandising promocional para tus campañas:</p>
+      <a href="https://esferos.com/collections/promocionales" id="hw-promo-btn" target="_blank" rel="noopener">Conoce Nuestros Promocionales →</a>
+    </div>
+  </div>
 </div>
-<div id="hw-lightning"></div>
-<div id="hw-moon-wrap">
-  <div id="hw-moon-glow"></div>
-  <div id="hw-moon"></div>
-</div>
-<canvas id="hw-trail-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:99999;"></canvas>
-<div id="hw-ghosts-wrap"></div>
-<div id="hw-ash-wrap"></div>
-<div id="hw-msg-wrap"></div>
-<div id="hw-creatures-wrap"></div>
 
 <style>
-/* ══════════════════════════════════════════════════════
-   SCROLLBAR TEMÁTICA
-══════════════════════════════════════════════════════ */
-::-webkit-scrollbar{width:8px;height:8px}
-::-webkit-scrollbar-track{background:#110518}
-::-webkit-scrollbar-thumb{background:linear-gradient(to bottom,#FF6B00,#8B00FF);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:#FF6B00}
+  #hw-cauldron:hover { transform: scale(1.15) rotate(-5deg); }
+  .hw-cauldron-glow {
+    position: absolute; width: 50px; height: 50px;
+    background: radial-gradient(circle, rgba(0,255,136,0.8) 0%, rgba(0,0,0,0) 70%);
+    top: -10px; left: -2px; border-radius: 50%; animation: hwPulse 1.8s infinite alternate;
+  }
+  @keyframes hwPulse { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 1; } }
+  .hw-tooltip {
+    position: absolute; left: 60px; bottom: 10px; background: #110724; color: #00ff88;
+    border: 1px solid #00ff88; padding: 6px 12px; border-radius: 8px; font-size: 13px;
+    white-space: nowrap; box-shadow: 0 0 10px rgba(0,255,136,0.3); opacity: 0;
+    pointer-events: none; transition: opacity 0.3s ease; font-family: sans-serif; font-weight: bold;
+  }
+  #hw-cauldron:hover .hw-tooltip { opacity: 1; }
+  .hw-modal-hidden { display: none !important; }
+  .hw-modal-show {
+    display: flex !important; position: fixed; inset: 0; background: rgba(5, 0, 16, 0.85);
+    z-index: 1000000; align-items: center; justify-content: center; pointer-events: auto;
+    animation: hwPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  @keyframes hwPopIn { 0% { transform: scale(0.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+  .hw-modal-content {
+    background: #110724; border: 2px solid #ff6600; border-radius: 16px; padding: 35px 25px 25px 25px;
+    text-align: center; max-width: 420px; width: 90%; color: #fff; box-shadow: 0 0 30px rgba(255,102,0,0.5);
+    position: relative; font-family: sans-serif; box-sizing: border-box;
+  }
+  .hw-modal-content h2 { color: #ff6600; margin-top: 5px; margin-bottom: 12px; font-size: 22px; }
+  .hw-modal-content p { font-size: 14px; color: #ddd; line-height: 1.5; margin-bottom: 20px; }
+  #hw-promo-btn {
+    display: inline-block; background: linear-gradient(135deg, #ff6600, #e64a19); color: #ffffff;
+    padding: 12px 22px; font-weight: bold; border-radius: 8px; text-decoration: none;
+    text-transform: uppercase; box-shadow: 0 0 15px rgba(255,102,0,0.4); transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  #hw-promo-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255,102,0,0.8); }
+  #hw-close-modal {
+    position: absolute; top: 8px; right: 12px; font-size: 28px; line-height: 1; color: #ff6600;
+    background: transparent; border: none; cursor: pointer; padding: 10px; z-index: 1000001;
+    pointer-events: auto !important; user-select: none; transition: color 0.2s ease, transform 0.2s ease;
+  }
+  #hw-close-modal:hover { color: #ffffff; transform: scale(1.2); }
 
-/* ══════════════════════════════════════════════════════
-   NIEBLA INFERIOR SUTIL (FONDO CLARO)
-══════════════════════════════════════════════════════ */
-#hw-fog-wrap{
-  position:fixed;bottom:0;left:-100px;right:-100px;
-  height:120px;pointer-events:none;z-index:2;opacity:0.35;
-}
-.hw-fog{
-  position:absolute;bottom:0;left:0;right:0;
-  border-radius:50%;pointer-events:none;
-}
-#hf1{
-  height:100px;
-  background:radial-gradient(ellipse 80% 60% at 50% 100%,
-    rgba(255,107,0,.18) 0%,rgba(139,0,255,.08) 50%,transparent 80%);
-  animation:hwFog1 10s ease-in-out infinite;
-}
-#hf2{
-  height:80px;
-  background:radial-gradient(ellipse 70% 50% at 40% 100%,
-    rgba(0,255,136,.12) 0%,transparent 70%);
-  animation:hwFog2 14s ease-in-out infinite;
-}
-@keyframes hwFog1{0%,100%{transform:translateX(-40px)}50%{transform:translateX(40px)}}
-@keyframes hwFog2{0%,100%{transform:translateX(30px)}50%{transform:translateX(-50px)}}
-
-/* ══════════════════════════════════════════════════════
-   PARTÍCULAS DE CENIZA ASCENDENTE
-══════════════════════════════════════════════════════ */
-.hw-ash{
-  position:fixed;pointer-events:none;z-index:3;
-  border-radius:50%;
-  animation:hwAshRise linear forwards;
-}
-@keyframes hwAshRise{
-  0%  {transform:translateY(0) translateX(0);opacity:.7}
-  50% {transform:translateY(-45vh) translateX(var(--ax,20px));opacity:.4}
-  100%{transform:translateY(-95vh) translateX(var(--ax2,-10px));opacity:0}
-}
-
-/* ══════════════════════════════════════════════════════
-   LUNA DISCRETA
-══════════════════════════════════════════════════════ */
-#hw-moon-wrap{
-  position:fixed;top:15px;right:20px;
-  width:46px;height:46px;pointer-events:none;z-index:3;opacity:0.85;
-}
-#hw-moon-glow{
-  position:absolute;inset:-10px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,165,0,.25) 20%,transparent 70%);
-  animation:hwMoonPulse 3s ease-in-out infinite;
-}
-#hw-moon{
-  position:absolute;inset:0;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#FFF3CC,#FFB700 70%,#D47A00);
-  box-shadow:0 0 12px rgba(255,183,0,.3);
-}
-@keyframes hwMoonPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:1}}
-
-/* ══════════════════════════════════════════════════════
-   RELÁMPAGO
-══════════════════════════════════════════════════════ */
-#hw-lightning{
-  position:fixed;inset:0;pointer-events:none;z-index:99999;
-  background:rgba(255,230,200,.2);opacity:0;
-}
-
-/* ══════════════════════════════════════════════════════
-   FANTASMAS EN CLICK
-══════════════════════════════════════════════════════ */
-.hw-ghost-pop{
-  position:fixed;pointer-events:none;z-index:99999;
-  text-align:center;user-select:none;
-  animation:hwGhostUp 1.4s ease-out forwards;
-}
-@keyframes hwGhostUp{
-  0%  {transform:translateY(0) scale(.6);opacity:1}
-  50% {transform:translateY(-35px) scale(1.1);opacity:1}
-  100%{transform:translateY(-85px) scale(.8);opacity:0}
-}
-.hw-ghost-svg{font-size:30px;display:block}
-.hw-ghost-txt{
-  font-family:'Arial Black',sans-serif;font-size:11px;font-weight:900;
-  color:#FF6B00;text-shadow:0 0 6px rgba(255,107,0,.8);
-  margin-top:2px;display:block;
-}
-
-/* ══════════════════════════════════════════════════════
-   DEMENTORES PEQUEÑOS Y MURCIÉLAGOS
-══════════════════════════════════════════════════════ */
-.hw-creature{
-  position:fixed;pointer-events:none;z-index:4;
-  animation:hwCreatureFly linear forwards;
-}
-
-.hw-dementor{
-  opacity:0.45;filter:drop-shadow(0 0 5px #8B00FF);
-}
-@keyframes hwCreatureFly{
-  0%   {transform:translate(0,0) scale(1)}
-  50%  {transform:translate(55vw, var(--dy, -20px)) scale(1.08)}
-  100% {transform:translate(115vw, 10px) scale(0.9)}
-}
-
-.hw-bat-svg{
-  animation:hwBatFlap 0.35s ease-in-out infinite alternate;
-  transform-origin:center;
-}
-@keyframes hwBatFlap{
-  0% { transform: scaleY(1); }
-  100% { transform: scaleY(0.4) translateY(-3px); }
-}
-
-.hw-msg{
-  position:fixed;left:50%;transform:translateX(-50%);
-  background:rgba(17,7,36,.92);border:1px solid #FF6B00;
-  border-radius:10px;padding:8px 18px;pointer-events:none;
-  z-index:100000;color:#FFF;font-family:sans-serif;font-size:13px;
-  font-weight:bold;box-shadow:0 0 15px rgba(255,107,0,.4);
-  animation:hwMsgShow 3.5s ease forwards;
-}
-@keyframes hwMsgShow{
-  0%{opacity:0;transform:translateX(-50%) translateY(10px)}
-  15%,80%{opacity:1;transform:translateX(-50%) translateY(0)}
-  100%{opacity:0;transform:translateX(-50%) translateY(-10px)}
-}
+  /* Animación Arañas */
+  @keyframes haSpider { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(var(--depth, 40vh)); } }
+  @keyframes haLegL { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(10deg); } }
+  @keyframes haLegR { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-10deg); } }
 </style>
 
 <script>
-(function(){
-'use strict';
+(function() {
+  'use strict';
+  const canvas = document.getElementById('hw-canvas');
+  const ctx = canvas.getContext('2d');
+  let width, height;
 
-/* ══════════════════════════════════════════════════
-   1. TRAIL DEL CURSOR (CANVAS FLUIDO 60FPS)
-══════════════════════════════════════════════════ */
-const canvas = document.getElementById('hw-trail-canvas');
-const ctx = canvas.getContext('2d');
-let w, h;
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
 
-function resizeCanvas() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+  const particles = [];
+  const mouse = { x: -100, y: -100 };
 
-const mouse = { x: -100, y: -100 };
-const trailHistory = [];
-const TRAIL_SIZE = 10;
-const EMOJIS = ['🎃','💀','👻','🦇','✨'];
-
-window.addEventListener('mousemove', e => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
-function drawTrail() {
-  ctx.clearRect(0, 0, w, h);
-  
-  if (mouse.x > 0) {
-    trailHistory.unshift({ x: mouse.x, y: mouse.y });
-    if (trailHistory.length > TRAIL_SIZE) trailHistory.pop();
+  function createParticle(x, y, isClick = false) {
+    const count = isClick ? 18 : 2;
+    for(let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = isClick ? (Math.random() * 6 + 2) : (Math.random() * 1.5);
+      particles.push({
+        x: x, y: y,
+        vx: isClick ? Math.cos(angle) * speed : (Math.random() - 0.5) * 1.5,
+        vy: isClick ? Math.sin(angle) * speed : (Math.random() - 0.5) * 1.5 - 1,
+        size: isClick ? (Math.random() * 7 + 3) : (Math.random() * 5 + 2),
+        color: Math.random() > 0.4 ? '#ff6600' : (Math.random() > 0.5 ? '#00ff88' : '#8b00ff'),
+        alpha: 1, life: isClick ? 0.025 : 0.035
+      });
+    }
   }
 
-  trailHistory.forEach((p, i) => {
-    const ratio = 1 - (i / TRAIL_SIZE);
-    const emoji = EMOJIS[i % EMOJIS.length];
-    
-    ctx.save();
-    ctx.globalAlpha = ratio * 0.85;
-    ctx.font = `${Math.floor(ratio * 15 + 8)}px sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(emoji, p.x, p.y);
-    ctx.restore();
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX; mouse.y = e.clientY;
+    createParticle(mouse.x, mouse.y, false);
   });
 
-  requestAnimationFrame(drawTrail);
-}
-drawTrail();
+  const bats = [];
+  window.addEventListener('click', (e) => {
+    if(e.target.closest('#hw-cauldron') || e.target.closest('#hw-promo-modal')) return;
+    createParticle(e.clientX, e.clientY, true);
+    for(let i = 0; i < 4; i++) {
+      bats.push({
+        x: e.clientX, y: e.clientY,
+        vx: (Math.random() - 0.5) * 10, vy: (Math.random() - 0.8) * 8,
+        size: Math.random() * 12 + 14, wingAngle: 0, alpha: 1
+      });
+    }
+  });
 
-/* ══════════════════════════════════════════════════
-   2. GENERACIÓN DE CENIZA ASCENDENTE
-══════════════════════════════════════════════════ */
-const ashWrap = document.getElementById('hw-ash-wrap');
-const ASH_COLORS = [
-  'rgba(255,107,0,.5)', 'rgba(139,0,255,.4)',
-  'rgba(80,20,10,.5)', 'rgba(180,80,0,.4)'
-];
+  const pumpkins = [];
+  function spawnPumpkin() {
+    if(pumpkins.length < 3) {
+      pumpkins.push({
+        x: Math.random() * (width - 100) + 50, y: height + 50,
+        vy: -(Math.random() * 1.2 + 0.8), size: 32, wobble: 0
+      });
+    }
+    setTimeout(spawnPumpkin, Math.random() * 4000 + 3000);
+  }
+  spawnPumpkin();
 
-function spawnAsh(){
-  const el = document.createElement('div');
-  el.className = 'hw-ash';
-  const sz  = (Math.random() * 3 + 2).toFixed(0);
-  const dur = (Math.random() * 6 + 7).toFixed(1);
-  const ax  = (Math.random() * 60 - 30).toFixed(0) + 'px';
-  const ax2 = (Math.random() * 40 - 20).toFixed(0) + 'px';
+  window.addEventListener('mousedown', (e) => {
+    pumpkins.forEach((p, index) => {
+      const dist = Math.hypot(e.clientX - p.x, e.clientY - p.y);
+      if(dist < p.size) {
+        createParticle(p.x, p.y, true);
+        pumpkins.splice(index, 1);
+        openPromoModal();
+      }
+    });
+  });
 
-  el.style.cssText =
-    `width:${sz}px;height:${sz}px;` +
-    `background:${ASH_COLORS[Math.floor(Math.random() * ASH_COLORS.length)]};` +
-    `left:${(Math.random() * 100).toFixed(1)}%;` +
-    `bottom:0px;` +
-    `animation-duration:${dur}s;--ax:${ax};--ax2:${ax2};`;
+  function render() {
+    ctx.clearRect(0, 0, width, height);
 
-  ashWrap.appendChild(el);
-  setTimeout(() => el.remove(), dur * 1000 + 200);
-}
-setInterval(spawnAsh, 500);
+    particles.forEach((p, i) => {
+      p.x += p.vx; p.y += p.vy; p.alpha -= p.life;
+      if(p.alpha <= 0) { particles.splice(i, 1); }
+      else {
+        ctx.save(); ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      }
+    });
 
-/* ══════════════════════════════════════════════════
-   3. FANTASMAS EN CLICK
-══════════════════════════════════════════════════ */
-const ghostEmojis = ['👻','🎃','💀','🦇'];
-const ghostMsgs   = ['¡BOO!','¡HALLOWEEN!','¡PROMO!','¡TRUCO O TRATO!'];
-const ghostsWrap  = document.getElementById('hw-ghosts-wrap');
+    bats.forEach((b, i) => {
+      b.x += b.vx; b.y += b.vy; b.wingAngle += 0.25; b.alpha -= 0.018;
+      if(b.alpha <= 0) { bats.splice(i, 1); }
+      else {
+        ctx.save(); ctx.globalAlpha = b.alpha; ctx.fillStyle = '#110724';
+        ctx.translate(b.x, b.y); ctx.beginPath();
+        const wingY = Math.sin(b.wingAngle) * 7;
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(-b.size / 2, -b.size / 2 + wingY, -b.size, 0);
+        ctx.quadraticCurveTo(-b.size / 2, b.size / 3, 0, 0);
+        ctx.quadraticCurveTo(b.size / 2, -b.size / 2 + wingY, b.size, 0);
+        ctx.quadraticCurveTo(b.size / 2, b.size / 3, 0, 0);
+        ctx.fill(); ctx.restore();
+      }
+    });
 
-document.addEventListener('click', e => {
-  if (e.target.closest('a,button,input,select,textarea')) return;
-  const pop = document.createElement('div');
-  pop.className = 'hw-ghost-pop';
-  pop.style.left = (e.clientX - 20) + 'px';
-  pop.style.top  = (e.clientY - 20) + 'px';
-  const idx = Math.floor(Math.random() * ghostEmojis.length);
-  pop.innerHTML = `<span class="hw-ghost-svg">${ghostEmojis[idx]}</span>` +
-                  `<span class="hw-ghost-txt">${ghostMsgs[idx]}</span>`;
-  ghostsWrap.appendChild(pop);
-  setTimeout(() => pop.remove(), 1400);
-});
+    pumpkins.forEach((p, i) => {
+      p.y += p.vy; p.wobble += 0.03; p.x += Math.sin(p.wobble) * 0.8;
+      ctx.save(); ctx.font = `${p.size}px serif`; ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle'; ctx.shadowColor = '#ff6600'; ctx.shadowBlur = 10;
+      ctx.fillText('🎃', p.x, p.y); ctx.restore();
+      if(p.y < -50) pumpkins.splice(i, 1);
+    });
 
-/* ══════════════════════════════════════════════════
-   4. CRÍATURAS (DEMENTORES Y MURCIÉLAGOS)
-══════════════════════════════════════════════════ */
-const creaturesWrap = document.getElementById('hw-creatures-wrap');
+    requestAnimationFrame(render);
+  }
+  render();
 
-const DEMENTOR_SVG = `
-<svg class="hw-dementor" viewBox="-40 -80 80 120" width="26" height="38" xmlns="http://www.w3.org/2000/svg">
-  <path d="M-15,-50 Q-20,-75 0,-78 Q20,-75 15,-50 Q25,-30 22,20 Q10,45 0,38 Q-10,45 -22,20 Q-25,-30 -15,-50Z" fill="#0A0314"/>
-  <ellipse cx="0" cy="-60" rx="12" ry="14" fill="#030107"/>
-  <ellipse cx="-4" cy="-62" rx="2.5" ry="1.8" fill="#A855F7"/>
-  <ellipse cx="4"  cy="-62" rx="2.5" ry="1.8" fill="#A855F7"/>
-</svg>`;
+  const modal = document.getElementById('hw-promo-modal');
+  const closeBtn = document.getElementById('hw-close-modal');
+  const cauldron = document.getElementById('hw-cauldron');
 
-const BAT_SVG = `
-<svg class="hw-bat-svg" viewBox="-25 -15 50 30" width="28" height="18" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 0,-2 Q -12,-12 -22,-2 Q -12,4 0,1 Q 12,4 22,-2 Q 12,-12 0,-2 Z" fill="#180A28"/>
-  <circle cx="0" cy="-3" r="3" fill="#180A28"/>
-  <circle cx="-1.5" cy="-4" r="0.8" fill="#FF6B00"/>
-  <circle cx="1.5" cy="-4" r="0.8" fill="#FF6B00"/>
-</svg>`;
+  function openPromoModal() { modal.classList.remove('hw-modal-hidden'); modal.classList.add('hw-modal-show'); }
+  function closePromoModal(e) {
+    if (e) e.stopPropagation();
+    modal.classList.remove('hw-modal-show'); modal.classList.add('hw-modal-hidden');
+  }
 
-function spawnCreature(type) {
-  const el = document.createElement('div');
-  el.className = 'hw-creature';
-  const topY = Math.random() * 45 + 5;
-  const swoopY = (Math.random() * 50 - 25) + 'px';
-  const dur = type === 'dementor' ? (Math.random() * 6 + 12) : (Math.random() * 5 + 7);
+  cauldron.addEventListener('click', openPromoModal);
+  closeBtn.addEventListener('click', closePromoModal);
+  closeBtn.addEventListener('touchstart', closePromoModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closePromoModal(e); });
 
-  el.style.cssText = `top:${topY}%;left:-60px;--dy:${swoopY};animation-duration:${dur}s;`;
-  el.innerHTML = type === 'dementor' ? DEMENTOR_SVG : BAT_SVG;
-  creaturesWrap.appendChild(el);
+  // Inyección de Arañas Continuas
+  const spiderLayer = document.getElementById('ha-spiders-home');
+  const positions = [6, 18, 32, 48, 62, 78, 90];
+  const SPIDER_SVG = (s) => `<svg viewBox="-30 -30 60 55" width="${s}" height="${s*.85}" style="overflow:visible; display:block"><ellipse cx="0" cy="5" rx="11" ry="9" fill="#160404"/><ellipse cx="0" cy="-9" rx="7.5" ry="7" fill="#1e0606"/><circle cx="-4" cy="-12" r="2.2" fill="#FF0000"/><circle cx="4" cy="-12" r="2.2" fill="#FF0000"/><g style="transform-origin:-11px -2px; animation:haLegL 1.8s ease-in-out infinite"><path d="M-11,-2 Q-24,-14 -30,-9" stroke="#0a0202" stroke-width="1.6" fill="none"/><path d="M-11,1 Q-26,2 -30,8" stroke="#0a0202" stroke-width="1.6" fill="none"/><path d="M-11,5 Q-24,14 -26,20" stroke="#0a0202" stroke-width="1.6" fill="none"/></g><g style="transform-origin:11px -2px; animation:haLegR 1.8s ease-in-out infinite"><path d="M11,-2 Q24,-14 30,-9" stroke="#0a0202" stroke-width="1.6" fill="none"/><path d="M11,1 Q26,2 30,8" stroke="#0a0202" stroke-width="1.6" fill="none"/><path d="M11,5 Q24,14 26,20" stroke="#0a0202" stroke-width="1.6" fill="none"/></g></svg>`;
 
-  setTimeout(() => el.remove(), dur * 1000 + 500);
-}
-
-function loopCreatures() {
-  const isDementor = Math.random() > 0.4;
-  spawnCreature(isDementor ? 'dementor' : 'bat');
-  setTimeout(loopCreatures, Math.random() * 6000 + 4000);
-}
-setTimeout(loopCreatures, 2000);
-
-/* ══════════════════════════════════════════════════
-   5. RELÁMPAGO Y MENSAJE DE BIENVENIDA
-══════════════════════════════════════════════════ */
-const lightning = document.getElementById('hw-lightning');
-function doLightning(){
-  lightning.style.opacity = '.35';
-  setTimeout(() => { lightning.style.opacity = '0'; }, 70);
-  setTimeout(doLightning, Math.random() * 25000 + 18000);
-}
-setTimeout(doLightning, 8000);
-
-const msgWrap = document.getElementById('hw-msg-wrap');
-function showMsg(text) {
-  const el = document.createElement('div');
-  el.className = 'hw-msg';
-  el.style.top = '12%';
-  el.innerHTML = text;
-  msgWrap.appendChild(el);
-  setTimeout(() => el.remove(), 3500);
-}
-setTimeout(() => showMsg('🎃 ¡Bienvenido a la temporada de Halloween!'), 1200);
-
+  positions.forEach((xp) => {
+    const maxDrop = (Math.random() * 40 + 25).toFixed(0) + 'vh';
+    const dur = (Math.random() * 5 + 5).toFixed(1);
+    const delay = (Math.random() * -8).toFixed(1);
+    const sz = Math.random() * 14 + 16;
+    const unit = document.createElement('div');
+    unit.style.cssText = `position:absolute;top:0;left:${xp}%;width:2px;display:flex;flex-direction:column;align-items:center;`;
+    const thread = document.createElement('div');
+    thread.style.cssText = `width:1px;height:${maxDrop};background:linear-gradient(to bottom,rgba(160,130,200,.45), rgba(160,130,200,.08));`;
+    const spiderWrap = document.createElement('div');
+    spiderWrap.style.cssText = `position:absolute;top:0;left:50%;transform:translateX(-50%);animation:haSpider ${dur}s ease-in-out infinite ${delay}s;--depth:${maxDrop};`;
+    spiderWrap.innerHTML = SPIDER_SVG(sz);
+    unit.appendChild(thread); unit.appendChild(spiderWrap); spiderLayer.appendChild(unit);
+  });
 })();
 </script>
 {% endif %}
