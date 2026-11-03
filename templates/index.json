@@ -190,6 +190,7 @@
         },
         "slide_NEKPPB": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_link": "shopify://collections/promocionales",
             "image_1": "shopify://shop_images/BANNER-5.png",
