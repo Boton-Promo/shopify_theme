@@ -501,10 +501,14 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD INTERACTIVO v4.0 — Boton Promo / esferos.com
+  PRE-NAVIDAD INTERACTIVO v4.1 — Boton Promo / esferos.com
   CIERRE DE NAVIDAD: 19 DE DICIEMBRE
-  
-  • FIX MEGAMENÚ: El mega menú siempre queda en la capa superior (z-index: 100000)
+
+  • FIX MEGAMENÚ DEFINITIVO:
+    1. Corrige el error de sintaxis CSS (!running -> !important)
+    2. Cabecera y Mega Menú en capa dominante (z-index: 100000 !important)
+    3. Envoltorio #MainContent en z-index: 1 para que ninguna foto
+       de producto pueda tapar el menú desplegable.
   • PRODUCTO: La nieve y Papá Noel pasan DETRÁS de las imágenes del producto
   • Nieve reactiva, trineo animado con pancarta, contador al 19 DIC y estela
 ═══════════════════════════════════════════════════════════════════════
@@ -525,20 +529,41 @@
 </div>
 
 <style>
-/* ─── FIX DE CAPAS PARA CABECERA Y MEGA MENÚ ──────────────────────── */
+/* ─── 1. FIX DEFINITIVO: CABECERA Y MEGA MENÚ EN CAPA SUPERIOR ───── */
+/* Sintaxis corregida: position: relative !important (sin el error !running) */
 header,
 .site-header,
+.header,
 .header-wrapper,
 #shopify-section-header,
+.shopify-section-group-header-group,
+sticky-header,
+.section-header,
 .megamenu,
 .mega-menu,
+.mega-menu__content,
+.site-nav__dropdown,
+.header__submenu,
 .nav-bar,
-.site-nav__dropdown {
-  position: relative !running;
-  z-index: 100000 !important; /* Capa más alta: el menú jamás queda tapado */
+.site-nav,
+nav.header__inline-menu,
+details[open] > .mega-menu__content,
+.list-menu--disclosure {
+  position: relative !important;
+  z-index: 100000 !important; /* Capa más alta: el menú jamás queda tapado por productos */
 }
 
-/* ─── CONTENEDOR ANTI-ESPACIOS PARA SHOPIFY ────────── */
+/* ─── 2. STACKING CONTEXT DE MAIN: LIMITA FOTOS DEBAJO DEL HEADER ─── */
+/* Al aislar main con z-index: 1, ningún elemento interno puede tapar el mega menú */
+#MainContent,
+main,
+#main,
+.main-content {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* ─── 3. CONTENEDOR ANTI-ESPACIOS PARA SHOPIFY ─────────────────────── */
 .shopify-section:has(#nv-snow-wrap),
 .shopify-section:has(#nv-count) {
   display: contents !important;
@@ -546,7 +571,7 @@ header,
   padding: 0 !important;
 }
 
-/* ─── CONTADOR ─────────────────────────────────────── */
+/* ─── 4. CONTADOR ──────────────────────────────────────────────────── */
 #nv-count{
   position:fixed;left:50%;bottom:14px;transform:translateX(-50%);
   z-index:99992;display:flex;align-items:center;gap:12px;
@@ -572,7 +597,7 @@ header,
 }
 @keyframes nvPop{0%{transform:translateX(-50%) scale(.6);opacity:0}100%{transform:translateX(-50%) scale(1);opacity:1}}
 
-/* ─── TRINEO Y PANCARTA DE BOTON PROMO ─────────────── */
+/* ─── 5. TRINEO Y PANCARTA DE BOTON PROMO ──────────────────────────── */
 .nv-sleigh{
   position:fixed;left:0;display:flex;align-items:center;pointer-events:none;
   animation:nvFly linear forwards;will-change:transform;
@@ -596,10 +621,10 @@ header,
 @keyframes nvLeg{from{transform:rotate(-20deg)}to{transform:rotate(20deg)}}
 @keyframes nvGlow{from{filter:drop-shadow(0 0 2px #ff2a2a)}to{filter:drop-shadow(0 0 9px #ff2a2a)}}
 
-/* ─── ESTELA DEL PUNTERO ───────────────────────────── */
+/* ─── 6. ESTELA DEL PUNTERO ────────────────────────────────────────── */
 .nv-t{position:fixed;left:0;top:0;pointer-events:none;z-index:99998;user-select:none;line-height:1;will-change:transform}
 
-/* ─── MENSAJE AL CLICK ─────────────────────────────── */
+/* ─── 7. MENSAJE AL CLICK ──────────────────────────────────────────── */
 .nv-pop{
   position:fixed;pointer-events:none;z-index:99999;text-align:center;user-select:none;
   white-space:nowrap;animation:nvPopUp 1.9s ease-out forwards;
@@ -617,7 +642,7 @@ header,
   100%{transform:translateY(-120px) scale(.9);opacity:0}
 }
 
-/* ─── MÓVIL ────────────────────────────────────────── */
+/* ─── 8. MÓVIL ─────────────────────────────────────────────────────── */
 @media(max-width:600px){
   #nv-count{padding:6px 12px 6px 8px;bottom:10px}
   #nv-count .nv-days{font-size:24px}
@@ -627,7 +652,7 @@ header,
   .nv-sleigh svg{width:210px;height:auto}
 }
 
-/* ─── PRODUCTO: imágenes por encima de las animaciones pero por debajo del Mega Menú ─ */
+/* ─── 9. PRODUCTO: IMÁGENES SOBRE LA NIEVE (z-index: 10), PERO DEBAJO DEL HEADER ─── */
 body.template-product .product__media-wrapper,
 body.template-product .product-single__media,
 body.template-product .product-media-container,
@@ -643,7 +668,7 @@ body.template-product .product__media-list,
 body.template-product .productView-image,
 body.template-product .product-featured-img {
   position: relative !important;
-  z-index: 10 !important; /* Capa intermedia: por encima de la nieve (z-index 2), pero debajo del header (z-index 100000) */
+  z-index: 10 !important; /* Capa intermedia: por encima de la nieve (z-index: 2), pero estrictamente debajo del mega menú (z-index: 100000) */
 }
 </style>
 
@@ -677,20 +702,37 @@ const layer = document.getElementById('nv-layer');
 if(snowWrap) snowWrap.style.zIndex = Z_BG;
 if(layer) layer.style.zIndex = Z_BG;
 
-/* Asegurar elevación controlada de la galería de producto */
-if(IS_PROD){
-  const sel=['.product__media-wrapper','.product__media','.product-photo-container',
-    '.product-img-wrapper','[data-product-media-type-image]','.product__thumbnails',
-    '.product-gallery','.product__media-list'].join(',');
-  const up=()=>{
-    document.querySelectorAll(sel).forEach(e=>{
-      e.style.position='relative';
-      e.style.zIndex='10';
+/* Garantizar jerarquía de capas en tiempo de ejecución */
+function fixHierarchy(){
+  // 1. Cabecera y Mega Menú siempre ganan
+  const headerSel = ['#shopify-section-header', '.shopify-section-group-header-group', 'header', '.site-header', '.header-wrapper', 'sticky-header'];
+  document.querySelectorAll(headerSel.join(',')).forEach(function(el){
+    el.style.setProperty('position', 'relative', 'important');
+    el.style.setProperty('z-index', '100000', 'important');
+  });
+
+  // 2. Contenedor principal de producto aislado
+  const mainSel = ['#MainContent', 'main', '#main', '.main-content'];
+  document.querySelectorAll(mainSel.join(',')).forEach(function(el){
+    el.style.setProperty('position', 'relative', 'important');
+    el.style.setProperty('z-index', '1', 'important');
+  });
+
+  // 3. Ficha de producto: elevar imágenes solo por encima de la nieve
+  if(IS_PROD){
+    const prodSel = [
+      '.product__media-wrapper','.product__media','.product-photo-container',
+      '.product-img-wrapper','[data-product-media-type-image]','.product__thumbnails',
+      '.product-gallery','.product__media-list','.product-single__media'
+    ].join(',');
+    document.querySelectorAll(prodSel).forEach(function(e){
+      e.style.setProperty('position', 'relative', 'important');
+      e.style.setProperty('z-index', '10', 'important');
     });
-  };
-  up();
-  document.addEventListener('DOMContentLoaded',up);
+  }
 }
+fixHierarchy();
+document.addEventListener('DOMContentLoaded', fixHierarchy);
 
 /* ═══ CONTADOR AL 19 DE DICIEMBRE ═════════════════════ */
 function pad(n){return String(n).padStart(2,'0');}
@@ -722,7 +764,7 @@ if(box && !closed) box.style.display='flex';
 
 const closeBtn = document.getElementById('nv-x');
 if(closeBtn){
-  closeBtn.addEventListener('click',()=>{
+  closeBtn.addEventListener('click', function(){
     if(box) box.style.display='none';
     try{ sessionStorage.setItem('nvClosed','1'); }catch(e){}
   });
@@ -769,25 +811,28 @@ if(snowWrap){
   window.addEventListener('resize',resize);
 
   const COUNT = REDUCED ? 25 : (IS_TOUCH ? 45 : 90);
-  const flakes = Array.from({length:COUNT},()=>({
-    x:Math.random()*window.innerWidth, 
-    y:Math.random()*window.innerHeight,
-    r:Math.random()*3+1.2, 
-    v:Math.random()*1.1+.5,
-    ph:Math.random()*6.28, 
-    sw:Math.random()*.9+.3,
-    glyph: Math.random()<.1, 
-    gs: Math.random()*8+12
-  }));
+  const flakes = Array.from({length:COUNT}, function(){
+    return {
+      x:Math.random()*window.innerWidth, 
+      y:Math.random()*window.innerHeight,
+      r:Math.random()*3+1.2, 
+      v:Math.random()*1.1+.5,
+      ph:Math.random()*6.28, 
+      sw:Math.random()*.9+.3,
+      glyph: Math.random()<.1, 
+      gs: Math.random()*8+12
+    };
+  });
   let mX = window.innerWidth/2;
-  document.addEventListener('mousemove',e=>{mX=e.clientX;},{passive:true});
+  document.addEventListener('mousemove', function(e){mX=e.clientX;}, {passive:true});
 
   function snow(){
     ctx.clearRect(0,0,W,H);
     const wind = (mX/W-.5)*1.6;
     ctx.shadowColor='rgba(90,150,220,.65)'; 
     ctx.shadowBlur=4;
-    for(const f of flakes){
+    for(let i=0; i<flakes.length; i++){
+      const f = flakes[i];
       f.ph += .015;
       f.y += f.v;
       f.x += Math.sin(f.ph)*f.sw + wind*f.v;
@@ -860,7 +905,7 @@ function sendSleigh(){
   el.style.animationDuration = CFG.sleighDur+'s';
   el.innerHTML = '<div class="nv-bob"><div class="nv-banner">'+bannerText(c.days)+'</div>'+SLEIGH_SVG+'</div>';
   if(layer) layer.appendChild(el);
-  setTimeout(()=>{el.remove(); sleighOn=false;}, CFG.sleighDur*1000+400);
+  setTimeout(function(){el.remove(); sleighOn=false;}, CFG.sleighDur*1000+400);
 }
 if(!REDUCED){
   setTimeout(sendSleigh, CFG.sleighFirst);
@@ -878,19 +923,20 @@ if(!IS_TOUCH && !REDUCED){
     el.style.fontSize = ((1-i/LEN)*15+7).toFixed(0)+'px';
     el.style.opacity = '0';
     document.body.appendChild(el);
-    dots.push({el,x:-300,y:-300});
+    dots.push({el:el,x:-300,y:-300});
   }
   let mx=-300,my=-300;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
   (function trail(){
     let px=mx,py=my;
-    dots.forEach((d,i)=>{
+    for(let i=0; i<dots.length; i++){
+      const d = dots[i];
       d.x += (px-d.x)*.35; d.y += (py-d.y)*.35;
       const sc = 1 - i/LEN*.4;
       d.el.style.transform = 'translate('+d.x.toFixed(1)+'px,'+d.y.toFixed(1)+'px) scale('+sc.toFixed(2)+') translate(-50%,-50%)';
       d.el.style.opacity = Math.max(0,(1-i/LEN)*.95).toFixed(2);
       px=d.x; py=d.y;
-    });
+    }
     requestAnimationFrame(trail);
   })();
 }
@@ -921,12 +967,12 @@ function burst(x,y){
       s.animate([
         {transform:'translate(-50%,-50%) scale(1)',opacity:1},
         {transform:'translate(calc(-50% + '+dx+'px),calc(-50% + '+dy+'px)) scale(.4)',opacity:0}
-      ],{duration:850,easing:'ease-out'}).onfinish = ()=>s.remove();
-    } else { setTimeout(()=>s.remove(),850); }
+      ],{duration:850,easing:'ease-out'}).onfinish = function(){s.remove();};
+    } else { setTimeout(function(){s.remove();},850); }
   }
 }
 
-document.addEventListener('click',e=>{
+document.addEventListener('click',function(e){
   if(e.target.closest('a,button,input,select,textarea,label,[role=button],#nv-count')) return;
   const m = MSGS[mi++ % MSGS.length];
   const pop = document.createElement('div');
@@ -935,11 +981,10 @@ document.addEventListener('click',e=>{
   pop.style.top  = (e.clientY-30)+'px';
   pop.innerHTML = '<i>'+m.i+'</i><b class="'+(m.g?'g':'')+'">'+m.t+'</b>';
   document.body.appendChild(pop);
-  setTimeout(()=>pop.remove(),1950);
+  setTimeout(function(){pop.remove();},1950);
   burst(e.clientX,e.clientY);
 });
 
 })();
 </script>
-
 {% endif %}
