@@ -501,23 +501,17 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD INTERACTIVO — Boton Promo / esferos.com
+  PRE-NAVIDAD INTERACTIVO v4.0 — Boton Promo / esferos.com
   CIERRE DE NAVIDAD: 19 DE DICIEMBRE
-  Pegar en theme.liquid justo antes de </body>
-
-  • Copos de nieve cayendo (reaccionan suavemente al cursor del mouse)
-  • Trineo de Papá Noel con Rudolph cruzando la pantalla con pancarta
-  • Contador fijo sincronizado con fecha real: meta al 19 de Diciembre
-  • Mensaje: "Faltan X días para el cierre navidad de Boton Promo"
-  • Puntero con estela festiva de iconos navideños
-  • Clic: ¡JO JO JO! · MERRY CHRISTMAS · ¡NAVIDAD! · ¡CIERRE 19 DIC! + ráfaga
-  • En página de producto: animaciones pasan por detrás de las fotos
-  • CERO espacios en blanco: no empuja banners ni sliders
+  
+  • FIX MEGAMENÚ: El mega menú siempre queda en la capa superior (z-index: 100000)
+  • PRODUCTO: La nieve y Papá Noel pasan DETRÁS de las imágenes del producto
+  • Nieve reactiva, trineo animado con pancarta, contador al 19 DIC y estela
 ═══════════════════════════════════════════════════════════════════════
 -->
 
-<div id="nv-snow-wrap" style="position:fixed;inset:0;pointer-events:none;z-index:99990;"></div>
-<div id="nv-layer" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:99990;"></div>
+<div id="nv-snow-wrap" style="position:fixed;inset:0;pointer-events:none;z-index:2;"></div>
+<div id="nv-layer" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2;"></div>
 
 <div id="nv-count" style="display:none">
   <button type="button" id="nv-x" aria-label="Cerrar contador">&times;</button>
@@ -531,6 +525,19 @@
 </div>
 
 <style>
+/* ─── FIX DE CAPAS PARA CABECERA Y MEGA MENÚ ──────────────────────── */
+header,
+.site-header,
+.header-wrapper,
+#shopify-section-header,
+.megamenu,
+.mega-menu,
+.nav-bar,
+.site-nav__dropdown {
+  position: relative !running;
+  z-index: 100000 !important; /* Capa más alta: el menú jamás queda tapado */
+}
+
 /* ─── CONTENEDOR ANTI-ESPACIOS PARA SHOPIFY ────────── */
 .shopify-section:has(#nv-snow-wrap),
 .shopify-section:has(#nv-count) {
@@ -620,7 +627,7 @@
   .nv-sleigh svg{width:210px;height:auto}
 }
 
-/* ─── PRODUCTO: imágenes por encima de las animaciones ─ */
+/* ─── PRODUCTO: imágenes por encima de las animaciones pero por debajo del Mega Menú ─ */
 body.template-product .product__media-wrapper,
 body.template-product .product-single__media,
 body.template-product .product-media-container,
@@ -634,24 +641,23 @@ body.template-product .product__thumbnails,
 body.template-product .product-gallery,
 body.template-product .product__media-list,
 body.template-product .productView-image,
-body.template-product .product-featured-img{position:relative;z-index:10}
+body.template-product .product-featured-img {
+  position: relative !important;
+  z-index: 10 !important; /* Capa intermedia: por encima de la nieve (z-index 2), pero debajo del header (z-index 100000) */
+}
 </style>
 
 <script>
 (function(){
 'use strict';
 
-/* ═══ CONFIGURACIÓN ═══════════════════════════════════
-   from / until = [mes, día]. Fuera de ese rango no se activa nada.
-   Cierre Navidad Boton Promo: 19 de diciembre.
-   Para probar en cualquier momento: poner FORCE_ON en true. */
 const CFG = {
-  from:  [11, 1],         // Activo desde el 1 de noviembre
-  until: [12, 20],        // Activo hasta terminar el día 19 de diciembre
-  FORCE_ON: false,        // Pon true si deseas probarlo fuera de fechas
-  sleighFirst: 3500,      // ms hasta el primer trineo
-  sleighEvery: 32000,     // ms entre trineos (cada 32 segundos)
-  sleighDur: 16           // segundos que tarda en cruzar la pantalla
+  from:  [11, 1],
+  until: [12, 20],
+  FORCE_ON: true,         /* Forzado en true para visualización inmediata */
+  sleighFirst: 3500,
+  sleighEvery: 32000,
+  sleighDur: 16
 };
 
 const nowD = new Date();
@@ -662,11 +668,16 @@ if(!CFG.FORCE_ON && !inRange) return;
 const IS_PROD  = document.body.classList.contains('template-product') || /\/products\//.test(location.pathname);
 const IS_TOUCH = window.matchMedia('(pointer:coarse)').matches;
 const REDUCED  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const Z_BG     = IS_PROD ? 2 : 99990;     // capas decorativas
-const layer    = document.getElementById('nv-layer');
+
+/* Ajuste explícito de la capa decorativa en la página de producto */
+const Z_BG = IS_PROD ? 2 : 99990;
+const snowWrap = document.getElementById('nv-snow-wrap');
+const layer = document.getElementById('nv-layer');
+
+if(snowWrap) snowWrap.style.zIndex = Z_BG;
 if(layer) layer.style.zIndex = Z_BG;
 
-/* Producto: elevar imágenes para que la nieve y trineo pasen detrás */
+/* Asegurar elevación controlada de la galería de producto */
 if(IS_PROD){
   const sel=['.product__media-wrapper','.product__media','.product-photo-container',
     '.product-img-wrapper','[data-product-media-type-image]','.product__thumbnails',
@@ -681,13 +692,12 @@ if(IS_PROD){
   document.addEventListener('DOMContentLoaded',up);
 }
 
-/* ═══ CONTADOR PROGRAMADO AL 19 DE DICIEMBRE ══════════ */
+/* ═══ CONTADOR AL 19 DE DICIEMBRE ═════════════════════ */
 function pad(n){return String(n).padStart(2,'0');}
 
 function calc(){
   const n = new Date();
   const today = new Date(n.getFullYear(), n.getMonth(), n.getDate());
-  // Programado exactamente hasta el 19 de Diciembre (mes 11 = Diciembre en JavaScript)
   let target = new Date(n.getFullYear(), 11, 19);
   if(today > target) target = new Date(n.getFullYear()+1, 11, 19);
   const days = Math.round((target - today)/864e5);
@@ -747,8 +757,7 @@ function tick(){
 tick(); 
 setInterval(tick, 1000);
 
-/* ═══ NIEVE (canvas reactivo al mouse) ═════════════════ */
-const snowWrap = document.getElementById('nv-snow-wrap');
+/* ═══ NIEVE (canvas reactivo) ═════════════════════════ */
 if(snowWrap){
   const cv = document.createElement('canvas');
   cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:'+Z_BG+';';
@@ -800,19 +809,15 @@ if(snowWrap){
 /* ═══ TRINEO + RENO + PANCARTA BOTON PROMO ═════════════ */
 const SLEIGH_SVG = `
 <svg viewBox="0 0 300 110" width="300" height="110" xmlns="http://www.w3.org/2000/svg">
-  <!-- riendas -->
   <path d="M100 58 Q160 48 214 58" stroke="#b8860b" stroke-width="2" fill="none"/>
-  <!-- trineo -->
   <path d="M22 62 Q18 90 42 92 L120 92 Q142 90 140 66 Z" fill="#c8102e"/>
   <path d="M28 70 L134 70" stroke="#ffd34d" stroke-width="3"/>
   <path d="M14 100 Q62 108 132 100 Q150 98 152 84" stroke="#d4a017" stroke-width="4" fill="none" stroke-linecap="round"/>
   <line x1="50" y1="92" x2="50" y2="101" stroke="#d4a017" stroke-width="3"/>
   <line x1="110" y1="92" x2="110" y2="101" stroke="#d4a017" stroke-width="3"/>
-  <!-- saco de regalos -->
   <ellipse cx="44" cy="54" rx="18" ry="20" fill="#8d5524"/>
   <path d="M36 38 Q44 30 52 38" fill="#6b3f17"/>
   <rect x="38" y="48" width="12" height="10" fill="#2f9e6a"/><line x1="44" y1="48" x2="44" y2="58" stroke="#ffd34d" stroke-width="2"/>
-  <!-- Papá Noel -->
   <ellipse cx="94" cy="66" rx="17" ry="15" fill="#d61f3c"/>
   <rect x="78" y="70" width="32" height="5" fill="#222"/><rect x="90" y="69" width="8" height="7" fill="#ffd34d"/>
   <circle cx="94" cy="42" r="11" fill="#f5cba7"/>
@@ -824,7 +829,6 @@ const SLEIGH_SVG = `
   <circle cx="110" cy="29" r="5" fill="#fff"/>
   <path d="M106 62 Q122 56 128 46" stroke="#d61f3c" stroke-width="6" fill="none" stroke-linecap="round"/>
   <circle cx="129" cy="44" r="4" fill="#fff"/>
-  <!-- reno -->
   <g>
     <path d="M214 56 Q205 52 200 56" stroke="#8b5a2b" stroke-width="4" fill="none" stroke-linecap="round"/>
     <g class="nv-leg"><line x1="206" y1="72" x2="203" y2="98" stroke="#5c3a1a" stroke-width="4.5" stroke-linecap="round"/></g>
@@ -899,7 +903,7 @@ const MSGS = [
   {i:'🎶', t:'¡SING SING!',       g:1},
   {i:'🎁', t:'¡FELIZ NAVIDAD!',   g:0},
   {i:'⭐', t:'HO HO HO',          g:1},
-  {i:'🦌', t:'¡RUDOLPH!',         g:0},
+  {i:'🦌', t:'¡CIERRE 19 DIC!',   g:0},
   {i:'❄️', t:'¡FELICES FIESTAS!', g:1}
 ];
 const BURST = ['❄️','✨','⭐','🎄','🔔','🎁'];
