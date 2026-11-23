@@ -501,12 +501,13 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD INTERACTIVO v4.1 — Boton Promo / esferos.com
+  PRE-NAVIDAD INTERACTIVO v4.2 — Boton Promo / esferos.com
   CIERRE DE NAVIDAD: 21 DE DICIEMBRE  (se cambia en CFG.close)
 
   • Mega menú siempre en la capa superior (z-index: 100000)
   • Producto: nieve y Papá Noel pasan DETRÁS de las imágenes
-  • Nieve reactiva, trineo con pancarta, contador al cierre y estela
+  • Nieve reactiva, trineo con pancarta y contador fijo al cierre
+  • Sin estela de puntero ni ráfagas de mensajes al hacer clic
 ═══════════════════════════════════════════════════════════════════════
 -->
 
@@ -528,14 +529,32 @@
 /* ─── CABECERA Y MEGA MENÚ SIEMPRE ENCIMA ──────────── */
 header,
 .site-header,
+.header,
 .header-wrapper,
 #shopify-section-header,
+.shopify-section-group-header-group,
+sticky-header,
+.section-header,
 .megamenu,
 .mega-menu,
+.mega-menu__content,
 .nav-bar,
-.site-nav__dropdown {
+.site-nav,
+.site-nav__dropdown,
+.header__submenu,
+nav.header__inline-menu,
+details[open] > .mega-menu__content,
+.list-menu--disclosure {
   position: relative !important;
   z-index: 100000 !important;
+}
+
+#MainContent,
+main,
+#main,
+.main-content {
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 /* ─── CONTENEDOR ANTI-ESPACIOS PARA SHOPIFY ────────── */
@@ -596,27 +615,6 @@ header,
 @keyframes nvLeg{from{transform:rotate(-20deg)}to{transform:rotate(20deg)}}
 @keyframes nvGlow{from{filter:drop-shadow(0 0 2px #ff2a2a)}to{filter:drop-shadow(0 0 9px #ff2a2a)}}
 
-/* ─── ESTELA DEL PUNTERO ───────────────────────────── */
-.nv-t{position:fixed;left:0;top:0;pointer-events:none;z-index:99998;user-select:none;line-height:1;will-change:transform}
-
-/* ─── MENSAJE AL CLICK ─────────────────────────────── */
-.nv-pop{
-  position:fixed;pointer-events:none;z-index:99999;text-align:center;user-select:none;
-  white-space:nowrap;animation:nvPopUp 1.9s ease-out forwards;
-}
-.nv-pop i{font-style:normal;font-size:40px;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
-.nv-pop b{
-  display:block;margin-top:3px;font:900 15px Impact,'Arial Black',sans-serif;letter-spacing:1px;
-  color:#c8102e;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 8px #fff,0 0 12px rgba(212,160,23,.9);
-}
-.nv-pop b.g{color:#0b6b43}
-@keyframes nvPopUp{
-  0%{transform:translateY(0) scale(.4);opacity:0}
-  15%{transform:translateY(-14px) scale(1.15);opacity:1}
-  60%{opacity:1}
-  100%{transform:translateY(-120px) scale(.9);opacity:0}
-}
-
 /* ─── MÓVIL ────────────────────────────────────────── */
 @media(max-width:600px){
   #nv-count{padding:6px 12px 6px 8px;bottom:10px}
@@ -654,7 +652,7 @@ body.template-product .product-featured-img {
 /* ═══ CONFIGURACIÓN ═══════════════════════════════════
    close = fecha de cierre [mes, día]  → 21 de diciembre
    from / until = rango en el que se muestra todo.
-   until = día del cierre: el 22 se apaga solo.
+   until = día del cierre: al día siguiente se apaga solo.
    FORCE_ON solo para pruebas fuera de fecha.            */
 const CFG = {
   close: [12, 21],
@@ -684,7 +682,7 @@ if(layer) layer.style.zIndex = Z_BG;
 if(IS_PROD){
   const sel=['.product__media-wrapper','.product__media','.product-photo-container',
     '.product-img-wrapper','[data-product-media-type-image]','.product__thumbnails',
-    '.product-gallery','.product__media-list'].join(',');
+    '.product-gallery','.product__media-list','.product-single__media'].join(',');
   const up=()=>{
     document.querySelectorAll(sel).forEach(e=>{
       e.style.position='relative';
@@ -869,78 +867,6 @@ if(!REDUCED){
   setTimeout(sendSleigh, CFG.sleighFirst);
   setInterval(sendSleigh, CFG.sleighEvery);
 }
-
-/* ═══ ESTELA DEL PUNTERO ══════════════════════════════ */
-if(!IS_TOUCH && !REDUCED){
-  const EM = ['❄️','🎄','⭐','🎁','🔔','🎅','❄️','🍬'];
-  const LEN = 12, dots = [];
-  for(let i=0;i<LEN;i++){
-    const el = document.createElement('div');
-    el.className='nv-t';
-    el.textContent = EM[i%EM.length];
-    el.style.fontSize = ((1-i/LEN)*15+7).toFixed(0)+'px';
-    el.style.opacity = '0';
-    document.body.appendChild(el);
-    dots.push({el,x:-300,y:-300});
-  }
-  let mx=-300,my=-300;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
-  (function trail(){
-    let px=mx,py=my;
-    dots.forEach((d,i)=>{
-      d.x += (px-d.x)*.35; d.y += (py-d.y)*.35;
-      const sc = 1 - i/LEN*.4;
-      d.el.style.transform = 'translate('+d.x.toFixed(1)+'px,'+d.y.toFixed(1)+'px) scale('+sc.toFixed(2)+') translate(-50%,-50%)';
-      d.el.style.opacity = Math.max(0,(1-i/LEN)*.95).toFixed(2);
-      px=d.x; py=d.y;
-    });
-    requestAnimationFrame(trail);
-  })();
-}
-
-/* ═══ CLICK: MENSAJES NAVIDEÑOS + RÁFAGA ═════════════ */
-const MSGS = [
-  {i:'🎅', t:'¡JO JO JO!',        g:0},
-  {i:'🎄', t:'MERRY CHRISTMAS',   g:1},
-  {i:'🔔', t:'¡NAVIDAD!',         g:0},
-  {i:'🎶', t:'¡SING SING!',       g:1},
-  {i:'🎁', t:'¡FELIZ NAVIDAD!',   g:0},
-  {i:'⭐', t:'HO HO HO',          g:1},
-  {i:'🦌', t:'¡CIERRE '+CLOSE_DAY+' DIC!', g:0},
-  {i:'❄️', t:'¡FELICES FIESTAS!', g:1}
-];
-const BURST = ['❄️','✨','⭐','🎄','🔔','🎁'];
-let mi = 0;
-
-function burst(x,y){
-  for(let i=0;i<9;i++){
-    const s = document.createElement('span');
-    s.textContent = BURST[i%BURST.length];
-    s.style.cssText = 'position:fixed;left:'+x+'px;top:'+y+'px;font-size:'+(12+Math.random()*10)+'px;pointer-events:none;z-index:99999;';
-    document.body.appendChild(s);
-    const a = Math.PI*2*i/9 + Math.random()*.5, d = 45+Math.random()*55;
-    const dx = Math.cos(a)*d, dy = Math.sin(a)*d;
-    if(s.animate){
-      s.animate([
-        {transform:'translate(-50%,-50%) scale(1)',opacity:1},
-        {transform:'translate(calc(-50% + '+dx+'px),calc(-50% + '+dy+'px)) scale(.4)',opacity:0}
-      ],{duration:850,easing:'ease-out'}).onfinish = ()=>s.remove();
-    } else { setTimeout(()=>s.remove(),850); }
-  }
-}
-
-document.addEventListener('click',e=>{
-  if(e.target.closest('a,button,input,select,textarea,label,[role=button],#nv-count')) return;
-  const m = MSGS[mi++ % MSGS.length];
-  const pop = document.createElement('div');
-  pop.className = 'nv-pop';
-  pop.style.left = Math.min(Math.max(e.clientX-70,8), window.innerWidth-160)+'px';
-  pop.style.top  = (e.clientY-30)+'px';
-  pop.innerHTML = '<i>'+m.i+'</i><b class="'+(m.g?'g':'')+'">'+m.t+'</b>';
-  document.body.appendChild(pop);
-  setTimeout(()=>pop.remove(),1950);
-  burst(e.clientX,e.clientY);
-});
 
 })();
 </script>
