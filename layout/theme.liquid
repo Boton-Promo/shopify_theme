@@ -501,12 +501,12 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD INTERACTIVO v4.0 — Boton Promo / esferos.com
-  CIERRE DE NAVIDAD: 19 DE DICIEMBRE
-  
-  • FIX MEGAMENÚ: El mega menú siempre queda en la capa superior (z-index: 100000)
-  • PRODUCTO: La nieve y Papá Noel pasan DETRÁS de las imágenes del producto
-  • Nieve reactiva, trineo animado con pancarta, contador al 19 DIC y estela
+  PRE-NAVIDAD INTERACTIVO v4.1 — Boton Promo / esferos.com
+  CIERRE DE NAVIDAD: 21 DE DICIEMBRE  (se cambia en CFG.close)
+
+  • Mega menú siempre en la capa superior (z-index: 100000)
+  • Producto: nieve y Papá Noel pasan DETRÁS de las imágenes
+  • Nieve reactiva, trineo con pancarta, contador al cierre y estela
 ═══════════════════════════════════════════════════════════════════════
 -->
 
@@ -525,7 +525,7 @@
 </div>
 
 <style>
-/* ─── FIX DE CAPAS PARA CABECERA Y MEGA MENÚ ──────────────────────── */
+/* ─── CABECERA Y MEGA MENÚ SIEMPRE ENCIMA ──────────── */
 header,
 .site-header,
 .header-wrapper,
@@ -534,8 +534,8 @@ header,
 .mega-menu,
 .nav-bar,
 .site-nav__dropdown {
-  position: relative !running;
-  z-index: 100000 !important; /* Capa más alta: el menú jamás queda tapado */
+  position: relative !important;
+  z-index: 100000 !important;
 }
 
 /* ─── CONTENEDOR ANTI-ESPACIOS PARA SHOPIFY ────────── */
@@ -572,7 +572,7 @@ header,
 }
 @keyframes nvPop{0%{transform:translateX(-50%) scale(.6);opacity:0}100%{transform:translateX(-50%) scale(1);opacity:1}}
 
-/* ─── TRINEO Y PANCARTA DE BOTON PROMO ─────────────── */
+/* ─── TRINEO Y PANCARTA ────────────────────────────── */
 .nv-sleigh{
   position:fixed;left:0;display:flex;align-items:center;pointer-events:none;
   animation:nvFly linear forwards;will-change:transform;
@@ -627,7 +627,7 @@ header,
   .nv-sleigh svg{width:210px;height:auto}
 }
 
-/* ─── PRODUCTO: imágenes por encima de las animaciones pero por debajo del Mega Menú ─ */
+/* ─── PRODUCTO: imágenes sobre la nieve, bajo el mega menú ─ */
 body.template-product .product__media-wrapper,
 body.template-product .product-single__media,
 body.template-product .product-media-container,
@@ -643,7 +643,7 @@ body.template-product .product__media-list,
 body.template-product .productView-image,
 body.template-product .product-featured-img {
   position: relative !important;
-  z-index: 10 !important; /* Capa intermedia: por encima de la nieve (z-index 2), pero debajo del header (z-index 100000) */
+  z-index: 10 !important;
 }
 </style>
 
@@ -651,10 +651,16 @@ body.template-product .product-featured-img {
 (function(){
 'use strict';
 
+/* ═══ CONFIGURACIÓN ═══════════════════════════════════
+   close = fecha de cierre [mes, día]  → 21 de diciembre
+   from / until = rango en el que se muestra todo.
+   until = día del cierre: el 22 se apaga solo.
+   FORCE_ON solo para pruebas fuera de fecha.            */
 const CFG = {
+  close: [12, 21],
   from:  [11, 1],
-  until: [12, 20],
-  FORCE_ON: true,         /* Forzado en true para visualización inmediata */
+  until: [12, 21],
+  FORCE_ON: false,
   sleighFirst: 3500,
   sleighEvery: 32000,
   sleighDur: 16
@@ -669,15 +675,12 @@ const IS_PROD  = document.body.classList.contains('template-product') || /\/prod
 const IS_TOUCH = window.matchMedia('(pointer:coarse)').matches;
 const REDUCED  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Ajuste explícito de la capa decorativa en la página de producto */
 const Z_BG = IS_PROD ? 2 : 99990;
 const snowWrap = document.getElementById('nv-snow-wrap');
 const layer = document.getElementById('nv-layer');
-
 if(snowWrap) snowWrap.style.zIndex = Z_BG;
 if(layer) layer.style.zIndex = Z_BG;
 
-/* Asegurar elevación controlada de la galería de producto */
 if(IS_PROD){
   const sel=['.product__media-wrapper','.product__media','.product-photo-container',
     '.product-img-wrapper','[data-product-media-type-image]','.product__thumbnails',
@@ -692,19 +695,20 @@ if(IS_PROD){
   document.addEventListener('DOMContentLoaded',up);
 }
 
-/* ═══ CONTADOR AL 19 DE DICIEMBRE ═════════════════════ */
+/* ═══ CONTADOR AL CIERRE (21 DIC) ═════════════════════ */
+const CLOSE_DAY = CFG.close[1];
 function pad(n){return String(n).padStart(2,'0');}
 
 function calc(){
   const n = new Date();
   const today = new Date(n.getFullYear(), n.getMonth(), n.getDate());
-  let target = new Date(n.getFullYear(), 11, 19);
-  if(today > target) target = new Date(n.getFullYear()+1, 11, 19);
+  let target = new Date(n.getFullYear(), CFG.close[0]-1, CFG.close[1]);
+  if(today > target) target = new Date(n.getFullYear()+1, CFG.close[0]-1, CFG.close[1]);
   const days = Math.round((target - today)/864e5);
   const nextMidnight = new Date(n.getFullYear(), n.getMonth(), n.getDate()+1);
   const s = Math.max(0, Math.floor((nextMidnight - n)/1000));
   return {
-    days: days, 
+    days: days,
     clock: pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60)
   };
 }
@@ -730,18 +734,17 @@ if(closeBtn){
 
 function tick(){
   const c = calc();
-  const d = document.getElementById('nv-d'), 
+  const d = document.getElementById('nv-d'),
         u = document.getElementById('nv-u'),
-        l = document.getElementById('nv-lbl'), 
+        l = document.getElementById('nv-lbl'),
         s = document.getElementById('nv-sub'),
         k = document.getElementById('nv-clock'),
         t = document.getElementById('nv-t');
-
   if(!d || !u || !l || !s) return;
 
   if(c.days === 0){
     l.textContent = '¡HOY ES EL!';
-    d.textContent = '19';
+    d.textContent = String(CLOSE_DAY);
     u.textContent = 'dic';
     s.textContent = 'Cierre Navidad Boton Promo 🎄';
     if(k) k.style.display = 'none';
@@ -754,7 +757,7 @@ function tick(){
     if(t) t.textContent = c.clock;
   }
 }
-tick(); 
+tick();
 setInterval(tick, 1000);
 
 /* ═══ NIEVE (canvas reactivo) ═════════════════════════ */
@@ -765,18 +768,18 @@ if(snowWrap){
   const ctx = cv.getContext('2d');
   let W=0,H=0;
   function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
-  resize(); 
+  resize();
   window.addEventListener('resize',resize);
 
   const COUNT = REDUCED ? 25 : (IS_TOUCH ? 45 : 90);
   const flakes = Array.from({length:COUNT},()=>({
-    x:Math.random()*window.innerWidth, 
+    x:Math.random()*window.innerWidth,
     y:Math.random()*window.innerHeight,
-    r:Math.random()*3+1.2, 
+    r:Math.random()*3+1.2,
     v:Math.random()*1.1+.5,
-    ph:Math.random()*6.28, 
+    ph:Math.random()*6.28,
     sw:Math.random()*.9+.3,
-    glyph: Math.random()<.1, 
+    glyph: Math.random()<.1,
     gs: Math.random()*8+12
   }));
   let mX = window.innerWidth/2;
@@ -785,7 +788,7 @@ if(snowWrap){
   function snow(){
     ctx.clearRect(0,0,W,H);
     const wind = (mX/W-.5)*1.6;
-    ctx.shadowColor='rgba(90,150,220,.65)'; 
+    ctx.shadowColor='rgba(90,150,220,.65)';
     ctx.shadowBlur=4;
     for(const f of flakes){
       f.ph += .015;
@@ -806,7 +809,7 @@ if(snowWrap){
   snow();
 }
 
-/* ═══ TRINEO + RENO + PANCARTA BOTON PROMO ═════════════ */
+/* ═══ TRINEO + RENO + PANCARTA ════════════════════════ */
 const SLEIGH_SVG = `
 <svg viewBox="0 0 300 110" width="300" height="110" xmlns="http://www.w3.org/2000/svg">
   <path d="M100 58 Q160 48 214 58" stroke="#b8860b" stroke-width="2" fill="none"/>
@@ -903,7 +906,7 @@ const MSGS = [
   {i:'🎶', t:'¡SING SING!',       g:1},
   {i:'🎁', t:'¡FELIZ NAVIDAD!',   g:0},
   {i:'⭐', t:'HO HO HO',          g:1},
-  {i:'🦌', t:'¡CIERRE 19 DIC!',   g:0},
+  {i:'🦌', t:'¡CIERRE '+CLOSE_DAY+' DIC!', g:0},
   {i:'❄️', t:'¡FELICES FIESTAS!', g:1}
 ];
 const BURST = ['❄️','✨','⭐','🎄','🔔','🎁'];
