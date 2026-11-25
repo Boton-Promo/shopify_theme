@@ -501,8 +501,12 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD v4.4 (fix mega menú nítido y bien posicionado)
-  Boton Promo / esferos.com — CIERRE: 21 DE DICIEMBRE
+  PRE-NAVIDAD v4.5 (velocidad original + fix mega menú) — Boton Promo / esferos.com
+  CIERRE DE NAVIDAD: 21 DE DICIEMBRE  (se cambia en CFG.close)
+
+  • Mega menú siempre por encima de las imágenes de producto sin romper su posición
+  • Producto: nieve y Papá Noel pasan DETRÁS de las imágenes
+  • Nieve reactiva (velocidad original), trineo con pancarta y contador al cierre
 ═══════════════════════════════════════════════════════════════════════
 -->
 
@@ -521,7 +525,7 @@
 </div>
 
 <style>
-/* ─── CABECERA Y MEGA MENÚ: POR ENCIMA DE IMÁGENES DE PRODUCTO ─────── */
+/* ─── CABECERA Y MEGA MENÚ ENCIMA DE PRODUCTO (SIN PISAR POSITION) ─── */
 header,
 .site-header,
 .header-wrapper,
@@ -632,6 +636,11 @@ body.template-product .product-featured-img {
 (function(){
 'use strict';
 
+/* ═══ CONFIGURACIÓN ═══════════════════════════════════
+   close = fecha de cierre [mes, día]  → 21 de diciembre
+   from / until = rango en el que se muestra todo.
+   until = día del cierre: el 22 se apaga solo.
+   FORCE_ON solo para pruebas fuera de fecha.            */
 const CFG = {
   close: [12, 21],
   from:  [11, 1],
@@ -736,7 +745,7 @@ function tick(){
 tick();
 setInterval(tick, 1000);
 
-/* ═══ NIEVE (caída lenta y natural) ═══════════════════ */
+/* ═══ NIEVE (velocidad original) ══════════════════════ */
 if(snowWrap){
   const cv = document.createElement('canvas');
   cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:'+Z_BG+';';
@@ -747,14 +756,14 @@ if(snowWrap){
   resize();
   window.addEventListener('resize',resize);
 
-  const COUNT = REDUCED ? 25 : (IS_TOUCH ? 45 : 85);
+  const COUNT = REDUCED ? 25 : (IS_TOUCH ? 45 : 90);
   const flakes = Array.from({length:COUNT},()=>({
     x:Math.random()*window.innerWidth,
     y:Math.random()*window.innerHeight,
-    r:Math.random()*2.8+1.2,
-    v:Math.random()*0.45+0.22,
+    r:Math.random()*3+1.2,
+    v:Math.random()*1.1+.5,
     ph:Math.random()*6.28,
-    sw:Math.random()*0.4+0.15,
+    sw:Math.random()*.9+.3,
     glyph: Math.random()<.1,
     gs: Math.random()*8+12
   }));
@@ -763,11 +772,11 @@ if(snowWrap){
 
   function snow(){
     ctx.clearRect(0,0,W,H);
-    const wind = (mX/W-.5)*0.7;
+    const wind = (mX/W-.5)*1.6;
     ctx.shadowColor='rgba(90,150,220,.65)';
     ctx.shadowBlur=4;
     for(const f of flakes){
-      f.ph += .008;
+      f.ph += .015;
       f.y += f.v;
       f.x += Math.sin(f.ph)*f.sw + wind*f.v;
       if(f.y>H+10){f.y=-10;f.x=Math.random()*W;}
