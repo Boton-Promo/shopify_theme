@@ -501,17 +501,21 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD v4.5 (velocidad original + fix mega menú) — Boton Promo / esferos.com
+  PRE-NAVIDAD v4.6 (fix menú sobre producto + botón ON/OFF) — esferos.com
   CIERRE DE NAVIDAD: 21 DE DICIEMBRE  (se cambia en CFG.close)
 
-  • Mega menú siempre por encima de las imágenes de producto sin romper su posición
+
+  • Mega menú y desplegables por encima de la imagen del producto
   • Producto: nieve y Papá Noel pasan DETRÁS de las imágenes
-  • Nieve reactiva (velocidad original), trineo con pancarta y contador al cierre
+  • Botón flotante en la esquina inferior derecha para encender/apagar
+  • Velocidad de nieve original
 ═══════════════════════════════════════════════════════════════════════
 -->
 
-<div id="nv-snow-wrap" style="position:fixed;inset:0;pointer-events:none;z-index:1;"></div>
-<div id="nv-layer" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1;"></div>
+
+<div id="nv-snow-wrap" style="position:fixed;inset:0;pointer-events:none;z-index:2;"></div>
+<div id="nv-layer" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2;"></div>
+
 
 <div id="nv-count" style="display:none">
   <button type="button" id="nv-x" aria-label="Cerrar contador">&times;</button>
@@ -524,33 +528,43 @@
   </div>
 </div>
 
+
+<button type="button" id="nv-toggle" aria-pressed="true" title="Activar o desactivar animación navideña">
+  <span class="nv-t-ico" id="nv-t-ico">❄️</span>
+  <span class="nv-t-txt" id="nv-t-txt">Nieve ON</span>
+</button>
+
+
 <style>
-/* ─── CABECERA Y MEGA MENÚ ENCIMA DE PRODUCTO (SIN PISAR POSITION) ─── */
+/* ─── CABECERA Y MENÚ DESPLEGABLE SIEMPRE POR ENCIMA DEL PRODUCTO ─── */
 header,
 .site-header,
 .header-wrapper,
-#shopify-section-header {
-  z-index: 10000 !important;
-}
-
+#shopify-section-header,
+.wp-header,
+.site-header__menu,
 .megamenu,
 .mega-menu,
 .site-nav__dropdown,
 .mega-menu__panel,
 .header__submenu,
+.dropdown-menu,
 [class*="mega-menu"],
-[class*="megamenu"] {
-  z-index: 10000 !important;
-  opacity: 1 !important;
+[class*="megamenu"],
+[class*="dropdown"] {
+  z-index: 100001 !important;
 }
+
 
 /* ─── CONTENEDOR ANTI-ESPACIOS PARA SHOPIFY ────────── */
 .shopify-section:has(#nv-snow-wrap),
-.shopify-section:has(#nv-count) {
+.shopify-section:has(#nv-count),
+.shopify-section:has(#nv-toggle) {
   display: contents !important;
   margin: 0 !important;
   padding: 0 !important;
 }
+
 
 /* ─── CONTADOR ─────────────────────────────────────── */
 #nv-count{
@@ -578,6 +592,28 @@ header,
 }
 @keyframes nvPop{0%{transform:translateX(-50%) scale(.6);opacity:0}100%{transform:translateX(-50%) scale(1);opacity:1}}
 
+
+/* ─── BOTÓN ON/OFF ESQUINA INFERIOR DERECHA ─────────── */
+#nv-toggle{
+  position:fixed;right:14px;bottom:14px;z-index:99997;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 13px;border-radius:999px;
+  border:2px solid #d4a017;
+  background:linear-gradient(135deg,#0b3d2e,#145a43);
+  color:#fff;font-family:'Segoe UI',Arial,sans-serif;
+  font-size:12px;font-weight:700;line-height:1;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.28);
+  transition:transform .15s ease,background .2s ease,opacity .2s ease;
+}
+#nv-toggle:hover{transform:translateY(-1px)}
+#nv-toggle.is-off{
+  background:linear-gradient(135deg,#3a3f45,#23272b);
+  border-color:#8c959e;color:#e2e6ea;
+}
+#nv-toggle .nv-t-ico{font-size:14px;line-height:1}
+
+
 /* ─── TRINEO Y PANCARTA ────────────────────────────── */
 .nv-sleigh{
   position:fixed;left:0;display:flex;align-items:center;pointer-events:none;
@@ -602,17 +638,22 @@ header,
 @keyframes nvLeg{from{transform:rotate(-20deg)}to{transform:rotate(20deg)}}
 @keyframes nvGlow{from{filter:drop-shadow(0 0 2px #ff2a2a)}to{filter:drop-shadow(0 0 9px #ff2a2a)}}
 
+
 /* ─── MÓVIL ────────────────────────────────────────── */
 @media(max-width:600px){
-  #nv-count{padding:6px 12px 6px 8px;bottom:10px}
+  #nv-count{padding:6px 12px 6px 8px;bottom:56px}
   #nv-count .nv-days{font-size:24px}
   #nv-count .nv-ico{font-size:20px}
   #nv-count .nv-sub{font-size:9.5px;white-space:normal;max-width:170px}
+  #nv-toggle{right:10px;bottom:10px;padding:7px 11px;font-size:11px}
   .nv-banner{font-size:11px;padding:4px 8px}
   .nv-sleigh svg{width:210px;height:auto}
 }
 
-/* ─── PRODUCTO: imágenes sobre la nieve, bajo el mega menú ─ */
+
+/* ─── PRODUCTO: imágenes sobre la nieve, bajo el menú ─ */
+#ap_product_detail_media,
+.wp-main-product .product__media,
 body.template-product .product__media-wrapper,
 body.template-product .product-single__media,
 body.template-product .product-media-container,
@@ -628,13 +669,15 @@ body.template-product .product__media-list,
 body.template-product .productView-image,
 body.template-product .product-featured-img {
   position: relative;
-  z-index: 1;
+  z-index: 8;
 }
 </style>
+
 
 <script>
 (function(){
 'use strict';
+
 
 /* ═══ CONFIGURACIÓN ═══════════════════════════════════
    close = fecha de cierre [mes, día]  → 21 de diciembre
@@ -651,14 +694,17 @@ const CFG = {
   sleighDur: 16
 };
 
+
 const nowD = new Date();
 const md   = (nowD.getMonth()+1)*100 + nowD.getDate();
 const inRange = md >= CFG.from[0]*100+CFG.from[1] && md <= CFG.until[0]*100+CFG.until[1];
 if(!CFG.FORCE_ON && !inRange) return;
 
-const IS_PROD  = document.body.classList.contains('template-product') || /\/products\//.test(location.pathname);
+
+const IS_PROD  = document.body.classList.contains('template-product') || /\/products\//.test(location.pathname) || !!document.getElementById('ap_product_detail_media');
 const IS_TOUCH = window.matchMedia('(pointer:coarse)').matches;
 const REDUCED  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 
 const Z_BG = IS_PROD ? 2 : 99990;
 const snowWrap = document.getElementById('nv-snow-wrap');
@@ -666,23 +712,26 @@ const layer = document.getElementById('nv-layer');
 if(snowWrap) snowWrap.style.zIndex = Z_BG;
 if(layer) layer.style.zIndex = Z_BG;
 
+
 if(IS_PROD){
-  const sel=['.product__media-wrapper','.product__media','.product-photo-container',
+  const sel=['#ap_product_detail_media','.product__media-wrapper','.product__media','.product-photo-container',
     '.product-img-wrapper','[data-product-media-type-image]','.product__thumbnails',
     '.product-gallery','.product__media-list'].join(',');
   const up=()=>{
     document.querySelectorAll(sel).forEach(e=>{
       if(!e.style.position) e.style.position='relative';
-      e.style.zIndex='10';
+      e.style.zIndex='8';
     });
   };
   up();
   document.addEventListener('DOMContentLoaded',up);
 }
 
+
 /* ═══ CONTADOR AL CIERRE (21 DIC) ═════════════════════ */
 const CLOSE_DAY = CFG.close[1];
 function pad(n){return String(n).padStart(2,'0');}
+
 
 function calc(){
   const n = new Date();
@@ -698,16 +747,18 @@ function calc(){
   };
 }
 
+
 function bannerText(d){
   if(d === 0) return '🎄 ¡Hoy es el cierre de Navidad de Boton Promo! 🎁';
   if(d === 1) return '🎄 ¡Falta 1 día para el cierre navidad de Boton Promo! 🎁';
   return '🎄 Faltan ' + d + ' días para el cierre navidad de Boton Promo 🎁';
 }
 
+
 const box = document.getElementById('nv-count');
 let closed = false;
 try{ closed = sessionStorage.getItem('nvClosed')==='1'; }catch(e){}
-if(box && !closed) box.style.display='flex';
+
 
 const closeBtn = document.getElementById('nv-x');
 if(closeBtn){
@@ -716,6 +767,7 @@ if(closeBtn){
     try{ sessionStorage.setItem('nvClosed','1'); }catch(e){}
   });
 }
+
 
 function tick(){
   const c = calc();
@@ -726,6 +778,7 @@ function tick(){
         k = document.getElementById('nv-clock'),
         t = document.getElementById('nv-t');
   if(!d || !u || !l || !s) return;
+
 
   if(c.days === 0){
     l.textContent = '¡HOY ES EL!';
@@ -745,6 +798,51 @@ function tick(){
 tick();
 setInterval(tick, 1000);
 
+
+/* ═══ ESTADO ON / OFF GENERAL ═════════════════════════ */
+let animEnabled = true;
+try{
+  const saved = sessionStorage.getItem('nvAnimEnabled');
+  if(saved === '0') animEnabled = false;
+}catch(e){}
+
+
+const toggleBtn = document.getElementById('nv-toggle');
+const toggleIco = document.getElementById('nv-t-ico');
+const toggleTxt = document.getElementById('nv-t-txt');
+
+
+function applyAnimState(){
+  if(snowWrap) snowWrap.style.display = animEnabled ? 'block' : 'none';
+  if(layer) layer.style.display = animEnabled ? 'block' : 'none';
+  if(box){
+    if(!animEnabled){
+      box.style.display = 'none';
+    } else if(!closed){
+      box.style.display = 'flex';
+    }
+  }
+  if(toggleBtn){
+    toggleBtn.setAttribute('aria-pressed', animEnabled ? 'true' : 'false');
+    toggleBtn.classList.toggle('is-off', !animEnabled);
+  }
+  if(toggleIco) toggleIco.textContent = animEnabled ? '❄️' : '💤';
+  if(toggleTxt) toggleTxt.textContent = animEnabled ? 'Animación ON' : 'Animación OFF';
+}
+
+
+if(toggleBtn){
+  toggleBtn.addEventListener('click',()=>{
+    animEnabled = !animEnabled;
+    try{ sessionStorage.setItem('nvAnimEnabled', animEnabled ? '1' : '0'); }catch(e){}
+    applyAnimState();
+  });
+}
+
+
+applyAnimState();
+
+
 /* ═══ NIEVE (velocidad original) ══════════════════════ */
 if(snowWrap){
   const cv = document.createElement('canvas');
@@ -755,6 +853,7 @@ if(snowWrap){
   function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
   resize();
   window.addEventListener('resize',resize);
+
 
   const COUNT = REDUCED ? 25 : (IS_TOUCH ? 45 : 90);
   const flakes = Array.from({length:COUNT},()=>({
@@ -770,29 +869,33 @@ if(snowWrap){
   let mX = window.innerWidth/2;
   document.addEventListener('mousemove',e=>{mX=e.clientX;},{passive:true});
 
+
   function snow(){
     ctx.clearRect(0,0,W,H);
-    const wind = (mX/W-.5)*1.6;
-    ctx.shadowColor='rgba(90,150,220,.65)';
-    ctx.shadowBlur=4;
-    for(const f of flakes){
-      f.ph += .015;
-      f.y += f.v;
-      f.x += Math.sin(f.ph)*f.sw + wind*f.v;
-      if(f.y>H+10){f.y=-10;f.x=Math.random()*W;}
-      if(f.x>W+10)f.x=-10; else if(f.x<-10)f.x=W+10;
-      if(f.glyph){
-        ctx.font=f.gs+'px serif'; ctx.fillStyle='#8cc4f2';
-        ctx.fillText('❄',f.x,f.y);
-      } else {
-        ctx.fillStyle='rgba(255,255,255,.96)';
-        ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,6.283); ctx.fill();
+    if(animEnabled){
+      const wind = (mX/W-.5)*1.6;
+      ctx.shadowColor='rgba(90,150,220,.65)';
+      ctx.shadowBlur=4;
+      for(const f of flakes){
+        f.ph += .015;
+        f.y += f.v;
+        f.x += Math.sin(f.ph)*f.sw + wind*f.v;
+        if(f.y>H+10){f.y=-10;f.x=Math.random()*W;}
+        if(f.x>W+10)f.x=-10; else if(f.x<-10)f.x=W+10;
+        if(f.glyph){
+          ctx.font=f.gs+'px serif'; ctx.fillStyle='#8cc4f2';
+          ctx.fillText('❄',f.x,f.y);
+        } else {
+          ctx.fillStyle='rgba(255,255,255,.96)';
+          ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,6.283); ctx.fill();
+        }
       }
     }
     requestAnimationFrame(snow);
   }
   snow();
 }
+
 
 /* ═══ TRINEO + RENO + PANCARTA ════════════════════════ */
 const SLEIGH_SVG = `
@@ -837,9 +940,10 @@ const SLEIGH_SVG = `
   </g>
 </svg>`;
 
+
 let sleighOn = false;
 function sendSleigh(){
-  if(sleighOn || document.hidden) return;
+  if(!animEnabled || sleighOn || document.hidden) return;
   sleighOn = true;
   const c = calc();
   const el = document.createElement('div');
@@ -854,6 +958,7 @@ if(!REDUCED){
   setTimeout(sendSleigh, CFG.sleighFirst);
   setInterval(sendSleigh, CFG.sleighEvery);
 }
+
 
 })();
 </script>
