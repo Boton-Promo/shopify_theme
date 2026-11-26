@@ -501,14 +501,8 @@
     </script>
 <!--
 ═══════════════════════════════════════════════════════════════════════
-  PRE-NAVIDAD v4.6 (fix menú sobre producto + botón ON/OFF) — esferos.com
-  CIERRE DE NAVIDAD: 21 DE DICIEMBRE  (se cambia en CFG.close)
-
-
-  • Mega menú y desplegables por encima de la imagen del producto
-  • Producto: nieve y Papá Noel pasan DETRÁS de las imágenes
-  • Botón flotante en la esquina inferior derecha para encender/apagar
-  • Velocidad de nieve original
+  PRE-NAVIDAD v4.7 (menú siempre sobre foto de producto + botón ON/OFF)
+  Boton Promo / esferos.com — CIERRE DE NAVIDAD: 21 DE DICIEMBRE
 ═══════════════════════════════════════════════════════════════════════
 -->
 
@@ -531,18 +525,26 @@
 
 <button type="button" id="nv-toggle" aria-pressed="true" title="Activar o desactivar animación navideña">
   <span class="nv-t-ico" id="nv-t-ico">❄️</span>
-  <span class="nv-t-txt" id="nv-t-txt">Nieve ON</span>
+  <span class="nv-t-txt" id="nv-t-txt">Animación ON</span>
 </button>
 
 
 <style>
-/* ─── CABECERA Y MENÚ DESPLEGABLE SIEMPRE POR ENCIMA DEL PRODUCTO ─── */
+/* ─── ENCABEZADO Y MENÚ DESPLEGABLE SIEMPRE POR ENCIMA DEL PRODUCTO ─── */
+#shopify-section-header,
 header,
 .site-header,
 .header-wrapper,
-#shopify-section-header,
-.wp-header,
-.site-header__menu,
+.wp-header {
+  z-index: 2147483647 !important;
+}
+
+
+#shopify-section-header *,
+header *,
+.site-header *,
+.header-wrapper *,
+.wp-header *,
 .megamenu,
 .mega-menu,
 .site-nav__dropdown,
@@ -552,7 +554,8 @@ header,
 [class*="mega-menu"],
 [class*="megamenu"],
 [class*="dropdown"] {
-  z-index: 100001 !important;
+  z-index: 2147483647 !important;
+  opacity: 1 !important;
 }
 
 
@@ -651,7 +654,14 @@ header,
 }
 
 
-/* ─── PRODUCTO: imágenes sobre la nieve, bajo el menú ─ */
+/* ─── PRODUCTO: sección baja para no tapar el menú, pero imagen sobre nieve ─── */
+.wp-main-product,
+.shopify-section:has(#ap_product_detail_media) {
+  position: relative;
+  z-index: 1;
+}
+
+
 #ap_product_detail_media,
 .wp-main-product .product__media,
 body.template-product .product__media-wrapper,
@@ -669,7 +679,7 @@ body.template-product .product__media-list,
 body.template-product .productView-image,
 body.template-product .product-featured-img {
   position: relative;
-  z-index: 8;
+  z-index: 5 !important;
 }
 </style>
 
@@ -720,7 +730,7 @@ if(IS_PROD){
   const up=()=>{
     document.querySelectorAll(sel).forEach(e=>{
       if(!e.style.position) e.style.position='relative';
-      e.style.zIndex='8';
+      e.style.zIndex='5';
     });
   };
   up();
@@ -962,5 +972,6 @@ if(!REDUCED){
 
 })();
 </script>
+
 
 {% endif %}
